@@ -29,7 +29,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+import java.awt.geom.Area;
+>>>>>>> initial import of runelite
 import java.util.List;
 import javax.inject.Inject;
 import net.runelite.api.Client;
@@ -90,7 +94,11 @@ class AgilityOverlay extends Overlay
 					}
 					return;
 				}
+<<<<<<< HEAD
 				Shape objectClickbox = object.getClickbox();
+=======
+				Area objectClickbox = object.getClickbox();
+>>>>>>> initial import of runelite
 				if (objectClickbox != null)
 				{
 					AgilityShortcut agilityShortcut = obstacle.getShortcut();

@@ -66,6 +66,7 @@ public class TooltipOverlay extends Overlay
 			return null;
 		}
 
+<<<<<<< HEAD
 		try
 		{
 			return renderTooltips(graphics, tooltips);
@@ -79,6 +80,8 @@ public class TooltipOverlay extends Overlay
 
 	private Dimension renderTooltips(Graphics2D graphics, List<Tooltip> tooltips)
 	{
+=======
+>>>>>>> initial import of runelite
 		final Rectangle clientCanvasBounds = new Rectangle(client.getRealDimensions());
 		final net.runelite.api.Point mouseCanvasPosition = client.getMouseCanvasPosition();
 		final Point mousePosition = new Point(mouseCanvasPosition.getX(), mouseCanvasPosition.getY() + OFFSET);
@@ -126,6 +129,10 @@ public class TooltipOverlay extends Overlay
 			newBounds.width = Math.max(newBounds.width, dimension.width);
 		}
 
+<<<<<<< HEAD
+=======
+		tooltipManager.clear();
+>>>>>>> initial import of runelite
 		return newBounds.getSize();
 	}
 }

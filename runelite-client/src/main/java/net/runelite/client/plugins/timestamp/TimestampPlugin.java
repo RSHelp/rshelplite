@@ -27,6 +27,7 @@ package net.runelite.client.plugins.timestamp;
 
 import com.google.inject.Provides;
 import java.awt.Color;
+<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -38,6 +39,16 @@ import net.runelite.api.Client;
 import net.runelite.api.MessageNode;
 import net.runelite.api.Varbits;
 import net.runelite.api.events.ConfigChanged;
+=======
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoField;
+import javax.inject.Inject;
+import net.runelite.api.Client;
+import net.runelite.api.MessageNode;
+import net.runelite.api.Varbits;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.ScriptCallbackEvent;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -59,15 +70,19 @@ public class TimestampPlugin extends Plugin
 	@Inject
 	private TimestampConfig config;
 
+<<<<<<< HEAD
 	@Getter
 	private SimpleDateFormat formatter;
 
+=======
+>>>>>>> initial import of runelite
 	@Provides
 	public TimestampConfig provideConfig(final ConfigManager configManager)
 	{
 		return configManager.getConfig(TimestampConfig.class);
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected void startUp() throws Exception
 	{
@@ -89,6 +104,8 @@ public class TimestampPlugin extends Plugin
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@Subscribe
 	public void onScriptCallbackEvent(ScriptCallbackEvent event)
 	{
@@ -107,7 +124,17 @@ public class TimestampPlugin extends Plugin
 
 		MessageNode messageNode = (MessageNode) client.getMessages().get(messageId);
 
+<<<<<<< HEAD
 		String timestamp = generateTimestamp(messageNode.getTimestamp(), ZoneId.systemDefault()) + " ";
+=======
+		final ZonedDateTime time = ZonedDateTime.ofInstant(
+			Instant.ofEpochSecond(messageNode.getTimestamp()), ZoneId.systemDefault());
+
+		final String dateFormat = time.get(ChronoField.HOUR_OF_DAY) + ":" +
+			String.format("%02d", time.get(ChronoField.MINUTE_OF_HOUR));
+
+		String timestamp = "[" + dateFormat + "] ";
+>>>>>>> initial import of runelite
 
 		Color timestampColour = getTimestampColour();
 		if (timestampColour != null)
@@ -124,6 +151,7 @@ public class TimestampPlugin extends Plugin
 
 		return isChatboxTransparent ? config.transparentTimestamp() : config.opaqueTimestamp();
 	}
+<<<<<<< HEAD
 
 	String generateTimestamp(int timestamp, ZoneId zoneId)
 	{
@@ -144,4 +172,6 @@ public class TimestampPlugin extends Plugin
 			formatter = new SimpleDateFormat("[HH:mm]");
 		}
 	}
+=======
+>>>>>>> initial import of runelite
 }

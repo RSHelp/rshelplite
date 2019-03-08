@@ -56,7 +56,11 @@
 // 		C <chunk X 1> <chunk Y 1> <chunk X 2> <chunk Y 2>
 // Sets the chunks relative to the last region/region1 to the current color and blending
 
+<<<<<<< HEAD
 bounds 18 19 60 196
+=======
+bounds 18 39 60 162
+>>>>>>> initial import of runelite
 
 b 8
 
@@ -392,9 +396,12 @@ r 47 70
 r 53 78
 r 55 90
 r 57 154
+<<<<<<< HEAD
 R 42 94 45 96
 R 49 93 52 96
 r 52 92
+=======
+>>>>>>> initial import of runelite
 
 #b2b595
 r 40 67
@@ -407,6 +414,10 @@ R 42 159 43 159
 R 43 58 45 61
 r 24 60
 r 29 60
+<<<<<<< HEAD
+=======
+r 32 75
+>>>>>>> initial import of runelite
 r 44 155
 r 47 158
 r 53 76
@@ -944,6 +955,7 @@ c 2 3
 c 4 3
 c 6 3
 c 7 4
+<<<<<<< HEAD
 
 // Cerberus
 #100
@@ -965,3 +977,5 @@ R 49 193 51 194
 // Braindeath Island
 #8AD2DF
 R 33 79 33 80
+=======
+>>>>>>> initial import of runelite

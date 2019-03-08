@@ -32,6 +32,10 @@ class LootTrackerRecord
 	private final String title;
 	private final String subTitle;
 	private final LootTrackerItem[] items;
+<<<<<<< HEAD
+=======
+	private final long timestamp;
+>>>>>>> initial import of runelite
 
 	/**
 	 * Checks if this record matches specified id

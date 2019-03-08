@@ -25,6 +25,7 @@
 package net.runelite.client.plugins.inventorytags;
 
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -35,10 +36,30 @@ import net.runelite.client.ui.overlay.WidgetItemOverlay;
 
 public class InventoryTagsOverlay extends WidgetItemOverlay
 {
+=======
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import javax.inject.Inject;
+import net.runelite.api.Query;
+import net.runelite.api.queries.InventoryWidgetItemQuery;
+import net.runelite.api.widgets.WidgetItem;
+import net.runelite.client.game.ItemManager;
+import net.runelite.client.ui.overlay.Overlay;
+import net.runelite.client.ui.overlay.OverlayLayer;
+import net.runelite.client.ui.overlay.OverlayPosition;
+import net.runelite.client.ui.overlay.OverlayPriority;
+import net.runelite.client.util.QueryRunner;
+
+public class InventoryTagsOverlay extends Overlay
+{
+	private final QueryRunner queryRunner;
+>>>>>>> initial import of runelite
 	private final ItemManager itemManager;
 	private final InventoryTagsPlugin plugin;
 
 	@Inject
+<<<<<<< HEAD
 	private InventoryTagsOverlay(ItemManager itemManager, InventoryTagsPlugin plugin)
 	{
 		this.itemManager = itemManager;
@@ -61,5 +82,46 @@ public class InventoryTagsOverlay extends WidgetItemOverlay
 				graphics.drawImage(outline, (int) bounds.getX(), (int) bounds.getY(), null);
 			}
 		}
+=======
+	private InventoryTagsOverlay(QueryRunner queryRunner, ItemManager itemManager, InventoryTagsPlugin plugin)
+	{
+		setPosition(OverlayPosition.DYNAMIC);
+		setPriority(OverlayPriority.LOW);
+		setLayer(OverlayLayer.ABOVE_WIDGETS);
+		this.queryRunner = queryRunner;
+		this.itemManager = itemManager;
+		this.plugin = plugin;
+	}
+
+	@Override
+	public Dimension render(Graphics2D graphics)
+	{
+		if (!plugin.isHasTaggedItems())
+		{
+			return null;
+		}
+
+		// Now query the inventory for the tagged item ids
+		final Query query = new InventoryWidgetItemQuery();
+		final WidgetItem[] widgetItems = queryRunner.runQuery(query);
+
+		// Iterate through all found items and draw the outlines
+		for (final WidgetItem item : widgetItems)
+		{
+			final String group = plugin.getTag(item.getId());
+
+			if (group != null)
+			{
+				final Color color = plugin.getGroupNameColor(group);
+				if (color != null)
+				{
+					final BufferedImage outline = itemManager.getItemOutline(item.getId(), item.getQuantity(), color);
+					graphics.drawImage(outline, item.getCanvasLocation().getX() + 1, item.getCanvasLocation().getY() + 1, null);
+				}
+			}
+		}
+
+		return null;
+>>>>>>> initial import of runelite
 	}
 }

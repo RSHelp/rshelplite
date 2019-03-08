@@ -181,12 +181,21 @@ public final class ItemID
 	public static final int RESEARCH_PACKAGE = 290;
 	public static final int NOTES = 291;
 	public static final int BOOK_ON_BAXTORIAN = 292;
+<<<<<<< HEAD
 	public static final int KEY_293 = 293;
 	public static final int GLARIALS_PEBBLE = 294;
 	public static final int GLARIALS_AMULET = 295;
 	public static final int GLARIALS_URN = 296;
 	public static final int GLARIALS_URN_EMPTY = 297;
 	public static final int KEY_298 = 298;
+=======
+	public static final int A_KEY = 293;
+	public static final int GLARIALS_PEBBLE = 294;
+	public static final int GLARIALS_AMULET = 295;
+	public static final int GLARIALS_URN = 296;
+	public static final int GLARIALS_URN_297 = 297;
+	public static final int A_KEY_298 = 298;
+>>>>>>> initial import of runelite
 	public static final int MITHRIL_SEEDS = 299;
 	public static final int RATS_TAIL = 300;
 	public static final int LOBSTER_POT = 301;
@@ -261,7 +270,11 @@ public final class ItemID
 	public static final int PIGEON_CAGE_425 = 425;
 	public static final int PRIEST_GOWN = 426;
 	public static final int PRIEST_GOWN_428 = 428;
+<<<<<<< HEAD
 	public static final int MEDICAL_GOWN = 430;
+=======
+	public static final int DOCTORS_GOWN = 430;
+>>>>>>> initial import of runelite
 	public static final int KARAMJAN_RUM = 431;
 	public static final int CHEST_KEY = 432;
 	public static final int PIRATE_MESSAGE = 433;
@@ -364,7 +377,11 @@ public final class ItemID
 	public static final int LIT_TORCH = 594;
 	public static final int TORCH = 595;
 	public static final int UNLIT_TORCH = 596;
+<<<<<<< HEAD
 	public static final int BRONZE_FIRE_ARROW = 598;
+=======
+	public static final int BRONZE_FIRE_ARROWS = 598;
+>>>>>>> initial import of runelite
 	public static final int ASTRONOMY_BOOK = 600;
 	public static final int GOBLIN_KITCHEN_KEY = 601;
 	public static final int LENS_MOULD = 602;
@@ -616,7 +633,11 @@ public final class ItemID
 	public static final int ADAMANT_ARROWP = 891;
 	public static final int RUNE_ARROW = 892;
 	public static final int RUNE_ARROWP = 893;
+<<<<<<< HEAD
 	public static final int BRONZE_FIRE_ARROW_LIT = 942;
+=======
+	public static final int BRONZE_FIRE_ARROWS_942 = 942;
+>>>>>>> initial import of runelite
 	public static final int WORM = 943;
 	public static final int THROWING_ROPE = 945;
 	public static final int KNIFE = 946;
@@ -891,7 +912,11 @@ public final class ItemID
 	public static final int ORB_OF_LIGHT_1482 = 1482;
 	public static final int ORB_OF_LIGHT_1483 = 1483;
 	public static final int ORB_OF_LIGHT_1484 = 1484;
+<<<<<<< HEAD
 	public static final int OILY_CLOTH = 1485;
+=======
+	public static final int DAMP_CLOTH = 1485;
+>>>>>>> initial import of runelite
 	public static final int PIECE_OF_RAILING = 1486;
 	public static final int UNICORN_HORN_1487 = 1487;
 	public static final int PALADINS_BADGE = 1488;
@@ -911,7 +936,11 @@ public final class ItemID
 	public static final int IBANS_ASHES = 1502;
 	public static final int WARRANT = 1503;
 	public static final int HANGOVER_CURE = 1504;
+<<<<<<< HEAD
 	public static final int ARDOUGNE_TELEPORT_SCROLL = 1505;
+=======
+	public static final int A_MAGIC_SCROLL = 1505;
+>>>>>>> initial import of runelite
 	public static final int GAS_MASK = 1506;
 	public static final int A_SMALL_KEY = 1507;
 	public static final int A_SCRUFFY_NOTE = 1508;
@@ -1507,6 +1536,7 @@ public final class ItemID
 	public static final int LAMP = 2528;
 	public static final int DEAD_ORB = 2529;
 	public static final int BONES_2530 = 2530;
+<<<<<<< HEAD
 	public static final int IRON_FIRE_ARROW = 2532;
 	public static final int IRON_FIRE_ARROW_LIT = 2533;
 	public static final int STEEL_FIRE_ARROW = 2534;
@@ -1517,6 +1547,18 @@ public final class ItemID
 	public static final int ADAMANT_FIRE_ARROW_LIT = 2539;
 	public static final int RUNE_FIRE_ARROW = 2540;
 	public static final int RUNE_FIRE_ARROW_LIT = 2541;
+=======
+	public static final int IRON_FIRE_ARROWS = 2532;
+	public static final int IRON_FIRE_ARROWS_2533 = 2533;
+	public static final int STEEL_FIRE_ARROWS = 2534;
+	public static final int STEEL_FIRE_ARROWS_2535 = 2535;
+	public static final int MITHRIL_FIRE_ARROWS = 2536;
+	public static final int MITHRIL_FIRE_ARROWS_2537 = 2537;
+	public static final int ADAMANT_FIRE_ARROWS = 2538;
+	public static final int ADAMANT_FIRE_ARROWS_2539 = 2539;
+	public static final int RUNE_FIRE_ARROWS = 2540;
+	public static final int RUNE_FIRE_ARROWS_2541 = 2541;
+>>>>>>> initial import of runelite
 	public static final int RING_OF_RECOIL = 2550;
 	public static final int RING_OF_DUELING8 = 2552;
 	public static final int RING_OF_DUELING7 = 2554;
@@ -1961,7 +2003,11 @@ public final class ItemID
 	public static final int BARREL_3216 = 3216;
 	public static final int BARREL_BOMB = 3218;
 	public static final int BARREL_BOMB_3219 = 3219;
+<<<<<<< HEAD
 	public static final int BARREL_OF_COAL_TAR = 3220;
+=======
+	public static final int BARREL_OF_COALTAR = 3220;
+>>>>>>> initial import of runelite
 	public static final int BARREL_OF_NAPHTHA = 3221;
 	public static final int NAPHTHA_MIX = 3222;
 	public static final int NAPHTHA_MIX_3223 = 3223;
@@ -2526,11 +2572,18 @@ public final class ItemID
 	public static final int LETTER = 4204;
 	public static final int CONSECRATION_SEED = 4205;
 	public static final int CONSECRATION_SEED_4206 = 4206;
+<<<<<<< HEAD
 	public static final int CRYSTAL_WEAPON_SEED = 4207;
 	public static final int CADARN_LINEAGE = 4209;
 	public static final int ELF_CRYSTAL = 4211;
 	public static final int NEW_CRYSTAL_BOW = 4212;
 	public static final int NEW_CRYSTAL_BOW_4213 = 4213;
+=======
+	public static final int CRYSTAL_SEED = 4207;
+	public static final int CADARN_LINEAGE = 4209;
+	public static final int ELF_CRYSTAL = 4211;
+	public static final int NEW_CRYSTAL_BOW = 4212;
+>>>>>>> initial import of runelite
 	public static final int CRYSTAL_BOW_FULL = 4214;
 	public static final int CRYSTAL_BOW_910 = 4215;
 	public static final int CRYSTAL_BOW_810 = 4216;
@@ -2552,7 +2605,10 @@ public final class ItemID
 	public static final int CRYSTAL_SHIELD_310 = 4232;
 	public static final int CRYSTAL_SHIELD_210 = 4233;
 	public static final int CRYSTAL_SHIELD_110 = 4234;
+<<<<<<< HEAD
 	public static final int NEW_CRYSTAL_SHIELD_4235 = 4235;
+=======
+>>>>>>> initial import of runelite
 	public static final int SIGNED_OAK_BOW = 4236;
 	public static final int NETTLEWATER = 4237;
 	public static final int PUDDLE_OF_SLIME = 4238;
@@ -2613,7 +2669,11 @@ public final class ItemID
 	public static final int HAM_LOGO = 4306;
 	public static final int HAM_GLOVES = 4308;
 	public static final int HAM_BOOTS = 4310;
+<<<<<<< HEAD
 	public static final int CRYSTAL_SINGING_FOR_BEGINNERS = 4313;
+=======
+	public static final int CRYSTAL_OF_SEREN = 4313;
+>>>>>>> initial import of runelite
 	public static final int TEAM1_CAPE = 4315;
 	public static final int TEAM2_CAPE = 4317;
 	public static final int TEAM3_CAPE = 4319;
@@ -3630,8 +3690,13 @@ public final class ItemID
 	public static final int SPIRIT_TREE = 6063;
 	public static final int BLOODY_MOURNER_TOP = 6064;
 	public static final int MOURNER_TOP = 6065;
+<<<<<<< HEAD
 	public static final int RIPPED_MOURNER_TROUSERS = 6066;
 	public static final int MOURNER_TROUSERS = 6067;
+=======
+	public static final int MOURNER_TROUSERS = 6066;
+	public static final int MOURNER_TROUSERS_6067 = 6067;
+>>>>>>> initial import of runelite
 	public static final int MOURNER_GLOVES = 6068;
 	public static final int MOURNER_BOOTS = 6069;
 	public static final int MOURNER_CLOAK = 6070;
@@ -3663,7 +3728,11 @@ public final class ItemID
 	public static final int TELEPORT_CRYSTAL_3 = 6100;
 	public static final int TELEPORT_CRYSTAL_2 = 6101;
 	public static final int TELEPORT_CRYSTAL_1 = 6102;
+<<<<<<< HEAD
 	public static final int CRYSTAL_TELEPORT_SEED = 6103;
+=======
+	public static final int TINY_ELF_CRYSTAL = 6103;
+>>>>>>> initial import of runelite
 	public static final int NEW_KEY = 6104;
 	public static final int ELF = 6105;
 	public static final int GHOSTLY_BOOTS = 6106;
@@ -4184,7 +4253,11 @@ public final class ItemID
 	public static final int BEER_SOAKED_HAND = 6946;
 	public static final int BERTS_ROTA = 6947;
 	public static final int SANDYS_ROTA = 6948;
+<<<<<<< HEAD
 	public static final int A_MAGIC_SCROLL = 6949;
+=======
+	public static final int A_MAGIC_SCROLL_6949 = 6949;
+>>>>>>> initial import of runelite
 	public static final int MAGICAL_ORB = 6950;
 	public static final int MAGICAL_ORB_A = 6951;
 	public static final int TRUTH_SERUM = 6952;
@@ -5959,7 +6032,11 @@ public final class ItemID
 	public static final int A_VIOLET_SQUARE = 9623;
 	public static final int A_VIOLET_PENTAGON = 9624;
 	public static final int CRYSTAL_SAW = 9625;
+<<<<<<< HEAD
 	public static final int CRYSTAL_SAW_SEED = 9626;
+=======
+	public static final int SMALL_CRYSTAL_SEED = 9626;
+>>>>>>> initial import of runelite
 	public static final int A_HANDWRITTEN_BOOK = 9627;
 	public static final int TYRAS_HELM = 9629;
 	public static final int DAEYALT_ORE = 9632;
@@ -6062,7 +6139,11 @@ public final class ItemID
 	public static final int MAGIC_HOOD = 9764;
 	public static final int RUNECRAFT_CAPE = 9765;
 	public static final int RUNECRAFT_CAPET = 9766;
+<<<<<<< HEAD
 	public static final int RUNECRAFT_HOOD = 9767;
+=======
+	public static final int RUNECRAFTING_HOOD = 9767;
+>>>>>>> initial import of runelite
 	public static final int HITPOINTS_CAPE = 9768;
 	public static final int HITPOINTS_CAPET = 9769;
 	public static final int HITPOINTS_HOOD = 9770;
@@ -6496,7 +6577,11 @@ public final class ItemID
 	public static final int ZAMORAK_CHAPS = 10372;
 	public static final int ZAMORAK_COIF = 10374;
 	public static final int GUTHIX_BRACERS = 10376;
+<<<<<<< HEAD
 	public static final int GUTHIX_DHIDE = 10378;
+=======
+	public static final int GUTHIX_DRAGONHIDE = 10378;
+>>>>>>> initial import of runelite
 	public static final int GUTHIX_CHAPS = 10380;
 	public static final int GUTHIX_COIF = 10382;
 	public static final int SARADOMIN_BRACERS = 10384;
@@ -6620,7 +6705,10 @@ public final class ItemID
 	public static final int NO_EGGS = 10563;
 	public static final int GRANITE_BODY = 10564;
 	public static final int FIRE_CAPE_10566 = 10566;
+<<<<<<< HEAD
 	public static final int HEALER_ICON_10567 = 10567;
+=======
+>>>>>>> initial import of runelite
 	public static final int KERIS = 10581;
 	public static final int KERISP = 10582;
 	public static final int KERISP_10583 = 10583;
@@ -6804,7 +6892,11 @@ public final class ItemID
 	public static final int GUTHIX_ROBE_TOP_10788 = 10788;
 	public static final int ZAMORAK_DHIDE_10790 = 10790;
 	public static final int SARADOMIN_DHIDE_10792 = 10792;
+<<<<<<< HEAD
 	public static final int GUTHIX_DRAGONHIDE = 10794;
+=======
+	public static final int GUTHIX_DRAGONHIDE_10794 = 10794;
+>>>>>>> initial import of runelite
 	public static final int ROBIN_HOOD_HAT_10796 = 10796;
 	public static final int RUNE_PLATEBODY_G_10798 = 10798;
 	public static final int RUNE_PLATEBODY_T_10800 = 10800;
@@ -6820,7 +6912,11 @@ public final class ItemID
 	public static final int CURED_YAKHIDE = 10820;
 	public static final int YAKHIDE_ARMOUR = 10822;
 	public static final int YAKHIDE_ARMOUR_10824 = 10824;
+<<<<<<< HEAD
 	public static final int NEITIZNOT_SHIELD = 10826;
+=======
+	public static final int FREMENNIK_SHIELD_10826 = 10826;
+>>>>>>> initial import of runelite
 	public static final int HELM_OF_NEITIZNOT = 10828;
 	public static final int DOCUMENTS = 10829;
 	public static final int ROYAL_DECREE = 10830;
@@ -7111,8 +7207,13 @@ public final class ItemID
 	public static final int GOLDEN_GOBLIN = 11210;
 	public static final int MAGIC_BEANS = 11211;
 	public static final int DRAGON_ARROW = 11212;
+<<<<<<< HEAD
 	public static final int DRAGON_FIRE_ARROW = 11217;
 	public static final int DRAGON_FIRE_ARROW_LIT = 11222;
+=======
+	public static final int DRAGON_FIRE_ARROWS = 11217;
+	public static final int DRAGON_FIRE_ARROWS_11222 = 11222;
+>>>>>>> initial import of runelite
 	public static final int DRAGON_ARROWP = 11227;
 	public static final int DRAGON_ARROWP_11228 = 11228;
 	public static final int DRAGON_ARROWP_11229 = 11229;
@@ -7821,6 +7922,10 @@ public final class ItemID
 	public static final int ROYAL_GOWN_BOTTOM = 12395;
 	public static final int ROYAL_CROWN = 12397;
 	public static final int PARTYHAT__SPECS = 12399;
+<<<<<<< HEAD
+=======
+	public static final int TELEPORT_SCROLL = 12401;
+>>>>>>> initial import of runelite
 	public static final int NARDAH_TELEPORT = 12402;
 	public static final int DIGSITE_TELEPORT = 12403;
 	public static final int FELDIP_HILLS_TELEPORT = 12404;
@@ -7829,7 +7934,11 @@ public final class ItemID
 	public static final int PEST_CONTROL_TELEPORT = 12407;
 	public static final int PISCATORIS_TELEPORT = 12408;
 	public static final int TAI_BWO_WANNAI_TELEPORT = 12409;
+<<<<<<< HEAD
 	public static final int IORWERTH_CAMP_TELEPORT = 12410;
+=======
+	public static final int ELF_CAMP_TELEPORT = 12410;
+>>>>>>> initial import of runelite
 	public static final int MOS_LEHARMLESS_TELEPORT = 12411;
 	public static final int PIRATE_HAT__PATCH = 12412;
 	public static final int DRAGON_CHAINBODY_G = 12414;
@@ -8080,6 +8189,7 @@ public final class ItemID
 	public static final int BIRD_SNARE_PACK = 12740;
 	public static final int BOX_TRAP_PACK = 12742;
 	public static final int MAGIC_IMP_BOX_PACK = 12744;
+<<<<<<< HEAD
 	public static final int ARCHAIC_EMBLEM_TIER_1 = 12746;
 	public static final int ARCHAIC_EMBLEM_TIER_1_12747 = 12747;
 	public static final int ARCHAIC_EMBLEM_TIER_2 = 12748;
@@ -8091,6 +8201,18 @@ public final class ItemID
 	public static final int ARCHAIC_EMBLEM_TIER_8 = 12754;
 	public static final int ARCHAIC_EMBLEM_TIER_9 = 12755;
 	public static final int ARCHAIC_EMBLEM_TIER_10 = 12756;
+=======
+	public static final int MYSTERIOUS_EMBLEM = 12746;
+	public static final int MYSTERIOUS_EMBLEM_TIER_2 = 12748;
+	public static final int MYSTERIOUS_EMBLEM_TIER_3 = 12749;
+	public static final int MYSTERIOUS_EMBLEM_TIER_4 = 12750;
+	public static final int MYSTERIOUS_EMBLEM_TIER_5 = 12751;
+	public static final int MYSTERIOUS_EMBLEM_TIER_6 = 12752;
+	public static final int MYSTERIOUS_EMBLEM_TIER_7 = 12753;
+	public static final int MYSTERIOUS_EMBLEM_TIER_8 = 12754;
+	public static final int MYSTERIOUS_EMBLEM_TIER_9 = 12755;
+	public static final int MYSTERIOUS_EMBLEM_TIER_10 = 12756;
+>>>>>>> initial import of runelite
 	public static final int BLUE_DARK_BOW_PAINT = 12757;
 	public static final int GREEN_DARK_BOW_PAINT = 12759;
 	public static final int YELLOW_DARK_BOW_PAINT = 12761;
@@ -8789,12 +8911,15 @@ public final class ItemID
 	public static final int CABBAGE_RUNE = 13680;
 	public static final int CRUCIFEROUS_CODEX = 13681;
 	public static final int USELESS_KEY_16684 = 16684;
+<<<<<<< HEAD
 	public static final int NEW_CRYSTAL_BOW_16888 = 16888;
 	public static final int NEW_CRYSTAL_BOW_I_16889 = 16889;
 	public static final int NEW_CRYSTAL_SHIELD_16890 = 16890;
 	public static final int NEW_CRYSTAL_SHIELD_I_16891 = 16891;
 	public static final int NEW_CRYSTAL_HALBERD_FULL_I_16892 = 16892;
 	public static final int NEW_CRYSTAL_HALBERD_FULL_16893 = 16893;
+=======
+>>>>>>> initial import of runelite
 	public static final int DEAD_ORB_17152 = 17152;
 	public static final int BAG_FULL_OF_GEMS = 19473;
 	public static final int ACHIEVEMENT_DIARY_CAPE = 19476;
@@ -9155,7 +9280,11 @@ public final class ItemID
 	public static final int ANKOU_MASK = 20095;
 	public static final int ANKOU_TOP = 20098;
 	public static final int ANKOU_GLOVES = 20101;
+<<<<<<< HEAD
 	public static final int ANKOU_LEGGINGS = 20104;
+=======
+	public static final int ANKOUS_LEGGINGS = 20104;
+>>>>>>> initial import of runelite
 	public static final int ANKOU_SOCKS = 20107;
 	public static final int BOWL_WIG = 20110;
 	public static final int ARCEUUS_HOOD = 20113;
@@ -9493,7 +9622,10 @@ public final class ItemID
 	public static final int KINDLING_20799 = 20799;
 	public static final int EMPTY_GOURD_VIAL = 20800;
 	public static final int WATERFILLED_GOURD_VIAL = 20801;
+<<<<<<< HEAD
 	public static final int HEALER_ICON_20802 = 20802;
+=======
+>>>>>>> initial import of runelite
 	public static final int SNOW_GLOBE = 20832;
 	public static final int SACK_OF_PRESENTS = 20834;
 	public static final int GIANT_PRESENT = 20836;
@@ -9832,8 +9964,13 @@ public final class ItemID
 	public static final int AMETHYST_JAVELINP_21322 = 21322;
 	public static final int AMETHYST_JAVELINP_21324 = 21324;
 	public static final int AMETHYST_ARROW = 21326;
+<<<<<<< HEAD
 	public static final int AMETHYST_FIRE_ARROW = 21328;
 	public static final int AMETHYST_FIRE_ARROW_LIT = 21330;
+=======
+	public static final int AMETHYST_FIRE_ARROWS = 21328;
+	public static final int AMETHYST_FIRE_ARROWS_21330 = 21330;
+>>>>>>> initial import of runelite
 	public static final int AMETHYST_ARROWP = 21332;
 	public static final int AMETHYST_ARROWP_21334 = 21334;
 	public static final int AMETHYST_ARROWP_21336 = 21336;
@@ -10316,6 +10453,7 @@ public final class ItemID
 	public static final int ANCIENT_MEDALLION = 22299;
 	public static final int ANCIENT_EFFIGY = 22302;
 	public static final int ANCIENT_RELIC = 22305;
+<<<<<<< HEAD
 	public static final int HEALER_ICON_22308 = 22308;
 	public static final int HEALER_ICON_22309 = 22309;
 	public static final int HEALER_ICON_22310 = 22310;
@@ -10324,6 +10462,8 @@ public final class ItemID
 	public static final int COLLECTOR_ICON_22313 = 22313;
 	public static final int COLLECTOR_ICON_22314 = 22314;
 	public static final int COLLECTOR_ICON_22315 = 22315;
+=======
+>>>>>>> initial import of runelite
 	public static final int PROP_SWORD = 22316;
 	public static final int PET_CORPOREAL_CRITTER = 22318;
 	public static final int TZREKZUK = 22319;
@@ -10340,6 +10480,7 @@ public final class ItemID
 	public static final int STARTER_SWORD = 22331;
 	public static final int STARTER_BOW = 22333;
 	public static final int STARTER_STAFF = 22335;
+<<<<<<< HEAD
 	public static final int COLLECTOR_ICON_22337 = 22337;
 	public static final int COLLECTOR_ICON_22338 = 22338;
 	public static final int COLLECTOR_ICON_22339 = 22339;
@@ -10353,6 +10494,8 @@ public final class ItemID
 	public static final int ATTACKER_ICON_22347 = 22347;
 	public static final int ATTACKER_ICON_22348 = 22348;
 	public static final int ATTACKER_ICON_22349 = 22349;
+=======
+>>>>>>> initial import of runelite
 	public static final int EGGSHELL_PLATEBODY = 22351;
 	public static final int EGGSHELL_PLATELEGS = 22353;
 	public static final int HOLY_HANDEGG = 22355;
@@ -10519,6 +10662,7 @@ public final class ItemID
 	public static final int TREE_TOP = 22715;
 	public static final int TREE_SKIRT = 22717;
 	public static final int CANDY_CANE = 22719;
+<<<<<<< HEAD
 	public static final int ATTACKER_ICON_22721 = 22721;
 	public static final int ATTACKER_ICON_22722 = 22722;
 	public static final int ATTACKER_ICON_22723 = 22723;
@@ -10529,6 +10673,8 @@ public final class ItemID
 	public static final int DEFENDER_ICON_22728 = 22728;
 	public static final int ATTACKER_ICON_22729 = 22729;
 	public static final int ATTACKER_ICON_22730 = 22730;
+=======
+>>>>>>> initial import of runelite
 	public static final int DRAGON_HASTA = 22731;
 	public static final int DRAGON_HASTAP = 22734;
 	public static final int DRAGON_HASTAP_22737 = 22737;
@@ -10685,6 +10831,7 @@ public final class ItemID
 	public static final int ORNATE_CAPE = 23099;
 	public static final int ORNATE_HELM = 23101;
 	public static final int BIRTHDAY_CAKE = 23108;
+<<<<<<< HEAD
 	public static final int MYSTIC_SET_LIGHT = 23110;
 	public static final int MYSTIC_SET_BLUE = 23113;
 	public static final int MYSTIC_SET_DARK = 23116;
@@ -11316,5 +11463,7 @@ public final class ItemID
 	public static final int SKELETON_LANTERN = 24327;
 	public static final int BOUNTY_CRATE = 24329;
 	public static final int BIRTHDAY_CAKE_24331 = 24331;
+=======
+>>>>>>> initial import of runelite
 	/* This file is automatically generated. Do not edit. */
 }

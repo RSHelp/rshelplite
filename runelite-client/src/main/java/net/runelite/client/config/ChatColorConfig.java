@@ -164,7 +164,11 @@ public interface ChatColorConfig extends Config
 		position = 45,
 		keyName = "opaqueServerMessage",
 		name = "Server message",
+<<<<<<< HEAD
 		description = "Color of Server Messages (eg. 'Welcome to RuneScape')"
+=======
+		description = "Color of Server Messages (eg. 'Welcome to Runescape')"
+>>>>>>> initial import of runelite
 	)
 	Color opaqueServerMessage();
 
@@ -404,7 +408,11 @@ public interface ChatColorConfig extends Config
 		position = 75,
 		keyName = "transparentServerMessage",
 		name = "Server message (transparent)",
+<<<<<<< HEAD
 		description = "Color of Server Messages (eg. 'Welcome to RuneScape') (transparent)"
+=======
+		description = "Color of Server Messages (eg. 'Welcome to Runescape') (transparent)"
+>>>>>>> initial import of runelite
 	)
 	Color transparentServerMessage();
 
@@ -451,7 +459,11 @@ public interface ChatColorConfig extends Config
 	)
 	default Color transparentExamineHighlight()
 	{
+<<<<<<< HEAD
 		return Color.GREEN;
+=======
+		return Color.decode("#0000FF");
+>>>>>>> initial import of runelite
 	}
 
 	@ConfigItem(

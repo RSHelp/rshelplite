@@ -25,7 +25,11 @@
 package net.runelite.client.ui.overlay.infobox;
 
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.image.BufferedImage;
+=======
+import java.awt.Image;
+>>>>>>> initial import of runelite
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,11 +42,19 @@ public abstract class InfoBox
 
 	@Getter
 	@Setter
+<<<<<<< HEAD
 	private BufferedImage image;
 
 	@Getter(AccessLevel.PACKAGE)
 	@Setter(AccessLevel.PACKAGE)
 	private BufferedImage scaledImage;
+=======
+	private Image image;
+
+	@Getter(AccessLevel.PACKAGE)
+	@Setter(AccessLevel.PACKAGE)
+	private Image scaledImage;
+>>>>>>> initial import of runelite
 
 	@Getter(AccessLevel.PACKAGE)
 	@Setter
@@ -52,7 +64,11 @@ public abstract class InfoBox
 	@Setter
 	private String tooltip;
 
+<<<<<<< HEAD
 	public InfoBox(BufferedImage image, Plugin plugin)
+=======
+	public InfoBox(Image image, Plugin plugin)
+>>>>>>> initial import of runelite
 	{
 		this.plugin = plugin;
 		setImage(image);

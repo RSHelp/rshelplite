@@ -114,7 +114,11 @@ public interface PohConfig extends Config
 	@ConfigItem(
 		keyName = "showJewelleryBox",
 		name = "Show Jewellery Box",
+<<<<<<< HEAD
 		description = "Configures whether or not the jewellery box is displayed"
+=======
+		description = "Configures whether or not the Jewllery box is displayed"
+>>>>>>> initial import of runelite
 	)
 	default boolean showJewelleryBox()
 	{

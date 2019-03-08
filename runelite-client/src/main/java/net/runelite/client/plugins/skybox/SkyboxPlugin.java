@@ -38,7 +38,11 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @PluginDescriptor(
 	name = "Skybox",
+<<<<<<< HEAD
 	description = "Draws an oldschool styled skybox",
+=======
+	description = "Draws a oldschool styled skybox",
+>>>>>>> initial import of runelite
 	enabledByDefault = false,
 	tags = {"sky"}
 )

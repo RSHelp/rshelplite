@@ -25,15 +25,23 @@
  */
 package net.runelite.client.plugins.virtuallevels;
 
+<<<<<<< HEAD
 import com.google.inject.Provides;
+=======
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Experience;
 import net.runelite.api.Skill;
+<<<<<<< HEAD
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.ScriptCallbackEvent;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
+=======
+import net.runelite.api.events.ScriptCallbackEvent;
+import net.runelite.client.callback.ClientThread;
+>>>>>>> initial import of runelite
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.PluginChanged;
 import net.runelite.client.plugins.Plugin;
@@ -41,7 +49,11 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @PluginDescriptor(
 	name = "Virtual Levels",
+<<<<<<< HEAD
 	description = "Shows virtual levels (beyond 99) and virtual skill total on the skills tab.",
+=======
+	description = "Configuration for the virtual levels plugin.",
+>>>>>>> initial import of runelite
 	tags = {"skill", "total", "max"},
 	enabledByDefault = false
 )
@@ -50,20 +62,26 @@ public class VirtualLevelsPlugin extends Plugin
 	private static final String TOTAL_LEVEL_TEXT_PREFIX = "Total level:<br>";
 
 	@Inject
+<<<<<<< HEAD
 	private VirtualLevelsConfig config;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private Client client;
 
 	@Inject
 	private ClientThread clientThread;
 
+<<<<<<< HEAD
 	@Provides
 	VirtualLevelsConfig provideConfig(ConfigManager configManager)
 	{
 		return configManager.getConfig(VirtualLevelsConfig.class);
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@Override
 	protected void shutDown()
 	{
@@ -81,6 +99,7 @@ public class VirtualLevelsPlugin extends Plugin
 	}
 
 	@Subscribe
+<<<<<<< HEAD
 	public void onConfigChanged(ConfigChanged configChanged)
 	{
 		if (!configChanged.getGroup().equals("virtuallevels"))
@@ -92,6 +111,8 @@ public class VirtualLevelsPlugin extends Plugin
 	}
 
 	@Subscribe
+=======
+>>>>>>> initial import of runelite
 	public void onScriptCallbackEvent(ScriptCallbackEvent e)
 	{
 		final String eventName = e.getEventName();
@@ -116,10 +137,13 @@ public class VirtualLevelsPlugin extends Plugin
 				intStack[intStackSize - 1] = Experience.MAX_VIRT_LEVEL;
 				break;
 			case "skillTabTotalLevel":
+<<<<<<< HEAD
 				if (!config.virtualTotalLevel())
 				{
 					break;
 				}
+=======
+>>>>>>> initial import of runelite
 				int level = 0;
 
 				for (Skill s : Skill.values())

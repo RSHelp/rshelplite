@@ -187,7 +187,11 @@
       "xp": 6218.4
     },
     {
+<<<<<<< HEAD
       "level": 58,
+=======
+      "level": 57,
+>>>>>>> initial import of runelite
       "icon": 22932,
       "name": "White lily",
       "xp": 292
@@ -241,12 +245,15 @@
       "xp": 134.5
     },
     {
+<<<<<<< HEAD
       "level": 74,
       "icon": 23962,
       "name": "Crystal Tree",
       "xp": 13366
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 75,
       "icon": 1513,
       "name": "Magic Tree",
@@ -259,7 +266,11 @@
       "xp": 170.5
     },
     {
+<<<<<<< HEAD
       "level": 81,
+=======
+      "level": 82,
+>>>>>>> initial import of runelite
       "icon": 22929,
       "name": "Dragonfruit Tree",
       "xp": 17895

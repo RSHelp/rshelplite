@@ -27,7 +27,11 @@ package net.runelite.client.plugins.statusbars;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+<<<<<<< HEAD
 import java.awt.image.BufferedImage;
+=======
+import java.awt.Image;
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.MenuEntry;
@@ -83,7 +87,11 @@ class StatusBarsOverlay extends Overlay
 	private final TextComponent textComponent = new TextComponent();
 	private final ItemStatChangesService itemStatService;
 
+<<<<<<< HEAD
 	private final BufferedImage prayerImage;
+=======
+	private final Image prayerImage;
+>>>>>>> initial import of runelite
 
 	@Inject
 	private StatusBarsOverlay(Client client, StatusBarsConfig config, SkillIconManager skillIconManager, ItemStatChangesService itemstatservice)
@@ -151,6 +159,7 @@ class StatusBarsOverlay extends Overlay
 		final int poisonState = client.getVar(VarPlayer.IS_POISONED);
 		final Color healthBar;
 
+<<<<<<< HEAD
 		if (poisonState >= 1000000)
 		{
 			healthBar = VENOMED_COLOR;
@@ -158,6 +167,15 @@ class StatusBarsOverlay extends Overlay
 		else if (poisonState > 0)
 		{
 			healthBar = POISONED_COLOR;
+=======
+		if (poisonState > 0 && poisonState < 50)
+		{
+			healthBar = POISONED_COLOR;
+		}
+		else if (poisonState >= 1000000)
+		{
+			healthBar = VENOMED_COLOR;
+>>>>>>> initial import of runelite
 		}
 		else
 		{
@@ -225,7 +243,11 @@ class StatusBarsOverlay extends Overlay
 
 		if (config.enableSkillIcon() || config.enableCounter())
 		{
+<<<<<<< HEAD
 			final BufferedImage healthImage = skillIconManager.getSkillImage(Skill.HITPOINTS, true);
+=======
+			final Image healthImage = skillIconManager.getSkillImage(Skill.HITPOINTS, true);
+>>>>>>> initial import of runelite
 			final int counterHealth = client.getBoostedSkillLevel(Skill.HITPOINTS);
 			final int counterPrayer = client.getBoostedSkillLevel(Skill.PRAYER);
 			final String counterHealthText = Integer.toString(counterHealth);
@@ -294,7 +316,11 @@ class StatusBarsOverlay extends Overlay
 		return (int) Math.round(ratio * size);
 	}
 
+<<<<<<< HEAD
 	private void renderIconsAndCounters(Graphics2D graphics, int x, int y, BufferedImage image, String counterText, int counterPadding)
+=======
+	private void renderIconsAndCounters(Graphics2D graphics, int x, int y, Image image, String counterText, int counterPadding)
+>>>>>>> initial import of runelite
 	{
 		final int widthOfCounter = graphics.getFontMetrics().stringWidth(counterText);
 		final int centerText = (WIDTH - PADDING) / 2 - (widthOfCounter / 2);

@@ -25,11 +25,18 @@
  */
 package net.runelite.client.plugins.groundmarkers;
 
+<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.util.Collection;
+=======
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.util.List;
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Perspective;
@@ -43,8 +50,11 @@ import net.runelite.client.ui.overlay.OverlayUtil;
 
 public class GroundMarkerOverlay extends Overlay
 {
+<<<<<<< HEAD
 	private static final int MAX_DRAW_DISTANCE = 32;
 
+=======
+>>>>>>> initial import of runelite
 	private final Client client;
 	private final GroundMarkerConfig config;
 	private final GroundMarkerPlugin plugin;
@@ -63,15 +73,23 @@ public class GroundMarkerOverlay extends Overlay
 	@Override
 	public Dimension render(Graphics2D graphics)
 	{
+<<<<<<< HEAD
 		final Collection<ColorTileMarker> points = plugin.getPoints();
 		for (final ColorTileMarker point : points)
 		{
 			WorldPoint worldPoint = point.getWorldPoint();
 			if (worldPoint.getPlane() != client.getPlane())
+=======
+		List<WorldPoint> points = plugin.getPoints();
+		for (WorldPoint point : points)
+		{
+			if (point.getPlane() != client.getPlane())
+>>>>>>> initial import of runelite
 			{
 				continue;
 			}
 
+<<<<<<< HEAD
 			Color tileColor = point.getColor();
 			if (tileColor == null || !config.rememberTileColors())
 			{
@@ -80,16 +98,27 @@ public class GroundMarkerOverlay extends Overlay
 			}
 
 			drawTile(graphics, worldPoint, tileColor);
+=======
+			drawTile(graphics, point);
+>>>>>>> initial import of runelite
 		}
 
 		return null;
 	}
 
+<<<<<<< HEAD
 	private void drawTile(Graphics2D graphics, WorldPoint point, Color color)
 	{
 		WorldPoint playerLocation = client.getLocalPlayer().getWorldLocation();
 
 		if (point.distanceTo(playerLocation) >= MAX_DRAW_DISTANCE)
+=======
+	private void drawTile(Graphics2D graphics, WorldPoint point)
+	{
+		WorldPoint playerLocation = client.getLocalPlayer().getWorldLocation();
+
+		if (point.distanceTo(playerLocation) >= 32)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -106,6 +135,12 @@ public class GroundMarkerOverlay extends Overlay
 			return;
 		}
 
+<<<<<<< HEAD
 		OverlayUtil.renderPolygon(graphics, poly, color);
 	}
 }
+=======
+		OverlayUtil.renderPolygon(graphics, poly, config.markerColor());
+	}
+}
+>>>>>>> initial import of runelite

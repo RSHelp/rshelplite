@@ -24,6 +24,12 @@
  */
 package net.runelite.api;
 
+<<<<<<< HEAD
+=======
+import static java.lang.Math.floor;
+import static java.lang.Math.max;
+
+>>>>>>> initial import of runelite
 /**
  * A utility class used for calculating experience related values.
  * <p>
@@ -124,6 +130,7 @@ public class Experience
 		return high + 1;
 	}
 
+<<<<<<< HEAD
 	private static double getMeleeRangeOrMagicCombatLevelContribution(int attackLevel, int strengthLevel, int magicLevel, int rangeLevel)
 	{
 		double melee = 0.325 * (attackLevel + strengthLevel);
@@ -133,6 +140,8 @@ public class Experience
 		return Math.max(melee, Math.max(range, magic));
 	}
 
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * Calculates a non-virtual high-precision combat level without integer
 	 * rounding.
@@ -152,11 +161,21 @@ public class Experience
 		int defenceLevel, int hitpointsLevel, int magicLevel,
 		int rangeLevel, int prayerLevel)
 	{
+<<<<<<< HEAD
 		double base = 0.25 * (defenceLevel + hitpointsLevel + Math.floor(prayerLevel / 2));
 
 		double typeContribution = getMeleeRangeOrMagicCombatLevelContribution(attackLevel, strengthLevel, magicLevel, rangeLevel);
 
 		return base + typeContribution;
+=======
+		double base = 0.25 * (defenceLevel + hitpointsLevel + floor(prayerLevel / 2));
+
+		double melee = 0.325 * (attackLevel + strengthLevel);
+		double range = 0.325 * (floor(rangeLevel / 2) + rangeLevel);
+		double magic = 0.325 * (floor(magicLevel / 2) + magicLevel);
+
+		return base + max(melee, max(range, magic));
+>>>>>>> initial import of runelite
 	}
 
 	/**
@@ -177,6 +196,7 @@ public class Experience
 	{
 		return (int) getCombatLevelPrecise(attackLevel, strengthLevel, defenceLevel, hitpointsLevel, magicLevel, rangeLevel, prayerLevel);
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Calculate number of attack/strength levels required to increase combat level.
@@ -274,4 +294,6 @@ public class Experience
 		double typeContribution = Experience.getMeleeRangeOrMagicCombatLevelContribution(attackLevel, strengthLevel, magicLevel, rangeLevel);
 		return 2 * (int) Math.ceil(-hitpointsLevel - defenceLevel + 4 * nextCombatLevel - 4 * typeContribution) - prayerLevel;
 	}
+=======
+>>>>>>> initial import of runelite
 }

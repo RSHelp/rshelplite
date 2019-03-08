@@ -29,7 +29,10 @@ import com.google.common.cache.CacheBuilder;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+<<<<<<< HEAD
 import net.runelite.http.api.chat.Duels;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.http.api.chat.Task;
 import net.runelite.http.service.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,6 +111,7 @@ public class ChatController
 		return kc;
 	}
 
+<<<<<<< HEAD
 	@PostMapping("/gc")
 	public void submitGc(@RequestParam String name, @RequestParam int gc)
 	{
@@ -130,6 +134,8 @@ public class ChatController
 		return gc;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@PostMapping("/task")
 	public void submitTask(@RequestParam String name, @RequestParam("task") String taskName, @RequestParam int amount,
 		@RequestParam int initialAmount, @RequestParam String location)
@@ -178,6 +184,7 @@ public class ChatController
 		}
 		return pb;
 	}
+<<<<<<< HEAD
 
 	@PostMapping("/duels")
 	public void submitDuels(@RequestParam String name, @RequestParam int wins,
@@ -208,4 +215,6 @@ public class ChatController
 		}
 		return duels;
 	}
+=======
+>>>>>>> initial import of runelite
 }

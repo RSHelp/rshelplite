@@ -63,7 +63,11 @@ public class BlogService
 		{
 			if (!response.isSuccessful())
 			{
+<<<<<<< HEAD
 				throw new IOException("Error getting blog posts: " + response);
+=======
+				throw new IOException("Error getting blog posts: " + response.message());
+>>>>>>> initial import of runelite
 			}
 
 			try

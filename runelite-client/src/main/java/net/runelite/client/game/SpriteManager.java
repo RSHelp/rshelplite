@@ -37,14 +37,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> initial import of runelite
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.SpritePixels;
 import net.runelite.client.callback.ClientThread;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.infobox.InfoBox;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.ImageUtil;
 
+=======
+import net.runelite.client.util.ImageUtil;
+
+@Slf4j
+>>>>>>> initial import of runelite
 @Singleton
 public class SpriteManager
 {
@@ -54,9 +64,12 @@ public class SpriteManager
 	@Inject
 	private ClientThread clientThread;
 
+<<<<<<< HEAD
 	@Inject
 	private InfoBoxManager infoBoxManager;
 
+=======
+>>>>>>> initial import of runelite
 	public Cache<Long, BufferedImage> cache = CacheBuilder.newBuilder()
 		.maximumSize(128L)
 		.expireAfterAccess(1, TimeUnit.HOURS)
@@ -79,11 +92,14 @@ public class SpriteManager
 		}
 
 		SpritePixels[] sp = client.getSprites(client.getIndexSprites(), archive, 0);
+<<<<<<< HEAD
 		if (sp == null)
 		{
 			return null;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		BufferedImage img = sp[file].toBufferedImage();
 
 		cache.put(key, img);
@@ -112,6 +128,7 @@ public class SpriteManager
 		});
 	}
 
+<<<<<<< HEAD
 	public void getSpriteAsync(int archive, int file, InfoBox infoBox)
 	{
 		getSpriteAsync(archive, file, img ->
@@ -121,6 +138,8 @@ public class SpriteManager
 		});
 	}
 
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * Calls setIcon on c, ensuring it is repainted when this changes
 	 */

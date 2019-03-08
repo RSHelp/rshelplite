@@ -26,11 +26,16 @@
 package net.runelite.client.plugins.slayer;
 
 import com.google.common.base.Preconditions;
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
+=======
+import java.util.HashMap;
+import java.util.Map;
+>>>>>>> initial import of runelite
 import lombok.Getter;
 import net.runelite.api.ItemID;
 
@@ -41,7 +46,11 @@ enum Task
 	ABERRANT_SPECTRES("Aberrant spectres", ItemID.ABERRANT_SPECTRE, "Spectre"),
 	ABYSSAL_DEMONS("Abyssal demons", ItemID.ABYSSAL_DEMON),
 	ABYSSAL_SIRE("Abyssal Sire", ItemID.ABYSSAL_ORPHAN),
+<<<<<<< HEAD
 	ADAMANT_DRAGONS("Adamant dragons", ItemID.ADAMANT_DRAGON_MASK),
+=======
+	ADAMANT_DRAGONS("Adamant dragons", ItemID.ADAMANTITE_BAR),
+>>>>>>> initial import of runelite
 	ALCHEMICAL_HYDRA("Alchemical Hydra", ItemID.IKKLE_HYDRA),
 	ANKOU("Ankou", ItemID.ANKOU_MASK),
 	AVIANSIES("Aviansies", ItemID.ENSOULED_AVIANSIE_HEAD),
@@ -68,17 +77,29 @@ enum Task
 	CAVE_SLIMES("Cave slimes", ItemID.SWAMP_CAVE_SLIME),
 	CERBERUS("Cerberus", ItemID.HELLPUPPY),
 	CHAOS_ELEMENTAL("Chaos Elemental", ItemID.PET_CHAOS_ELEMENTAL),
+<<<<<<< HEAD
 	CHAOS_FANATIC("Chaos Fanatic", ItemID.ANCIENT_STAFF),
 	COCKATRICE("Cockatrice", ItemID.COCKATRICE, "Cockathrice"),
 	COWS("Cows", ItemID.COW_MASK),
 	CRAWLING_HANDS("Crawling hands", ItemID.CRAWLING_HAND, "Crushing hand"),
 	CRAZY_ARCHAEOLOGIST("Crazy Archaeologists", ItemID.FEDORA, "Crazy Archaeologist"),
+=======
+	CHAOS_FANATIC("Chaos Fanatic", ItemID.PET_CHAOS_ELEMENTAL),
+	COCKATRICE("Cockatrice", ItemID.COCKATRICE, "Cockathrice"),
+	COWS("Cows", ItemID.COW_MASK),
+	CRAWLING_HANDS("Crawling hands", ItemID.CRAWLING_HAND, "Crushing hand"),
+	CRAZY_ARCHAEOLOGIST("Crazy Archaeologist", ItemID.FEDORA),
+>>>>>>> initial import of runelite
 	CROCODILES("Crocodiles", ItemID.SWAMP_LIZARD),
 	DAGANNOTH("Dagannoth", ItemID.DAGANNOTH),
 	DAGANNOTH_KINGS("Dagannoth Kings", ItemID.PET_DAGANNOTH_PRIME),
 	DARK_BEASTS("Dark beasts", ItemID.DARK_BEAST, "Night beast"),
 	DARK_WARRIORS("Dark warriors", ItemID.BLACK_MED_HELM, "Dark warrior"),
 	DERANGED_ARCHAEOLOGIST("Deranged Archaeologist", ItemID.ARCHAEOLOGISTS_DIARY),
+<<<<<<< HEAD
+=======
+	DESERT_LIZARDS("Desert lizards", ItemID.DESERT_LIZARD, 4, ItemID.ICE_COOLER, "Small lizard", "Lizard"),
+>>>>>>> initial import of runelite
 	DOGS("Dogs", ItemID.GUARD_DOG, "Jackal"),
 	DRAKES("Drakes", ItemID.DRAKE),
 	DUST_DEVILS("Dust devils", ItemID.DUST_DEVIL, "Choke devil"),
@@ -109,7 +130,11 @@ enum Task
 	ICEFIENDS("Icefiends", ItemID.ICE_DIAMOND),
 	INFERNAL_MAGES("Infernal mages", ItemID.INFERNAL_MAGE, "Malevolent mage"),
 	IRON_DRAGONS("Iron dragons", ItemID.IRON_DRAGON_MASK),
+<<<<<<< HEAD
 	JAD("TzTok-Jad", ItemID.TZREKJAD, 25250),
+=======
+	JAD("TzTok-Jad", ItemID.TZREKJAD),
+>>>>>>> initial import of runelite
 	JELLIES("Jellies", ItemID.JELLY, "Jelly"),
 	JUNGLE_HORROR("Jungle horrors", ItemID.ENSOULED_HORROR_HEAD),
 	KALPHITE("Kalphite", ItemID.KALPHITE_SOLDIER),
@@ -123,7 +148,10 @@ enum Task
 	KURASK("Kurask", ItemID.KURASK),
 	ROGUES("Rogues", ItemID.ROGUE_MASK, "Rogue"),
 	LESSER_DEMONS("Lesser demons", ItemID.LESSER_DEMON_MASK),
+<<<<<<< HEAD
 	LIZARDS("Lizards", ItemID.DESERT_LIZARD, "Desert lizard", "Sulphur lizard", "Small lizard", "Lizard"),
+=======
+>>>>>>> initial import of runelite
 	LIZARDMEN("Lizardmen", ItemID.LIZARDMAN_FANG, "Lizardman"),
 	MINIONS_OF_SCABARAS("Minions of scabaras", ItemID.GOLDEN_SCARAB, "Scarab swarm", "Locust rider", "Scarab mage"),
 	MINOTAURS("Minotaurs", ItemID.ENSOULED_MINOTAUR_HEAD),
@@ -132,7 +160,11 @@ enum Task
 	MOLANISKS("Molanisks", ItemID.MOLANISK),
 	MONKEYS("Monkeys", ItemID.ENSOULED_MONKEY_HEAD),
 	MOSS_GIANTS("Moss giants", ItemID.HILL_GIANT_CLUB),
+<<<<<<< HEAD
 	MUTATED_ZYGOMITES("Mutated zygomites", ItemID.MUTATED_ZYGOMITE, 7, ItemID.FUNGICIDE_SPRAY_0, "Zygomite", "Fungi"),
+=======
+	MUTATED_ZYGOMITES("Mutated zygomites", ItemID.MUTATED_ZYGOMITE, 0, ItemID.FUNGICIDE_SPRAY_0, "Zygomite", "Fungi"),
+>>>>>>> initial import of runelite
 	NECHRYAEL("Nechryael", ItemID.NECHRYAEL, "Nechryarch"),
 	OGRES("Ogres", ItemID.ENSOULED_OGRE_HEAD),
 	OTHERWORLDLY_BEING("Otherworldly beings", ItemID.GHOSTLY_HOOD),
@@ -140,12 +172,19 @@ enum Task
 	RATS("Rats", ItemID.RATS_TAIL),
 	RED_DRAGONS("Red dragons", ItemID.BABY_RED_DRAGON),
 	ROCKSLUGS("Rockslugs", ItemID.ROCKSLUG, 4, ItemID.BAG_OF_SALT),
+<<<<<<< HEAD
 	RUNE_DRAGONS("Rune dragons", ItemID.RUNE_DRAGON_MASK),
+=======
+	RUNE_DRAGONS("Rune dragons", ItemID.RUNITE_BAR),
+>>>>>>> initial import of runelite
 	SCORPIA("Scorpia", ItemID.SCORPIAS_OFFSPRING),
 	CHAOS_DRUIDS("Chaos druids", ItemID.ELDER_CHAOS_HOOD, "Elder Chaos druid", "Chaos druid"),
 	BANDITS("Bandits", ItemID.BANDIT, "Bandit"),
 	MAGIC_AXES("Magic axes", ItemID.IRON_BATTLEAXE, "Magic axe"),
+<<<<<<< HEAD
 	SARACHNIS("Sarachnis", ItemID.SRARACHA),
+=======
+>>>>>>> initial import of runelite
 	SCORPIONS("Scorpions", ItemID.ENSOULED_SCORPION_HEAD),
 	SEA_SNAKES("Sea snakes", ItemID.SNAKE_CORPSE),
 	SHADES("Shades", ItemID.SHADE_ROBE_TOP, "Loar Shadow", "Loar Shade", "Phrin Shadow", "Phrin Shade", "Riyl Shadow", "Riyl Shade", "Asyn Shadow", "Asyn Shade", "Fiyr Shadow", "Fiyr Shade"),
@@ -163,7 +202,11 @@ enum Task
 	TROLLS("Trolls", ItemID.TROLL_GUARD),
 	TUROTH("Turoth", ItemID.TUROTH),
 	TZHAAR("Tzhaar", ItemID.ENSOULED_TZHAAR_HEAD),
+<<<<<<< HEAD
 	VAMPYRES("Vampyres", ItemID.STAKE, "Vyrewatch", "Vampire"),
+=======
+	VAMPIRES("Vampires", ItemID.STAKE),
+>>>>>>> initial import of runelite
 	VENENATIS("Venenatis", ItemID.VENENATIS_SPIDERLING),
 	VETION("Vet'ion", ItemID.VETION_JR),
 	VORKATH("Vorkath", ItemID.VORKI),
@@ -175,6 +218,7 @@ enum Task
 	ZILYANA("Commander Zilyana", ItemID.PET_ZILYANA),
 	ZOMBIES("Zombies", ItemID.ZOMBIE_HEAD, "Undead"),
 	ZULRAH("Zulrah", ItemID.PET_SNAKELING),
+<<<<<<< HEAD
 	ZUK("TzKal-Zuk", ItemID.TZREKZUK, 101890);
 	//</editor-fold>
 
@@ -221,12 +265,19 @@ enum Task
 		"Witchaven Dungeon",
 		"Zanaris"
 	);
+=======
+	ZUK("TzKal-Zuk", ItemID.TZREKZUK);
+	//</editor-fold>
+
+	private static final Map<String, Task> tasks = new HashMap<>();
+>>>>>>> initial import of runelite
 
 	private final String name;
 	private final int itemSpriteId;
 	private final String[] targetNames;
 	private final int weaknessThreshold;
 	private final int weaknessItem;
+<<<<<<< HEAD
 	private final int expectedKillExp;
 
 	static
@@ -239,6 +290,15 @@ enum Task
 		}
 
 		tasks = builder.build();
+=======
+
+	static
+	{
+		for (Task task : values())
+		{
+			tasks.put(task.getName().toLowerCase(), task);
+		}
+>>>>>>> initial import of runelite
 	}
 
 	Task(String name, int itemSpriteId, String... targetNames)
@@ -249,7 +309,10 @@ enum Task
 		this.weaknessThreshold = -1;
 		this.weaknessItem = -1;
 		this.targetNames = targetNames;
+<<<<<<< HEAD
 		this.expectedKillExp = 0;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	Task(String name, int itemSpriteId, int weaknessThreshold, int weaknessItem, String... targetNames)
@@ -260,6 +323,7 @@ enum Task
 		this.weaknessThreshold = weaknessThreshold;
 		this.weaknessItem = weaknessItem;
 		this.targetNames = targetNames;
+<<<<<<< HEAD
 		this.expectedKillExp = 0;
 	}
 
@@ -275,6 +339,10 @@ enum Task
 	}
 
 	@Nullable
+=======
+	}
+
+>>>>>>> initial import of runelite
 	static Task getTask(String taskName)
 	{
 		return tasks.get(taskName.toLowerCase());

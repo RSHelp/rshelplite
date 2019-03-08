@@ -24,8 +24,18 @@
  */
 package net.runelite.client.plugins.cluescrolls;
 
+<<<<<<< HEAD
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+=======
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FontMetrics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.geom.Area;
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.widgets.Widget;
@@ -35,6 +45,7 @@ import net.runelite.client.plugins.cluescrolls.clues.EmoteClue;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
+<<<<<<< HEAD
 
 class ClueScrollEmoteOverlay extends Overlay
 {
@@ -45,6 +56,23 @@ class ClueScrollEmoteOverlay extends Overlay
 
 	@Inject
 	private ClueScrollEmoteOverlay(ClueScrollPlugin plugin, Client client)
+=======
+import net.runelite.client.ui.overlay.OverlayUtil;
+import net.runelite.client.ui.overlay.components.TextComponent;
+
+public class ClueScrollEmoteOverlay extends Overlay
+{
+	private static final Color HIGHLIGHT_BORDER_COLOR = Color.ORANGE;
+	private static final Color HIGHLIGHT_HOVER_BORDER_COLOR = HIGHLIGHT_BORDER_COLOR.darker();
+	private static final Color HIGHLIGHT_FILL_COLOR = new Color(0, 255, 0, 20);
+
+	private final ClueScrollPlugin plugin;
+	private final Client client;
+	private final TextComponent textComponent = new TextComponent();
+
+	@Inject
+	public ClueScrollEmoteOverlay(ClueScrollPlugin plugin, Client client)
+>>>>>>> initial import of runelite
 	{
 		setPosition(OverlayPosition.DYNAMIC);
 		setLayer(OverlayLayer.ABOVE_WIDGETS);
@@ -57,9 +85,14 @@ class ClueScrollEmoteOverlay extends Overlay
 	{
 		ClueScroll clue = plugin.getClue();
 
+<<<<<<< HEAD
 		if (!(clue instanceof EmoteClue))
 		{
 			hasScrolled = false;
+=======
+		if (clue == null || !(clue instanceof EmoteClue))
+		{
+>>>>>>> initial import of runelite
 			return null;
 		}
 
@@ -84,20 +117,29 @@ class ClueScrollEmoteOverlay extends Overlay
 			return null;
 		}
 
+<<<<<<< HEAD
 		Widget firstEmoteWidget = null;
 		Widget secondEmoteWidget = null;
 
+=======
+>>>>>>> initial import of runelite
 		for (Widget emoteWidget : emoteContainer.getDynamicChildren())
 		{
 			if (emoteWidget.getSpriteId() == emoteClue.getFirstEmote().getSpriteId())
 			{
+<<<<<<< HEAD
 				firstEmoteWidget = emoteWidget;
 				plugin.highlightWidget(graphics, emoteWidget, emoteWindow, null,
 					emoteClue.getSecondEmote() != null ? "1st" : null);
+=======
+				highlightWidget(graphics, emoteWindow, emoteWidget,
+					emoteClue.getSecondEmote() != null ? "1st" : "");
+>>>>>>> initial import of runelite
 			}
 			else if (emoteClue.getSecondEmote() != null
 				&& emoteWidget.getSpriteId() == emoteClue.getSecondEmote().getSpriteId())
 			{
+<<<<<<< HEAD
 				secondEmoteWidget = emoteWidget;
 				plugin.highlightWidget(graphics, emoteWidget, emoteWindow, null, "2nd");
 			}
@@ -109,5 +151,52 @@ class ClueScrollEmoteOverlay extends Overlay
 		}
 
 		return null;
+=======
+				highlightWidget(graphics, emoteWindow, emoteWidget, "2nd");
+			}
+		}
+
+		return null;
+	}
+
+	private void highlightWidget(Graphics2D graphics, Widget window, Widget widget, String text)
+	{
+		net.runelite.api.Point canvasLocation = widget.getCanvasLocation();
+
+		if (canvasLocation == null)
+		{
+			return;
+		}
+
+		// Don't draw outside the emotes window
+		net.runelite.api.Point windowLocation = window.getCanvasLocation();
+
+		if (windowLocation.getY() > canvasLocation.getY() + widget.getHeight()
+			|| windowLocation.getY() + window.getHeight() < canvasLocation.getY())
+		{
+			return;
+		}
+
+		// Visible area of emote widget
+		Area widgetArea = new Area(
+			new Rectangle(
+				canvasLocation.getX(),
+				Math.max(canvasLocation.getY(), windowLocation.getY()),
+				widget.getWidth(),
+				Math.min(
+					Math.min(windowLocation.getY() + window.getHeight() - canvasLocation.getY(), widget.getHeight()),
+					Math.min(canvasLocation.getY() + widget.getHeight() - windowLocation.getY(), widget.getHeight()))));
+
+		OverlayUtil.renderHoverableArea(graphics, widgetArea, client.getMouseCanvasPosition(),
+				HIGHLIGHT_FILL_COLOR, HIGHLIGHT_BORDER_COLOR, HIGHLIGHT_HOVER_BORDER_COLOR);
+
+		FontMetrics fontMetrics = graphics.getFontMetrics();
+
+		textComponent.setPosition(new Point(
+			canvasLocation.getX() + widget.getWidth() / 2 - fontMetrics.stringWidth(text) / 2,
+			canvasLocation.getY() + fontMetrics.getHeight()));
+		textComponent.setText(text);
+		textComponent.render(graphics);
+>>>>>>> initial import of runelite
 	}
 }

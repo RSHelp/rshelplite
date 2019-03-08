@@ -26,6 +26,7 @@
  */
 package net.runelite.client.plugins.cluescrolls;
 
+<<<<<<< HEAD
 import com.google.common.base.MoreObjects;
 import com.google.inject.Binder;
 import com.google.inject.Provides;
@@ -35,6 +36,12 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Area;
 import java.awt.image.BufferedImage;
+=======
+import com.google.inject.Binder;
+import com.google.inject.Provides;
+import java.awt.image.BufferedImage;
+import java.time.Duration;
+>>>>>>> initial import of runelite
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,9 +60,13 @@ import net.runelite.api.ItemComposition;
 import net.runelite.api.ItemID;
 import net.runelite.api.NPC;
 import net.runelite.api.ObjectComposition;
+<<<<<<< HEAD
 import net.runelite.api.Point;
 import net.runelite.api.Scene;
 import net.runelite.api.ScriptID;
+=======
+import net.runelite.api.Scene;
+>>>>>>> initial import of runelite
 import net.runelite.api.Tile;
 import net.runelite.api.TileObject;
 import net.runelite.api.coords.LocalPoint;
@@ -68,9 +79,13 @@ import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.events.NpcDespawned;
 import net.runelite.api.events.NpcSpawned;
+<<<<<<< HEAD
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetID;
+=======
+import net.runelite.api.widgets.Widget;
+>>>>>>> initial import of runelite
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -78,18 +93,25 @@ import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.cluescrolls.clues.AnagramClue;
+<<<<<<< HEAD
 import net.runelite.client.plugins.cluescrolls.clues.BeginnerMapClue;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.cluescrolls.clues.CipherClue;
 import net.runelite.client.plugins.cluescrolls.clues.ClueScroll;
 import net.runelite.client.plugins.cluescrolls.clues.CoordinateClue;
 import net.runelite.client.plugins.cluescrolls.clues.CrypticClue;
 import net.runelite.client.plugins.cluescrolls.clues.EmoteClue;
 import net.runelite.client.plugins.cluescrolls.clues.FairyRingClue;
+<<<<<<< HEAD
 import net.runelite.client.plugins.cluescrolls.clues.FaloTheBardClue;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.cluescrolls.clues.HotColdClue;
 import net.runelite.client.plugins.cluescrolls.clues.LocationClueScroll;
 import net.runelite.client.plugins.cluescrolls.clues.LocationsClueScroll;
 import net.runelite.client.plugins.cluescrolls.clues.MapClue;
+<<<<<<< HEAD
 import net.runelite.client.plugins.cluescrolls.clues.MusicClue;
 import net.runelite.client.plugins.cluescrolls.clues.NpcClueScroll;
 import net.runelite.client.plugins.cluescrolls.clues.ObjectClueScroll;
@@ -99,6 +121,13 @@ import net.runelite.client.plugins.cluescrolls.clues.ThreeStepCrypticClue;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.ui.overlay.components.TextComponent;
+=======
+import net.runelite.client.plugins.cluescrolls.clues.NpcClueScroll;
+import net.runelite.client.plugins.cluescrolls.clues.ObjectClueScroll;
+import net.runelite.client.plugins.cluescrolls.clues.TextClueScroll;
+import net.runelite.client.plugins.cluescrolls.clues.ThreeStepCrypticClue;
+import net.runelite.client.ui.overlay.OverlayManager;
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.worldmap.WorldMapPointManager;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.Text;
@@ -111,6 +140,7 @@ import net.runelite.client.util.Text;
 @Slf4j
 public class ClueScrollPlugin extends Plugin
 {
+<<<<<<< HEAD
 	private static final Color HIGHLIGHT_BORDER_COLOR = Color.ORANGE;
 	private static final Color HIGHLIGHT_HOVER_BORDER_COLOR = HIGHLIGHT_BORDER_COLOR.darker();
 	private static final Color HIGHLIGHT_FILL_COLOR = new Color(0, 255, 0, 20);
@@ -121,6 +151,9 @@ public class ClueScrollPlugin extends Plugin
 		13150, 9011,
 		13151, 9012
 	};
+=======
+	private static final Duration WAIT_DURATION = Duration.ofMinutes(4);
+>>>>>>> initial import of runelite
 
 	@Getter
 	private ClueScroll clue;
@@ -154,9 +187,12 @@ public class ClueScrollPlugin extends Plugin
 	private ClueScrollEmoteOverlay clueScrollEmoteOverlay;
 
 	@Inject
+<<<<<<< HEAD
 	private ClueScrollMusicOverlay clueScrollMusicOverlay;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private ClueScrollWorldOverlay clueScrollWorldOverlay;
 
 	@Inject
@@ -170,8 +206,11 @@ public class ClueScrollPlugin extends Plugin
 	private Integer clueItemId;
 	private boolean worldMapPointsSet = false;
 
+<<<<<<< HEAD
 	private final TextComponent textComponent = new TextComponent();
 
+=======
+>>>>>>> initial import of runelite
 	@Provides
 	ClueScrollConfig getConfig(ConfigManager configManager)
 	{
@@ -190,7 +229,10 @@ public class ClueScrollPlugin extends Plugin
 		overlayManager.add(clueScrollOverlay);
 		overlayManager.add(clueScrollEmoteOverlay);
 		overlayManager.add(clueScrollWorldOverlay);
+<<<<<<< HEAD
 		overlayManager.add(clueScrollMusicOverlay);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Override
@@ -199,7 +241,10 @@ public class ClueScrollPlugin extends Plugin
 		overlayManager.remove(clueScrollOverlay);
 		overlayManager.remove(clueScrollEmoteOverlay);
 		overlayManager.remove(clueScrollWorldOverlay);
+<<<<<<< HEAD
 		overlayManager.remove(clueScrollMusicOverlay);
+=======
+>>>>>>> initial import of runelite
 		npcsToMark.clear();
 		inventoryItems = null;
 		equippedItems = null;
@@ -209,7 +254,11 @@ public class ClueScrollPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.GAMEMESSAGE && event.getType() != ChatMessageType.SPAM)
+=======
+		if (event.getType() != ChatMessageType.SERVER && event.getType() != ChatMessageType.FILTERED)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -222,6 +271,7 @@ public class ClueScrollPlugin extends Plugin
 			}
 		}
 
+<<<<<<< HEAD
 		if (clue instanceof SkillChallengeClue)
 		{
 			String text = Text.removeTags(event.getMessage());
@@ -233,6 +283,15 @@ public class ClueScrollPlugin extends Plugin
 				((SkillChallengeClue) clue).setChallengeCompleted(true);
 			}
 		}
+=======
+		if (!event.getMessage().equals("The strange device cools as you find your treasure.")
+			&& !event.getMessage().equals("Well done, you've completed the Treasure Trail!"))
+		{
+			return;
+		}
+
+		resetClue(true);
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -242,7 +301,11 @@ public class ClueScrollPlugin extends Plugin
 		{
 			final ItemComposition itemComposition = itemManager.getItemComposition(event.getId());
 
+<<<<<<< HEAD
 			if (itemComposition != null && (itemComposition.getName().startsWith("Clue scroll") || itemComposition.getName().startsWith("Challenge scroll")))
+=======
+			if (itemComposition != null && itemComposition.getName().startsWith("Clue scroll"))
+>>>>>>> initial import of runelite
 			{
 				clueItemId = itemComposition.getId();
 				updateClue(MapClue.forItemId(clueItemId));
@@ -373,6 +436,7 @@ public class ClueScrollPlugin extends Plugin
 
 		if (clue instanceof LocationClueScroll)
 		{
+<<<<<<< HEAD
 			final WorldPoint[] locations = ((LocationClueScroll) clue).getLocations();
 
 			for (WorldPoint location : locations)
@@ -380,6 +444,14 @@ public class ClueScrollPlugin extends Plugin
 				// Only set the location hint arrow if we do not already have more accurate location
 				if (location.isInScene(client)
 					&& config.displayHintArrows()
+=======
+			final WorldPoint location = ((LocationClueScroll) clue).getLocation();
+
+			if (location != null)
+			{
+				// Only set the location hint arrow if we do not already have more accurate location
+				if (config.displayHintArrows()
+>>>>>>> initial import of runelite
 					&& (client.getHintArrowNpc() == null
 					|| !npcsToMark.contains(client.getHintArrowNpc())))
 				{
@@ -400,6 +472,7 @@ public class ClueScrollPlugin extends Plugin
 			}
 		}
 
+<<<<<<< HEAD
 		// Reset clue when receiving a new beginner or master clue
 		// These clues use a single item ID, so we cannot detect step changes based on the item ID changing
 		final Widget chatDialogClueItem = client.getWidget(WidgetInfo.DIALOG_SPRITE_SPRITE);
@@ -409,11 +482,14 @@ public class ClueScrollPlugin extends Plugin
 			resetClue(true);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		// If we have a clue, save that knowledge
 		// so the clue window doesn't have to be open.
 		updateClue(findClueScroll());
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onWidgetLoaded(WidgetLoaded event)
 	{
@@ -426,6 +502,8 @@ public class ClueScrollPlugin extends Plugin
 		updateClue(BeginnerMapClue.forWidgetID(event.getGroupId()));
 	}
 
+=======
+>>>>>>> initial import of runelite
 	public BufferedImage getClueScrollImage()
 	{
 		return itemManager.getImage(ItemID.CLUE_SCROLL_MASTER);
@@ -504,8 +582,12 @@ public class ClueScrollPlugin extends Plugin
 			}
 		}
 
+<<<<<<< HEAD
 		// (This|The) anagram reveals who to speak to next:
 		if (text.contains("anagram reveals who to speak to next:"))
+=======
+		if (text.startsWith("this anagram reveals who to speak to next:"))
+>>>>>>> initial import of runelite
 		{
 			return AnagramClue.forText(text);
 		}
@@ -515,11 +597,14 @@ public class ClueScrollPlugin extends Plugin
 			return CipherClue.forText(text);
 		}
 
+<<<<<<< HEAD
 		if (text.startsWith("i'd like to hear some music."))
 		{
 			return MusicClue.forText(clueScrollText.getText());
 		}
 
+=======
+>>>>>>> initial import of runelite
 		if (text.contains("degrees") && text.contains("minutes"))
 		{
 			return coordinatesToWorldPoint(text);
@@ -546,6 +631,7 @@ public class ClueScrollPlugin extends Plugin
 			return fairyRingClue;
 		}
 
+<<<<<<< HEAD
 		final FaloTheBardClue faloTheBardClue = FaloTheBardClue.forText(text);
 
 		if (faloTheBardClue != null)
@@ -553,6 +639,8 @@ public class ClueScrollPlugin extends Plugin
 			return faloTheBardClue;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		final HotColdClue hotColdClue = HotColdClue.forText(text);
 
 		if (hotColdClue != null)
@@ -560,6 +648,7 @@ public class ClueScrollPlugin extends Plugin
 			return hotColdClue;
 		}
 
+<<<<<<< HEAD
 		final SkillChallengeClue skillChallengeClue = SkillChallengeClue.forText(text, clueScrollText.getText());
 
 		if (skillChallengeClue != null)
@@ -567,6 +656,8 @@ public class ClueScrollPlugin extends Plugin
 			return skillChallengeClue;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		// three step cryptic clues need unedited text to check which steps are already done
 		final ThreeStepCrypticClue threeStepCrypticClue = ThreeStepCrypticClue.forText(text, clueScrollText.getText());
 
@@ -619,11 +710,15 @@ public class ClueScrollPlugin extends Plugin
 			minX *= -1;
 		}
 
+<<<<<<< HEAD
 		WorldPoint coordinate = coordinatesToWorldPoint(degX, minX, degY, minY);
 		// Convert from overworld to real
 		WorldPoint mirrorPoint = getMirrorPoint(coordinate, false);
 		// Use mirror point as mirrorLocation if there is one
 		return new CoordinateClue(text, coordinate, coordinate == mirrorPoint ? null : mirrorPoint);
+=======
+		return new CoordinateClue(text, coordinatesToWorldPoint(degX, minX, degY, minY));
+>>>>>>> initial import of runelite
 	}
 
 	/**
@@ -749,6 +844,7 @@ public class ClueScrollPlugin extends Plugin
 		checkClueNPCs(clue, client.getCachedNPCs());
 		this.clue = clue;
 	}
+<<<<<<< HEAD
 
 	void highlightWidget(Graphics2D graphics, Widget toHighlight, Widget container, Rectangle padding, String text)
 	{
@@ -850,4 +946,6 @@ public class ClueScrollPlugin extends Plugin
 		}
 		return worldPoint;
 	}
+=======
+>>>>>>> initial import of runelite
 }

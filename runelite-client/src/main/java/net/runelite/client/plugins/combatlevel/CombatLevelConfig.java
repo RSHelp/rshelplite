@@ -40,6 +40,7 @@ public interface CombatLevelConfig extends Config
 	{
 		return true;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "wildernessAttackLevelRange",
@@ -50,4 +51,6 @@ public interface CombatLevelConfig extends Config
 	{
 		return true;
 	}
+=======
+>>>>>>> initial import of runelite
 }

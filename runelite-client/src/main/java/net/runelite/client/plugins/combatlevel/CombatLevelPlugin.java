@@ -1,6 +1,9 @@
 /*
  * Copyright (c) 2017, Devin French <https://github.com/devinfrench>
+<<<<<<< HEAD
  * Copyright (c) 2019, Jordan Atwood <nightfirecat@protonmail.com>
+=======
+>>>>>>> initial import of runelite
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,13 +30,17 @@ package net.runelite.client.plugins.combatlevel;
 
 import com.google.inject.Provides;
 import java.text.DecimalFormat;
+<<<<<<< HEAD
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+=======
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Experience;
 import net.runelite.api.GameState;
 import net.runelite.api.Skill;
+<<<<<<< HEAD
 import net.runelite.api.WorldType;
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.GameTick;
@@ -41,6 +48,11 @@ import net.runelite.api.events.ScriptCallbackEvent;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.callback.ClientThread;
+=======
+import net.runelite.api.events.GameTick;
+import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetInfo;
+>>>>>>> initial import of runelite
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
@@ -49,6 +61,7 @@ import net.runelite.client.ui.overlay.OverlayManager;
 
 @PluginDescriptor(
 	name = "Combat Level",
+<<<<<<< HEAD
 	description = "Show a more accurate combat level in Combat Options panel and other combat level functions",
 	tags = {"wilderness", "attack", "range"}
 )
@@ -64,17 +77,27 @@ public class CombatLevelPlugin extends Plugin
 
 	private int originalWildernessLevelTextPosition = -1;
 	private int originalSkullContainerPosition = -1;
+=======
+	description = "Show a more accurate combat level in Combat Options panel"
+)
+public class CombatLevelPlugin extends Plugin
+{
+	private final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.###");
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Client client;
 
 	@Inject
+<<<<<<< HEAD
 	private ClientThread clientThread;
 
 	@Inject
 	private CombatLevelConfig config;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private CombatLevelOverlay overlay;
 
 	@Inject
@@ -90,11 +113,14 @@ public class CombatLevelPlugin extends Plugin
 	protected void startUp() throws Exception
 	{
 		overlayManager.add(overlay);
+<<<<<<< HEAD
 
 		if (config.wildernessAttackLevelRange())
 		{
 			appendAttackLevelRangeText();
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Override
@@ -112,8 +138,11 @@ public class CombatLevelPlugin extends Plugin
 				combatLevelWidget.setText(widgetText.substring(0, widgetText.indexOf(".")));
 			}
 		}
+<<<<<<< HEAD
 
 		shutDownAttackLevelRange();
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -142,6 +171,7 @@ public class CombatLevelPlugin extends Plugin
 
 		combatLevelWidget.setText("Combat Lvl: " + DECIMAL_FORMAT.format(combatLevelPrecise));
 	}
+<<<<<<< HEAD
 
 	@Subscribe
 	public void onConfigChanged(ConfigChanged event)
@@ -241,4 +271,6 @@ public class CombatLevelPlugin extends Plugin
 	{
 		return Math.max(MIN_COMBAT_LEVEL, combatLevel - wildernessLevel) + "-" + Math.min(Experience.MAX_COMBAT_LEVEL, combatLevel + wildernessLevel);
 	}
+=======
+>>>>>>> initial import of runelite
 }

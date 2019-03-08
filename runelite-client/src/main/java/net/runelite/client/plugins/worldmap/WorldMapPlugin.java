@@ -31,6 +31,7 @@ import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import net.runelite.api.Client;
 import net.runelite.api.Experience;
+<<<<<<< HEAD
 import net.runelite.api.GameState;
 import net.runelite.api.Skill;
 import net.runelite.api.Quest;
@@ -40,6 +41,11 @@ import net.runelite.api.events.ExperienceChanged;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.widgets.WidgetID;
 import net.runelite.client.callback.ClientThread;
+=======
+import net.runelite.api.Skill;
+import net.runelite.api.events.ConfigChanged;
+import net.runelite.api.events.ExperienceChanged;
+>>>>>>> initial import of runelite
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.AgilityShortcut;
@@ -58,9 +64,12 @@ public class WorldMapPlugin extends Plugin
 	static final BufferedImage BLANK_ICON;
 	private static final BufferedImage FAIRY_TRAVEL_ICON;
 	private static final BufferedImage NOPE_ICON;
+<<<<<<< HEAD
 	private static final BufferedImage NOT_STARTED_ICON;
 	private static final BufferedImage STARTED_ICON;
 	private static final BufferedImage FINISHED_ICON;
+=======
+>>>>>>> initial import of runelite
 
 	static final String CONFIG_KEY = "worldmap";
 	static final String CONFIG_KEY_FAIRY_RING_TOOLTIPS = "fairyRingTooltips";
@@ -79,16 +88,22 @@ public class WorldMapPlugin extends Plugin
 	static final String CONFIG_KEY_FARMING_PATCH_TOOLTIPS = "farmingpatchTooltips";
 	static final String CONFIG_KEY_RARE_TREE_TOOLTIPS = "rareTreeTooltips";
 	static final String CONFIG_KEY_RARE_TREE_LEVEL_ICON = "rareTreeIcon";
+<<<<<<< HEAD
 	static final String CONFIG_KEY_TRANSPORATION_TELEPORT_TOOLTIPS = "transportationTooltips";
+=======
+>>>>>>> initial import of runelite
 
 	static
 	{
 		//A size of 17 gives us a buffer when triggering tooltips
 		final int iconBufferSize = 17;
 
+<<<<<<< HEAD
 		//Quest icons are a bit bigger.
 		final int questIconBufferSize = 22;
 
+=======
+>>>>>>> initial import of runelite
 		BLANK_ICON = new BufferedImage(iconBufferSize, iconBufferSize, BufferedImage.TYPE_INT_ARGB);
 
 		FAIRY_TRAVEL_ICON = new BufferedImage(iconBufferSize, iconBufferSize, BufferedImage.TYPE_INT_ARGB);
@@ -98,6 +113,7 @@ public class WorldMapPlugin extends Plugin
 		NOPE_ICON = new BufferedImage(iconBufferSize, iconBufferSize, BufferedImage.TYPE_INT_ARGB);
 		final BufferedImage nopeImage = ImageUtil.getResourceStreamFromClass(WorldMapPlugin.class, "nope_icon.png");
 		NOPE_ICON.getGraphics().drawImage(nopeImage, 1, 1, null);
+<<<<<<< HEAD
 
 		NOT_STARTED_ICON = new BufferedImage(questIconBufferSize, questIconBufferSize, BufferedImage.TYPE_INT_ARGB);
 		final BufferedImage notStartedIcon = ImageUtil.getResourceStreamFromClass(WorldMapPlugin.class, "quest_not_started_icon.png");
@@ -110,15 +126,20 @@ public class WorldMapPlugin extends Plugin
 		FINISHED_ICON = new BufferedImage(questIconBufferSize, questIconBufferSize, BufferedImage.TYPE_INT_ARGB);
 		final BufferedImage finishedIcon = ImageUtil.getResourceStreamFromClass(WorldMapPlugin.class, "quest_completed_icon.png");
 		FINISHED_ICON.getGraphics().drawImage(finishedIcon, 4, 4, null);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Inject
 	private Client client;
 
 	@Inject
+<<<<<<< HEAD
 	private ClientThread clientThread;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private WorldMapConfig config;
 
 	@Inject
@@ -148,7 +169,10 @@ public class WorldMapPlugin extends Plugin
 		worldMapPointManager.removeIf(AgilityShortcutPoint.class::isInstance);
 		worldMapPointManager.removeIf(QuestStartPoint.class::isInstance);
 		worldMapPointManager.removeIf(TeleportPoint.class::isInstance);
+<<<<<<< HEAD
 		worldMapPointManager.removeIf(TransportationPoint.class::isInstance);
+=======
+>>>>>>> initial import of runelite
 		worldMapPointManager.removeIf(MinigamePoint.class::isInstance);
 		worldMapPointManager.removeIf(FarmingPatchPoint.class::isInstance);
 		worldMapPointManager.removeIf(RareTreePoint.class::isInstance);
@@ -191,6 +215,7 @@ public class WorldMapPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onWidgetLoaded(WidgetLoaded widgetLoaded)
 	{
@@ -202,6 +227,8 @@ public class WorldMapPlugin extends Plugin
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void updateAgilityIcons()
 	{
 		worldMapPointManager.removeIf(AgilityShortcutPoint.class::isInstance);
@@ -238,7 +265,10 @@ public class WorldMapPlugin extends Plugin
 	{
 		updateAgilityIcons();
 		updateRareTreeIcons();
+<<<<<<< HEAD
 		updateQuestStartPointIcons();
+=======
+>>>>>>> initial import of runelite
 
 		worldMapPointManager.removeIf(FairyRingPoint.class::isInstance);
 		if (config.fairyRingIcon() || config.fairyRingTooltips())
@@ -258,12 +288,21 @@ public class WorldMapPlugin extends Plugin
 				.forEach(worldMapPointManager::add);
 		}
 
+<<<<<<< HEAD
 		worldMapPointManager.removeIf(TransportationPoint.class::isInstance);
 		if (config.transportationTeleportTooltips())
 		{
 			Arrays.stream(TransportationPointLocation.values())
 					.map(value -> new TransportationPoint(value, BLANK_ICON))
 					.forEach((worldMapPointManager::add));
+=======
+		worldMapPointManager.removeIf(QuestStartPoint.class::isInstance);
+		if (config.questStartTooltips())
+		{
+			Arrays.stream(QuestStartLocation.values())
+				.map(value -> new QuestStartPoint(value, BLANK_ICON))
+				.forEach(worldMapPointManager::add);
+>>>>>>> initial import of runelite
 		}
 
 		worldMapPointManager.removeIf(FarmingPatchPoint.class::isInstance);
@@ -302,6 +341,7 @@ public class WorldMapPlugin extends Plugin
 			}).map(TeleportPoint::new)
 			.forEach(worldMapPointManager::add);
 	}
+<<<<<<< HEAD
 
 	private void updateQuestStartPointIcons()
 	{
@@ -370,4 +410,6 @@ public class WorldMapPlugin extends Plugin
 
 		return new QuestStartPoint(data.getLocation(), icon, tooltip);
 	}
+=======
+>>>>>>> initial import of runelite
 }

@@ -31,7 +31,10 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
+<<<<<<< HEAD
 import okhttp3.MediaType;
+=======
+>>>>>>> initial import of runelite
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -46,7 +49,10 @@ public class RuneLiteAPI
 
 	public static final OkHttpClient CLIENT;
 	public static final Gson GSON = new Gson();
+<<<<<<< HEAD
 	public static final MediaType JSON = MediaType.parse("application/json");
+=======
+>>>>>>> initial import of runelite
 	public static String userAgent;
 
 	private static final String BASE = "https://api.runelite.net";
@@ -97,6 +103,7 @@ public class RuneLiteAPI
 			.build();
 	}
 
+<<<<<<< HEAD
 	public static HttpUrl getSessionBase()
 	{
 		final String prop = System.getProperty("runelite.session.url");
@@ -107,10 +114,16 @@ public class RuneLiteAPI
 		}
 
 		return HttpUrl.parse(BASE + "/session");
+=======
+	public static HttpUrl getApiRoot()
+	{
+		return HttpUrl.parse(BASE);
+>>>>>>> initial import of runelite
 	}
 
 	public static HttpUrl getApiBase()
 	{
+<<<<<<< HEAD
 		final String prop = System.getProperty("runelite.http-service.url");
 
 		if (prop != null && !prop.isEmpty())
@@ -118,11 +131,14 @@ public class RuneLiteAPI
 			return HttpUrl.parse(prop);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		return HttpUrl.parse(BASE + "/runelite-" + getVersion());
 	}
 
 	public static HttpUrl getStaticBase()
 	{
+<<<<<<< HEAD
 		final String prop = System.getProperty("runelite.static.url");
 
 		if (prop != null && !prop.isEmpty())
@@ -130,11 +146,14 @@ public class RuneLiteAPI
 			return HttpUrl.parse(prop);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		return HttpUrl.parse(STATICBASE);
 	}
 
 	public static HttpUrl getWsEndpoint()
 	{
+<<<<<<< HEAD
 		final String prop = System.getProperty("runelite.ws.url");
 
 		if (prop != null && !prop.isEmpty())
@@ -142,6 +161,8 @@ public class RuneLiteAPI
 			return HttpUrl.parse(prop);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		return HttpUrl.parse(WSBASE);
 	}
 

@@ -52,7 +52,11 @@ import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.components.ThinProgressBar;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.ImageUtil;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
+=======
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 
 public class GrandExchangeOfferSlot extends JPanel
 {
@@ -211,6 +215,7 @@ public class GrandExchangeOfferSlot extends JPanel
 				|| newOffer.getState() == GrandExchangeOfferState.CANCELLED_BUY;
 
 			String offerState = (buying ? "Bought " : "Sold ")
+<<<<<<< HEAD
 				+ QuantityFormatter.quantityToRSDecimalStack(newOffer.getQuantitySold()) + " / "
 				+ QuantityFormatter.quantityToRSDecimalStack(newOffer.getTotalQuantity());
 
@@ -222,6 +227,19 @@ public class GrandExchangeOfferSlot extends JPanel
 
 			offerSpent.setText(htmlLabel(action, QuantityFormatter.formatNumber(newOffer.getSpent()) + " / "
 				+ QuantityFormatter.formatNumber(newOffer.getPrice() * newOffer.getTotalQuantity())));
+=======
+				+ StackFormatter.quantityToRSDecimalStack(newOffer.getQuantitySold()) + " / "
+				+ StackFormatter.quantityToRSDecimalStack(newOffer.getTotalQuantity());
+
+			offerInfo.setText(offerState);
+
+			itemPrice.setText(htmlLabel("Price each: ", StackFormatter.formatNumber(newOffer.getPrice())));
+
+			String action = buying ? "Spent: " : "Received: ";
+
+			offerSpent.setText(htmlLabel(action, StackFormatter.formatNumber(newOffer.getSpent()) + " / "
+				+ StackFormatter.formatNumber(newOffer.getPrice() * newOffer.getTotalQuantity())));
+>>>>>>> initial import of runelite
 
 			progressBar.setForeground(getProgressColor(newOffer));
 			progressBar.setMaximumValue(newOffer.getTotalQuantity());

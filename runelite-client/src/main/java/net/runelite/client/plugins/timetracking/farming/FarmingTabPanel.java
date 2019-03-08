@@ -34,6 +34,10 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> initial import of runelite
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.timetracking.TabContentPanel;
 import net.runelite.client.plugins.timetracking.TimeTrackingConfig;
@@ -41,6 +45,10 @@ import net.runelite.client.plugins.timetracking.TimeablePanel;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
 
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 public class FarmingTabPanel extends TabContentPanel
 {
 	private final FarmingTracker farmingTracker;

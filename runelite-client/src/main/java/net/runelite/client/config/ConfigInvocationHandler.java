@@ -24,8 +24,11 @@
  */
 package net.runelite.client.config;
 
+<<<<<<< HEAD
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+=======
+>>>>>>> initial import of runelite
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
@@ -36,6 +39,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class ConfigInvocationHandler implements InvocationHandler
 {
+<<<<<<< HEAD
 	// Special object to represent null values in the cache
 	private static final Object NULL = new Object();
 
@@ -45,6 +49,11 @@ class ConfigInvocationHandler implements InvocationHandler
 		.build();
 
 	ConfigInvocationHandler(ConfigManager manager)
+=======
+	private final ConfigManager manager;
+
+	public ConfigInvocationHandler(ConfigManager manager)
+>>>>>>> initial import of runelite
 	{
 		this.manager = manager;
 	}
@@ -52,6 +61,7 @@ class ConfigInvocationHandler implements InvocationHandler
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
 	{
+<<<<<<< HEAD
 		// Use cached configuration value if available
 		if (args == null)
 		{
@@ -62,6 +72,8 @@ class ConfigInvocationHandler implements InvocationHandler
 			}
 		}
 
+=======
+>>>>>>> initial import of runelite
 		Class<?> iface = proxy.getClass().getInterfaces()[0];
 
 		ConfigGroup group = iface.getAnnotation(ConfigGroup.class);
@@ -81,8 +93,11 @@ class ConfigInvocationHandler implements InvocationHandler
 
 		if (args == null)
 		{
+<<<<<<< HEAD
 			log.trace("cache miss (size: {}, group: {}, key: {})", cache.size(), group.value(), item.keyName());
 
+=======
+>>>>>>> initial import of runelite
 			// Getting configuration item
 			String value = manager.getConfiguration(group.value(), item.keyName());
 
@@ -90,12 +105,18 @@ class ConfigInvocationHandler implements InvocationHandler
 			{
 				if (method.isDefault())
 				{
+<<<<<<< HEAD
 					Object defaultValue = callDefaultMethod(proxy, method, null);
 					cache.put(method, defaultValue == null ? NULL : defaultValue);
 					return defaultValue;
 				}
 
 				cache.put(method, NULL);
+=======
+					return callDefaultMethod(proxy, method, null);
+				}
+
+>>>>>>> initial import of runelite
 				return null;
 			}
 
@@ -104,9 +125,13 @@ class ConfigInvocationHandler implements InvocationHandler
 			
 			try
 			{
+<<<<<<< HEAD
 				Object objectValue = ConfigManager.stringToObject(value, returnType);
 				cache.put(method, objectValue == null ? NULL : objectValue);
 				return objectValue;
+=======
+				return ConfigManager.stringToObject(value, returnType);
+>>>>>>> initial import of runelite
 			}
 			catch (Exception e)
 			{
@@ -124,7 +149,11 @@ class ConfigInvocationHandler implements InvocationHandler
 
 			if (args.length != 1)
 			{
+<<<<<<< HEAD
 				throw new RuntimeException("Invalid number of arguments to configuration method");
+=======
+				throw new RuntimeException("Invalid number of arguents to configuration method");
+>>>>>>> initial import of runelite
 			}
 
 			Object newValue = args[0];
@@ -175,10 +204,13 @@ class ConfigInvocationHandler implements InvocationHandler
 			.bindTo(proxy)
 			.invokeWithArguments(args);
 	}
+<<<<<<< HEAD
 
 	void invalidate()
 	{
 		log.trace("cache invalidate");
 		cache.invalidateAll();
 	}
+=======
+>>>>>>> initial import of runelite
 }

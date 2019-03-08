@@ -49,9 +49,15 @@ public enum WorldType
 	 */
 	SKILL_TOTAL(1 << 7),
 	/**
+<<<<<<< HEAD
 	 * High risk world type.
 	 */
 	HIGH_RISK(1 << 10),
+=======
+	 * Pvp high risk world type.
+	 */
+	PVP_HIGH_RISK(1 << 10),
+>>>>>>> initial import of runelite
 	/**
 	 * Last man standing world type.
 	 */
@@ -84,6 +90,10 @@ public enum WorldType
 		DEADMAN,
 		DEADMAN_TOURNAMENT,
 		PVP,
+<<<<<<< HEAD
+=======
+		PVP_HIGH_RISK,
+>>>>>>> initial import of runelite
 		SEASONAL_DEADMAN
 	);
 

@@ -28,12 +28,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
+<<<<<<< HEAD
  * Server controlled "content-developer" integers.
  *
  * VarPlayers are stored per RuneScape player save, and synchronized
  * from the server to the client. The client can change them preemptively
  * if it thinks they will change the next tick as a lag-hiding measure.
  * The client CANNOT directly make the server change a varbit.
+=======
+ * An enumeration of local player variables.
+>>>>>>> initial import of runelite
  */
 @AllArgsConstructor
 @Getter
@@ -74,11 +78,14 @@ public enum VarPlayer
 	THRONE_OF_MISCELLANIA(359),
 
 	/**
+<<<<<<< HEAD
 	 * Item currently active in the creation of a buy or sell offer
 	 */
 	CURRENT_GE_ITEM(1151),
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Experience tracker goal start.
 	 */
 	ATTACK_GOAL_START(1229),
@@ -167,11 +174,15 @@ public enum VarPlayer
 	MUSIC_TRACKS_UNLOCKED_16(1009),
 	MUSIC_TRACKS_UNLOCKED_17(1338),
 	MUSIC_TRACKS_UNLOCKED_18(1681),
+<<<<<<< HEAD
 	MUSIC_TRACKS_UNLOCKED_19(2065),
 
 	MUSIC_VOLUME(168),
 	SOUND_EFFECT_VOLUME(169),
 	AREA_EFFECT_VOLUME(872);
+=======
+	MUSIC_TRACKS_UNLOCKED_19(2065);
+>>>>>>> initial import of runelite
 
 	private final int id;
 }

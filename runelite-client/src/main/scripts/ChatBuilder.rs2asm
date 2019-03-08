@@ -3,6 +3,7 @@
 .string_stack_count 0
 .int_var_count      15
 .string_var_count   13
+<<<<<<< HEAD
    iconst                 10616890
    if_getwidth           
    istore                 1
@@ -52,19 +53,78 @@ LABEL38:
    sconst                 "<col=bf2020>"
    sconst                 "<col=4040ff>"
    sconst                 "<col=30ff30>"
+=======
+   load_int               10616890
+   widget_get_width_widget
+   istore                 1
+   get_localplayer_name  
+   string_remove_html    
+   sstore                 0
+   load_int               0
+   istore                 2
+   get_varc               41
+   load_int               3
+   if_icmpeq              LABEL12
+   jump                   LABEL14
+LABEL12:
+   load_int               1
+   istore                 2
+LABEL14:
+   load_int               0
+   istore                 3
+   load_int               0
+   istore                 4
+   load_string            "<col=0000ff>"
+   sstore                 1
+   load_string            "<col=7f0000>"
+   sstore                 2
+   load_string            "<col=2020ef>"
+   sstore                 3
+   load_string            "<col=004f00>"
+   sstore                 4
+   load_string            "<col=0000ff>"
+   sstore                 5
+   load_string            "<col=7f0000>"
+   sstore                 6
+   load_string            "<col=7f007f>"
+   sstore                 7
+   load_string            "<col=7e3200>"
+   sstore                 8
+   invoke                 921
+   load_int               1
+   if_icmpeq              LABEL38
+   jump                   LABEL58
+LABEL38:
+   load_int               16777215
+   load_int               1
+   istore                 4
+   istore                 3
+   load_string            "<col=9090ff>"
+   load_string            "<col=bf2020>"
+   load_string            "<col=4040ff>"
+   load_string            "<col=30ff30>"
+>>>>>>> initial import of runelite
    sstore                 4
    sstore                 3
    sstore                 2
    sstore                 1
+<<<<<<< HEAD
    sconst                 "<col=9070ff>"
    sconst                 "<col=ef5050>"
    sconst                 "<col=df20ff>"
    sconst                 "<col=ff20df>"
+=======
+   load_string            "<col=9070ff>"
+   load_string            "<col=ef5050>"
+   load_string            "<col=df20ff>"
+   load_string            "<col=ff20df>"
+>>>>>>> initial import of runelite
    sstore                 8
    sstore                 7
    sstore                 6
    sstore                 5
 LABEL58:
+<<<<<<< HEAD
    iconst                 0
    istore                 5
    iconst                 0
@@ -88,10 +148,36 @@ LABEL77:
    chat_getmessagefilter 
    string_length         
    iconst                 0
+=======
+   load_int               0
+   istore                 5
+   load_int               0
+   istore                 6
+   load_int               0
+   istore                 7
+   load_int               105
+   load_int               73
+   load_int               579
+   iload                  7
+   get_enum_value        
+   istore                 8
+   get_varc               41
+   load_int               0
+   if_icmpeq              LABEL77
+   get_varc               41
+   load_int               2
+   if_icmpeq              LABEL77
+   jump                   LABEL133
+LABEL77:
+   5022                  
+   string_length         
+   load_int               0
+>>>>>>> initial import of runelite
    if_icmpgt              LABEL82
    jump                   LABEL133
 LABEL82:
    sload                  1
+<<<<<<< HEAD
    sconst                 "Public chat filtering:"
    sconst                 "</col>"
    sconst                 " "
@@ -110,11 +196,32 @@ LABEL82:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            "Public chat filtering:"
+   load_string            "</col>"
+   load_string            " "
+   load_string            "<lt>"
+   5022                  
+   appendtags            
+   tolowercase           
+   load_string            "<gt>"
+   string_append          7
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 199
    istore                 6
    iload                  8
+<<<<<<< HEAD
    if_clearops           
    iconst                 -1
    sconst                 ""
@@ -141,10 +248,39 @@ LABEL82:
    iconst                 579
    iload                  7
    enum                  
+=======
+   widget_put_actions_null_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_option_click_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_hover_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_exit_listener_widget
+   iload                  5
+   iload                  6
+   isub                  
+   istore                 5
+   iload                  7
+   load_int               1
+   iadd                  
+   istore                 7
+   load_int               105
+   load_int               73
+   load_int               579
+   iload                  7
+   get_enum_value        
+>>>>>>> initial import of runelite
    istore                 8
 LABEL133:
    iload                  0
    istore                 9
+<<<<<<< HEAD
    iconst                 0
    istore                 10
    iconst                 -1
@@ -162,16 +298,43 @@ LABEL133:
 LABEL149:
    iload                  9
    iconst                 -1
+=======
+   load_int               0
+   istore                 10
+   load_int               -1
+   istore                 11
+   load_string            ""
+   sstore                 9
+   load_string            ""
+   sstore                 10
+   load_string            ""
+   sstore                 11
+   load_string            ""
+   sstore                 12
+   load_int               0
+   istore                 12
+LABEL149:
+   iload                  9
+   load_int               -1
+>>>>>>> initial import of runelite
    if_icmpne              LABEL153
    jump                   LABEL645
 LABEL153:
    iload                  8
+<<<<<<< HEAD
    iconst                 -1
+=======
+   load_int               -1
+>>>>>>> initial import of runelite
    if_icmpne              LABEL157
    jump                   LABEL645
 LABEL157:
    iload                  9
+<<<<<<< HEAD
    chat_gethistory_byuid 
+=======
+   get_chat_message      
+>>>>>>> initial import of runelite
    istore                 12
    sstore                 11
    sstore                 10
@@ -182,6 +345,7 @@ LABEL157:
    sload                  9
    iload                  12
    invoke                 193
+<<<<<<< HEAD
    iconst                 1
    if_icmpeq              CHAT_FILTER       ; Jump to our new label instead
    jump                   LABEL641
@@ -197,6 +361,10 @@ CHAT_FILTER:
    iconst                 1                 ; 2nd half of conditional
    sstore                 11                ; Override the message with our filtered message
    if_icmpeq              LABEL172          ; Check if we are building this message
+=======
+   load_int               1
+   if_icmpeq              LABEL172
+>>>>>>> initial import of runelite
    jump                   LABEL641
 LABEL172:
    iload                  10
@@ -207,7 +375,11 @@ LABEL172:
    sload                  0
    iload                  12
    invoke                 90
+<<<<<<< HEAD
    iconst                 1
+=======
+   load_int               1
+>>>>>>> initial import of runelite
    if_icmpeq              LABEL183
    jump                   LABEL641
 LABEL183:
@@ -230,6 +402,7 @@ LABEL183:
    jump                   LABEL426
 LABEL186:
    iload                  9                 ; The id of the messageNode of the message being built
+<<<<<<< HEAD
    sconst                 ""
    sconst                 "addTimestamp"
    runelite_callback     
@@ -250,6 +423,28 @@ LABEL186:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            ""
+   load_string            "addTimestamp"
+   runelite_callback
+   pop_int
+   sload                  9
+   load_string            ":"
+   string_append          3                 ; We need to append an extra string since we added the timestamp
+   sload                  1
+   sload                  11
+   load_string            "</col>"
+   string_append          3
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 203
@@ -257,6 +452,7 @@ LABEL186:
    jump                   LABEL440
 LABEL207:
    iload                  9                 ; The id of the messageNode of the message being built
+<<<<<<< HEAD
    sconst                 ""
    sconst                 "addTimestamp"
    runelite_callback     
@@ -277,6 +473,28 @@ LABEL207:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            ""
+   load_string            "addTimestamp"
+   runelite_callback
+   pop_int
+   sload                  9
+   load_string            ":"
+   string_append          3                 ; We need to append an extra string since we added the timestamp
+   sload                  3
+   sload                  11
+   load_string            "</col>"
+   string_append          3
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 203
@@ -284,6 +502,7 @@ LABEL207:
    jump                   LABEL440
 LABEL228:
    iload                  9                 ; The id of the messageNode of the message being built
+<<<<<<< HEAD
    sconst                 ""
    sconst                 "addTimestamp"
    runelite_callback     
@@ -307,6 +526,31 @@ LABEL228:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            ""
+   load_string            "addTimestamp"
+   runelite_callback
+   pop_int
+   load_string            "From "
+   sload                  9
+   load_string            ":"
+   load_string            "privateChatFrom"
+   runelite_callback
+   string_append          4                 ; We need to append an extra string since we added the timestamp
+   sload                  2
+   sload                  11
+   load_string            "</col>"
+   string_append          3
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 203
@@ -314,6 +558,7 @@ LABEL228:
    jump                   LABEL440
 LABEL250:
    iload                  9                 ; The id of the messageNode of the message being built
+<<<<<<< HEAD
    sconst                 ""
    sconst                 "addTimestamp"
    runelite_callback     
@@ -331,6 +576,25 @@ LABEL250:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            ""
+   load_string            "addTimestamp"
+   runelite_callback
+   pop_int
+   sload                  7
+   sload                  11
+   load_string            "</col>"
+   string_append          4                 ; We need to append an extra string since we added the timestamp
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 199
@@ -338,6 +602,7 @@ LABEL250:
    jump                   LABEL440
 LABEL268:
    iload                  9                 ; The id of the messageNode of the message being built
+<<<<<<< HEAD
    sconst                 ""
    sconst                 "addTimestamp"
    runelite_callback     
@@ -355,16 +620,40 @@ LABEL268:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            ""
+   load_string            "addTimestamp"
+   runelite_callback
+   pop_int
+   sload                  2
+   sload                  11
+   load_string            "</col>"
+   string_append          4                 ; We need to append an extra string since we added the timestamp
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 199
    istore                 6
    get_varbit             1627
+<<<<<<< HEAD
    iconst                 0
+=======
+   load_int               0
+>>>>>>> initial import of runelite
    if_icmpeq              LABEL289
    jump                   LABEL300
 LABEL289:
    iload                  11
+<<<<<<< HEAD
    iconst                 500
    add                   
    iconst                 1
@@ -375,10 +664,23 @@ LABEL289:
    sconst                 "1"
    iconst                 10616832
    if_setontimer         
+=======
+   load_int               500
+   iadd                  
+   load_int               1
+   iadd                  
+   put_varc               65
+   load_int               664
+   load_int               0
+   load_string            "1"
+   load_int               10616832
+   widget_put_render_listener_widget
+>>>>>>> initial import of runelite
 LABEL300:
    jump                   LABEL440
 LABEL301:
    iload                  9                 ; The id of the messageNode of the message being built
+<<<<<<< HEAD
    sconst                 ""
    sconst                 "addTimestamp"
    runelite_callback     
@@ -402,6 +704,31 @@ LABEL301:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            ""
+   load_string            "addTimestamp"
+   runelite_callback
+   pop_int
+   load_string            "To "
+   sload                  9
+   load_string            ":"
+   load_string            "privateChatTo"
+   runelite_callback
+   string_append          4                 ; We need to append an extra string since we added the timestamp
+   sload                  2
+   sload                  11
+   load_string            "</col>"
+   string_append          3
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 203
@@ -409,6 +736,7 @@ LABEL301:
    jump                   LABEL440
 LABEL323:
    iload                  9                 ; The id of the messageNode of the message being built
+<<<<<<< HEAD
    sconst                 ""
    sconst                 "addTimestamp"
    runelite_callback     
@@ -426,6 +754,25 @@ LABEL323:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            ""
+   load_string            "addTimestamp"
+   runelite_callback
+   pop_int
+   sload                  8
+   sload                  11
+   load_string            "</col>"
+   string_append          4                 ; We need to append an extra string since we added the timestamp
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 199
@@ -433,6 +780,7 @@ LABEL323:
    jump                   LABEL440
 LABEL341:
    iload                  9                 ; The id of the messageNode of the message being built
+<<<<<<< HEAD
    sconst                 ""
    sconst                 "addTimestamp"
    runelite_callback     
@@ -458,6 +806,33 @@ LABEL341:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            ""
+   load_string            "addTimestamp"
+   runelite_callback
+   pop_int
+   load_string            "["
+   sload                  5
+   sload                  10
+   load_string            "</col>"
+   load_string            "] "
+   sload                  9
+   load_string            ":"
+   string_append          8                 ; We need to append an extra string since we added the timestamp
+   sload                  6
+   sload                  11
+   load_string            "</col>"
+   string_append          3
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 203
@@ -469,6 +844,7 @@ LABEL367:
    sstore                 12
    sstore                 11
    sload                  4
+<<<<<<< HEAD
    sconst                 "Broadcast:"
    sconst                 "</col>"
    join_string            3
@@ -482,12 +858,28 @@ LABEL367:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_string            "Broadcast:"
+   load_string            "</col>"
+   string_append          3
+   sload                  11
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 203
    istore                 6
    jump                   LABEL440
 LABEL390:
+<<<<<<< HEAD
    clientclock           
    iload                  11
    sub                   
@@ -505,6 +897,25 @@ LABEL396:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   get_gamecycle         
+   iload                  11
+   isub                  
+   load_int               500
+   if_icmpgt              LABEL396
+   jump                   LABEL411
+LABEL396:
+   load_string            "jk :P"
+   iload                  7
+   iload                  8
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 199
@@ -514,6 +925,7 @@ LABEL411:
    sload                  11
    iload                  7
    iload                  8
+<<<<<<< HEAD
    iconst                 10616890
    iload                  1
    iconst                 3
@@ -521,6 +933,15 @@ LABEL411:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 199
@@ -531,6 +952,7 @@ LABEL426:
    sload                  11
    iload                  7
    iload                  8
+<<<<<<< HEAD
    iconst                 10616890
    iload                  1
    iconst                 3
@@ -538,13 +960,26 @@ LABEL426:
    iload                  5
    iconst                 0
    iconst                 103
+=======
+   load_int               10616890
+   iload                  1
+   load_int               3
+   load_int               14
+   iload                  5
+   load_int               0
+   load_int               103
+>>>>>>> initial import of runelite
    iload                  3
    iload                  4
    invoke                 199
    istore                 6
 LABEL440:
    iload                  8
+<<<<<<< HEAD
    if_clearops           
+=======
+   widget_put_actions_null_widget
+>>>>>>> initial import of runelite
    iload                  10
    switch                
       1: LABEL445
@@ -562,6 +997,7 @@ LABEL440:
       91: LABEL445
    jump                   LABEL615
 LABEL445:
+<<<<<<< HEAD
    sconst                 "<col=ffffff>"
    sload                  9
    sconst                 "</col>"
@@ -587,10 +1023,38 @@ LABEL445:
    removetags            
    compare               
    iconst                 0
+=======
+   load_string            "<col=ffffff>"
+   sload                  9
+   load_string            "</col>"
+   string_append          3
+   iload                  8
+   widget_put_name_widget
+   load_int               86
+   load_int               -2147483644
+   load_string            "event_opbase"
+   load_string            "is"
+   iload                  8
+   widget_put_option_click_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_hover_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_exit_listener_widget
+   sload                  0
+   sload                  9
+   string_remove_html    
+   string_compare        
+   load_int               0
+>>>>>>> initial import of runelite
    if_icmpne              LABEL472
    jump                   LABEL509
 LABEL472:
    iload                  12
+<<<<<<< HEAD
    iconst                 1
    if_icmpeq              LABEL476
    jump                   LABEL481
@@ -686,10 +1150,108 @@ LABEL535:
    sconst                 "Accept challenge"
    iload                  8
    if_setop              
+=======
+   load_int               1
+   if_icmpeq              LABEL476
+   jump                   LABEL481
+LABEL476:
+   load_int               6
+   load_string            "Message"
+   iload                  8
+   widget_put_action_widget
+   jump                   LABEL489
+LABEL481:
+   load_int               6
+   load_string            "Add friend"
+   iload                  8
+   widget_put_action_widget
+   load_int               7
+   load_string            "Add ignore"
+   iload                  8
+   widget_put_action_widget
+LABEL489:
+   load_int               8
+   load_string            "Report"
+   iload                  8
+   widget_put_action_widget
+   iload                  10
+   load_int               9
+   if_icmpeq              LABEL497
+   jump                   LABEL509
+LABEL497:
+   get_clanchatcount     
+   load_int               0
+   if_icmpgt              LABEL501
+   jump                   LABEL509
+LABEL501:
+   get_clanchat_rank     
+   clanchat_kick_rank    
+   if_icmpge              LABEL505
+   jump                   LABEL509
+LABEL505:
+   load_int               9
+   load_string            "Kick"
+   iload                  8
+   widget_put_action_widget
+LABEL509:
+   jump                   LABEL627
+LABEL510:
+   load_string            "<col=ffffff>"
+   sload                  9
+   load_string            "</col>"
+   string_append          3
+   iload                  8
+   widget_put_name_widget
+   load_int               86
+   load_int               -2147483644
+   load_string            "event_opbase"
+   load_string            "is"
+   iload                  8
+   widget_put_option_click_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_hover_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_exit_listener_widget
+   load_int               1
+   load_string            "Accept trade"
+   iload                  8
+   widget_put_action_widget
+   jump                   LABEL627
+LABEL535:
+   load_string            "<col=ffffff>"
+   sload                  9
+   load_string            "</col>"
+   string_append          3
+   iload                  8
+   widget_put_name_widget
+   load_int               86
+   load_int               -2147483644
+   load_string            "event_opbase"
+   load_string            "is"
+   iload                  8
+   widget_put_option_click_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_hover_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_exit_listener_widget
+   load_int               2
+   load_string            "Accept challenge"
+   iload                  8
+   widget_put_action_widget
+>>>>>>> initial import of runelite
    jump                   LABEL627
 LABEL560:
    sload                  12
    string_length         
+<<<<<<< HEAD
    iconst                 0
    if_icmpgt              LABEL565
    jump                   LABEL590
@@ -777,6 +1339,95 @@ LABEL627:
 LABEL641:
    iload                  9
    chat_getprevuid       
+=======
+   load_int               0
+   if_icmpgt              LABEL565
+   jump                   LABEL590
+LABEL565:
+   load_int               6
+   load_string            "Open"
+   iload                  8
+   widget_put_action_widget
+   load_int               7
+   load_string            "Check"
+   iload                  8
+   widget_put_action_widget
+   load_int               2065
+   iload                  8
+   widget_get_parentid_widget
+   iload                  7
+   load_int               3158271
+   load_string            "Iii"
+   iload                  8
+   widget_put_mouse_hover_listener_widget
+   load_int               2065
+   iload                  8
+   widget_get_parentid_widget
+   iload                  7
+   iload                  3
+   load_string            "Iii"
+   iload                  8
+   widget_put_mouse_exit_listener_widget
+   jump                   LABEL598
+LABEL590:
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_hover_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_exit_listener_widget
+LABEL598:
+   load_int               9
+   load_string            "Clear history"
+   iload                  8
+   widget_put_action_widget
+   load_string            "<col=ff9040>"
+   load_string            "Notification"
+   load_string            "</col>"
+   string_append          3
+   iload                  8
+   widget_put_name_widget
+   load_int               2064
+   load_int               -2147483644
+   sload                  12
+   load_string            "is"
+   iload                  8
+   widget_put_option_click_listener_widget
+   jump                   LABEL627
+LABEL615:
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_option_click_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_hover_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_exit_listener_widget
+LABEL627:
+   iload                  5
+   iload                  6
+   isub                  
+   istore                 5
+   iload                  7
+   load_int               1
+   iadd                  
+   istore                 7
+   load_int               105
+   load_int               73
+   load_int               579
+   iload                  7
+   get_enum_value        
+   istore                 8
+LABEL641:
+   iload                  9
+   get_messagenode_next_id
+>>>>>>> initial import of runelite
    istore                 9
    jump                   LABEL149
 LABEL645:
@@ -784,11 +1435,16 @@ LABEL645:
    istore                 13
 LABEL647:
    iload                  8
+<<<<<<< HEAD
    iconst                 -1
+=======
+   load_int               -1
+>>>>>>> initial import of runelite
    if_icmpne              LABEL651
    jump                   LABEL708
 LABEL651:
    iload                  8
+<<<<<<< HEAD
    if_clearops           
    iconst                 -1
    sconst                 ""
@@ -847,10 +1503,71 @@ LABEL697:
    iconst                 579
    iload                  7
    enum                  
+=======
+   widget_put_actions_null_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_option_click_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_hover_listener_widget
+   load_int               -1
+   load_string            ""
+   iload                  8
+   widget_put_mouse_exit_listener_widget
+   load_int               0
+   load_int               0
+   load_int               0
+   load_int               0
+   iload                  8
+   widget_put_size_widget
+   load_int               10616890
+   iload                  7
+   load_int               2
+   imul                  
+   widget_load_child     
+   load_int               1
+   if_icmpeq              LABEL679
+   jump                   LABEL683
+LABEL679:
+   load_string            ""
+   widget_put_text       
+   load_int               1
+   widget_put_hidden     
+LABEL683:
+   load_int               10616890
+   iload                  7
+   load_int               2
+   imul                  
+   load_int               1
+   iadd                  
+   widget_load_child     
+   load_int               1
+   if_icmpeq              LABEL693
+   jump                   LABEL697
+LABEL693:
+   load_string            ""
+   widget_put_text       
+   load_int               1
+   widget_put_hidden     
+LABEL697:
+   iload                  7
+   load_int               1
+   iadd                  
+   istore                 7
+   load_int               105
+   load_int               73
+   load_int               579
+   iload                  7
+   get_enum_value        
+>>>>>>> initial import of runelite
    istore                 8
    jump                   LABEL647
 LABEL708:
    iload                  5
+<<<<<<< HEAD
    iconst                 2
    sub                   
    istore                 5
@@ -860,6 +1577,17 @@ LABEL708:
    istore                 5
    iconst                 10616890
    if_getheight          
+=======
+   load_int               2
+   isub                  
+   istore                 5
+   load_int               0
+   iload                  5
+   isub                  
+   istore                 5
+   load_int               10616890
+   widget_get_height_widget
+>>>>>>> initial import of runelite
    istore                 14
    iload                  5
    iload                  14
@@ -873,11 +1601,16 @@ LABEL725:
    istore                 7
 LABEL727:
    iload                  7
+<<<<<<< HEAD
    iconst                 0
+=======
+   load_int               0
+>>>>>>> initial import of runelite
    if_icmpgt              LABEL731
    jump                   LABEL784
 LABEL731:
    iload                  7
+<<<<<<< HEAD
    iconst                 1
    sub                   
    istore                 7
@@ -952,4 +1685,80 @@ LABEL784:
    iload                  14
    set_varc_int           8
    set_varc_int           7
+=======
+   load_int               1
+   isub                  
+   istore                 7
+   load_int               105
+   load_int               73
+   load_int               579
+   iload                  7
+   get_enum_value        
+   istore                 8
+   iload                  8
+   widget_get_relativey_widget
+   iload                  14
+   iadd                  
+   load_int               2
+   isub                  
+   istore                 5
+   iload                  8
+   widget_get_relativex_widget
+   iload                  5
+   load_int               0
+   load_int               0
+   iload                  8
+   widget_put_position_widget
+   load_int               10616890
+   iload                  7
+   load_int               2
+   imul                  
+   widget_load_child     
+   load_int               1
+   if_icmpeq              LABEL763
+   jump                   LABEL768
+LABEL763:
+   widget_get_relativex  
+   iload                  5
+   load_int               0
+   load_int               0
+   widget_put_position   
+LABEL768:
+   load_int               10616890
+   iload                  7
+   load_int               2
+   imul                  
+   load_int               1
+   iadd                  
+   widget_load_child     
+   load_int               1
+   if_icmpeq              LABEL778
+   jump                   LABEL783
+LABEL778:
+   widget_get_relativex  
+   iload                  5
+   load_int               0
+   load_int               0
+   widget_put_position   
+LABEL783:
+   jump                   LABEL727
+LABEL784:
+   load_int               0
+   iload                  14
+   load_int               10616890
+   widget_put_scrollwidthheight_widget
+   load_int               10617391
+   load_int               10616890
+   get_varc               7
+   iload                  14
+   get_varc               8
+   isub                  
+   iadd                  
+   invoke                 72
+   load_int               10616890
+   widget_get_scrolly_widget
+   iload                  14
+   put_varc               8
+   put_varc               7
+>>>>>>> initial import of runelite
    return                

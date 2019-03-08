@@ -215,6 +215,15 @@ public class PuzzleState
 			return true;
 		}
 
+<<<<<<< HEAD
 		return y1 == y2 && absX == 1;
+=======
+		if (y1 == y2 && absX == 1)
+		{
+			return true;
+		}
+
+		return false;
+>>>>>>> initial import of runelite
 	}
 }

@@ -25,7 +25,10 @@
 package net.runelite.client.plugins.specialcounter;
 
 import java.util.HashSet;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> initial import of runelite
 import java.util.Set;
 import javax.inject.Inject;
 import net.runelite.api.Actor;
@@ -36,7 +39,10 @@ import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
 import net.runelite.api.NPC;
+<<<<<<< HEAD
 import net.runelite.api.NPCComposition;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.Player;
 import net.runelite.api.Skill;
 import net.runelite.api.VarPlayer;
@@ -44,15 +50,21 @@ import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.NpcDespawned;
 import net.runelite.api.events.VarbitChanged;
+<<<<<<< HEAD
 import net.runelite.client.callback.ClientThread;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
+<<<<<<< HEAD
 import net.runelite.client.ws.PartyService;
 import net.runelite.client.ws.WSClient;
 import org.apache.commons.lang3.ArrayUtils;
+=======
+>>>>>>> initial import of runelite
 
 @PluginDescriptor(
 	name = "Special Attack Counter",
@@ -76,6 +88,7 @@ public class SpecialCounterPlugin extends Plugin
 	private Client client;
 
 	@Inject
+<<<<<<< HEAD
 	private ClientThread clientThread;
 
 	@Inject
@@ -85,12 +98,15 @@ public class SpecialCounterPlugin extends Plugin
 	private PartyService party;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private InfoBoxManager infoBoxManager;
 
 	@Inject
 	private ItemManager itemManager;
 
 	@Override
+<<<<<<< HEAD
 	protected void startUp()
 	{
 		wsClient.registerMessage(SpecialCounterUpdate.class);
@@ -101,6 +117,11 @@ public class SpecialCounterPlugin extends Plugin
 	{
 		removeCounters();
 		wsClient.unregisterMessage(SpecialCounterUpdate.class);
+=======
+	protected void shutDown()
+	{
+		removeCounters();
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -148,9 +169,15 @@ public class SpecialCounterPlugin extends Plugin
 			return;
 		}
 
+<<<<<<< HEAD
 		int interactingId = checkInteracting();
 
 		if (interactingId > -1 && specialHitpointsExperience != -1 && specialUsed)
+=======
+		checkInteracting();
+
+		if (specialHitpointsExperience != -1 && specialUsed)
+>>>>>>> initial import of runelite
 		{
 			specialUsed = false;
 			int hpXp = client.getSkillExperience(Skill.HITPOINTS);
@@ -161,6 +188,7 @@ public class SpecialCounterPlugin extends Plugin
 			{
 				if (specialWeapon != null)
 				{
+<<<<<<< HEAD
 					int hit = getHit(specialWeapon, deltaExperience);
 
 					updateCounter(specialWeapon, null, hit);
@@ -171,18 +199,26 @@ public class SpecialCounterPlugin extends Plugin
 						specialCounterUpdate.setMemberId(party.getLocalMember().getMemberId());
 						wsClient.send(specialCounterUpdate);
 					}
+=======
+					updateCounter(specialWeapon, deltaExperience);
+>>>>>>> initial import of runelite
 				}
 			}
 		}
 	}
 
+<<<<<<< HEAD
 	private int checkInteracting()
+=======
+	private void checkInteracting()
+>>>>>>> initial import of runelite
 	{
 		Player localPlayer = client.getLocalPlayer();
 		Actor interacting = localPlayer.getInteracting();
 
 		if (interacting instanceof NPC)
 		{
+<<<<<<< HEAD
 			NPC npc = (NPC) interacting;
 			NPCComposition composition = npc.getComposition();
 			int interactingId = npc.getId();
@@ -193,10 +229,14 @@ public class SpecialCounterPlugin extends Plugin
 				// the counters.
 				return -1;
 			}
+=======
+			int interactingId = ((NPC) interacting).getId();
+>>>>>>> initial import of runelite
 
 			if (!interactedNpcIds.contains(interactingId))
 			{
 				removeCounters();
+<<<<<<< HEAD
 				addInteracting(interactingId);
 			}
 
@@ -217,6 +257,19 @@ public class SpecialCounterPlugin extends Plugin
 		{
 			modifier = boss.getModifier();
 			interactedNpcIds.addAll(boss.getIds());
+=======
+				modifier = 1d;
+				interactedNpcIds.add(interactingId);
+
+				final Boss boss = Boss.getBoss(interactingId);
+				if (boss != null)
+				{
+					modifier = boss.getModifier();
+					interactedNpcIds.addAll(boss.getIds());
+				}
+
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -231,6 +284,7 @@ public class SpecialCounterPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onSpecialCounterUpdate(SpecialCounterUpdate event)
 	{
@@ -261,6 +315,8 @@ public class SpecialCounterPlugin extends Plugin
 		});
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private SpecialWeapon usedSpecialWeapon()
 	{
 		ItemContainer equipment = client.getItemContainer(InventoryID.EQUIPMENT);
@@ -289,9 +345,16 @@ public class SpecialCounterPlugin extends Plugin
 		return null;
 	}
 
+<<<<<<< HEAD
 	private void updateCounter(SpecialWeapon specialWeapon, String name, int hit)
 	{
 		SpecialCounter counter = specialCounter[specialWeapon.ordinal()];
+=======
+	private void updateCounter(SpecialWeapon specialWeapon, int deltaExperience)
+	{
+		SpecialCounter counter = specialCounter[specialWeapon.ordinal()];
+		int hit = getHit(specialWeapon, deltaExperience);
+>>>>>>> initial import of runelite
 
 		if (counter == null)
 		{
@@ -304,6 +367,7 @@ public class SpecialCounterPlugin extends Plugin
 		{
 			counter.addHits(hit);
 		}
+<<<<<<< HEAD
 
 		// If in a party, add hit to partySpecs for the infobox tooltip
 		Map<String, Integer> partySpecs = counter.getPartySpecs();
@@ -318,6 +382,8 @@ public class SpecialCounterPlugin extends Plugin
 				partySpecs.put(name, hit);
 			}
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	private void removeCounters()

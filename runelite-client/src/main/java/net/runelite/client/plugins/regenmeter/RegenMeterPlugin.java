@@ -1,6 +1,10 @@
 /*
+<<<<<<< HEAD
  * Copyright (c) 2019, Sean Dewar <https://github.com/seandewar>
  * Copyright (c) 2018, Abex
+=======
+ * Copyright (c) 2018 Abex
+>>>>>>> initial import of runelite
  * Copyright (c) 2018, Zimaya <https://github.com/Zimaya>
  * Copyright (c) 2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -31,7 +35,10 @@ import com.google.inject.Provides;
 import javax.inject.Inject;
 import lombok.Getter;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.GameState;
 import net.runelite.api.Prayer;
 import net.runelite.api.Skill;
@@ -39,7 +46,10 @@ import net.runelite.api.VarPlayer;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.VarbitChanged;
+<<<<<<< HEAD
 import net.runelite.client.Notifier;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
@@ -49,7 +59,11 @@ import net.runelite.client.ui.overlay.OverlayManager;
 @PluginDescriptor(
 	name = "Regeneration Meter",
 	description = "Track and show the hitpoints and special attack regeneration timers",
+<<<<<<< HEAD
 	tags = {"combat", "health", "hitpoints", "special", "attack", "overlay", "notifications"}
+=======
+	tags = {"combat", "health", "hitpoints", "special", "attack", "overlay"}
+>>>>>>> initial import of runelite
 )
 public class RegenMeterPlugin extends Plugin
 {
@@ -63,9 +77,12 @@ public class RegenMeterPlugin extends Plugin
 	private OverlayManager overlayManager;
 
 	@Inject
+<<<<<<< HEAD
 	private Notifier notifier;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private RegenMeterOverlay overlay;
 
 	@Inject
@@ -155,6 +172,7 @@ public class RegenMeterPlugin extends Plugin
 			// Show it going down
 			hitpointsPercentage = 1 - hitpointsPercentage;
 		}
+<<<<<<< HEAD
 
 		if (config.getNotifyBeforeHpRegenSeconds() > 0 && currentHP < maxHP && shouldNotifyHpRegenThisTick(ticksPerHPRegen))
 		{
@@ -168,5 +186,7 @@ public class RegenMeterPlugin extends Plugin
 		final int ticksBeforeHPRegen = ticksPerHPRegen - ticksSinceHPRegen;
 		final int notifyTick = (int) Math.ceil(config.getNotifyBeforeHpRegenSeconds() * 1000d / Constants.GAME_TICK_LENGTH);
 		return ticksBeforeHPRegen == notifyTick;
+=======
+>>>>>>> initial import of runelite
 	}
 }

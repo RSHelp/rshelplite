@@ -25,7 +25,11 @@
 package net.runelite.api.events;
 
 import lombok.Value;
+<<<<<<< HEAD
 import net.runelite.api.TileItem;
+=======
+import net.runelite.api.Item;
+>>>>>>> initial import of runelite
 import net.runelite.api.Tile;
 
 /**
@@ -36,5 +40,9 @@ import net.runelite.api.Tile;
 public class ItemSpawned
 {
 	private final Tile tile;
+<<<<<<< HEAD
 	private final TileItem item;
+=======
+	private final Item item;
+>>>>>>> initial import of runelite
 }

@@ -1,6 +1,9 @@
 /*
  * Copyright (c) 2017, Devin French <https://github.com/devinfrench>
+<<<<<<< HEAD
  * Copyright (c) 2019, Aleios <https://github.com/aleios>
+=======
+>>>>>>> initial import of runelite
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -173,10 +176,17 @@ public interface ItemChargeConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "showBellowCharges",
 		name = "Show Bellow Charges",
 		description = "Configures if ogre bellow item charge is shown",
 		position = 12
+=======
+			keyName = "showBellowCharges",
+			name = "Show Bellow Charges",
+			description = "Configures if ogre bellow item charge is shown",
+			position = 12
+>>>>>>> initial import of runelite
 	)
 	default boolean showBellowCharges()
 	{
@@ -184,6 +194,7 @@ public interface ItemChargeConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "showBasketCharges",
 		name = "Show Basket Charges",
 		description = "Configures if fruit basket item charge is shown",
@@ -210,6 +221,12 @@ public interface ItemChargeConfig extends Config
 		name = "Show Abyssal Bracelet Charges",
 		description = "Configures if abyssal bracelet item charge is shown",
 		position = 15
+=======
+			keyName = "showAbyssalBraceletCharges",
+			name = "Show Abyssal Bracelet Charges",
+			description = "Configures if abyssal bracelet item charge is shown",
+			position = 13
+>>>>>>> initial import of runelite
 	)
 	default boolean showAbyssalBraceletCharges()
 	{
@@ -220,7 +237,11 @@ public interface ItemChargeConfig extends Config
 		keyName = "recoilNotification",
 		name = "Ring of Recoil Notification",
 		description = "Configures if the ring of recoil breaking notification is shown",
+<<<<<<< HEAD
 		position = 16
+=======
+		position = 14
+>>>>>>> initial import of runelite
 	)
 	default boolean recoilNotification()
 	{
@@ -228,6 +249,7 @@ public interface ItemChargeConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "showBindingNecklaceCharges",
 		name = "Show Binding Necklace Charges",
 		description = "Configures if binding necklace item charge is shown",
@@ -341,6 +363,12 @@ public interface ItemChargeConfig extends Config
 		name = "Show Infoboxes",
 		description = "Configures whether to show an infobox equipped charge items",
 		position = 22
+=======
+		keyName = "showInfoboxes",
+		name = "Show Infoboxes",
+		description = "Configures whether to show an infobox equipped charge items",
+		position = 15
+>>>>>>> initial import of runelite
 	)
 	default boolean showInfoboxes()
 	{

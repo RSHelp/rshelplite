@@ -24,7 +24,11 @@
  */
 package net.runelite.client.plugins.itemcharges;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
+=======
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Map;
 import javax.annotation.Nullable;
 import lombok.AllArgsConstructor;
@@ -41,6 +45,7 @@ enum ItemWithCharge
 	ABRACE3(ABYSSAL_BRACELET, ABYSSAL_BRACELET3, 3),
 	ABRACE4(ABYSSAL_BRACELET, ABYSSAL_BRACELET4, 4),
 	ABRACE5(ABYSSAL_BRACELET, ABYSSAL_BRACELET5, 5),
+<<<<<<< HEAD
 	BASKET_APPLES1(FRUIT_BASKET, APPLES1, 1),
 	BASKET_APPLES2(FRUIT_BASKET, APPLES2, 2),
 	BASKET_APPLES3(FRUIT_BASKET, APPLES3, 3),
@@ -66,6 +71,8 @@ enum ItemWithCharge
 	BASKET_TOMATOES3(FRUIT_BASKET, TOMATOES3, 3),
 	BASKET_TOMATOES4(FRUIT_BASKET, TOMATOES4, 4),
 	BASKET_TOMATOES5(FRUIT_BASKET, TOMATOES5, 5),
+=======
+>>>>>>> initial import of runelite
 	BELLOWS0(BELLOWS, OGRE_BELLOWS, 0),
 	BELLOWS1(BELLOWS, OGRE_BELLOWS_1, 1),
 	BELLOWS2(BELLOWS, OGRE_BELLOWS_2, 2),
@@ -163,6 +170,7 @@ enum ItemWithCharge
 	ROW3(TELEPORT, RING_OF_WEALTH_3, 3),
 	ROW4(TELEPORT, RING_OF_WEALTH_4, 4),
 	ROW5(TELEPORT, RING_OF_WEALTH_5, 5),
+<<<<<<< HEAD
 	SACK_CABBAGES1(SACK, CABBAGES1, 1),
 	SACK_CABBAGES2(SACK, CABBAGES2, 2),
 	SACK_CABBAGES3(SACK, CABBAGES3, 3),
@@ -193,6 +201,8 @@ enum ItemWithCharge
 	SACK_POTATOES8(SACK, POTATOES8, 8),
 	SACK_POTATOES9(SACK, POTATOES9, 9),
 	SACK_POTATOES10(SACK, POTATOES10, 10),
+=======
+>>>>>>> initial import of runelite
 	SKILLS1(TELEPORT, SKILLS_NECKLACE1, 1),
 	SKILLS2(TELEPORT, SKILLS_NECKLACE2, 2),
 	SKILLS3(TELEPORT, SKILLS_NECKLACE3, 3),
@@ -217,16 +227,21 @@ enum ItemWithCharge
 	WSKIN1(WATERSKIN, WATERSKIN1, 1),
 	WSKIN2(WATERSKIN, WATERSKIN2, 2),
 	WSKIN3(WATERSKIN, WATERSKIN3, 3),
+<<<<<<< HEAD
 	WSKIN4(WATERSKIN, WATERSKIN4, 4),
 	GREST1(GUTHIX_REST, GUTHIX_REST1, 1),
 	GREST2(GUTHIX_REST, GUTHIX_REST2, 2),
 	GREST3(GUTHIX_REST, GUTHIX_REST3, 3),
 	GREST4(GUTHIX_REST, GUTHIX_REST4, 4);
+=======
+	WSKIN4(WATERSKIN, WATERSKIN4, 4);
+>>>>>>> initial import of runelite
 
 	private final ItemChargeType type;
 	private final int id;
 	private final int charges;
 
+<<<<<<< HEAD
 	private static final Map<Integer, ItemWithCharge> ID_MAP;
 
 	static
@@ -239,6 +254,16 @@ enum ItemWithCharge
 		}
 
 		ID_MAP = builder.build();
+=======
+	private static final Map<Integer, ItemWithCharge> ID_MAP = new HashMap<>();
+
+	static
+	{
+		for (ItemWithCharge itemCharge : values())
+		{
+			ID_MAP.put(itemCharge.getId(), itemCharge);
+		}
+>>>>>>> initial import of runelite
 	}
 
 	@Nullable

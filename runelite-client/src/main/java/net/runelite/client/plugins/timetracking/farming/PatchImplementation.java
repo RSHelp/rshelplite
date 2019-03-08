@@ -24,7 +24,10 @@
  */
 package net.runelite.client.plugins.timetracking.farming;
 
+<<<<<<< HEAD
 import javax.annotation.Nullable;
+=======
+>>>>>>> initial import of runelite
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.runelite.client.plugins.timetracking.Tab;
@@ -224,7 +227,11 @@ public enum PatchImplementation
 				}
 				if (value >= 63 && value <= 69)
 				{
+<<<<<<< HEAD
 					// Snape grass seedling,Snape grass plant[Inspect,Guide] 33674,33675,33676,33677,33678,33679,33680
+=======
+					// snape grass seedling,Snape grass plant[Inspect,Guide] 33674,33675,33676,33677,33678,33679,33680
+>>>>>>> initial import of runelite
 					return new PatchState(Produce.SNAPE_GRASS, CropState.GROWING, value - 63);
 				}
 				if (value >= 70 && value <= 73)
@@ -2391,7 +2398,11 @@ public enum PatchImplementation
 				}
 				if (value >= 46 && value <= 51)
 				{
+<<<<<<< HEAD
 					// Diseased Potato cactus[Cure,Inspect,Guide] 33749,33750,33751,33752,33753,33754
+=======
+					// Diseased Poato cactus[Cure,Inspect,Guide] 33749,33750,33751,33752,33753,33754
+>>>>>>> initial import of runelite
 					return new PatchState(Produce.POTATO_CACTUS, CropState.DISEASED, value - 45);
 				}
 				if (value >= 52 && value <= 57)
@@ -2575,6 +2586,7 @@ public enum PatchImplementation
 				}
 				return null;
 			}
+<<<<<<< HEAD
 		},
 	CRYSTAL_TREE(Tab.FRUIT_TREE, "Crystal Tree")
 		{
@@ -2606,6 +2618,10 @@ public enum PatchImplementation
 		};
 
 	@Nullable
+=======
+		};
+
+>>>>>>> initial import of runelite
 	abstract PatchState forVarbitValue(int value);
 
 	private final Tab tab;

@@ -34,13 +34,20 @@ import javax.inject.Inject;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+<<<<<<< HEAD
+=======
+import net.runelite.api.Item;
+>>>>>>> initial import of runelite
 import net.runelite.api.ItemID;
 import static net.runelite.api.ItemID.AGILITY_ARENA_TICKET;
 import net.runelite.api.Player;
 import net.runelite.api.Skill;
 import static net.runelite.api.Skill.AGILITY;
 import net.runelite.api.Tile;
+<<<<<<< HEAD
 import net.runelite.api.TileItem;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.TileObject;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.BoostedLevelChanged;
@@ -235,7 +242,11 @@ public class AgilityPlugin extends Plugin
 			return;
 		}
 
+<<<<<<< HEAD
 		final TileItem item = itemSpawned.getItem();
+=======
+		final Item item = itemSpawned.getItem();
+>>>>>>> initial import of runelite
 		final Tile tile = itemSpawned.getTile();
 
 		if (item.getId() == ItemID.MARK_OF_GRACE)

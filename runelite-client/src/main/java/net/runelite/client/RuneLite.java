@@ -37,7 +37,10 @@ import java.util.Locale;
 import javax.annotation.Nullable;
 import javax.inject.Provider;
 import javax.inject.Singleton;
+<<<<<<< HEAD
 import javax.swing.SwingUtilities;
+=======
+>>>>>>> initial import of runelite
 import joptsimple.ArgumentAcceptingOptionSpec;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -46,7 +49,10 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.client.account.SessionManager;
+<<<<<<< HEAD
 import net.runelite.client.callback.Hooks;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.chat.CommandManager;
 import net.runelite.client.config.ConfigManager;
@@ -57,6 +63,7 @@ import net.runelite.client.game.ItemManager;
 import net.runelite.client.game.LootManager;
 import net.runelite.client.game.chatbox.ChatboxPanelManager;
 import net.runelite.client.menus.MenuManager;
+<<<<<<< HEAD
 import net.runelite.client.plugins.PluginManager;
 import net.runelite.client.rs.ClientLoader;
 import net.runelite.client.rs.ClientUpdateCheckMode;
@@ -64,6 +71,14 @@ import net.runelite.client.ui.ClientUI;
 import net.runelite.client.ui.DrawManager;
 import net.runelite.client.ui.FatalErrorDialog;
 import net.runelite.client.ui.SplashScreen;
+=======
+import net.runelite.client.plugins.Plugin;
+import net.runelite.client.plugins.PluginInstantiationException;
+import net.runelite.client.plugins.PluginManager;
+import net.runelite.client.rs.ClientUpdateCheckMode;
+import net.runelite.client.ui.ClientUI;
+import net.runelite.client.ui.DrawManager;
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.OverlayRenderer;
 import net.runelite.client.ui.overlay.WidgetOverlay;
@@ -81,7 +96,10 @@ public class RuneLite
 	public static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".runelite");
 	public static final File PROFILES_DIR = new File(RUNELITE_DIR, "profiles");
 	public static final File SCREENSHOT_DIR = new File(RUNELITE_DIR, "screenshots");
+<<<<<<< HEAD
 	public static final File LOGS_DIR = new File(RUNELITE_DIR, "logs");
+=======
+>>>>>>> initial import of runelite
 
 	@Getter
 	private static Injector injector;
@@ -117,7 +135,11 @@ public class RuneLite
 	private OverlayManager overlayManager;
 
 	@Inject
+<<<<<<< HEAD
 	private Provider<PartyService> partyService;
+=======
+	private PartyService partyService;
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Provider<ItemManager> itemManager;
@@ -153,9 +175,12 @@ public class RuneLite
 	private Provider<ChatboxPanelManager> chatboxPanelManager;
 
 	@Inject
+<<<<<<< HEAD
 	private Provider<Hooks> hooks;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	@Nullable
 	private Client client;
 
@@ -190,6 +215,23 @@ public class RuneLite
 			System.exit(0);
 		}
 
+<<<<<<< HEAD
+=======
+		final boolean developerMode = options.has("developer-mode") && RuneLiteProperties.getLauncherVersion() == null;
+
+		if (developerMode)
+		{
+			boolean assertions = false;
+			assert assertions = true;
+			if (!assertions)
+			{
+				throw new RuntimeException("Developers should enable assertions; Add `-ea` to your JVM arguments`");
+			}
+		}
+
+		PROFILES_DIR.mkdirs();
+
+>>>>>>> initial import of runelite
 		if (options.has("debug"))
 		{
 			final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
@@ -205,6 +247,7 @@ public class RuneLite
 			}
 		});
 
+<<<<<<< HEAD
 		SplashScreen.init();
 		SplashScreen.stage(0, "Retrieving client", "");
 
@@ -260,6 +303,20 @@ public class RuneLite
 		{
 			SplashScreen.stop();
 		}
+=======
+		final long start = System.currentTimeMillis();
+
+		injector = Guice.createInjector(new RuneLiteModule(
+			options.valueOf(updateMode),
+			developerMode));
+
+		injector.getInstance(RuneLite.class).start();
+
+		final long end = System.currentTimeMillis();
+		final RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
+		final long uptime = rb.getUptime();
+		log.info("Client initialization took {}ms. Uptime: {}ms", end - start, uptime);
+>>>>>>> initial import of runelite
 	}
 
 	public void start() throws Exception
@@ -273,8 +330,11 @@ public class RuneLite
 			injector.injectMembers(client);
 		}
 
+<<<<<<< HEAD
 		SplashScreen.stage(.57, null, "Loading configuration");
 
+=======
+>>>>>>> initial import of runelite
 		// Load user configuration
 		configManager.load();
 
@@ -288,8 +348,11 @@ public class RuneLite
 		// This will initialize configuration
 		pluginManager.loadCorePlugins();
 
+<<<<<<< HEAD
 		SplashScreen.stage(.70, null, "Finalizing configuration");
 
+=======
+>>>>>>> initial import of runelite
 		// Plugins have provided their config, so set default config
 		// to main settings
 		pluginManager.loadDefaultPluginConfiguration();
@@ -297,10 +360,15 @@ public class RuneLite
 		// Start client session
 		clientSessionManager.start();
 
+<<<<<<< HEAD
 		SplashScreen.stage(.75, null, "Starting core interface");
 
 		// Initialize UI
 		clientUI.init(this);
+=======
+		// Initialize UI
+		clientUI.open(this);
+>>>>>>> initial import of runelite
 
 		// Initialize Discord service
 		discordService.init();
@@ -311,13 +379,20 @@ public class RuneLite
 		eventBus.register(overlayManager);
 		eventBus.register(drawManager);
 		eventBus.register(infoBoxManager);
+<<<<<<< HEAD
+=======
+		eventBus.register(partyService);
+>>>>>>> initial import of runelite
 
 		if (!isOutdated)
 		{
 			// Initialize chat colors
 			chatMessageManager.get().loadColors();
 
+<<<<<<< HEAD
 			eventBus.register(partyService.get());
+=======
+>>>>>>> initial import of runelite
 			eventBus.register(overlayRenderer.get());
 			eventBus.register(clanManager.get());
 			eventBus.register(itemManager.get());
@@ -326,7 +401,10 @@ public class RuneLite
 			eventBus.register(commandManager.get());
 			eventBus.register(lootManager.get());
 			eventBus.register(chatboxPanelManager.get());
+<<<<<<< HEAD
 			eventBus.register(hooks.get());
+=======
+>>>>>>> initial import of runelite
 
 			// Add core overlays
 			WidgetOverlay.createOverlays(client).forEach(overlayManager::add);
@@ -337,10 +415,13 @@ public class RuneLite
 
 		// Start plugins
 		pluginManager.startCorePlugins();
+<<<<<<< HEAD
 
 		SplashScreen.stop();
 
 		clientUI.show();
+=======
+>>>>>>> initial import of runelite
 	}
 
 	public void shutdown()
@@ -348,6 +429,21 @@ public class RuneLite
 		configManager.sendConfig();
 		clientSessionManager.shutdown();
 		discordService.close();
+<<<<<<< HEAD
+=======
+
+		for (final Plugin plugin : pluginManager.getPlugins())
+		{
+			try
+			{
+				pluginManager.stopPlugin(plugin);
+			}
+			catch (PluginInstantiationException e)
+			{
+				log.warn("Failed to gracefully close plugin", e);
+			}
+		}
+>>>>>>> initial import of runelite
 	}
 
 	@VisibleForTesting

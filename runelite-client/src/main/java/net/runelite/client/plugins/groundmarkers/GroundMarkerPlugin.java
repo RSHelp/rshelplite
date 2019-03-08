@@ -68,26 +68,39 @@ public class GroundMarkerPlugin extends Plugin
 {
 	private static final String CONFIG_GROUP = "groundMarker";
 	private static final String MARK = "Mark tile";
+<<<<<<< HEAD
 	private static final String UNMARK = "Unmark tile";
 	private static final String WALK_HERE = "Walk here";
 	private static final String REGION_PREFIX = "region_";
 
 	private static final Gson GSON = new Gson();
+=======
+	private static final String WALK_HERE = "Walk here";
+
+	private static final Gson gson = new Gson();
+>>>>>>> initial import of runelite
 
 	@Getter(AccessLevel.PACKAGE)
 	@Setter(AccessLevel.PACKAGE)
 	private boolean hotKeyPressed;
 
 	@Getter(AccessLevel.PACKAGE)
+<<<<<<< HEAD
 	private final List<ColorTileMarker> points = new ArrayList<>();
+=======
+	private final List<WorldPoint> points = new ArrayList<>();
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Client client;
 
 	@Inject
+<<<<<<< HEAD
 	private GroundMarkerConfig config;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private GroundMarkerInputListener inputListener;
 
 	@Inject
@@ -100,25 +113,38 @@ public class GroundMarkerPlugin extends Plugin
 	private GroundMarkerOverlay overlay;
 
 	@Inject
+<<<<<<< HEAD
 	private GroundMarkerMinimapOverlay minimapOverlay;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private KeyManager keyManager;
 
 	private void savePoints(int regionId, Collection<GroundMarkerPoint> points)
 	{
 		if (points == null || points.isEmpty())
 		{
+<<<<<<< HEAD
 			configManager.unsetConfiguration(CONFIG_GROUP, REGION_PREFIX + regionId);
 			return;
 		}
 
 		String json = GSON.toJson(points);
 		configManager.setConfiguration(CONFIG_GROUP, REGION_PREFIX + regionId, json);
+=======
+			configManager.unsetConfiguration(CONFIG_GROUP, "region_" + regionId);
+			return;
+		}
+
+		String json = gson.toJson(points);
+		configManager.setConfiguration(CONFIG_GROUP, "region_" + regionId, json);
+>>>>>>> initial import of runelite
 	}
 
 	private Collection<GroundMarkerPoint> getPoints(int regionId)
 	{
+<<<<<<< HEAD
 		String json = configManager.getConfiguration(CONFIG_GROUP, REGION_PREFIX + regionId);
 		if (Strings.isNullOrEmpty(json))
 		{
@@ -128,6 +154,16 @@ public class GroundMarkerPlugin extends Plugin
 		// CHECKSTYLE:OFF
 		return GSON.fromJson(json, new TypeToken<List<GroundMarkerPoint>>(){}.getType());
 		// CHECKSTYLE:ON
+=======
+		String json = configManager.getConfiguration(CONFIG_GROUP, "region_" + regionId);
+		if (Strings.isNullOrEmpty(json))
+		{
+			return Collections.EMPTY_LIST;
+		}
+		return gson.fromJson(json, new TypeToken<List<GroundMarkerPoint>>()
+		{
+		}.getType());
+>>>>>>> initial import of runelite
 	}
 
 	@Provides
@@ -141,23 +177,32 @@ public class GroundMarkerPlugin extends Plugin
 		points.clear();
 
 		int[] regions = client.getMapRegions();
+<<<<<<< HEAD
 
 		if (regions == null)
 		{
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		for (int regionId : regions)
 		{
 			// load points for region
 			log.debug("Loading points for region {}", regionId);
 			Collection<GroundMarkerPoint> regionPoints = getPoints(regionId);
+<<<<<<< HEAD
 			Collection<ColorTileMarker> colorTileMarkers = translateToColorTileMarker(regionPoints);
 			points.addAll(colorTileMarkers);
+=======
+			Collection<WorldPoint> worldPoints = translateToWorld(regionPoints);
+			points.addAll(worldPoints);
+>>>>>>> initial import of runelite
 		}
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Translate a collection of ground marker points to color tile markers, accounting for instances
 	 *
 	 * @param points {@link GroundMarkerPoint}s to be converted to {@link ColorTileMarker}s
@@ -180,6 +225,36 @@ public class GroundMarkerPlugin extends Plugin
 				final Collection<WorldPoint> localWorldPoints = WorldPoint.toLocalInstance(client, colorTile.getWorldPoint());
 				return localWorldPoints.stream().map(wp -> new ColorTileMarker(wp, colorTile.getColor()));
 			})
+=======
+	 * Translate a collection of ground marker points to world points, accounting for instances
+	 *
+	 * @param points
+	 * @return
+	 */
+	private Collection<WorldPoint> translateToWorld(Collection<GroundMarkerPoint> points)
+	{
+		if (points.isEmpty())
+		{
+			return Collections.EMPTY_LIST;
+		}
+
+		return points.stream()
+			.map(point ->
+			{
+				int regionId = point.getRegionId();
+				int regionX = point.getRegionX();
+				int regionY = point.getRegionY();
+				int z = point.getZ();
+
+				// world point of the tile marker
+				return new WorldPoint(
+					((regionId >>> 8) << 6) + regionX,
+					((regionId & 0xff) << 6) + regionY,
+					z
+				);
+			})
+			.flatMap(wp -> WorldPoint.toLocalInstance(client, wp).stream())
+>>>>>>> initial import of runelite
 			.collect(Collectors.toList());
 	}
 
@@ -209,6 +284,7 @@ public class GroundMarkerPlugin extends Plugin
 	{
 		if (hotKeyPressed && event.getOption().equals(WALK_HERE))
 		{
+<<<<<<< HEAD
 			final Tile selectedSceneTile = client.getSelectedSceneTile();
 
 			if (selectedSceneTile == null)
@@ -227,6 +303,16 @@ public class GroundMarkerPlugin extends Plugin
 			menuEntry.setOption(getPoints(regionId).contains(point) ? UNMARK : MARK);
 			menuEntry.setTarget(event.getTarget());
 			menuEntry.setType(MenuAction.RUNELITE.getId());
+=======
+			MenuEntry[] menuEntries = client.getMenuEntries();
+			menuEntries = Arrays.copyOf(menuEntries, menuEntries.length + 1);
+
+			MenuEntry menuEntry = menuEntries[menuEntries.length - 1] = new MenuEntry();
+
+			menuEntry.setOption(MARK);
+			menuEntry.setTarget(event.getTarget());
+			menuEntry.setType(MenuAction.CANCEL.getId());
+>>>>>>> initial import of runelite
 
 			client.setMenuEntries(menuEntries);
 		}
@@ -235,8 +321,12 @@ public class GroundMarkerPlugin extends Plugin
 	@Subscribe
 	public void onMenuOptionClicked(MenuOptionClicked event)
 	{
+<<<<<<< HEAD
 		if (event.getMenuAction().getId() != MenuAction.RUNELITE.getId() ||
 			!(event.getMenuOption().equals(MARK) || event.getMenuOption().equals(UNMARK)))
+=======
+		if (!event.getMenuOption().equals(MARK))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -253,21 +343,33 @@ public class GroundMarkerPlugin extends Plugin
 	protected void startUp()
 	{
 		overlayManager.add(overlay);
+<<<<<<< HEAD
 		overlayManager.add(minimapOverlay);
 		keyManager.registerKeyListener(inputListener);
 		loadPoints();
+=======
+		keyManager.registerKeyListener(inputListener);
+>>>>>>> initial import of runelite
 	}
 
 	@Override
 	protected void shutDown()
 	{
 		overlayManager.remove(overlay);
+<<<<<<< HEAD
 		overlayManager.remove(minimapOverlay);
 		keyManager.unregisterKeyListener(inputListener);
 		points.clear();
 	}
 
 	private void markTile(LocalPoint localPoint)
+=======
+		keyManager.unregisterKeyListener(inputListener);
+	}
+
+
+	protected void markTile(LocalPoint localPoint)
+>>>>>>> initial import of runelite
 	{
 		if (localPoint == null)
 		{
@@ -277,6 +379,7 @@ public class GroundMarkerPlugin extends Plugin
 		WorldPoint worldPoint = WorldPoint.fromLocalInstance(client, localPoint);
 
 		int regionId = worldPoint.getRegionID();
+<<<<<<< HEAD
 		GroundMarkerPoint point = new GroundMarkerPoint(regionId, worldPoint.getRegionX(), worldPoint.getRegionY(), client.getPlane(), config.markerColor());
 		log.debug("Updating point: {} - {}", point, worldPoint);
 
@@ -295,3 +398,23 @@ public class GroundMarkerPlugin extends Plugin
 		loadPoints();
 	}
 }
+=======
+		GroundMarkerPoint point = new GroundMarkerPoint(regionId, worldPoint.getX() & 0x3f, worldPoint.getY() & 0x3f, client.getPlane());
+		log.debug("Updating point: {} - {}", point, worldPoint);
+
+		List<GroundMarkerPoint> points = new ArrayList<>(getPoints(regionId));
+		if (points.contains(point))
+		{
+			points.remove(point);
+		}
+		else
+		{
+			points.add(point);
+		}
+
+		savePoints(regionId, points);
+
+		loadPoints();
+	}
+}
+>>>>>>> initial import of runelite

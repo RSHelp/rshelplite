@@ -55,7 +55,11 @@ public enum Emote
 	BLOW_KISS("Blow Kiss", EMOTE_BLOW_KISS),
 	GOBLIN_SALUTE("Goblin Salute", EMOTE_GOBLIN_SALUTE),
 	SLAP_HEAD("Slap Head", EMOTE_SLAP_HEAD),
+<<<<<<< HEAD
 	STAMP("Stamp", EMOTE_STAMP),
+=======
+	STOMP("Stomp", EMOTE_STOMP),
+>>>>>>> initial import of runelite
 	FLAP("Flap", EMOTE_FLAP),
 	PUSH_UP("Push up", EMOTE_PUSH_UP);
 

@@ -27,7 +27,13 @@ package net.runelite.client.plugins.gpu;
 import com.jogamp.opengl.GL4;
 import java.io.InputStream;
 import java.util.Scanner;
+<<<<<<< HEAD
 
+=======
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+>>>>>>> initial import of runelite
 class GLUtil
 {
 	private static final int ERR_LEN = 1024;

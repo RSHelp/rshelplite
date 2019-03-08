@@ -31,7 +31,11 @@ uniform float smoothBanding;
 uniform vec4 fogColor;
 
 in vec4 Color;
+<<<<<<< HEAD
 centroid in float fHsl;
+=======
+in float fHsl;
+>>>>>>> initial import of runelite
 in vec4 fUv;
 in float fogAmount;
 

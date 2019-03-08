@@ -108,7 +108,11 @@ class SpritePixels
 
 	}
 
+<<<<<<< HEAD
 	public void drawAtOn(Rasterizer2D graphics, int x, int y)
+=======
+	public void drawAtOn(Rasterizer2D graphics,  int x, int y)
+>>>>>>> initial import of runelite
 	{
 		x += this.offsetX;
 		y += this.offsetY;

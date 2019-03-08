@@ -216,6 +216,7 @@ public class ChatClient
 			return Integer.parseInt(response.body().string());
 		}
 	}
+<<<<<<< HEAD
 
 	public boolean submitGc(String username, int gc) throws IOException
 	{
@@ -309,4 +310,6 @@ public class ChatClient
 			throw new IOException(ex);
 		}
 	}
+=======
+>>>>>>> initial import of runelite
 }

@@ -45,7 +45,10 @@ import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+<<<<<<< HEAD
 import java.time.Duration;
+=======
+>>>>>>> initial import of runelite
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Date;
@@ -60,7 +63,10 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
+<<<<<<< HEAD
 import net.runelite.api.coords.WorldPoint;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.client.RuneLite;
 import net.runelite.client.account.AccountSession;
@@ -101,9 +107,12 @@ public class ConfigManager
 
 	public final void switchSession(AccountSession session)
 	{
+<<<<<<< HEAD
 		// Ensure existing config is saved
 		sendConfig();
 
+=======
+>>>>>>> initial import of runelite
 		if (session == null)
 		{
 			this.session = null;
@@ -167,7 +176,10 @@ public class ConfigManager
 			return;
 		}
 
+<<<<<<< HEAD
 		handler.invalidate();
+=======
+>>>>>>> initial import of runelite
 		properties.clear();
 
 		for (ConfigEntry entry : configuration.getConfig())
@@ -276,7 +288,10 @@ public class ConfigManager
 
 	private synchronized void loadFromFile()
 	{
+<<<<<<< HEAD
 		handler.invalidate();
+=======
+>>>>>>> initial import of runelite
 		properties.clear();
 
 		try (FileInputStream in = new FileInputStream(propertiesFile))
@@ -322,7 +337,11 @@ public class ConfigManager
 		}
 	}
 
+<<<<<<< HEAD
 	private void saveToFile(final File propertiesFile) throws IOException
+=======
+	private synchronized void saveToFile(final File propertiesFile) throws IOException
+>>>>>>> initial import of runelite
 	{
 		propertiesFile.getParentFile().mkdirs();
 
@@ -393,13 +412,32 @@ public class ConfigManager
 		}
 
 		log.debug("Setting configuration value for {}.{} to {}", groupName, key, value);
+<<<<<<< HEAD
 		handler.invalidate();
+=======
+>>>>>>> initial import of runelite
 
 		synchronized (pendingChanges)
 		{
 			pendingChanges.put(groupName + "." + key, value);
 		}
 
+<<<<<<< HEAD
+=======
+		Runnable task = () ->
+		{
+			try
+			{
+				saveToFile(propertiesFile);
+			}
+			catch (IOException ex)
+			{
+				log.warn("unable to save configuration file", ex);
+			}
+		};
+		executor.execute(task);
+
+>>>>>>> initial import of runelite
 		ConfigChanged configChanged = new ConfigChanged();
 		configChanged.setGroup(groupName);
 		configChanged.setKey(key);
@@ -424,13 +462,32 @@ public class ConfigManager
 		}
 
 		log.debug("Unsetting configuration value for {}.{}", groupName, key);
+<<<<<<< HEAD
 		handler.invalidate();
+=======
+>>>>>>> initial import of runelite
 
 		synchronized (pendingChanges)
 		{
 			pendingChanges.put(groupName + "." + key, null);
 		}
 
+<<<<<<< HEAD
+=======
+		Runnable task = () ->
+		{
+			try
+			{
+				saveToFile(propertiesFile);
+			}
+			catch (IOException ex)
+			{
+				log.warn("unable to save configuration file", ex);
+			}
+		};
+		executor.execute(task);
+
+>>>>>>> initial import of runelite
 		ConfigChanged configChanged = new ConfigChanged();
 		configChanged.setGroup(groupName);
 		configChanged.setKey(key);
@@ -507,9 +564,13 @@ public class ConfigManager
 
 			if (!override)
 			{
+<<<<<<< HEAD
 				// This checks if it is set and is also unmarshallable to the correct type; so
 				// we will overwrite invalid config values with the default
 				Object current = getConfiguration(group.value(), item.keyName(), method.getReturnType());
+=======
+				String current = getConfiguration(group.value(), item.keyName());
+>>>>>>> initial import of runelite
 				if (current != null)
 				{
 					continue; // something else is already set
@@ -529,10 +590,14 @@ public class ConfigManager
 
 			String current = getConfiguration(group.value(), item.keyName());
 			String valueString = objectToString(defaultValue);
+<<<<<<< HEAD
 			// null and the empty string are treated identically in sendConfig and treated as an unset
 			// If a config value defaults to "" and the current value is null, it will cause an extra
 			// unset to be sent, so treat them as equal
 			if (Objects.equals(current, valueString) || (Strings.isNullOrEmpty(current) && Strings.isNullOrEmpty(valueString)))
+=======
+			if (Objects.equals(current, valueString))
+>>>>>>> initial import of runelite
 			{
 				continue; // already set to the default value
 			}
@@ -599,6 +664,7 @@ public class ConfigManager
 			}
 			return new Keybind(code, mods);
 		}
+<<<<<<< HEAD
 		if (type == WorldPoint.class)
 		{
 			String[] splitStr = str.split(":");
@@ -611,6 +677,8 @@ public class ConfigManager
 		{
 			return Duration.ofMillis(Long.parseLong(str));
 		}
+=======
+>>>>>>> initial import of runelite
 		return str;
 	}
 
@@ -648,6 +716,7 @@ public class ConfigManager
 			Keybind k = (Keybind) object;
 			return k.getKeyCode() + ":" + k.getModifiers();
 		}
+<<<<<<< HEAD
 		if (object instanceof WorldPoint)
 		{
 			WorldPoint wp = (WorldPoint) object;
@@ -657,12 +726,17 @@ public class ConfigManager
 		{
 			return Long.toString(((Duration) object).toMillis());
 		}
+=======
+>>>>>>> initial import of runelite
 		return object.toString();
 	}
 
 	public void sendConfig()
 	{
+<<<<<<< HEAD
 		boolean changed;
+=======
+>>>>>>> initial import of runelite
 		synchronized (pendingChanges)
 		{
 			if (client != null)
@@ -682,6 +756,7 @@ public class ConfigManager
 					}
 				}
 			}
+<<<<<<< HEAD
 			changed = !pendingChanges.isEmpty();
 			pendingChanges.clear();
 		}
@@ -697,5 +772,9 @@ public class ConfigManager
 				log.warn("unable to save configuration file", ex);
 			}
 		}
+=======
+			pendingChanges.clear();
+		}
+>>>>>>> initial import of runelite
 	}
 }

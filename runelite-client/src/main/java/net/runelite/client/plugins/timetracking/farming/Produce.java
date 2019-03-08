@@ -93,8 +93,13 @@ public enum Produce
 	// Tree crops
 	OAK("Oak", ItemID.OAK_LOGS, 40, 5),
 	WILLOW("Willow", ItemID.WILLOW_LOGS, 40, 7),
+<<<<<<< HEAD
 	MAPLE("Maple", ItemID.MAPLE_LOGS, 40, 9),
 	YEW("Yew", ItemID.YEW_LOGS, 40, 11),
+=======
+	MAPLE("Maple", ItemID.MAPLE_TREE, 40, 9),
+	YEW("Yew", ItemID.YEW_TREE, 40, 11),
+>>>>>>> initial import of runelite
 	MAGIC("Magic", ItemID.MAGIC_LOGS, 40, 13),
 
 	// Fruit tree crops
@@ -129,8 +134,12 @@ public enum Produce
 	SPIRIT_TREE("Spirit tree", ItemID.SPIRIT_TREE, 320, 13),
 	CELASTRUS("Celastrus", ItemID.BATTLESTAFF, 160, 6, 0, 4),
 	REDWOOD("Redwood", ItemID.REDWOOD_LOGS, 640, 11),
+<<<<<<< HEAD
 	HESPORI("Hespori", NullItemID.NULL_23044, 640, 4, 0, 2),
 	CRYSTAL_TREE("Crystal tree", ItemID.CRYSTAL_SHARDS, 80, 7);
+=======
+	HESPORI("Hespori", NullItemID.NULL_23044, 640, 4, 0, 2);
+>>>>>>> initial import of runelite
 
 	/**
 	 * User-visible name

@@ -61,6 +61,10 @@ public class StatChangeIndicator extends InfoBox
 	public boolean render()
 	{
 		final int time = up ? plugin.getChangeUpTicks() : plugin.getChangeDownTicks();
+<<<<<<< HEAD
 		return config.displayInfoboxes() && time != -1;
+=======
+		return config.displayIndicators() && time != -1;
+>>>>>>> initial import of runelite
 	}
 }

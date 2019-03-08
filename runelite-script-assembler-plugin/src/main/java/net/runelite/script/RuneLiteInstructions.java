@@ -33,6 +33,10 @@ public class RuneLiteInstructions extends Instructions
 	public void init()
 	{
 		super.init();
+<<<<<<< HEAD
 		add(RUNELITE_EXECUTE, "runelite_callback");
+=======
+		add(RUNELITE_EXECUTE, "runelite_callback", 0, 0, 1, 0);
+>>>>>>> initial import of runelite
 	}
 }

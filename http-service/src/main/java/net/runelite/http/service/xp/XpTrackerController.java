@@ -28,7 +28,10 @@ import java.time.Instant;
 import net.runelite.http.api.xp.XpData;
 import net.runelite.http.service.xp.beans.XpEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+>>>>>>> initial import of runelite
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,13 +43,21 @@ public class XpTrackerController
 	@Autowired
 	private XpTrackerService xpTrackerService;
 
+<<<<<<< HEAD
 	@GetMapping("/update")
+=======
+	@RequestMapping("/update")
+>>>>>>> initial import of runelite
 	public void update(@RequestParam String username)
 	{
 		xpTrackerService.tryUpdate(username);
 	}
 
+<<<<<<< HEAD
 	@GetMapping("/get")
+=======
+	@RequestMapping("/get")
+>>>>>>> initial import of runelite
 	public XpData get(@RequestParam String username, @RequestParam(required = false) Instant time)
 	{
 		if (time == null)

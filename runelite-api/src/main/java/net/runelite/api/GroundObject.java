@@ -24,14 +24,18 @@
  */
 package net.runelite.api;
 
+<<<<<<< HEAD
 import java.awt.Shape;
 
+=======
+>>>>>>> initial import of runelite
 /**
  * Represents an object on the ground of a tile.
  */
 public interface GroundObject extends TileObject
 {
 	Renderable getRenderable();
+<<<<<<< HEAD
 
 	/**
 	 * Gets the convex hull of the objects model.
@@ -40,4 +44,6 @@ public interface GroundObject extends TileObject
 	 * @see net.runelite.api.model.Jarvis
 	 */
 	Shape getConvexHull();
+=======
+>>>>>>> initial import of runelite
 }

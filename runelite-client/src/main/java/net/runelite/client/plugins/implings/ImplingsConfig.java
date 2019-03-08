@@ -236,6 +236,7 @@ public interface ImplingsConfig extends Config
 
 	@ConfigItem(
 		position = 19,
+<<<<<<< HEAD
 		keyName = "showCrystal",
 		name = "Show Crystal implings",
 		description = "Configures whether or not Crystal implings are displayed"
@@ -258,6 +259,8 @@ public interface ImplingsConfig extends Config
 
 	@ConfigItem(
 		position = 21,
+=======
+>>>>>>> initial import of runelite
 		keyName = "showdragon",
 		name = "Show Dragon implings",
 		description = "Configures whether or not Dragon impling tags are displayed"
@@ -268,7 +271,11 @@ public interface ImplingsConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 22,
+=======
+		position = 20,
+>>>>>>> initial import of runelite
 		keyName = "dragonColor",
 		name = "Dragon impling color",
 		description = "Text color for Dragon implings"
@@ -279,7 +286,11 @@ public interface ImplingsConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 23,
+=======
+		position = 21,
+>>>>>>> initial import of runelite
 		keyName = "showlucky",
 		name = "Show Lucky implings",
 		description = "Configures whether or not Lucky impling tags are displayed"
@@ -290,7 +301,11 @@ public interface ImplingsConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 24,
+=======
+		position = 22,
+>>>>>>> initial import of runelite
 		keyName = "luckyColor",
 		name = "Lucky impling color",
 		description = "Text color for Lucky implings"
@@ -301,7 +316,11 @@ public interface ImplingsConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 25,
+=======
+		position = 23,
+>>>>>>> initial import of runelite
 		keyName = "showspawn",
 		name = "Show Spawn locations",
 		description = "Configures whether or not spawn locations are displayed in Puro Puro"
@@ -312,7 +331,11 @@ public interface ImplingsConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 26,
+=======
+		position = 24,
+>>>>>>> initial import of runelite
 		keyName = "spawnColor",
 		name = "Impling spawn color",
 		description = "Text color for impling spawns in Puro Puro"
@@ -323,7 +346,11 @@ public interface ImplingsConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 27,
+=======
+		position = 25,
+>>>>>>> initial import of runelite
 		keyName = "showname",
 		name = "Show name on minimap",
 		description = "Configures whether or not impling names are displayed on minimap"

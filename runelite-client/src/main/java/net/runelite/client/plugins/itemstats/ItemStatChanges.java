@@ -33,7 +33,10 @@ import lombok.extern.slf4j.Slf4j;
 import static net.runelite.api.ItemID.*;
 import static net.runelite.client.plugins.itemstats.Builders.*;
 import net.runelite.client.plugins.itemstats.food.Anglerfish;
+<<<<<<< HEAD
 import net.runelite.client.plugins.itemstats.potions.GauntletPotion;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.itemstats.potions.PrayerPotion;
 import net.runelite.client.plugins.itemstats.potions.SaradominBrew;
 import net.runelite.client.plugins.itemstats.potions.SuperRestore;
@@ -60,22 +63,37 @@ public class ItemStatChanges
 		add(food(3), SHRIMPS, COOKED_MEAT, COOKED_CHICKEN, ROE, CHOCOLATE_BAR);
 		add(food(4), SARDINE, CAKE, _23_CAKE, SLICE_OF_CAKE, CHOCOLATEY_MILK, BAKED_POTATO, EDIBLE_SEAWEED, MOONLIGHT_MEAD);
 		add(food(5), BREAD, HERRING, CHOCOLATE_CAKE, _23_CHOCOLATE_CAKE, CHOCOLATE_SLICE, COOKED_RABBIT, CHILLI_CON_CARNE,
+<<<<<<< HEAD
 			FRIED_MUSHROOMS, FRIED_ONIONS, REDBERRY_PIE, HALF_A_REDBERRY_PIE, CAVIAR, PYSK_FISH_0);
+=======
+			FRIED_MUSHROOMS, FRIED_ONIONS, REDBERRY_PIE, HALF_A_REDBERRY_PIE, CAVIAR);
+>>>>>>> initial import of runelite
 		add(food(6), CHOCICE, MACKEREL, MEAT_PIE, HALF_A_MEAT_PIE, GUANIC_BAT_0, ROAST_BIRD_MEAT,
 			SQUARE_SANDWICH, ROLL, BAGUETTE, TRIANGLE_SANDWICH, GIANT_CARP);
 		add(food(7), TROUT, COD, PLAIN_PIZZA, _12_PLAIN_PIZZA, APPLE_PIE, HALF_AN_APPLE_PIE, ROAST_RABBIT,
 			PREMADE_CH_CRUNCH, CHOCCHIP_CRUNCHIES, PREMADE_SY_CRUNCH, SPICY_CRUNCHIES);
 		add(food(8), PIKE, ROAST_BEAST_MEAT, MEAT_PIZZA, _12_MEAT_PIZZA, PREMADE_WM_CRUN, WORM_CRUNCHIES, PREMADE_TD_CRUNCH,
+<<<<<<< HEAD
 			TOAD_CRUNCHIES, EGG_AND_TOMATO, PRAEL_BAT_1, PEACH, SUPHI_FISH_1);
+=======
+			TOAD_CRUNCHIES, EGG_AND_TOMATO, LECKISH_FISH_2, PRAEL_BAT_1, PEACH);
+>>>>>>> initial import of runelite
 		add(food(9), PREMADE_P_PUNCH, PINEAPPLE_PUNCH, PREMADE_FR_BLAST, FRUIT_BLAST, SALMON, ANCHOVY_PIZZA,
 			_12_ANCHOVY_PIZZA);
 		add(food(10), TUNA, COOKED_CRAB_MEAT, CHOPPED_TUNA, COOKED_CHOMPY, FIELD_RATION);
 		add(food(11), RAINBOW_FISH, STEW, PINEAPPLE_PIZZA, _12_PINEAPPLE_PIZZA, COOKED_FISHCAKE,
 			PREMADE_VEG_BATTA, VEGETABLE_BATTA, PREMADE_WM_BATTA, WORM_BATTA, PREMADE_TD_BATTA, TOAD_BATTA, PREMADE_CT_BATTA,
+<<<<<<< HEAD
 			CHEESETOM_BATTA, PREMADE_FRT_BATTA, FRUIT_BATTA, MUSHROOM__ONION, GIRAL_BAT_2, LAVA_EEL, LECKISH_FISH_2);
 		add(food(12), LOBSTER, PREMADE_WORM_HOLE, WORM_HOLE, PREMADE_VEG_BALL, VEG_BALL);
 		add(food(13), BASS, TUNA_AND_CORN);
 		add(food(14), POTATO_WITH_BUTTER, CHILLI_POTATO, SWORDFISH, PHLUXIA_BAT_3, PUMPKIN, EASTER_EGG, BRAWK_FISH_3);
+=======
+			CHEESETOM_BATTA, PREMADE_FRT_BATTA, FRUIT_BATTA, MUSHROOM__ONION, GIRAL_BAT_2, LAVA_EEL);
+		add(food(12), LOBSTER, PREMADE_WORM_HOLE, WORM_HOLE, PREMADE_VEG_BALL, VEG_BALL);
+		add(food(13), BASS, TUNA_AND_CORN);
+		add(food(14), POTATO_WITH_BUTTER, CHILLI_POTATO, SWORDFISH, PHLUXIA_BAT_3, PUMPKIN, EASTER_EGG);
+>>>>>>> initial import of runelite
 		add(food(15), PREMADE_TTL, TANGLED_TOADS_LEGS, PREMADE_CHOC_BOMB, CHOCOLATE_BOMB, COOKED_JUBBLY);
 		add(food(16), MONKFISH, POTATO_WITH_CHEESE, EGG_POTATO);
 		add(food(17), MYCIL_FISH_4, KRYKET_BAT_4);
@@ -93,7 +111,10 @@ public class ItemStatChanges
 		add(combo(2, food(8), heal(RUN_ENERGY, 5)), PAPAYA_FRUIT);
 		add(range(food(5), food(7)), THIN_SNAIL_MEAT);
 		add(range(food(7), food(9)), FAT_SNAIL_MEAT);
+<<<<<<< HEAD
 		add(range(food(7), food(10)), SPIDER_ON_STICK_6297, SPIDER_ON_SHAFT_6299);
+=======
+>>>>>>> initial import of runelite
 
 		// Dorgeshuun Cuisine
 		add(food(2), BAT_SHISH, COATED_FROGS_LEGS, FILLETS, FINGERS, FROGBURGER, FROGSPAWN_GUMBO, GREEN_GLOOP_SOUP,
@@ -136,12 +157,15 @@ public class ItemStatChanges
 		add(boost(MAGIC, perc(.15, 5)), SUPER_MAGIC_POTION_1, SUPER_MAGIC_POTION_2, SUPER_MAGIC_POTION_3, SUPER_MAGIC_POTION_4);
 		add(combo(2, boost(RANGED, perc(0.1, 4)), boost(DEFENCE, perc(0.15, 5))), BASTION_POTION1, BASTION_POTION2, BASTION_POTION3, BASTION_POTION4);
 		add(combo(2, boost(MAGIC, 4), boost(DEFENCE, perc(0.15, 5))), BATTLEMAGE_POTION1, BATTLEMAGE_POTION2, BATTLEMAGE_POTION3, BATTLEMAGE_POTION4);
+<<<<<<< HEAD
 		add(combo(boost(MAGIC, 4), heal(HITPOINTS, -10)), DIVINE_MAGIC_POTION1, DIVINE_MAGIC_POTION2, DIVINE_MAGIC_POTION3, DIVINE_MAGIC_POTION4);
 		add(combo(boost(RANGED, perc(.10, 4)), heal(HITPOINTS, -10)), DIVINE_RANGING_POTION1, DIVINE_RANGING_POTION2, DIVINE_RANGING_POTION3, DIVINE_RANGING_POTION4);
 		add(combo(boost(ATTACK, perc(.15, 5)), heal(HITPOINTS, -10)), DIVINE_SUPER_ATTACK_POTION1, DIVINE_SUPER_ATTACK_POTION2, DIVINE_SUPER_ATTACK_POTION3, DIVINE_SUPER_ATTACK_POTION4);
 		add(combo(boost(STRENGTH, perc(.15, 5)), heal(HITPOINTS, -10)), DIVINE_SUPER_STRENGTH_POTION1, DIVINE_SUPER_STRENGTH_POTION2, DIVINE_SUPER_STRENGTH_POTION3, DIVINE_SUPER_STRENGTH_POTION4);
 		add(combo(boost(DEFENCE, perc(.15, 5)), heal(HITPOINTS, -10)), DIVINE_SUPER_DEFENCE_POTION1, DIVINE_SUPER_DEFENCE_POTION2, DIVINE_SUPER_DEFENCE_POTION3, DIVINE_SUPER_DEFENCE_POTION4);
 		add(combo(3, boost(ATTACK, perc(.15, 5)), boost(STRENGTH, perc(.15, 5)), boost(DEFENCE, perc(.15, 5)), heal(HITPOINTS, -10)), DIVINE_SUPER_COMBAT_POTION1, DIVINE_SUPER_COMBAT_POTION2, DIVINE_SUPER_COMBAT_POTION3, DIVINE_SUPER_COMBAT_POTION4);
+=======
+>>>>>>> initial import of runelite
 
 		// Regular overload (NMZ)
 		add(combo(5, boost(ATTACK, perc(.15, 5)), boost(STRENGTH, perc(.15, 5)), boost(DEFENCE, perc(.15, 5)), boost(RANGED, perc(.15, 5)), boost(MAGIC, perc(.15, 5)), heal(HITPOINTS, -50)), OVERLOAD_1, OVERLOAD_2, OVERLOAD_3, OVERLOAD_4);
@@ -205,10 +229,13 @@ public class ItemStatChanges
 		add(boost(MAGIC, perc(.10, 1)), IMBUED_HEART);
 		add(combo(boost(ATTACK, 2), boost(STRENGTH, 1), heal(DEFENCE, -1)), JANGERBERRIES);
 
+<<<<<<< HEAD
 		// Gauntlet items
 		add(heal(HITPOINTS, 20), PADDLEFISH);
 		add(new GauntletPotion(), EGNIOL_POTION_1, EGNIOL_POTION_2, EGNIOL_POTION_3, EGNIOL_POTION_4);
 
+=======
+>>>>>>> initial import of runelite
 		log.debug("{} items; {} behaviours loaded", effects.size(), new HashSet<>(effects.values()).size());
 	}
 

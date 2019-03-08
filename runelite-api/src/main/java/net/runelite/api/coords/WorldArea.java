@@ -114,7 +114,12 @@ public class WorldArea
 			return Integer.MAX_VALUE;
 		}
 
+<<<<<<< HEAD
 		return distanceTo2D(other);
+=======
+		Point distances = getAxisDistances(other);
+		return Math.max(distances.getX(), distances.getY());
+>>>>>>> initial import of runelite
 	}
 
 	/**
@@ -129,6 +134,7 @@ public class WorldArea
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Computes the shortest distance to another area while ignoring the plane.
 	 *
 	 * @param other the passed area
@@ -152,6 +158,8 @@ public class WorldArea
 	}
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Checks whether this area is within melee distance of another.
 	 * <p>
 	 * Melee distance is exactly 1 tile, so this method computes and returns

@@ -231,11 +231,14 @@ public enum MenuAction
 	WIDGET_DEFAULT(57),
 
 	/**
+<<<<<<< HEAD
 	 * Casting a spell / op target on a widget
 	 */
 	SPELL_CAST_ON_WIDGET(58),
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Menu action triggered by examining an object.
 	 */
 	EXAMINE_OBJECT(1002),

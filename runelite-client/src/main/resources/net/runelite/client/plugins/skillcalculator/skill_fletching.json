@@ -19,6 +19,15 @@
       "xp": 1.3
     },
     {
+<<<<<<< HEAD
+=======
+      "level": 1,
+      "icon": 806,
+      "name": "Bronze Dart",
+      "xp": 1.8
+    },
+    {
+>>>>>>> initial import of runelite
       "level": 5,
       "icon": 2866,
       "name": "Ogre Arrow",
@@ -62,12 +71,15 @@
     },
     {
       "level": 10,
+<<<<<<< HEAD
       "icon": 806,
       "name": "Bronze Dart",
       "xp": 1.8
     },
     {
       "level": 10,
+=======
+>>>>>>> initial import of runelite
       "icon": 839,
       "name": "Longbow",
       "xp": 10
@@ -487,6 +499,7 @@
       "xp": 10.6
     },
     {
+<<<<<<< HEAD
       "level": 78,
       "icon": 21952,
       "name": "Magic Stock",
@@ -505,6 +518,8 @@
       "xp": 70
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 80,
       "icon": 861,
       "name": "Magic Shortbow",
@@ -530,12 +545,15 @@
     },
     {
       "level": 84,
+<<<<<<< HEAD
       "icon": 21930,
       "name": "Dragon Bolts",
       "xp": 12
     },
     {
       "level": 84,
+=======
+>>>>>>> initial import of runelite
       "icon": 21318,
       "name": "Amethyst Javelin",
       "xp": 13.5
@@ -577,4 +595,8 @@
       "xp": 25
     }
   ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> initial import of runelite

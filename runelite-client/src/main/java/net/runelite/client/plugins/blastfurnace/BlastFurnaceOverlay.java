@@ -35,7 +35,10 @@ import net.runelite.client.ui.overlay.Overlay;
 import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
 import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPosition;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.components.ComponentOrientation;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.components.ImageComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 
@@ -55,7 +58,11 @@ class BlastFurnaceOverlay extends Overlay
 		this.plugin = plugin;
 		this.client = client;
 		setPosition(OverlayPosition.TOP_LEFT);
+<<<<<<< HEAD
 		imagePanelComponent.setOrientation(ComponentOrientation.HORIZONTAL);
+=======
+		imagePanelComponent.setOrientation(PanelComponent.Orientation.HORIZONTAL);
+>>>>>>> initial import of runelite
 		getMenuEntries().add(new OverlayMenuEntry(RUNELITE_OVERLAY_CONFIG, OPTION_CONFIGURE, "Blast furnace overlay"));
 	}
 

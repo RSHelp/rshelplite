@@ -25,6 +25,10 @@
 package net.runelite.client.plugins.raids;
 
 import java.awt.Color;
+<<<<<<< HEAD
+=======
+import java.awt.image.BufferedImage;
+>>>>>>> initial import of runelite
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalTime;
@@ -46,9 +50,15 @@ public class RaidsTimer extends InfoBox
 	@Setter
 	private boolean stopped;
 
+<<<<<<< HEAD
 	public RaidsTimer(Plugin plugin, Instant startTime)
 	{
 		super(null, plugin);
+=======
+	public RaidsTimer(BufferedImage image, Plugin plugin, Instant startTime)
+	{
+		super(image, plugin);
+>>>>>>> initial import of runelite
 		this.startTime = startTime;
 		floorTime = startTime;
 		stopped = false;

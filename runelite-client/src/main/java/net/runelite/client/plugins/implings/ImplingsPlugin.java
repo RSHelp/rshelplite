@@ -34,7 +34,10 @@ import lombok.Getter;
 import net.runelite.api.GameState;
 import net.runelite.api.NPC;
 import net.runelite.api.events.GameStateChanged;
+<<<<<<< HEAD
 import net.runelite.api.events.NpcChanged;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.events.NpcDespawned;
 import net.runelite.api.events.NpcSpawned;
 import net.runelite.client.config.ConfigManager;
@@ -43,10 +46,20 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 
+<<<<<<< HEAD
 @PluginDescriptor(
 	name = "Implings",
 	description = "Highlight nearby implings on the minimap and on-screen",
 	tags = {"hunter", "minimap", "overlay", "imp"}
+=======
+/**
+ * @author robin
+ */
+@PluginDescriptor(
+	name = "Implings",
+	description = "Highlight nearby implings on the minimap and on-screen",
+	tags = {"hunter", "minimap", "overlay"}
+>>>>>>> initial import of runelite
 )
 public class ImplingsPlugin extends Plugin
 {
@@ -71,17 +84,28 @@ public class ImplingsPlugin extends Plugin
 		return configManager.getConfig(ImplingsConfig.class);
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected void startUp()
+=======
+
+	@Override
+	protected void startUp() throws Exception
+>>>>>>> initial import of runelite
 	{
 		overlayManager.add(overlay);
 		overlayManager.add(minimapOverlay);
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void shutDown()
 	{
 		implings.clear();
+=======
+	protected void shutDown() throws Exception
+	{
+>>>>>>> initial import of runelite
 		overlayManager.remove(overlay);
 		overlayManager.remove(minimapOverlay);
 	}
@@ -99,6 +123,7 @@ public class ImplingsPlugin extends Plugin
 	}
 
 	@Subscribe
+<<<<<<< HEAD
 	public void onNpcChanged(NpcChanged npcCompositionChanged)
 	{
 		NPC npc = npcCompositionChanged.getNpc();
@@ -111,6 +136,8 @@ public class ImplingsPlugin extends Plugin
 	}
 
 	@Subscribe
+=======
+>>>>>>> initial import of runelite
 	public void onGameStateChanged(GameStateChanged event)
 	{
 		if (event.getGameState() == GameState.LOGIN_SCREEN || event.getGameState() == GameState.HOPPING)
@@ -164,8 +191,11 @@ public class ImplingsPlugin extends Plugin
 				return config.showMagpie();
 			case NINJA:
 				return config.showNinja();
+<<<<<<< HEAD
 			case CRYSTAL:
 				return config.showCrystal();
+=======
+>>>>>>> initial import of runelite
 			case DRAGON:
 				return config.showDragon();
 			case LUCKY:
@@ -204,8 +234,11 @@ public class ImplingsPlugin extends Plugin
 				return config.getMagpieColor();
 			case NINJA:
 				return config.getNinjaColor();
+<<<<<<< HEAD
 			case CRYSTAL:
 				return config.getCrystalColor();
+=======
+>>>>>>> initial import of runelite
 			case DRAGON:
 				return config.getDragonColor();
 			case LUCKY:

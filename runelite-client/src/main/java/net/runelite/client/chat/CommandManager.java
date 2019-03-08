@@ -48,7 +48,11 @@ public class CommandManager
 {
 	private static final String RUNELITE_COMMAND = "runeliteCommand";
 	private static final String CHATBOX_INPUT = "chatboxInput";
+<<<<<<< HEAD
 	private static final String PRIVATE_MESSAGE = "privateMessage";
+=======
+	private static final String PRIVMATE_MESSAGE = "privateMessage";
+>>>>>>> initial import of runelite
 
 	private final Client client;
 	private final EventBus eventBus;
@@ -91,7 +95,11 @@ public class CommandManager
 			case CHATBOX_INPUT:
 				handleInput(event);
 				break;
+<<<<<<< HEAD
 			case PRIVATE_MESSAGE:
+=======
+			case PRIVMATE_MESSAGE:
+>>>>>>> initial import of runelite
 				handlePrivateMessage(event);
 				break;
 		}

@@ -33,6 +33,7 @@ import javax.inject.Singleton;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+<<<<<<< HEAD
 import net.runelite.api.ChatMessageType;
 import net.runelite.client.account.AccountSession;
 import net.runelite.client.account.SessionManager;
@@ -45,6 +46,15 @@ import static net.runelite.client.util.Text.JAGEX_PRINTABLE_CHAR_MATCHER;
 import net.runelite.http.api.ws.messages.party.Join;
 import net.runelite.http.api.ws.messages.party.Part;
 import net.runelite.http.api.ws.messages.party.PartyChatMessage;
+=======
+import net.runelite.client.account.AccountSession;
+import net.runelite.client.account.SessionManager;
+import net.runelite.client.eventbus.EventBus;
+import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.events.PartyChanged;
+import net.runelite.http.api.ws.messages.party.Join;
+import net.runelite.http.api.ws.messages.party.Part;
+>>>>>>> initial import of runelite
 import net.runelite.http.api.ws.messages.party.UserJoin;
 import net.runelite.http.api.ws.messages.party.UserPart;
 import net.runelite.http.api.ws.messages.party.UserSync;
@@ -54,12 +64,18 @@ import net.runelite.http.api.ws.messages.party.UserSync;
 public class PartyService
 {
 	public static final int PARTY_MAX = 15;
+<<<<<<< HEAD
 	private static final int MAX_MESSAGE_LEN = 150;
+=======
+>>>>>>> initial import of runelite
 
 	private final WSClient wsClient;
 	private final SessionManager sessionManager;
 	private final EventBus eventBus;
+<<<<<<< HEAD
 	private final ChatMessageManager chat;
+=======
+>>>>>>> initial import of runelite
 	private final List<PartyMember> members = new ArrayList<>();
 
 	@Getter
@@ -72,12 +88,19 @@ public class PartyService
 	private String username;
 
 	@Inject
+<<<<<<< HEAD
 	private PartyService(final WSClient wsClient, final SessionManager sessionManager, final EventBus eventBus, final ChatMessageManager chat)
+=======
+	private PartyService(final WSClient wsClient, final SessionManager sessionManager, final EventBus eventBus)
+>>>>>>> initial import of runelite
 	{
 		this.wsClient = wsClient;
 		this.sessionManager = sessionManager;
 		this.eventBus = eventBus;
+<<<<<<< HEAD
 		this.chat = chat;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	public void changeParty(UUID newParty)
@@ -122,6 +145,7 @@ public class PartyService
 	@Subscribe
 	public void onUserJoin(final UserJoin message)
 	{
+<<<<<<< HEAD
 		if (!partyId.equals(message.getPartyId()))
 		{
 			// This can happen when a session is resumed server side after the client party
@@ -129,6 +153,8 @@ public class PartyService
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		final PartyMember partyMember = new PartyMember(message.getMemberId(), message.getName());
 		members.add(partyMember);
 
@@ -149,6 +175,7 @@ public class PartyService
 		members.removeIf(member -> member.getMemberId().equals(message.getMemberId()));
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onPartyChatMessage(final PartyChatMessage message)
 	{
@@ -170,6 +197,8 @@ public class PartyService
 			.build());
 	}
 
+=======
+>>>>>>> initial import of runelite
 	public PartyMember getLocalMember()
 	{
 		return getMemberByName(username);

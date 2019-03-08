@@ -131,7 +131,11 @@ public class WoodcuttingPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() == ChatMessageType.SPAM || event.getType() == ChatMessageType.GAMEMESSAGE)
+=======
+		if (event.getType() == ChatMessageType.FILTERED || event.getType() == ChatMessageType.SERVER)
+>>>>>>> initial import of runelite
 		{
 			if (event.getMessage().startsWith("You get some") && (event.getMessage().endsWith("logs.") || event.getMessage().endsWith("mushrooms.")))
 			{

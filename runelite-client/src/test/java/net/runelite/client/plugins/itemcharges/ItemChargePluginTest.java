@@ -31,11 +31,14 @@ import com.google.inject.testing.fieldbinder.BoundFieldModule;
 import java.util.concurrent.ScheduledExecutorService;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.EquipmentInventorySlot;
 import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
 import net.runelite.api.ItemID;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.events.ChatMessage;
 import net.runelite.client.Notifier;
 import net.runelite.client.config.RuneLiteConfig;
@@ -43,6 +46,7 @@ import net.runelite.client.ui.overlay.OverlayManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+<<<<<<< HEAD
 import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.Mock;
 import static org.mockito.Mockito.mock;
@@ -50,6 +54,13 @@ import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
+=======
+import static org.mockito.Matchers.eq;
+import org.mockito.Mock;
+import static org.mockito.Mockito.reset;
+import static org.mockito.Mockito.verify;
+import org.mockito.runners.MockitoJUnitRunner;
+>>>>>>> initial import of runelite
 
 @RunWith(MockitoJUnitRunner.class)
 public class ItemChargePluginTest
@@ -59,11 +70,14 @@ public class ItemChargePluginTest
 	private static final String PROTECT_1 = "Your dodgy necklace protects you. <col=ff0000>It has 1 charge left.</col>";
 	private static final String BREAK = "Your dodgy necklace protects you. <col=ff0000>It then crumbles to dust.</col>";
 
+<<<<<<< HEAD
 	private static final String CHECK_RING_OF_FORGING_FULL = "You can smelt 140 more pieces of iron ore before a ring melts.";
 	private static final String CHECK_RING_OF_FORGING_ONE = "You can smelt one more piece of iron ore before a ring melts.";
 	private static final String USED_RING_OF_FORGING = "You retrieve a bar of iron.";
 	private static final String BREAK_RING_OF_FORGING = "<col=7f007f>Your Ring of Forging has melted.</col>";
 
+=======
+>>>>>>> initial import of runelite
 	@Mock
 	@Bind
 	private Client client;
@@ -100,21 +114,34 @@ public class ItemChargePluginTest
 	@Test
 	public void testOnChatMessage()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessage = new ChatMessage(null, ChatMessageType.GAMEMESSAGE, "", CHECK, "", 0);
+=======
+		ChatMessage chatMessage = new ChatMessage(null, ChatMessageType.SERVER, "", CHECK, "", 0);
+>>>>>>> initial import of runelite
 		itemChargePlugin.onChatMessage(chatMessage);
 		verify(config).dodgyNecklace(eq(10));
 		reset(config);
 
+<<<<<<< HEAD
 		chatMessage = new ChatMessage(null, ChatMessageType.GAMEMESSAGE, "", PROTECT, "", 0);
+=======
+		chatMessage = new ChatMessage(null, ChatMessageType.SERVER, "", PROTECT, "", 0);
+>>>>>>> initial import of runelite
 		itemChargePlugin.onChatMessage(chatMessage);
 		verify(config).dodgyNecklace(eq(9));
 		reset(config);
 
+<<<<<<< HEAD
 		chatMessage = new ChatMessage(null, ChatMessageType.GAMEMESSAGE, "", PROTECT_1, "", 0);
+=======
+		chatMessage = new ChatMessage(null, ChatMessageType.SERVER, "", PROTECT_1, "", 0);
+>>>>>>> initial import of runelite
 		itemChargePlugin.onChatMessage(chatMessage);
 		verify(config).dodgyNecklace(eq(1));
 		reset(config);
 
+<<<<<<< HEAD
 		chatMessage = new ChatMessage(null, ChatMessageType.GAMEMESSAGE, "", BREAK, "", 0);
 		itemChargePlugin.onChatMessage(chatMessage);
 		verify(config).dodgyNecklace(eq(10));
@@ -148,5 +175,11 @@ public class ItemChargePluginTest
 		itemChargePlugin.onChatMessage(chatMessage);
 		verify(config).ringOfForging(eq(140));
 		reset(config);
+=======
+		chatMessage = new ChatMessage(null, ChatMessageType.SERVER, "", BREAK, "", 0);
+		itemChargePlugin.onChatMessage(chatMessage);
+		verify(config).dodgyNecklace(eq(10));
+		reset(config);
+>>>>>>> initial import of runelite
 	}
 }

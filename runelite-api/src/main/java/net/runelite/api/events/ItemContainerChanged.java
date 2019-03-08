@@ -42,11 +42,14 @@ import net.runelite.api.ItemContainer;
 public class ItemContainerChanged
 {
 	/**
+<<<<<<< HEAD
 	 * The modified container's ID.
 	 */
 	private final int containerId;
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * The modified item container.
 	 */
 	private final ItemContainer itemContainer;

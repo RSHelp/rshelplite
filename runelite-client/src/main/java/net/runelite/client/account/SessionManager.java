@@ -94,7 +94,11 @@ public class SessionManager
 
 		// Check if session is still valid
 		AccountClient accountClient = new AccountClient(session.getUuid());
+<<<<<<< HEAD
 		if (!accountClient.sessionCheck())
+=======
+		if (!accountClient.sesssionCheck())
+>>>>>>> initial import of runelite
 		{
 			log.debug("Loaded session {} is invalid", session.getUuid());
 			return;

@@ -86,6 +86,7 @@ public interface ItemPricesConfig extends Config
 		return false;
 	}
 
+<<<<<<< HEAD
 	@ConfigItem(
 		keyName = "showWhileAlching",
 		name = "Show prices while alching",
@@ -96,4 +97,6 @@ public interface ItemPricesConfig extends Config
 	{
 		return true;
 	}
+=======
+>>>>>>> initial import of runelite
 }

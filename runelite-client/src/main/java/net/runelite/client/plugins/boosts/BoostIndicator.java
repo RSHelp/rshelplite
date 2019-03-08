@@ -87,7 +87,11 @@ public class BoostIndicator extends InfoBox
 	@Override
 	public boolean render()
 	{
+<<<<<<< HEAD
 		if (config.displayInfoboxes() && plugin.canShowBoosts() && plugin.getShownSkills().contains(getSkill()))
+=======
+		if (config.displayIndicators() && plugin.canShowBoosts() && plugin.getShownSkills().contains(getSkill()))
+>>>>>>> initial import of runelite
 		{
 			return client.getBoostedSkillLevel(skill) != client.getRealSkillLevel(skill);
 		}

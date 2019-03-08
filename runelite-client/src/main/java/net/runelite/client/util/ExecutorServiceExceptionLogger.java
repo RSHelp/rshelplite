@@ -34,10 +34,18 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import lombok.RequiredArgsConstructor;
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> initial import of runelite
 
 /**
  * Wrapper for ${@link ScheduledExecutorService} that will log all uncaught exceptions as warning to console
  */
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 @RequiredArgsConstructor
 public class ExecutorServiceExceptionLogger implements ScheduledExecutorService
 {

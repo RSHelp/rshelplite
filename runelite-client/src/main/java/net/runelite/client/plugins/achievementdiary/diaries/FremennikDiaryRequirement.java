@@ -50,9 +50,15 @@ public class FremennikDiaryRequirement extends GenericDiaryRequirement
 		add("Steal from the Keldagrim crafting or baker's stall.",
 			new SkillRequirement(Skill.THIEVING, 5),
 			new QuestRequirement(Quest.THE_GIANT_DWARF, true));
+<<<<<<< HEAD
 		add("Enter the Troll Stronghold.",
 			new QuestRequirement(Quest.DEATH_PLATEAU),
 			new QuestRequirement(Quest.TROLL_STRONGHOLD, true));
+=======
+		add("Enter the Troll Stronghold",
+			new QuestRequirement(Quest.DEATH_PLATEAU),
+			new QuestRequirement(Quest.TROLL_STRONGHOLD));
+>>>>>>> initial import of runelite
 		add("Chop and burn some oak logs in the Fremennik Province.",
 			new SkillRequirement(Skill.WOODCUTTING, 15),
 			new SkillRequirement(Skill.FIREMAKING, 15));

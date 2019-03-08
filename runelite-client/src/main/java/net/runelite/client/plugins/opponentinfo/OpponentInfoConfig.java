@@ -43,6 +43,7 @@ public interface OpponentInfoConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "hitpointsDisplayStyle",
 		name = "Hitpoints display style",
 		description = "Show opponent's hitpoints as a value (if known), percentage, or both",
@@ -62,5 +63,26 @@ public interface OpponentInfoConfig extends Config
 	default boolean showOpponentsInMenu()
 	{
 		return false;
+=======
+		keyName = "showPercent",
+		name = "Show percent",
+		description = "Shows hitpoints as a percentage even if hitpoints are known",
+		position = 1
+	)
+	default boolean showPercent()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "showOpponentsOpponent",
+		name = "Show opponent's opponent",
+		description = "Toggle showing opponent's opponent if within a multi-combat area",
+		position = 2
+	)
+	default boolean showOpponentsOpponent()
+	{
+		return true;
+>>>>>>> initial import of runelite
 	}
 }

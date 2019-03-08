@@ -28,6 +28,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
+<<<<<<< HEAD
  * Server controlled "content-developer" integers.
  *
  * @see VarPlayer
@@ -37,6 +38,9 @@ import lombok.Getter;
  * backing VarPlayer, each with a static range of bits that it is
  * allowed to access. This allows a more compact representation
  * of small values, like booleans
+=======
+ * An enumeration of local client variables.
+>>>>>>> initial import of runelite
  */
 @AllArgsConstructor
 @Getter
@@ -134,11 +138,14 @@ public enum Varbits
 	DIARY_KARAMJA_HARD(3611),
 	DIARY_KARAMJA_ELITE(4566),
 
+<<<<<<< HEAD
 	DIARY_KOUREND_EASY(7925),
 	DIARY_KOUREND_MEDIUM(7926),
 	DIARY_KOUREND_HARD(7927),
 	DIARY_KOUREND_ELITE(7928),
 
+=======
+>>>>>>> initial import of runelite
 	DIARY_LUMBRIDGE_EASY(4495),
 	DIARY_LUMBRIDGE_MEDIUM(4496),
 	DIARY_LUMBRIDGE_HARD(4497),
@@ -225,7 +232,10 @@ public enum Varbits
 	 * Barbarian Assault
 	 */
 	IN_GAME_BA(3923),
+<<<<<<< HEAD
 	BA_GC(4768),
+=======
+>>>>>>> initial import of runelite
 
 	/**
 	 * 0 = Outside wilderness
@@ -383,15 +393,21 @@ public enum Varbits
 	DAILY_RUNES_COLLECTED(4540),
 	DAILY_SAND_COLLECTED(4549),
 	DAILY_FLAX_STATE(4559),
+<<<<<<< HEAD
 	DAILY_ARROWS_STATE(4563),
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * This varbit tracks how much bonemeal has been redeemed from Robin
 	 * The player gets 13 for each diary completed above and including Medium, for a maxiumum of 39
  	*/
 	DAILY_BONEMEAL_STATE(4543),
 
+<<<<<<< HEAD
 	DAILY_DYNAMITE_COLLECTED(7939),
 
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * Fairy Ring
 	 */
@@ -485,6 +501,7 @@ public enum Varbits
 	BANK_TAB_SIX_COUNT(4176),
 	BANK_TAB_SEVEN_COUNT(4177),
 	BANK_TAB_EIGHT_COUNT(4178),
+<<<<<<< HEAD
 	BANK_TAB_NINE_COUNT(4179),
 
 	/**
@@ -508,6 +525,9 @@ public enum Varbits
 	EXPLORER_RING_RUNENERGY(4553),
 
 	WINTERTODT_TIMER(7980);
+=======
+	BANK_TAB_NINE_COUNT(4179);
+>>>>>>> initial import of runelite
 
 	/**
 	 * The raw varbit ID.

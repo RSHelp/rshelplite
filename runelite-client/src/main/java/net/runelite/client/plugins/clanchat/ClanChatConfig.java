@@ -126,6 +126,7 @@ public interface ClanChatConfig extends Config
 	{
 		return false;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "clanTabChat",
@@ -137,4 +138,6 @@ public interface ClanChatConfig extends Config
 	{
 		return false;
 	}
+=======
+>>>>>>> initial import of runelite
 }

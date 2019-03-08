@@ -60,6 +60,7 @@ class AttackStylesOverlay extends Overlay
 
 		if (warnedSkillSelected || config.alwaysShowStyle())
 		{
+<<<<<<< HEAD
 			final AttackStyle attackStyle = plugin.getAttackStyle();
 
 			if (attackStyle == null)
@@ -68,6 +69,9 @@ class AttackStylesOverlay extends Overlay
 			}
 
 			final String attackStyleString = attackStyle.getName();
+=======
+			final String attackStyleString = plugin.getAttackStyle().getName();
+>>>>>>> initial import of runelite
 
 			panelComponent.getChildren().add(TitleComponent.builder()
 				.text(attackStyleString)

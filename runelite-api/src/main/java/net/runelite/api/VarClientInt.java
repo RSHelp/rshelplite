@@ -28,11 +28,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
+<<<<<<< HEAD
  * Client side only, content-developer integers
  *
  * VarCInts are stored entirely in memory, or locally on a user's
  * machine in the preferences2.dat file depending on how Jagex
  * configured the variable
+=======
+ * An enumeration of integer local variables.
+>>>>>>> initial import of runelite
  */
 @AllArgsConstructor
 @Getter
@@ -46,16 +50,22 @@ public enum VarClientInt
 	 */
 	TOOLTIP_VISIBLE(2),
 
+<<<<<<< HEAD
 	/**
 	 * Current message layer mode
 	 * @see net.runelite.api.vars.InputType
 	 */
+=======
+>>>>>>> initial import of runelite
 	INPUT_TYPE(5),
 
 	MEMBERSHIP_STATUS(103),
 
+<<<<<<< HEAD
 	INVENTORY_TAB(171),
 
+=======
+>>>>>>> initial import of runelite
 	WORLD_MAP_SEARCH_FOCUSED(190);
 
 	private final int index;

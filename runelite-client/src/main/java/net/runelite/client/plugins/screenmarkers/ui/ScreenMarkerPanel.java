@@ -29,10 +29,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+<<<<<<< HEAD
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+=======
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+>>>>>>> initial import of runelite
 import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -169,7 +176,16 @@ class ScreenMarkerPanel extends JPanel
 			@Override
 			public void mousePressed(MouseEvent mouseEvent)
 			{
+<<<<<<< HEAD
 				save();
+=======
+				marker.getMarker().setName(nameInput.getText());
+				plugin.updateConfig();
+
+				nameInput.setEditable(false);
+				updateNameActions(false);
+				requestFocusInWindow();
+>>>>>>> initial import of runelite
 			}
 
 			@Override
@@ -193,7 +209,14 @@ class ScreenMarkerPanel extends JPanel
 			@Override
 			public void mousePressed(MouseEvent mouseEvent)
 			{
+<<<<<<< HEAD
 				cancel();
+=======
+				nameInput.setEditable(false);
+				nameInput.setText(marker.getMarker().getName());
+				updateNameActions(false);
+				requestFocusInWindow();
+>>>>>>> initial import of runelite
 			}
 
 			@Override
@@ -244,6 +267,7 @@ class ScreenMarkerPanel extends JPanel
 		nameInput.setPreferredSize(new Dimension(0, 24));
 		nameInput.getTextField().setForeground(Color.WHITE);
 		nameInput.getTextField().setBorder(new EmptyBorder(0, 8, 0, 0));
+<<<<<<< HEAD
 		nameInput.addKeyListener(new KeyAdapter()
 		{
 			@Override
@@ -273,6 +297,8 @@ class ScreenMarkerPanel extends JPanel
 				preview(false);
 			}
 		});
+=======
+>>>>>>> initial import of runelite
 
 		nameWrapper.add(nameInput, BorderLayout.CENTER);
 		nameWrapper.add(nameActions, BorderLayout.EAST);
@@ -380,7 +406,14 @@ class ScreenMarkerPanel extends JPanel
 			@Override
 			public void mousePressed(MouseEvent mouseEvent)
 			{
+<<<<<<< HEAD
 				toggle(!visible);
+=======
+				visible = !visible;
+				marker.getMarker().setVisible(visible);
+				plugin.updateConfig();
+				updateVisibility();
+>>>>>>> initial import of runelite
 			}
 
 			@Override
@@ -442,6 +475,7 @@ class ScreenMarkerPanel extends JPanel
 
 	}
 
+<<<<<<< HEAD
 	private void preview(boolean on)
 	{
 		if (visible)
@@ -478,6 +512,8 @@ class ScreenMarkerPanel extends JPanel
 		requestFocusInWindow();
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void updateNameActions(boolean saveAndCancel)
 	{
 		save.setVisible(saveAndCancel);
@@ -543,35 +579,69 @@ class ScreenMarkerPanel extends JPanel
 
 	private void openFillColorPicker()
 	{
+<<<<<<< HEAD
 		RuneliteColorPicker colorPicker = plugin.getColorPickerManager().create(
 			SwingUtilities.windowForComponent(this),
 			marker.getMarker().getFill(),
 			marker.getMarker().getName() + " Fill",
 			false);
+=======
+		RuneliteColorPicker colorPicker = new RuneliteColorPicker(SwingUtilities.windowForComponent(this),
+			marker.getMarker().getFill(), marker.getMarker().getName() + " Fill", false);
+>>>>>>> initial import of runelite
 		colorPicker.setLocation(getLocationOnScreen());
 		colorPicker.setOnColorChange(c ->
 		{
 			marker.getMarker().setFill(c);
 			updateFill();
 		});
+<<<<<<< HEAD
 		colorPicker.setOnClose(c -> plugin.updateConfig());
+=======
+
+		colorPicker.addWindowListener(new WindowAdapter()
+		{
+			@Override
+			public void windowClosing(WindowEvent e)
+			{
+				plugin.updateConfig();
+			}
+		});
+>>>>>>> initial import of runelite
 		colorPicker.setVisible(true);
 	}
 
 	private void openBorderColorPicker()
 	{
+<<<<<<< HEAD
 		RuneliteColorPicker colorPicker = plugin.getColorPickerManager().create(
 			SwingUtilities.windowForComponent(this),
 			marker.getMarker().getColor(),
 			marker.getMarker().getName() + " Border",
 			false);
+=======
+		RuneliteColorPicker colorPicker = new RuneliteColorPicker(SwingUtilities.windowForComponent(this),
+			marker.getMarker().getColor(), marker.getMarker().getName() + " Border", false);
+>>>>>>> initial import of runelite
 		colorPicker.setLocation(getLocationOnScreen());
 		colorPicker.setOnColorChange(c ->
 		{
 			marker.getMarker().setColor(c);
 			updateBorder();
 		});
+<<<<<<< HEAD
 		colorPicker.setOnClose(c -> plugin.updateConfig());
+=======
+
+		colorPicker.addWindowListener(new WindowAdapter()
+		{
+			@Override
+			public void windowClosing(WindowEvent e)
+			{
+				plugin.updateConfig();
+			}
+		});
+>>>>>>> initial import of runelite
 		colorPicker.setVisible(true);
 	}
 }

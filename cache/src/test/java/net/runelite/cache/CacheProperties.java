@@ -30,7 +30,11 @@ import java.util.Properties;
 
 public class CacheProperties
 {
+<<<<<<< HEAD
 	private static Properties getProperties() throws IOException
+=======
+	private static Properties getProperies() throws IOException
+>>>>>>> initial import of runelite
 	{
 		Properties properties = new Properties();
 		InputStream resourceAsStream = StoreLocation.class.getResourceAsStream("/cache.properties");
@@ -40,11 +44,19 @@ public class CacheProperties
 
 	public static int getRsVersion() throws IOException
 	{
+<<<<<<< HEAD
 		return Integer.parseInt(getProperties().getProperty("rs.version"));
+=======
+		return Integer.parseInt(getProperies().getProperty("rs.version"));
+>>>>>>> initial import of runelite
 	}
 
 	public static int getCacheVersion() throws IOException
 	{
+<<<<<<< HEAD
 		return Integer.parseInt(getProperties().getProperty("cache.version"));
+=======
+		return Integer.parseInt(getProperies().getProperty("cache.version"));
+>>>>>>> initial import of runelite
 	}
 }

@@ -24,7 +24,11 @@
  */
 package net.runelite.client.plugins.blastmine;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
+=======
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Map;
 import lombok.Getter;
 import net.runelite.api.ObjectID;
@@ -37,21 +41,34 @@ public enum BlastMineRockType
 	LIT(ObjectID.POT_OF_DYNAMITE_28585, ObjectID.POT_OF_DYNAMITE_28586),
 	EXPLODED(ObjectID.SHATTERED_ROCKFACE, ObjectID.SHATTERED_ROCKFACE_28588);
 
+<<<<<<< HEAD
 	private static final Map<Integer, BlastMineRockType> rockTypes;
 
 	static
 	{
 		ImmutableMap.Builder<Integer, BlastMineRockType> builder = new ImmutableMap.Builder<>();
 
+=======
+	private static final Map<Integer, BlastMineRockType> rockTypes = new HashMap<>();
+
+	static
+	{
+>>>>>>> initial import of runelite
 		for (BlastMineRockType type : values())
 		{
 			for (int spotId : type.getObjectIds())
 			{
+<<<<<<< HEAD
 				builder.put(spotId, type);
 			}
 		}
 
 		rockTypes = builder.build();
+=======
+				rockTypes.put(spotId, type);
+			}
+		}
+>>>>>>> initial import of runelite
 	}
 
 	@Getter

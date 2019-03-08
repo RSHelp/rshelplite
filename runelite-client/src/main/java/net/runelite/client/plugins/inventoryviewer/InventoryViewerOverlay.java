@@ -30,7 +30,10 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javax.inject.Inject;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemComposition;
@@ -38,15 +41,24 @@ import net.runelite.api.ItemContainer;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.components.ComponentOrientation;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.components.ImageComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 
 class InventoryViewerOverlay extends Overlay
 {
 	private static final int INVENTORY_SIZE = 28;
+<<<<<<< HEAD
 	private static final ImageComponent PLACEHOLDER_IMAGE = new ImageComponent(
 		new BufferedImage(Constants.ITEM_SPRITE_WIDTH, Constants.ITEM_SPRITE_HEIGHT, BufferedImage.TYPE_4BYTE_ABGR));
+=======
+	private static final int PLACEHOLDER_WIDTH = 36;
+	private static final int PLACEHOLDER_HEIGHT = 32;
+	private static final ImageComponent PLACEHOLDER_IMAGE = new ImageComponent(new BufferedImage(PLACEHOLDER_WIDTH, PLACEHOLDER_HEIGHT, BufferedImage.TYPE_4BYTE_ABGR));
+>>>>>>> initial import of runelite
 
 	private final Client client;
 	private final ItemManager itemManager;
@@ -59,7 +71,11 @@ class InventoryViewerOverlay extends Overlay
 		setPosition(OverlayPosition.BOTTOM_RIGHT);
 		panelComponent.setWrapping(4);
 		panelComponent.setGap(new Point(6, 4));
+<<<<<<< HEAD
 		panelComponent.setOrientation(ComponentOrientation.HORIZONTAL);
+=======
+		panelComponent.setOrientation(PanelComponent.Orientation.HORIZONTAL);
+>>>>>>> initial import of runelite
 		this.itemManager = itemManager;
 		this.client = client;
 	}

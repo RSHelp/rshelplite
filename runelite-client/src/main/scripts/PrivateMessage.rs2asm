@@ -3,6 +3,7 @@
 .string_stack_count 0
 .int_var_count      2
 .string_var_count   1
+<<<<<<< HEAD
    get_varc_int           5
    iconst                 14
    if_icmpeq              LABEL4
@@ -25,6 +26,30 @@ LABEL7:
    jump                   LABEL184
 LABEL18:
    get_varc_int           5
+=======
+   get_varc               5
+   load_int               14
+   if_icmpeq              LABEL4
+   jump                   LABEL7
+LABEL4:
+   load_int               1
+   put_varc               66
+   return                
+LABEL7:
+   load_int               -1
+   istore                 0
+   load_string            ""
+   sstore                 0
+   049                    359
+   string_length         
+   istore                 1
+   iload                  1
+   load_int               0
+   if_icmpgt              LABEL18
+   jump                   LABEL184
+LABEL18:
+   get_varc               5
+>>>>>>> initial import of runelite
    switch                
       1: LABEL21
       2: LABEL44
@@ -46,6 +71,7 @@ LABEL21:
    return                
    jump                   LABEL183
 LABEL23:
+<<<<<<< HEAD
    ignore_count          
    iconst                 0
    if_icmplt              LABEL27
@@ -103,10 +129,70 @@ LABEL62:
 LABEL65:
    get_varc_int           5
    iconst                 6
+=======
+   get_ignorecount       
+   load_int               0
+   if_icmplt              LABEL27
+   jump                   LABEL30
+LABEL27:
+   load_string            "Unable to update ignore list - system busy."
+   send_game_message     
+   jump                   LABEL43
+LABEL30:
+   get_varc               5
+   load_int               4
+   if_icmpeq              LABEL34
+   jump                   LABEL37
+LABEL34:
+   049                    359
+   add_ignore            
+   jump                   LABEL43
+LABEL37:
+   get_varc               5
+   load_int               5
+   if_icmpeq              LABEL41
+   jump                   LABEL43
+LABEL41:
+   049                    359
+   remove_ignore         
+LABEL43:
+   jump                   LABEL183
+LABEL44:
+   get_friendcount       
+   load_int               0
+   if_icmplt              LABEL48
+   jump                   LABEL51
+LABEL48:
+   load_string            "Unable to complete action - system busy."
+   send_game_message     
+   jump                   LABEL106
+LABEL51:
+   get_varc               5
+   load_int               2
+   if_icmpeq              LABEL55
+   jump                   LABEL58
+LABEL55:
+   049                    359
+   add_friend            
+   jump                   LABEL106
+LABEL58:
+   get_varc               5
+   load_int               3
+   if_icmpeq              LABEL62
+   jump                   LABEL65
+LABEL62:
+   049                    359
+   remove_friend         
+   jump                   LABEL106
+LABEL65:
+   get_varc               5
+   load_int               6
+>>>>>>> initial import of runelite
    if_icmpeq              LABEL69
    jump                   LABEL106
 LABEL69:
    get_varbit             8119
+<<<<<<< HEAD
    iconst                 0
    if_icmpeq              LABEL73
    jump                   LABEL79
@@ -127,6 +213,28 @@ LABEL83:
    iconst                 1
    chat_getfilter_trade  
    chat_setfilter        
+=======
+   load_int               0
+   if_icmpeq              LABEL73
+   jump                   LABEL79
+LABEL73:
+   load_int               1
+   load_int               1
+   invoke                 299
+   load_string            "You must set a name before you can chat."
+   send_game_message     
+   return                
+LABEL79:
+   5005                  
+   load_int               2
+   if_icmpeq              LABEL83
+   jump                   LABEL94
+LABEL83:
+   5000                  
+   load_int               1
+   5016                  
+   chatfilter_update     
+>>>>>>> initial import of runelite
    invoke                 178
    invoke                 553
    istore                 0
@@ -136,6 +244,7 @@ LABEL83:
    invoke                 89
 LABEL94:
    get_varbit             4394
+<<<<<<< HEAD
    iconst                 1
    if_icmpeq              LABEL98
    jump                   LABEL101
@@ -211,11 +320,89 @@ LABEL148:
    sload                  0
    lowercase             
    chat_setmessagefilter 
+=======
+   load_int               1
+   if_icmpeq              LABEL98
+   jump                   LABEL101
+LABEL98:
+   049                    360
+   remove_friend         
+   jump                   LABEL104
+LABEL101:
+   049                    360
+   049                    359
+   load_string            "privateMessage" ; load event name
+   load_int               0                ; whether or not to skip
+   runelite_callback     ; invoke callback
+   load_int               1
+   if_icmpeq              LABEL104         ; if skipped, do not message
+   privmsg               
+LABEL104:
+   get_gamecycle         
+   put_varc               61
+LABEL106:
+   jump                   LABEL183
+LABEL107:
+   049                    359
+   invoke                 212
+   numeric_input         
+   jump                   LABEL183
+LABEL111:
+   049                    359
+   string_remove_html    
+   050                    361
+   049                    359
+   string_input_1        
+   jump                   LABEL183
+LABEL117:
+   049                    359
+   string_input_2        
+   jump                   LABEL183
+LABEL120:
+   get_varbit             8119
+   load_int               0
+   if_icmpeq              LABEL124
+   jump                   LABEL130
+LABEL124:
+   load_int               1
+   load_int               1
+   invoke                 299
+   load_string            "You must set a name before you can chat."
+   send_game_message     
+   return                
+LABEL130:
+   049                    359
+   string_remove_html    
+   050                    362
+   049                    359
+   join_clanchat         
+   jump                   LABEL183
+LABEL136:
+   iload                  1
+   load_int               10
+   if_icmpgt              LABEL140
+   jump                   LABEL146
+LABEL140:
+   049                    359
+   load_int               0
+   load_int               9
+   string_substring      
+   sstore                 0
+   jump                   LABEL148
+LABEL146:
+   049                    359
+   sstore                 0
+LABEL148:
+   sload                  0
+   tolowercase           
+   5021                  
+>>>>>>> initial import of runelite
    invoke                 553
    invoke                 84
    jump                   LABEL183
 LABEL154:
    get_varbit             8119
+<<<<<<< HEAD
    iconst                 0
    if_icmpeq              LABEL158
    jump                   LABEL164
@@ -242,16 +429,52 @@ LABEL164:
 LABEL176:
    iconst                 0
    iconst                 1
+=======
+   load_int               0
+   if_icmpeq              LABEL158
+   jump                   LABEL164
+LABEL158:
+   load_int               1
+   load_int               1
+   invoke                 299
+   load_string            "You must set a name before you can chat."
+   send_game_message     
+   return                
+LABEL164:
+   049                    359
+   load_int               0
+   put_varc               62
+   050                    358
+   invoke                 95
+   load_int               552
+   load_int               -2147483645
+   load_int               1
+   load_string            "I1"
+   load_int               10616845
+   widget_put_render_listener_widget
+   jump                   LABEL183
+LABEL176:
+   load_int               0
+   load_int               1
+>>>>>>> initial import of runelite
    invoke                 299
    return                
    jump                   LABEL183
 LABEL181:
+<<<<<<< HEAD
    get_varc_string        359
+=======
+   049                    359
+>>>>>>> initial import of runelite
    invoke                 2061
 LABEL183:
    jump                   LABEL190
 LABEL184:
+<<<<<<< HEAD
    get_varc_int           5
+=======
+   get_varc               5
+>>>>>>> initial import of runelite
    switch                
       16: LABEL189
       7: LABEL187
@@ -265,7 +488,12 @@ LABEL187:
 LABEL189:
    return                
 LABEL190:
+<<<<<<< HEAD
    iconst                 1
    iconst                 1
+=======
+   load_int               1
+   load_int               1
+>>>>>>> initial import of runelite
    invoke                 299
    return                

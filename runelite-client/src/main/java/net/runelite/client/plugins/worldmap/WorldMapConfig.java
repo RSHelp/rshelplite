@@ -166,8 +166,13 @@ public interface WorldMapConfig extends Config
 
 	@ConfigItem(
 		keyName = WorldMapPlugin.CONFIG_KEY_QUEST_START_TOOLTIPS,
+<<<<<<< HEAD
 		name = "Show quest names and status",
 		description = "Indicates the names of quests and shows completion status",
+=======
+		name = "Show quest names",
+		description = "Indicates the names of quests and highlights incomplete ones",
+>>>>>>> initial import of runelite
 		position = 13
 	)
 	default boolean questStartTooltips()
@@ -207,6 +212,7 @@ public interface WorldMapConfig extends Config
 	{
 		return true;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = WorldMapPlugin.CONFIG_KEY_TRANSPORATION_TELEPORT_TOOLTIPS,
@@ -218,4 +224,6 @@ public interface WorldMapConfig extends Config
 	{
 		return true;
 	}
+=======
+>>>>>>> initial import of runelite
 }

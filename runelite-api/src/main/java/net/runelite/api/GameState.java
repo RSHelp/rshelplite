@@ -24,12 +24,18 @@
  */
 package net.runelite.api;
 
+<<<<<<< HEAD
 import lombok.Getter;
 
 /**
  * An enumeration of game states the client is in.
  */
 @Getter
+=======
+/**
+ * An enumeration of game states the client is in.
+ */
+>>>>>>> initial import of runelite
 public enum GameState
 {
 	/**
@@ -45,10 +51,13 @@ public enum GameState
 	 */
 	LOGIN_SCREEN(10),
 	/**
+<<<<<<< HEAD
 	 * The client is at the login screen entering authenticator code.
 	 */
 	LOGIN_SCREEN_AUTHENTICATOR(11),
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * There is a player logging in.
 	 */
 	LOGGING_IN(20),

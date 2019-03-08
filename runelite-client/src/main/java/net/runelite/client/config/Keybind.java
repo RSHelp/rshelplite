@@ -47,7 +47,11 @@ public class Keybind
 		.put(InputEvent.META_DOWN_MASK, KeyEvent.VK_META)
 		.build();
 
+<<<<<<< HEAD
 	// Bitmask of all supported modifiers
+=======
+	// Bitmask of all supported modifers
+>>>>>>> initial import of runelite
 	private static final int KEYBOARD_MODIFIER_MASK = MODIFIER_TO_KEY_CODE.keySet().stream()
 		.reduce((a, b) -> a | b).get();
 
@@ -65,7 +69,11 @@ public class Keybind
 		modifiers &= KEYBOARD_MODIFIER_MASK;
 
 		// If the keybind is just modifiers we don't want the keyCode to contain the modifier too,
+<<<<<<< HEAD
 		// because this breaks if you do the keycode backwards
+=======
+		// becasue this breaks if you do the keycode backwards
+>>>>>>> initial import of runelite
 		Integer mf = getModifierForKeyCode(keyCode);
 		if (mf != null)
 		{

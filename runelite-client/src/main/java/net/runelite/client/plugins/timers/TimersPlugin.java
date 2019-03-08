@@ -26,8 +26,12 @@
 package net.runelite.client.plugins.timers;
 
 import com.google.inject.Provides;
+<<<<<<< HEAD
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+=======
+import java.awt.image.BufferedImage;
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Actor;
@@ -43,6 +47,10 @@ import net.runelite.api.ItemID;
 import net.runelite.api.NPC;
 import net.runelite.api.NpcID;
 import net.runelite.api.Player;
+<<<<<<< HEAD
+=======
+import net.runelite.api.Prayer;
+>>>>>>> initial import of runelite
 import net.runelite.api.Varbits;
 import net.runelite.api.WorldType;
 import net.runelite.api.coords.WorldPoint;
@@ -59,7 +67,10 @@ import net.runelite.api.events.NpcDespawned;
 import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.events.WidgetHiddenChanged;
 import net.runelite.api.widgets.Widget;
+<<<<<<< HEAD
 import net.runelite.api.widgets.WidgetID;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.widgets.WidgetInfo;
 import static net.runelite.api.widgets.WidgetInfo.PVP_WORLD_SAFE_ZONE;
 import net.runelite.client.config.ConfigManager;
@@ -88,10 +99,20 @@ public class TimersPlugin extends Plugin
 	private static final String CANNON_REPAIR_MESSAGE = "You repair your cannon, restoring it to working order.";
 	private static final String CHARGE_EXPIRED_MESSAGE = "<col=ef1020>Your magical charge fades away.</col>";
 	private static final String CHARGE_MESSAGE = "<col=ef1020>You feel charged with magic power.</col>";
+<<<<<<< HEAD
 	private static final String EXTENDED_ANTIFIRE_DRINK_MESSAGE = "You drink some of your extended antifire potion.";
 	private static final String EXTENDED_SUPER_ANTIFIRE_DRINK_MESSAGE = "You drink some of your extended super antifire potion.";
 	private static final String FROZEN_MESSAGE = "<col=ef1020>You have been frozen!</col>";
 	private static final String GOD_WARS_ALTAR_MESSAGE = "you recharge your prayer.";
+=======
+	private static final String DEADMAN_HALF_TELEBLOCK_MESSAGE = "<col=4f006f>A teleblock spell has been cast on you. It will expire in 1 minute, 15 seconds.</col>";
+	private static final String EXTENDED_ANTIFIRE_DRINK_MESSAGE = "You drink some of your extended antifire potion.";
+	private static final String EXTENDED_SUPER_ANTIFIRE_DRINK_MESSAGE = "You drink some of your extended super antifire potion.";
+	private static final String FROZEN_MESSAGE = "<col=ef1020>You have been frozen!</col>";
+	private static final String FULL_TELEBLOCK_MESSAGE = "<col=4f006f>A teleblock spell has been cast on you. It will expire in 5 minutes, 0 seconds.</col>";
+	private static final String GOD_WARS_ALTAR_MESSAGE = "you recharge your prayer.";
+	private static final String HALF_TELEBLOCK_MESSAGE = "<col=4f006f>A teleblock spell has been cast on you. It will expire in 2 minutes, 30 seconds.</col>";
+>>>>>>> initial import of runelite
 	private static final String IMBUED_HEART_READY_MESSAGE = "<col=ef1020>Your imbued heart has regained its magical power.</col>";
 	private static final String MAGIC_IMBUE_EXPIRED_MESSAGE = "Your Magic Imbue charge has ended.";
 	private static final String MAGIC_IMBUE_MESSAGE = "You are charged to combine runes!";
@@ -104,6 +125,7 @@ public class TimersPlugin extends Plugin
 	private static final String SUPER_ANTIFIRE_DRINK_MESSAGE = "You drink some of your super antifire potion";
 	private static final String SUPER_ANTIFIRE_EXPIRED_MESSAGE = "<col=7f007f>Your super antifire potion has expired.</col>";
 	private static final String SUPER_ANTIVENOM_DRINK_MESSAGE = "You drink some of your super antivenom potion";
+<<<<<<< HEAD
 	private static final String KILLED_TELEBLOCK_OPPONENT_TEXT = "<col=4f006f>Your Tele Block has been removed because you killed ";
 	private static final String PRAYER_ENHANCE_EXPIRED = "<col=ff0000>Your prayer enhance effect has worn off.</col>";
 
@@ -111,6 +133,8 @@ public class TimersPlugin extends Plugin
 	private static final Pattern FULL_TELEBLOCK_PATTERN = Pattern.compile("<col=4f006f>A Tele Block spell has been cast on you by (.+)\\. It will expire in 5 minutes\\.</col>");
 	private static final Pattern HALF_TELEBLOCK_PATTERN = Pattern.compile("<col=4f006f>A Tele Block spell has been cast on you by (.+)\\. It will expire in 2 minutes, 30 seconds\\.</col>");
 	private static final Pattern DIVINE_POTION_PATTERN = Pattern.compile("You drink some of your divine (.+) potion\\.");
+=======
+>>>>>>> initial import of runelite
 
 	private TimerTimer freezeTimer;
 	private int freezeTime = -1; // time frozen, in game ticks
@@ -222,7 +246,11 @@ public class TimersPlugin extends Plugin
 	{
 		Widget widget = event.getWidget();
 		if (WorldType.isPvpWorld(client.getWorldType())
+<<<<<<< HEAD
 			&& WidgetInfo.TO_GROUP(widget.getId()) == WidgetID.PVP_GROUP_ID)
+=======
+			&& WidgetInfo.TO_GROUP(widget.getId()) == WidgetInfo.PVP_CONTAINER.getGroupId())
+>>>>>>> initial import of runelite
 		{
 			widgetHiddenChangedOnPvpWorld = true;
 		}
@@ -271,6 +299,7 @@ public class TimersPlugin extends Plugin
 			removeGameTimer(PRAYER_ENHANCE);
 		}
 
+<<<<<<< HEAD
 		if (!config.showDivine())
 		{
 			removeGameTimer(DIVINE_SUPER_ATTACK);
@@ -281,6 +310,8 @@ public class TimersPlugin extends Plugin
 			removeGameTimer(DIVINE_MAGIC);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		if (!config.showCannon())
 		{
 			removeGameTimer(CANNON);
@@ -324,8 +355,16 @@ public class TimersPlugin extends Plugin
 		if (!config.showFreezes())
 		{
 			removeGameTimer(BIND);
+<<<<<<< HEAD
 			removeGameTimer(SNARE);
 			removeGameTimer(ENTANGLE);
+=======
+			removeGameTimer(HALFBIND);
+			removeGameTimer(SNARE);
+			removeGameTimer(HALFSNARE);
+			removeGameTimer(ENTANGLE);
+			removeGameTimer(HALFENTANGLE);
+>>>>>>> initial import of runelite
 			removeGameTimer(ICERUSH);
 			removeGameTimer(ICEBURST);
 			removeGameTimer(ICEBLITZ);
@@ -391,11 +430,15 @@ public class TimersPlugin extends Plugin
 		if (config.showStamina()
 			&& event.getMenuOption().contains("Drink")
 			&& (event.getId() == ItemID.STAMINA_MIX1
+<<<<<<< HEAD
 			|| event.getId() == ItemID.STAMINA_MIX2
 			|| event.getId() == ItemID.EGNIOL_POTION_1
 			|| event.getId() == ItemID.EGNIOL_POTION_2
 			|| event.getId() == ItemID.EGNIOL_POTION_3
 			|| event.getId() == ItemID.EGNIOL_POTION_4))
+=======
+			|| event.getId() == ItemID.STAMINA_MIX2))
+>>>>>>> initial import of runelite
 		{
 			// Needs menu option hook because mixes use a common drink message, distinct from their standard potion messages
 			createGameTimer(STAMINA);
@@ -452,7 +495,11 @@ public class TimersPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.SPAM && event.getType() != ChatMessageType.GAMEMESSAGE)
+=======
+		if (event.getType() != ChatMessageType.FILTERED && event.getType() != ChatMessageType.SERVER)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -533,6 +580,7 @@ public class TimersPlugin extends Plugin
 			removeGameTimer(MAGICIMBUE);
 		}
 
+<<<<<<< HEAD
 		if (config.showTeleblock())
 		{
 			if (FULL_TELEBLOCK_PATTERN.matcher(event.getMessage()).find())
@@ -562,6 +610,32 @@ public class TimersPlugin extends Plugin
 			}
 		}
 
+=======
+		if (config.showTeleblock() && event.getMessage().equals(FULL_TELEBLOCK_MESSAGE))
+		{
+			createGameTimer(FULLTB);
+		}
+
+		if (config.showTeleblock() && event.getMessage().equals(HALF_TELEBLOCK_MESSAGE))
+		{
+			if (client.getWorldType().contains(WorldType.DEADMAN)
+				&& !client.getWorldType().contains(WorldType.SEASONAL_DEADMAN)
+				&& !client.getWorldType().contains(WorldType.DEADMAN_TOURNAMENT))
+			{
+				createGameTimer(DMM_FULLTB);
+			}
+			else
+			{
+				createGameTimer(HALFTB);
+			}
+		}
+
+		if (config.showTeleblock() && event.getMessage().equals(DEADMAN_HALF_TELEBLOCK_MESSAGE))
+		{
+			createGameTimer(DMM_HALFTB);
+		}
+
+>>>>>>> initial import of runelite
 		if (config.showAntiFire() && event.getMessage().contains(SUPER_ANTIFIRE_DRINK_MESSAGE))
 		{
 			createGameTimer(SUPERANTIFIRE);
@@ -593,11 +667,14 @@ public class TimersPlugin extends Plugin
 			createGameTimer(PRAYER_ENHANCE);
 		}
 
+<<<<<<< HEAD
 		if (config.showPrayerEnhance() && event.getMessage().equals(PRAYER_ENHANCE_EXPIRED))
 		{
 			removeGameTimer(PRAYER_ENHANCE);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		if (config.showCharge() && event.getMessage().equals(CHARGE_MESSAGE))
 		{
 			createGameTimer(CHARGE);
@@ -623,6 +700,7 @@ public class TimersPlugin extends Plugin
 			freezeTimer = createGameTimer(ICEBARRAGE);
 			freezeTime = client.getTickCount();
 		}
+<<<<<<< HEAD
 
 		if (config.showDivine())
 		{
@@ -657,6 +735,8 @@ public class TimersPlugin extends Plugin
 				}
 			}
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -762,11 +842,14 @@ public class TimersPlugin extends Plugin
 			}
 		}
 
+<<<<<<< HEAD
 		if (config.showDFSSpecial() && lastAnimation == AnimationID.DRAGONFIRE_SHIELD_SPECIAL)
 		{
 			createGameTimer(DRAGON_FIRE_SHIELD);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		lastAnimation = client.getLocalPlayer().getAnimation();
 	}
 
@@ -789,17 +872,56 @@ public class TimersPlugin extends Plugin
 		{
 			if (actor.getGraphic() == BIND.getGraphicId())
 			{
+<<<<<<< HEAD
 				createGameTimer(BIND);
+=======
+				if (client.isPrayerActive(Prayer.PROTECT_FROM_MAGIC)
+					&& !client.getWorldType().contains(WorldType.SEASONAL_DEADMAN)
+					&& !client.getWorldType().contains(WorldType.DEADMAN_TOURNAMENT))
+				{
+					createGameTimer(HALFBIND);
+				}
+				else
+				{
+					createGameTimer(BIND);
+				}
+>>>>>>> initial import of runelite
 			}
 
 			if (actor.getGraphic() == SNARE.getGraphicId())
 			{
+<<<<<<< HEAD
 				createGameTimer(SNARE);
+=======
+				if (client.isPrayerActive(Prayer.PROTECT_FROM_MAGIC)
+					&& !client.getWorldType().contains(WorldType.SEASONAL_DEADMAN)
+					&& !client.getWorldType().contains(WorldType.DEADMAN_TOURNAMENT))
+				{
+					createGameTimer(HALFSNARE);
+				}
+				else
+				{
+					createGameTimer(SNARE);
+				}
+>>>>>>> initial import of runelite
 			}
 
 			if (actor.getGraphic() == ENTANGLE.getGraphicId())
 			{
+<<<<<<< HEAD
 				createGameTimer(ENTANGLE);
+=======
+				if (client.isPrayerActive(Prayer.PROTECT_FROM_MAGIC)
+					&& !client.getWorldType().contains(WorldType.SEASONAL_DEADMAN)
+					&& !client.getWorldType().contains(WorldType.DEADMAN_TOURNAMENT))
+				{
+					createGameTimer(HALFENTANGLE);
+				}
+				else
+				{
+					createGameTimer(ENTANGLE);
+				}
+>>>>>>> initial import of runelite
 			}
 
 			// downgrade freeze based on graphic, if at the same tick as the freeze message
@@ -895,6 +1017,7 @@ public class TimersPlugin extends Plugin
 	{
 		removeGameTimer(timer);
 
+<<<<<<< HEAD
 		TimerTimer t = new TimerTimer(timer, this);
 		switch (timer.getImageType())
 		{
@@ -905,6 +1028,10 @@ public class TimersPlugin extends Plugin
 				t.setImage(itemManager.getImage(timer.getImageId()));
 				break;
 		}
+=======
+		BufferedImage image = timer.getImage(itemManager, spriteManager);
+		TimerTimer t = new TimerTimer(timer, this, image);
+>>>>>>> initial import of runelite
 		t.setTooltip(timer.getDescription());
 		infoBoxManager.addInfoBox(t);
 		return t;
@@ -919,6 +1046,7 @@ public class TimersPlugin extends Plugin
 	{
 		removeGameIndicator(gameIndicator);
 
+<<<<<<< HEAD
 		IndicatorIndicator indicator = new IndicatorIndicator(gameIndicator, this);
 		switch (gameIndicator.getImageType())
 		{
@@ -929,6 +1057,10 @@ public class TimersPlugin extends Plugin
 				indicator.setImage(itemManager.getImage(gameIndicator.getImageId()));
 				break;
 		}
+=======
+		BufferedImage image = gameIndicator.getImage(itemManager, spriteManager);
+		IndicatorIndicator indicator = new IndicatorIndicator(gameIndicator, image, this);
+>>>>>>> initial import of runelite
 		indicator.setTooltip(gameIndicator.getDescription());
 		infoBoxManager.addInfoBox(indicator);
 

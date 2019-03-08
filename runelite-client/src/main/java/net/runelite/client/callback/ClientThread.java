@@ -58,7 +58,11 @@ public class ClientThread
 	{
 		if (client.isClientThread())
 		{
+<<<<<<< HEAD
 			if (!r.getAsBoolean())
+=======
+			if (r.getAsBoolean())
+>>>>>>> initial import of runelite
 			{
 				invokes.add(r);
 			}

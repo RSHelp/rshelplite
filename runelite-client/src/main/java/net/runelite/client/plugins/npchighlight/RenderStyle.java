@@ -26,8 +26,28 @@ package net.runelite.client.plugins.npchighlight;
 
 public enum RenderStyle
 {
+<<<<<<< HEAD
 	OFF,
 	TILE,
 	HULL,
 	SOUTH_WEST_TILE
+=======
+	OFF("Off"),
+	TILE("Tile"),
+	HULL("Hull"),
+	SOUTH_WEST_TILE("South West Tile");
+
+	private final String name;
+
+	RenderStyle(String name)
+	{
+		this.name = name;
+	}
+
+	@Override
+	public String toString()
+	{
+		return name;
+	}
+>>>>>>> initial import of runelite
 }

@@ -30,19 +30,33 @@ public interface TextureProvider
 
 	/**
 	 * Set the brightness for textures, clearing the texture cache.
+<<<<<<< HEAD
 	 *
 	 * .9 is the darkest value available in the standard options
 	 * .6 is the brightest value
+=======
+	 * @param brightness
+>>>>>>> initial import of runelite
 	 */
 	void setBrightness(double brightness);
 
 	/**
 	 * Get all textures
+<<<<<<< HEAD
+=======
+	 *
+	 * @return
+>>>>>>> initial import of runelite
 	 */
 	Texture[] getTextures();
 
 	/**
 	 * Get the pixels for a texture
+<<<<<<< HEAD
+=======
+	 * @param textureId
+	 * @return
+>>>>>>> initial import of runelite
 	 */
 	int[] load(int textureId);
 }

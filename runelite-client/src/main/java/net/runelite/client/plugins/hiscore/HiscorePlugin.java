@@ -210,7 +210,11 @@ public class HiscorePlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (!config.bountylookup() || !event.getType().equals(ChatMessageType.GAMEMESSAGE))
+=======
+		if (!config.bountylookup() || !event.getType().equals(ChatMessageType.SERVER))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}

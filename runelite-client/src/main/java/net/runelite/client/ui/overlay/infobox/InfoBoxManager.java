@@ -27,6 +27,10 @@ package net.runelite.client.ui.overlay.infobox;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ComparisonChain;
 import java.awt.Graphics;
+<<<<<<< HEAD
+=======
+import java.awt.Image;
+>>>>>>> initial import of runelite
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +43,10 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.client.config.RuneLiteConfig;
 import net.runelite.client.eventbus.Subscribe;
+<<<<<<< HEAD
 import net.runelite.client.util.AsyncBufferedImage;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.PluginDescriptor;
 
 @Singleton
@@ -72,6 +79,7 @@ public class InfoBoxManager
 		updateInfoBoxImage(infoBox);
 		infoBoxes.add(infoBox);
 		refreshInfoBoxes();
+<<<<<<< HEAD
 
 		BufferedImage image = infoBox.getImage();
 
@@ -80,6 +88,8 @@ public class InfoBoxManager
 			AsyncBufferedImage abi = (AsyncBufferedImage) image;
 			abi.onLoaded(() -> updateInfoBoxImage(infoBox));
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	public void removeInfoBox(InfoBox infoBox)
@@ -126,7 +136,11 @@ public class InfoBoxManager
 		}
 	}
 
+<<<<<<< HEAD
 	public void updateInfoBoxImage(final InfoBox infoBox)
+=======
+	private void updateInfoBoxImage(final InfoBox infoBox)
+>>>>>>> initial import of runelite
 	{
 		if (infoBox.getImage() == null)
 		{
@@ -134,8 +148,13 @@ public class InfoBoxManager
 		}
 
 		// Set scaled InfoBox image
+<<<<<<< HEAD
 		final BufferedImage image = infoBox.getImage();
 		BufferedImage resultImage = image;
+=======
+		final Image image = infoBox.getImage();
+		Image resultImage = image;
+>>>>>>> initial import of runelite
 		final double width = image.getWidth(null);
 		final double height = image.getHeight(null);
 		final double size = Math.max(2, runeLiteConfig.infoBoxSize()); // Limit size to 2 as that is minimum size not causing breakage

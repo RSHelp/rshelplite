@@ -42,6 +42,7 @@ public interface CookingConfig extends Config
 	{
 		return 5;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		position = 2,
@@ -53,4 +54,6 @@ public interface CookingConfig extends Config
 	{
 		return true;
 	}
+=======
+>>>>>>> initial import of runelite
 }

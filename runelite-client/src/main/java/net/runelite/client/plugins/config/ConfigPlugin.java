@@ -39,8 +39,13 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.PluginManager;
 import net.runelite.client.ui.ClientToolbar;
+<<<<<<< HEAD
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.components.colorpicker.ColorPickerManager;
+=======
+import net.runelite.client.ui.ClientUI;
+import net.runelite.client.ui.NavigationButton;
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.util.ImageUtil;
@@ -53,6 +58,12 @@ import net.runelite.client.util.ImageUtil;
 public class ConfigPlugin extends Plugin
 {
 	@Inject
+<<<<<<< HEAD
+=======
+	private ClientUI clientUI;
+
+	@Inject
+>>>>>>> initial import of runelite
 	private ClientToolbar clientToolbar;
 
 	@Inject
@@ -70,16 +81,23 @@ public class ConfigPlugin extends Plugin
 	@Inject
 	private ChatColorConfig chatColorConfig;
 
+<<<<<<< HEAD
 	@Inject
 	private ColorPickerManager colorPickerManager;
 
+=======
+>>>>>>> initial import of runelite
 	private ConfigPanel configPanel;
 	private NavigationButton navButton;
 
 	@Override
 	protected void startUp() throws Exception
 	{
+<<<<<<< HEAD
 		configPanel = new ConfigPanel(pluginManager, configManager, executorService, runeLiteConfig, chatColorConfig, colorPickerManager);
+=======
+		configPanel = new ConfigPanel(pluginManager, configManager, executorService, runeLiteConfig, chatColorConfig);
+>>>>>>> initial import of runelite
 
 		final BufferedImage icon = ImageUtil.getResourceStreamFromClass(getClass(), "config_icon.png");
 

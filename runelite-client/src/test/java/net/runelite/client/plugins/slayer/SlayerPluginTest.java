@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.util.concurrent.ScheduledExecutorService;
 import javax.inject.Inject;
 import net.runelite.api.ChatMessageType;
+<<<<<<< HEAD
 import static net.runelite.api.ChatMessageType.GAMEMESSAGE;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
@@ -41,6 +42,14 @@ import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.ExperienceChanged;
 import net.runelite.api.events.GameStateChanged;
+=======
+import static net.runelite.api.ChatMessageType.SERVER;
+import net.runelite.api.Client;
+import net.runelite.api.MessageNode;
+import net.runelite.api.Player;
+import net.runelite.api.coords.LocalPoint;
+import net.runelite.api.events.ChatMessage;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.GameTick;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
@@ -55,15 +64,24 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+<<<<<<< HEAD
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+=======
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+>>>>>>> initial import of runelite
 import org.mockito.Mock;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
+<<<<<<< HEAD
 import org.mockito.junit.MockitoJUnitRunner;
+=======
+import org.mockito.runners.MockitoJUnitRunner;
+>>>>>>> initial import of runelite
 
 @RunWith(MockitoJUnitRunner.class)
 public class SlayerPluginTest
@@ -71,7 +89,10 @@ public class SlayerPluginTest
 	private static final String TASK_NEW = "Your new task is to kill 231 Suqahs.";
 	private static final String TASK_NEW_KONAR = "You are to bring balance to 147 Wyrms in the Karuulm Slayer Dungeon.";
 	private static final String TASK_NEW_KONAR_2 = "You are to bring balance to 142 Hellhounds in Witchhaven Dungeon.";
+<<<<<<< HEAD
 	private static final String TASK_NEW_KONAR_3 = "You are to bring balance to 135 Trolls south of Mount Quidamortem.";
+=======
+>>>>>>> initial import of runelite
 	private static final String TASK_NEW_FIRST = "We'll start you off hunting goblins, you'll need to kill 17 of them.";
 	private static final String TASK_NEW_NPC_CONTACT = "Excellent, you're doing great. Your new task is to kill<br>211 Suqahs.";
 	private static final String TASK_NEW_FROM_PARTNER = "You have received a new Slayer assignment from breaklulz: Dust Devils (377)";
@@ -207,6 +228,7 @@ public class SlayerPluginTest
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testNewKonarTask3()
 	{
 		Widget npcDialog = mock(Widget.class);
@@ -220,6 +242,8 @@ public class SlayerPluginTest
 	}
 
 	@Test
+=======
+>>>>>>> initial import of runelite
 	public void testFirstTask()
 	{
 		Widget npcDialog = mock(Widget.class);
@@ -272,7 +296,11 @@ public class SlayerPluginTest
 	@Test
 	public void testPartnerTask()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", TASK_NEW_FROM_PARTNER, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "", TASK_NEW_FROM_PARTNER, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals("Dust Devils", slayerPlugin.getTaskName());
@@ -282,7 +310,11 @@ public class SlayerPluginTest
 	@Test
 	public void testCheckSlayerGem()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", TASK_CHECKSLAYERGEM, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "", TASK_CHECKSLAYERGEM, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 		assertEquals("Suqahs", slayerPlugin.getTaskName());
 		assertEquals(211, slayerPlugin.getAmount());
@@ -291,7 +323,11 @@ public class SlayerPluginTest
 	@Test
 	public void testCheckSlayerGemWildernessTask()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", TASK_CHECKSLAYERGEM_WILDERNESS, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "", TASK_CHECKSLAYERGEM_WILDERNESS, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 		assertEquals("Suqahs", slayerPlugin.getTaskName());
 		assertEquals(211, slayerPlugin.getAmount());
@@ -301,7 +337,11 @@ public class SlayerPluginTest
 	@Test
 	public void testCheckSlayerGemKonarTask()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", TASK_CHECKSLAYERGEM_KONAR, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "", TASK_CHECKSLAYERGEM_KONAR, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals("Blue dragons", slayerPlugin.getTaskName());
@@ -339,7 +379,11 @@ public class SlayerPluginTest
 	@Test
 	public void testOneTask()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "Perterter", TASK_ONE, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "Perterter", TASK_ONE, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(1, slayerPlugin.getStreak());
@@ -350,7 +394,11 @@ public class SlayerPluginTest
 	@Test
 	public void testNoPoints()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "Perterter", TASK_COMPLETE_NO_POINTS, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "Perterter", TASK_COMPLETE_NO_POINTS, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(3, slayerPlugin.getStreak());
@@ -361,7 +409,11 @@ public class SlayerPluginTest
 	@Test
 	public void testPoints()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "Perterter", TASK_POINTS, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "Perterter", TASK_POINTS, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(9, slayerPlugin.getStreak());
@@ -373,7 +425,11 @@ public class SlayerPluginTest
 	@Test
 	public void testLargeStreak()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "Perterter", TASK_LARGE_STREAK, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "Perterter", TASK_LARGE_STREAK, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(2465, slayerPlugin.getStreak());
@@ -388,7 +444,11 @@ public class SlayerPluginTest
 		slayerPlugin.setTaskName("cows");
 		slayerPlugin.setAmount(42);
 
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "Perterter", TASK_COMPLETE, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "Perterter", TASK_COMPLETE, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals("", slayerPlugin.getTaskName());
@@ -401,7 +461,11 @@ public class SlayerPluginTest
 		slayerPlugin.setTaskName("cows");
 		slayerPlugin.setAmount(42);
 
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "Perterter", TASK_CANCELED, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "Perterter", TASK_CANCELED, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals("", slayerPlugin.getTaskName());
@@ -411,7 +475,11 @@ public class SlayerPluginTest
 	@Test
 	public void testSuperiorNotification()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "Superior", SUPERIOR_MESSAGE, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "Superior", SUPERIOR_MESSAGE, null, 0);
+>>>>>>> initial import of runelite
 
 		when(slayerConfig.showSuperiorNotification()).thenReturn(true);
 		slayerPlugin.onChatMessage(chatMessageEvent);
@@ -423,6 +491,7 @@ public class SlayerPluginTest
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCorrectlyCapturedTaskKill()
 	{
 		final Player player = mock(Player.class);
@@ -530,6 +599,11 @@ public class SlayerPluginTest
 	public void testBraceletSlaughter()
 	{
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", BRACLET_SLAUGHTER, null, 0);
+=======
+	public void testBraceletSlaughter()
+	{
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "", BRACLET_SLAUGHTER, null, 0);
+>>>>>>> initial import of runelite
 
 		slayerPlugin.setAmount(42);
 		slayerPlugin.setSlaughterChargeCount(10);
@@ -539,18 +613,30 @@ public class SlayerPluginTest
 		assertEquals(9, slayerPlugin.getSlaughterChargeCount());
 		assertEquals(43, slayerPlugin.getAmount());
 
+<<<<<<< HEAD
 		chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", CHAT_BRACELET_SLAUGHTER_CHARGE, null, 0);
+=======
+		chatMessageEvent = new ChatMessage(null, SERVER, "", CHAT_BRACELET_SLAUGHTER_CHARGE, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(12, slayerPlugin.getSlaughterChargeCount());
 
+<<<<<<< HEAD
 		chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", CHAT_BRACELET_SLAUGHTER_CHARGE_ONE, null, 0);
+=======
+		chatMessageEvent = new ChatMessage(null, SERVER, "", CHAT_BRACELET_SLAUGHTER_CHARGE_ONE, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(1, slayerPlugin.getSlaughterChargeCount());
 
 		slayerPlugin.setSlaughterChargeCount(1);
+<<<<<<< HEAD
 		chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", BRACLET_SLAUGHTER_V3, null, 0);
+=======
+		chatMessageEvent = new ChatMessage(null, SERVER, "", BRACLET_SLAUGHTER_V3, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(30, slayerPlugin.getSlaughterChargeCount());
@@ -563,7 +649,11 @@ public class SlayerPluginTest
 		slayerPlugin.onGameTick(new GameTick());
 		assertEquals(30, slayerPlugin.getSlaughterChargeCount());
 
+<<<<<<< HEAD
 		chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", BRACLET_SLAUGHTER_V2, null, 0);
+=======
+		chatMessageEvent = new ChatMessage(null, SERVER, "", BRACLET_SLAUGHTER_V2, null, 0);
+>>>>>>> initial import of runelite
 
 		slayerPlugin.setAmount(42);
 		slayerPlugin.setSlaughterChargeCount(2);
@@ -577,7 +667,11 @@ public class SlayerPluginTest
 	@Test
 	public void testBraceletExpeditious()
 	{
+<<<<<<< HEAD
 		ChatMessage chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", BRACLET_EXPEDITIOUS, null, 0);
+=======
+		ChatMessage chatMessageEvent = new ChatMessage(null, SERVER, "", BRACLET_EXPEDITIOUS, null, 0);
+>>>>>>> initial import of runelite
 
 		slayerPlugin.setAmount(42);
 		slayerPlugin.setExpeditiousChargeCount(10);
@@ -587,18 +681,30 @@ public class SlayerPluginTest
 		assertEquals(41, slayerPlugin.getAmount());
 		assertEquals(9, slayerPlugin.getExpeditiousChargeCount());
 
+<<<<<<< HEAD
 		chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", CHAT_BRACELET_EXPEDITIOUS_CHARGE, null, 0);
+=======
+		chatMessageEvent = new ChatMessage(null, SERVER, "", CHAT_BRACELET_EXPEDITIOUS_CHARGE, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(12, slayerPlugin.getExpeditiousChargeCount());
 
+<<<<<<< HEAD
 		chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", CHAT_BRACELET_EXPEDITIOUS_CHARGE_ONE, null, 0);
+=======
+		chatMessageEvent = new ChatMessage(null, SERVER, "", CHAT_BRACELET_EXPEDITIOUS_CHARGE_ONE, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(1, slayerPlugin.getExpeditiousChargeCount());
 
 		slayerPlugin.setExpeditiousChargeCount(1);
+<<<<<<< HEAD
 		chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", BRACLET_EXPEDITIOUS_V3, null, 0);
+=======
+		chatMessageEvent = new ChatMessage(null, SERVER, "", BRACLET_EXPEDITIOUS_V3, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessageEvent);
 
 		assertEquals(30, slayerPlugin.getExpeditiousChargeCount());
@@ -611,7 +717,11 @@ public class SlayerPluginTest
 		slayerPlugin.onGameTick(new GameTick());
 		assertEquals(30, slayerPlugin.getExpeditiousChargeCount());
 
+<<<<<<< HEAD
 		chatMessageEvent = new ChatMessage(null, GAMEMESSAGE, "", BRACLET_EXPEDITIOUS_V2, null, 0);
+=======
+		chatMessageEvent = new ChatMessage(null, SERVER, "", BRACLET_EXPEDITIOUS_V2, null, 0);
+>>>>>>> initial import of runelite
 
 		slayerPlugin.setAmount(42);
 		slayerPlugin.setExpeditiousChargeCount(2);
@@ -632,7 +742,11 @@ public class SlayerPluginTest
 		slayerPlugin.setTaskName("Suqahs");
 		slayerPlugin.setAmount(231);
 
+<<<<<<< HEAD
 		ChatMessage chatMessage = new ChatMessage(null, GAMEMESSAGE, "", TASK_UPDATE_COMBAT_BRACELET, null, 0);
+=======
+		ChatMessage chatMessage = new ChatMessage(null, SERVER, "", TASK_UPDATE_COMBAT_BRACELET, null, 0);
+>>>>>>> initial import of runelite
 		slayerPlugin.onChatMessage(chatMessage);
 
 		assertEquals("Suqahs", slayerPlugin.getTaskName());
@@ -644,8 +758,13 @@ public class SlayerPluginTest
 	public void testTaskLookup() throws IOException
 	{
 		net.runelite.http.api.chat.Task task = new net.runelite.http.api.chat.Task();
+<<<<<<< HEAD
 		task.setTask("Abyssal demons");
 		task.setLocation("Abyss");
+=======
+		task.setTask("task");
+		task.setLocation("loc");
+>>>>>>> initial import of runelite
 		task.setAmount(42);
 		task.setInitialAmount(42);
 
@@ -653,7 +772,11 @@ public class SlayerPluginTest
 		when(chatClient.getTask(anyString())).thenReturn(task);
 
 		ChatMessage setMessage = new ChatMessage();
+<<<<<<< HEAD
 		setMessage.setType(ChatMessageType.PUBLICCHAT);
+=======
+		setMessage.setType(ChatMessageType.PUBLIC);
+>>>>>>> initial import of runelite
 		setMessage.setName("Adam");
 		setMessage.setMessageNode(mock(MessageNode.class));
 
@@ -675,7 +798,11 @@ public class SlayerPluginTest
 		when(chatClient.getTask(anyString())).thenReturn(task);
 
 		ChatMessage chatMessage = new ChatMessage();
+<<<<<<< HEAD
 		chatMessage.setType(ChatMessageType.PUBLICCHAT);
+=======
+		chatMessage.setType(ChatMessageType.PUBLIC);
+>>>>>>> initial import of runelite
 		chatMessage.setName("Adam");
 		chatMessage.setMessageNode(mock(MessageNode.class));
 
@@ -683,6 +810,7 @@ public class SlayerPluginTest
 
 		verify(chatMessageManager, never()).update(any(MessageNode.class));
 	}
+<<<<<<< HEAD
 
 	@Test
 	public void testNewAccountSlayerKill()
@@ -721,4 +849,6 @@ public class SlayerPluginTest
 
 		verify(infoBoxManager, never()).addInfoBox(any());
 	}
+=======
+>>>>>>> initial import of runelite
 }

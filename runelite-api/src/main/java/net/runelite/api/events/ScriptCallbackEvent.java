@@ -34,12 +34,20 @@ import net.runelite.api.Script;
 public class ScriptCallbackEvent
 {
 	/**
+<<<<<<< HEAD
 	 * The script that is currently being executed
 	 */
 	private Script script;
 
 	/**
 	 * The name passed to runelite_callback
+=======
+	 * The script being called.
+	 */
+	private Script script;
+	/**
+	 * The name of the event that triggered script execution.
+>>>>>>> initial import of runelite
 	 */
 	private String eventName;
 }

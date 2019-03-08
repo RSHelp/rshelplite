@@ -99,6 +99,7 @@ public interface ChatCommandsConfig extends Config
 
 	@ConfigItem(
 		position = 6,
+<<<<<<< HEAD
 		keyName = "gc",
 		name = "GC Command",
 		description = "Configures whether the Barbarian Assault High gamble count command is enabled<br> !gc"
@@ -121,6 +122,8 @@ public interface ChatCommandsConfig extends Config
 
 	@ConfigItem(
 		position = 8,
+=======
+>>>>>>> initial import of runelite
 		keyName = "clearShortcuts",
 		name = "Clear shortcuts",
 		description = "Enable shortcuts (ctrl+w and backspace) for clearing the chatbox"

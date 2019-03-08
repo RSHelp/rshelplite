@@ -29,7 +29,10 @@ import java.awt.Color;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
+<<<<<<< HEAD
 import net.runelite.client.config.Range;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.wintertodt.config.WintertodtNotifyMode;
 
 @ConfigGroup("wintertodt")
@@ -56,6 +59,7 @@ public interface WintertodtConfig extends Config
 	{
 		return Color.CYAN;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		position = 3,
@@ -70,4 +74,6 @@ public interface WintertodtConfig extends Config
 	{
 		return 5;
 	}
+=======
+>>>>>>> initial import of runelite
 }

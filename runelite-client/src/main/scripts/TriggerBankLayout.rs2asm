@@ -1,4 +1,5 @@
 .id                 276
+<<<<<<< HEAD
 .int_stack_count    17
 .string_stack_count 0
 .int_var_count      17
@@ -9,10 +10,23 @@
    iconst                 0                      ; load active boolean
    sconst                 "getSearchingTagTab"   ; push event name
    runelite_callback     ; invoke callback
+=======
+.int_stack_count    13
+.string_stack_count 0
+.int_var_count      13
+.string_var_count   0
+
+; Check if we should allow server to relayout bank
+   load_int               1                      ; true
+   load_int               0                      ; load active boolean
+   load_string            "getSearchingTagTab"   ; push event name
+   runelite_callback                             ; invoke callback
+>>>>>>> initial import of runelite
    if_icmpne              LABEL2
 
 ; Let layout continue if current bank tab is 0
    get_varbit             4150
+<<<<<<< HEAD
    iconst                 0
    if_icmpeq              LABEL2
 
@@ -23,6 +37,18 @@
    sconst                 "Server attempted to reset bank tab."
    sconst                 "debug"
    runelite_callback     
+=======
+   load_int               0
+   if_icmpeq              LABEL2
+
+; Reset the current bank tab to 0 otherwise
+   load_int               0
+   set_varbit             4150
+
+   load_string "Server attempted to reset bank tab."
+   load_string "debug"
+   runelite_callback
+>>>>>>> initial import of runelite
 
 LABEL2:
    iload                  0
@@ -38,9 +64,14 @@ LABEL2:
    iload                  10
    iload                  11
    iload                  12
+<<<<<<< HEAD
    iload                  13
    iload                  14
    iload                  15
    iload                  16
    invoke                 277
    return                
+=======
+   invoke                 277
+   return
+>>>>>>> initial import of runelite

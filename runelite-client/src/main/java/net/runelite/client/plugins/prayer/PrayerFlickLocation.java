@@ -26,10 +26,32 @@
 
 package net.runelite.client.plugins.prayer;
 
+<<<<<<< HEAD
 public enum PrayerFlickLocation
 {
 	NONE,
 	PRAYER_ORB,
 	PRAYER_BAR,
 	BOTH
+=======
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
+public enum PrayerFlickLocation
+{
+	NONE("Off"),
+	PRAYER_ORB("Prayer Orb"),
+	PRAYER_BAR("Prayer Bar"),
+	BOTH("Both");
+
+	private final String name;
+
+	@Override
+	public String toString()
+	{
+		return name;
+	}
+>>>>>>> initial import of runelite
 }

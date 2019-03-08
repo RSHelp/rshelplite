@@ -26,7 +26,10 @@ package net.runelite.api;
 
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+>>>>>>> initial import of runelite
 import java.awt.image.BufferedImage;
 import javax.annotation.Nullable;
 import net.runelite.api.annotations.VisibleForDevtools;
@@ -51,7 +54,10 @@ public interface Actor extends Renderable
 	 *
 	 * @return the name
 	 */
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	String getName();
 
 	/**
@@ -156,6 +162,16 @@ public interface Actor extends Renderable
 	void setSpotAnimFrame(int spotAnimFrame);
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Gets the height of the actors model.
+	 *
+	 * @return the height
+	 */
+	int getModelHeight();
+
+	/**
+>>>>>>> initial import of runelite
 	 * Gets the canvas area of the current tile the actor is standing on.
 	 *
 	 * @return the current tile canvas area
@@ -219,7 +235,11 @@ public interface Actor extends Renderable
 	 * @return the convex hull
 	 * @see net.runelite.api.model.Jarvis
 	 */
+<<<<<<< HEAD
 	Shape getConvexHull();
+=======
+	Polygon getConvexHull();
+>>>>>>> initial import of runelite
 
 	/**
 	 * Gets the world area that the actor occupies.
@@ -233,6 +253,7 @@ public interface Actor extends Renderable
 	 *
 	 * @return the overhead text
 	 */
+<<<<<<< HEAD
 	String getOverheadText();
 
 	/**
@@ -241,4 +262,7 @@ public interface Actor extends Renderable
 	 * @param overheadText the overhead text
 	 */
 	void setOverheadText(String overheadText);
+=======
+	String getOverhead();
+>>>>>>> initial import of runelite
 }

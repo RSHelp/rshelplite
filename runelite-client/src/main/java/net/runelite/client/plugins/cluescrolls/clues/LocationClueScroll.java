@@ -29,10 +29,13 @@ import net.runelite.api.coords.WorldPoint;
 public interface LocationClueScroll
 {
 	WorldPoint getLocation();
+<<<<<<< HEAD
 
 	default WorldPoint[] getLocations()
 	{
 		WorldPoint location = getLocation();
 		return location == null ? new WorldPoint[0] : new WorldPoint[]{location};
 	}
+=======
+>>>>>>> initial import of runelite
 }

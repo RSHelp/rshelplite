@@ -39,9 +39,12 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+<<<<<<< HEAD
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Objects;
+=======
+>>>>>>> initial import of runelite
 import java.util.function.Consumer;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -56,15 +59,21 @@ import javax.swing.text.Document;
 import javax.swing.text.DocumentFilter;
 import lombok.Getter;
 import lombok.Setter;
+<<<<<<< HEAD
 import net.runelite.client.config.ConfigManager;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.util.ColorUtil;
 import org.pushingpixels.substance.internal.SubstanceSynapse;
 
 public class RuneliteColorPicker extends JDialog
 {
+<<<<<<< HEAD
 	static final String CONFIG_GROUP = "colorpicker";
 
+=======
+>>>>>>> initial import of runelite
 	private final static int FRAME_WIDTH = 400;
 	private final static int FRAME_HEIGHT = 380;
 	private final static int TONE_PANEL_SIZE = 160;
@@ -90,24 +99,34 @@ public class RuneliteColorPicker extends JDialog
 	@Setter
 	private Consumer<Color> onColorChange;
 
+<<<<<<< HEAD
 	@Setter
 	private Consumer<Color> onClose;
 
 	RuneliteColorPicker(Window parent, Color previousColor, String title, boolean alphaHidden,
 		final ConfigManager configManager, final ColorPickerManager colorPickerManager)
+=======
+	public RuneliteColorPicker(Window parent, Color previousColor, String title, boolean alphaHidden)
+>>>>>>> initial import of runelite
 	{
 		super(parent, "RuneLite Color Picker - " + title, ModalityType.MODELESS);
 
 		this.selectedColor = previousColor;
+<<<<<<< HEAD
 		this.alphaHidden = alphaHidden;
 
 		RecentColors recentColors = new RecentColors(configManager);
+=======
+>>>>>>> initial import of runelite
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		setBackground(ColorScheme.PROGRESS_COMPLETE_COLOR);
+<<<<<<< HEAD
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+=======
+>>>>>>> initial import of runelite
 
 		JPanel content = new JPanel(new BorderLayout());
 		content.putClientProperty(SubstanceSynapse.COLORIZATION_FACTOR, 1.0);
@@ -123,6 +142,10 @@ public class RuneliteColorPicker extends JDialog
 		rightPanel.setLayout(new GridBagLayout());
 		GridBagConstraints cx = new GridBagConstraints();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> initial import of runelite
 		cx.insets = new Insets(0, 0, 0, 0);
 		JLabel old = new JLabel("Previous");
 		old.setHorizontalAlignment(JLabel.CENTER);
@@ -153,10 +176,15 @@ public class RuneliteColorPicker extends JDialog
 		hexContainer.add(hexInput, cx);
 
 		cx.fill = GridBagConstraints.BOTH;
+<<<<<<< HEAD
+=======
+		cx.gridwidth = GridBagConstraints.RELATIVE;
+>>>>>>> initial import of runelite
 		cx.weightx = 1;
 		cx.weighty = 1;
 		cx.gridy = 0;
 		cx.gridx = 0;
+<<<<<<< HEAD
 
 		JPanel recentColorsContainer = recentColors.build(c ->
 		{
@@ -173,6 +201,8 @@ public class RuneliteColorPicker extends JDialog
 
 		cx.gridwidth = GridBagConstraints.RELATIVE;
 		cx.gridy++;
+=======
+>>>>>>> initial import of runelite
 		rightPanel.add(old, cx);
 
 		cx.gridx++;
@@ -204,6 +234,10 @@ public class RuneliteColorPicker extends JDialog
 		slidersContainer.add(blueSlider);
 		slidersContainer.add(alphaSlider);
 
+<<<<<<< HEAD
+=======
+		this.alphaHidden = alphaHidden;
+>>>>>>> initial import of runelite
 		if (alphaHidden)
 		{
 			alphaSlider.setVisible(false);
@@ -292,6 +326,7 @@ public class RuneliteColorPicker extends JDialog
 
 		updatePanels();
 		updateText();
+<<<<<<< HEAD
 
 		addWindowListener(new WindowAdapter()
 		{
@@ -318,6 +353,8 @@ public class RuneliteColorPicker extends JDialog
 				}
 			}
 		});
+=======
+>>>>>>> initial import of runelite
 	}
 
 	private void updatePanels()

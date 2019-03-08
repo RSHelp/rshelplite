@@ -45,13 +45,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+<<<<<<< HEAD
 import java.util.function.IntPredicate;
+=======
+>>>>>>> initial import of runelite
 import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.Getter;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemComposition;
@@ -79,7 +85,10 @@ import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.Notifier;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.game.ItemManager;
+<<<<<<< HEAD
 import net.runelite.client.game.chatbox.ChatboxItemSearch;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.game.chatbox.ChatboxPanelManager;
 import net.runelite.client.plugins.banktags.BankTagsConfig;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
@@ -95,8 +104,11 @@ import net.runelite.client.util.Text;
 @Singleton
 public class TabInterface
 {
+<<<<<<< HEAD
 	public static final IntPredicate FILTERED_CHARS = c -> "</>".indexOf(c) == -1;
 
+=======
+>>>>>>> initial import of runelite
 	private static final Color HILIGHT_COLOR = JagexColors.MENU_TARGET;
 	private static final String SCROLL_UP = "Scroll up";
 	private static final String SCROLL_DOWN = "Scroll down";
@@ -130,6 +142,7 @@ public class TabInterface
 	private final Rectangle bounds = new Rectangle();
 	private final Rectangle canvasBounds = new Rectangle();
 
+<<<<<<< HEAD
 	private ChatboxItemSearch searchProvider;
 	private TagTab activeTab;
 	private int maxTabs;
@@ -137,6 +150,13 @@ public class TabInterface
 	private Instant startScroll = Instant.now();
 	private String rememberedSearch;
 	private boolean waitSearchTick;
+=======
+	private TagTab activeTab;
+	private int maxTabs;
+	private int currentTabIndex;
+	private TagTab iconToSet = null;
+	private Instant startScroll = Instant.now();
+>>>>>>> initial import of runelite
 
 	@Getter
 	private Widget upButton;
@@ -160,8 +180,12 @@ public class TabInterface
 		final ChatboxPanelManager chatboxPanelManager,
 		final BankTagsConfig config,
 		final Notifier notifier,
+<<<<<<< HEAD
 		final BankSearch bankSearch,
 		final ChatboxItemSearch searchProvider)
+=======
+		final BankSearch bankSearch)
+>>>>>>> initial import of runelite
 	{
 		this.client = client;
 		this.clientThread = clientThread;
@@ -172,7 +196,10 @@ public class TabInterface
 		this.config = config;
 		this.notifier = notifier;
 		this.bankSearch = bankSearch;
+<<<<<<< HEAD
 		this.searchProvider = searchProvider;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	public boolean isActive()
@@ -218,8 +245,11 @@ public class TabInterface
 
 		if (config.rememberTab() && !Strings.isNullOrEmpty(config.tab()))
 		{
+<<<<<<< HEAD
 			// the server will resync the last opened vanilla tab when the bank is opened
 			client.setVarbit(Varbits.CURRENT_BANK_TAB, 0);
+=======
+>>>>>>> initial import of runelite
 			openTag(config.tab());
 		}
 	}
@@ -255,7 +285,10 @@ public class TabInterface
 		}
 
 		chatboxPanelManager.openTextInput((inventory ? "Inventory " : "Equipment ") + " tags:")
+<<<<<<< HEAD
 			.addCharValidator(FILTERED_CHARS)
+=======
+>>>>>>> initial import of runelite
 			.onDone((newTags) ->
 				clientThread.invoke(() ->
 				{
@@ -277,7 +310,10 @@ public class TabInterface
 		{
 			case NewTab.NEW_TAB:
 				chatboxPanelManager.openTextInput("Tag name")
+<<<<<<< HEAD
 					.addCharValidator(FILTERED_CHARS)
+=======
+>>>>>>> initial import of runelite
 					.onDone((tagName) -> clientThread.invoke(() ->
 					{
 						if (!Strings.isNullOrEmpty(tagName))
@@ -290,6 +326,10 @@ public class TabInterface
 					.build();
 				break;
 			case NewTab.IMPORT_TAB:
+<<<<<<< HEAD
+=======
+
+>>>>>>> initial import of runelite
 				try
 				{
 					final String dataString = Toolkit
@@ -300,6 +340,7 @@ public class TabInterface
 						.trim();
 
 					final Iterator<String> dataIter = Text.fromCSV(dataString).iterator();
+<<<<<<< HEAD
 					String name = dataIter.next();
 					StringBuffer sb = new StringBuffer();
 					for (char c : name.toCharArray())
@@ -318,6 +359,9 @@ public class TabInterface
 
 					name = sb.toString();
 
+=======
+					final String name = dataIter.next();
+>>>>>>> initial import of runelite
 					final String icon = dataIter.next();
 					tabManager.setIcon(name, icon);
 
@@ -350,7 +394,11 @@ public class TabInterface
 		switch (event.getOp())
 		{
 			case Tab.OPEN_TAG:
+<<<<<<< HEAD
 				client.setVarbit(Varbits.CURRENT_BANK_TAB, 0);
+=======
+				client.setVarbitValue(client.getVarps(), Varbits.CURRENT_BANK_TAB.getId(), 0);
+>>>>>>> initial import of runelite
 				Widget clicked = event.getSource();
 
 				TagTab tab = tabManager.find(Text.removeTags(clicked.getName()));
@@ -359,7 +407,11 @@ public class TabInterface
 				{
 					bankSearch.reset(true);
 
+<<<<<<< HEAD
 					clientThread.invokeLater(() -> client.runScript(ScriptID.MESSAGE_LAYER_CLOSE, 0, 0));
+=======
+					clientThread.invokeLater(() -> client.runScript(ScriptID.RESET_CHATBOX_INPUT));
+>>>>>>> initial import of runelite
 				}
 				else
 				{
@@ -369,6 +421,7 @@ public class TabInterface
 				client.playSoundEffect(SoundEffectID.UI_BOOP);
 				break;
 			case Tab.CHANGE_ICON:
+<<<<<<< HEAD
 				final String tag = Text.removeTags(event.getOpbase());
 				searchProvider
 					.tooltipText(CHANGE_ICON + " (" + tag + ")")
@@ -383,6 +436,9 @@ public class TabInterface
 						}
 					})
 					.build();
+=======
+				iconToSet = tabManager.find(Text.removeTags(event.getOpbase()));
+>>>>>>> initial import of runelite
 				break;
 			case Tab.DELETE_TAB:
 				String target = Text.standardize(event.getOpbase());
@@ -426,8 +482,11 @@ public class TabInterface
 		currentTabIndex = 0;
 		maxTabs = 0;
 		parent = null;
+<<<<<<< HEAD
 		waitSearchTick = false;
 		rememberedSearch = "";
+=======
+>>>>>>> initial import of runelite
 
 		if (upButton != null)
 		{
@@ -444,8 +503,11 @@ public class TabInterface
 		if (isHidden())
 		{
 			parent = null;
+<<<<<<< HEAD
 			waitSearchTick = false;
 			rememberedSearch = "";
+=======
+>>>>>>> initial import of runelite
 
 			// If bank window was just hidden, update last active tab position
 			if (currentTabIndex != config.position())
@@ -510,6 +572,7 @@ public class TabInterface
 			activateTab(null);
 		}
 
+<<<<<<< HEAD
 		if (!waitSearchTick
 			&& activeTab == null
 			&& !Strings.isNullOrEmpty(rememberedSearch)
@@ -524,6 +587,8 @@ public class TabInterface
 			waitSearchTick = false;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		updateBounds();
 		scrollTab(0);
 	}
@@ -565,6 +630,15 @@ public class TabInterface
 			entries = createMenuEntry(event, REMOVE_TAG + " (" + activeTab.getTag() + ")", event.getTarget(), entries);
 			client.setMenuEntries(entries);
 		}
+<<<<<<< HEAD
+=======
+		else if (iconToSet != null && (entry.getOption().startsWith("Withdraw-") || entry.getOption().equals("Release")))
+		{
+			// TODO: Do not replace every withdraw option with change icon option
+			entry.setOption(CHANGE_ICON + " (" + iconToSet.getTag() + ")");
+			client.setMenuEntries(entries);
+		}
+>>>>>>> initial import of runelite
 		else if (event.getActionParam1() == WidgetInfo.BANK_DEPOSIT_INVENTORY.getId()
 			&& event.getOption().equals("Deposit inventory"))
 		{
@@ -598,6 +672,7 @@ public class TabInterface
 			return;
 		}
 
+<<<<<<< HEAD
 		if (chatboxPanelManager.getCurrentInput() != null
 			&& event.getMenuAction() != MenuAction.CANCEL
 			&& !event.getMenuOption().equals(SCROLL_UP)
@@ -615,6 +690,22 @@ public class TabInterface
 			waitSearchTick = true;
 			rememberedSearch = client.getVar(VarClientStr.INPUT_TEXT);
 			bankSearch.search(InputType.NONE, rememberedSearch, true);
+=======
+		if (iconToSet != null)
+		{
+			if (event.getMenuOption().startsWith(CHANGE_ICON + " ("))
+			{
+				ItemComposition item = getItem(event.getActionParam());
+				int itemId = itemManager.canonicalize(item.getId());
+				iconToSet.setIconItemId(itemId);
+				iconToSet.getIcon().setItemId(itemId);
+				tabManager.setIcon(iconToSet.getTag(), itemId + "");
+				event.consume();
+			}
+
+			// Reset icon selection even when we do not clicked item with icon
+			iconToSet = null;
+>>>>>>> initial import of runelite
 		}
 
 		if (activeTab != null
@@ -749,6 +840,7 @@ public class TabInterface
 
 		if (tagTab.getIcon() == null)
 		{
+<<<<<<< HEAD
 			Widget icon = createGraphic(
 				ColorUtil.wrapWithColorTag(tagTab.getTag(), HILIGHT_COLOR),
 				-1,
@@ -756,6 +848,9 @@ public class TabInterface
 				Constants.ITEM_SPRITE_WIDTH, Constants.ITEM_SPRITE_HEIGHT,
 				bounds.x + 3, 1,
 				false);
+=======
+			Widget icon = createGraphic(ColorUtil.wrapWithColorTag(tagTab.getTag(), HILIGHT_COLOR), -1, tagTab.getIconItemId(), 36, 32, bounds.x + 3, 1, false);
+>>>>>>> initial import of runelite
 			int clickmask = icon.getClickMask();
 			clickmask |= WidgetConfig.DRAG;
 			clickmask |= WidgetConfig.DRAG_ON;
@@ -787,7 +882,10 @@ public class TabInterface
 	private void renameTab(String oldTag)
 	{
 		chatboxPanelManager.openTextInput("Enter new tag name for tag \"" + oldTag + "\":")
+<<<<<<< HEAD
 			.addCharValidator(FILTERED_CHARS)
+=======
+>>>>>>> initial import of runelite
 			.onDone((newTag) -> clientThread.invoke(() ->
 			{
 				if (!Strings.isNullOrEmpty(newTag) && !newTag.equalsIgnoreCase(oldTag))

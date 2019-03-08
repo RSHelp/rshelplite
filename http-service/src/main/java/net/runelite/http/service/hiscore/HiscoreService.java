@@ -31,6 +31,10 @@ import com.google.common.cache.LoadingCache;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> initial import of runelite
 import net.runelite.http.api.hiscore.HiscoreClient;
 import net.runelite.http.api.hiscore.HiscoreEndpoint;
 import net.runelite.http.api.hiscore.HiscoreResult;
@@ -38,6 +42,10 @@ import okhttp3.HttpUrl;
 import org.springframework.stereotype.Service;
 
 @Service
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 public class HiscoreService
 {
 	private final HiscoreClient hiscoreClient = new HiscoreClient();

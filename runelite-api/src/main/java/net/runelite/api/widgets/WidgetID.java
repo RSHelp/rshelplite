@@ -45,8 +45,11 @@ public class WidgetID
 	public static final int GRAND_EXCHANGE_GROUP_ID = 465;
 	public static final int DEPOSIT_BOX_GROUP_ID = 192;
 	public static final int INVENTORY_GROUP_ID = 149;
+<<<<<<< HEAD
 	public static final int PLAYER_TRADE_SCREEN_GROUP_ID = 335;
 	public static final int PLAYER_TRADE_INVENTORY_GROUP_ID = 336;
+=======
+>>>>>>> initial import of runelite
 	public static final int FRIENDS_LIST_GROUP_ID = 429;
 	public static final int IGNORE_LIST_GROUP_ID = 432;
 	public static final int RAIDING_PARTY_GROUP_ID = 500;
@@ -54,7 +57,11 @@ public class WidgetID
 	public static final int EQUIPMENT_INVENTORY_GROUP_ID = 85;
 	public static final int EMOTES_GROUP_ID = 216;
 	public static final int RUNE_POUCH_GROUP_ID = 190;
+<<<<<<< HEAD
 	public static final int ACHIEVEMENT_DIARY_GROUP_ID = 259;
+=======
+	public static final int DIARY_GROUP_ID = 259;
+>>>>>>> initial import of runelite
 	public static final int PEST_CONTROL_BOAT_GROUP_ID = 407;
 	public static final int PEST_CONTROL_GROUP_ID = 408;
 	public static final int CLAN_CHAT_GROUP_ID = 7;
@@ -121,8 +128,11 @@ public class WidgetID
 	public static final int MINIGAME_TAB_ID = 76;
 	public static final int SPELLBOOK_GROUP_ID = 218;
 	public static final int PVP_GROUP_ID = 90;
+<<<<<<< HEAD
 	public static final int FISHING_TRAWLER_GROUP_ID = 366;
 	public static final int FISHING_TRAWLER_REWARD_GROUP_ID = 367;
+=======
+>>>>>>> initial import of runelite
 	public static final int ZEAH_MESS_HALL_GROUP_ID = 235;
 	public static final int KOUREND_FAVOUR_GROUP_ID = 246;
 	public static final int LOOTING_BAG_GROUP_ID = 81;
@@ -131,6 +141,7 @@ public class WidgetID
 	public static final int FULLSCREEN_MAP_GROUP_ID = 165;
 	public static final int QUESTLIST_GROUP_ID = 399;
 	public static final int SKILLS_GROUP_ID = 320;
+<<<<<<< HEAD
 	public static final int QUESTTAB_GROUP_ID = 629;
 	public static final int MUSIC_GROUP_ID = 239;
 	public static final int BARROWS_PUZZLE_GROUP_ID = 25;
@@ -147,6 +158,8 @@ public class WidgetID
 	public static final int SEED_VAULT_GROUP_ID = 631;
 	public static final int EXPLORERS_RING_ALCH_GROUP_ID = 483;
 	public static final int OPTIONS_GROUP_ID = 261;
+=======
+>>>>>>> initial import of runelite
 
 	static class WorldMap
 	{
@@ -218,9 +231,15 @@ public class WidgetID
 	static class ClanChat
 	{
 		static final int TITLE = 1;
+<<<<<<< HEAD
 		static final int NAME = 4;
 		static final int OWNER = 6;
 		static final int LIST = 16;
+=======
+		static final int NAME = 3;
+		static final int OWNER = 5;
+		static final int LIST = 15;
+>>>>>>> initial import of runelite
 	}
 
 	static class Bank
@@ -229,7 +248,10 @@ public class WidgetID
 		static final int INVENTORY_ITEM_CONTAINER = 3;
 		static final int BANK_TITLE_BAR = 4;
 		static final int CONTENT_CONTAINER = 10;
+<<<<<<< HEAD
 		static final int TAB_CONTAINER = 11;
+=======
+>>>>>>> initial import of runelite
 		static final int ITEM_CONTAINER = 13;
 		static final int SEARCH_BUTTON_BACKGROUND = 40;
 		static final int DEPOSIT_INVENTORY = 42;
@@ -297,7 +319,10 @@ public class WidgetID
 	{
 		static final int EMOTE_WINDOW = 0;
 		static final int EMOTE_CONTAINER = 1;
+<<<<<<< HEAD
 		static final int EMOTE_SCROLLBAR = 2;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	static class Cluescroll
@@ -372,7 +397,10 @@ public class WidgetID
 		static final int ROOT_INTERFACE_CONTAINER = 62;
 		static final int BANK_CONTAINER = 64;
 		static final int INTERFACE_CONTAINER = 65;
+<<<<<<< HEAD
 		static final int INVENTORY_CONTAINER = 69;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	static class ResizableViewport
@@ -406,7 +434,10 @@ public class WidgetID
 		static final int PRAYER_ICON = 63;
 		static final int MAGIC_ICON = 64;
 		static final int INTERFACE_CONTAINER = 65;
+<<<<<<< HEAD
 		static final int INVENTORY_CONTAINER = 71;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	static class ResizableViewportBottomLine
@@ -439,7 +470,10 @@ public class WidgetID
 		static final int MUSIC_TAB = 40;
 		static final int MUSIC_ICON = 46;
 		static final int MAGIC_ICON = 63;
+<<<<<<< HEAD
 		static final int INVENTORY_CONTAINER = 71;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	static class Chatbox
@@ -528,6 +562,7 @@ public class WidgetID
 	static class Combat
 	{
 		static final int WEAPON_NAME = 1;
+<<<<<<< HEAD
 		static final int LEVEL = 3;
 		static final int STYLE_ONE = 4;
 		static final int STYLE_TWO = 8;
@@ -542,6 +577,22 @@ public class WidgetID
 		static final int SPELL_ICON = 28;
 		static final int SPELL_TEXT = 29;
 		static final int AUTO_RETALIATE = 30;
+=======
+		static final int LEVEL = 2;
+		static final int STYLE_ONE = 3;
+		static final int STYLE_TWO = 7;
+		static final int STYLE_THREE = 11;
+		static final int STYLE_FOUR = 15;
+		static final int SPELLS = 19;
+		static final int DEFENSIVE_SPELL_BOX = 20;
+		static final int DEFENSIVE_SPELL_ICON = 22;
+		static final int DEFENSIVE_SPELL_SHIELD = 23;
+		static final int DEFENSIVE_SPELL_TEXT = 24;
+		static final int SPELL_BOX = 25;
+		static final int SPELL_ICON = 27;
+		static final int SPELL_TEXT = 28;
+		static final int AUTO_RETALIATE = 29;
+>>>>>>> initial import of runelite
 	}
 
 	static class VolcanicMine
@@ -597,7 +648,11 @@ public class WidgetID
 	{
 		static final int POINTS_INFOBOX = 6;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> initial import of runelite
 	static class ExperienceDrop
 	{
 		static final int DROP_1 = 15;
@@ -714,7 +769,11 @@ public class WidgetID
 
 	static class Minigames
 	{
+<<<<<<< HEAD
 		static final int TELEPORT_BUTTON = 26;
+=======
+		static final int TELEPORT_BUTTON = 31;
+>>>>>>> initial import of runelite
 	}
 
 	static class StandardSpellBook
@@ -740,10 +799,22 @@ public class WidgetID
 	static class Pvp
 	{
 		static final int BOUNTY_HUNTER_INFO = 6;
+<<<<<<< HEAD
 		static final int KILLDEATH_RATIO = 34;
 		static final int SKULL_CONTAINER = 54;
 		static final int SAFE_ZONE = 56;
 		static final int WILDERNESS_LEVEL = 59; // this can also be the Deadman Mode "Protection" text
+=======
+		static final int KILLDEATH_RATIO = 9;
+		static final int BOUNTY_HUNTER_STATS = 28;
+		static final int PVP_WIDGET_CONTAINER = 54;
+		static final int SKULL_CONTAINER = 55;
+		static final int SKULL = 56;
+		static final int SAFE_ZONE = 57;
+		static final int ATTACK_RANGE = 59;
+		static final int WILDERNESS_LEVEL = 60; // this can also be the Deadman Mode "Protection" text
+		static final int DEADMAN_PROTECTION_TIME = 61;
+>>>>>>> initial import of runelite
 	}
 
 	static class KourendFavour
@@ -773,6 +844,7 @@ public class WidgetID
 
 	static class QuestList
 	{
+<<<<<<< HEAD
 		static final int BOX = 0;
 		static final int SCROLLBAR = 3;
 		static final int CONTAINER = 5;
@@ -854,5 +926,10 @@ public class WidgetID
 	static class Skills
 	{
 		static final int CONTAINER = 0;
+=======
+		static final int FREE_CONTAINER = 9;
+		static final int MEMBERS_CONTAINER = 10;
+		static final int MINIQUEST_CONTAINER = 11;
+>>>>>>> initial import of runelite
 	}
 }

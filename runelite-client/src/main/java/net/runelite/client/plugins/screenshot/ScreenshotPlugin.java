@@ -64,6 +64,10 @@ import net.runelite.api.Point;
 import net.runelite.api.SpriteID;
 import net.runelite.api.WorldType;
 import net.runelite.api.events.ChatMessage;
+<<<<<<< HEAD
+=======
+import net.runelite.api.events.GameStateChanged;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.LocalPlayerDeath;
 import net.runelite.api.events.WidgetLoaded;
@@ -234,8 +238,11 @@ public class ScreenshotPlugin extends Plugin
 			.build();
 
 		clientToolbar.addNavigation(titleBarButton);
+<<<<<<< HEAD
 
 		spriteManager.getSpriteAsync(SpriteID.CHATBOX_REPORT_BUTTON, 0, s -> reportButton = s);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Override
@@ -247,6 +254,19 @@ public class ScreenshotPlugin extends Plugin
 	}
 
 	@Subscribe
+<<<<<<< HEAD
+=======
+	public void onGameStateChanged(GameStateChanged event)
+	{
+		if (event.getGameState() == GameState.LOGGED_IN
+			&& reportButton == null)
+		{
+			reportButton = spriteManager.getSprite(SpriteID.CHATBOX_REPORT_BUTTON, 0);
+		}
+	}
+
+	@Subscribe
+>>>>>>> initial import of runelite
 	public void onGameTick(GameTick event)
 	{
 		if (!shouldTakeScreenshot)
@@ -302,7 +322,11 @@ public class ScreenshotPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.GAMEMESSAGE && event.getType() != ChatMessageType.SPAM && event.getType() != ChatMessageType.TRADE)
+=======
+		if (event.getType() != ChatMessageType.SERVER && event.getType() != ChatMessageType.FILTERED && event.getType() != ChatMessageType.TRANSACTION_COMPLETE)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -639,6 +663,7 @@ public class ScreenshotPlugin extends Plugin
 		{
 			File screenshotFile = new File(playerFolder, fileName + ".png");
 
+<<<<<<< HEAD
 			// To make sure that screenshots don't get overwritten, check if file exists,
 			// and if it does create file with same name and suffix.
 			int i = 1;
@@ -665,6 +690,14 @@ public class ScreenshotPlugin extends Plugin
 					notifier.notify("A screenshot was saved and inserted into your clipboard!", TrayIcon.MessageType.INFO);
 				}
 			}
+=======
+			ImageIO.write(screenshot, "PNG", screenshotFile);
+
+			if (config.uploadScreenshot())
+			{
+				uploadScreenshot(screenshotFile);
+			}
+>>>>>>> initial import of runelite
 			else if (config.notifyWhenTaken())
 			{
 				notifier.notify("A screenshot was saved to " + screenshotFile, TrayIcon.MessageType.INFO);

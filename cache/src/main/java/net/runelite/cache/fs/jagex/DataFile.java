@@ -186,9 +186,29 @@ public class DataFile implements Closeable
 
 		for (int part = 0; data.hasRemaining(); ++part)
 		{
+<<<<<<< HEAD
 			int nextSector = sector + 1; // we always just append sectors
 			int dataToWrite;
 
+=======
+			int nextSector = 0;
+			int dataToWrite;
+
+			if (nextSector == 0)
+			{
+				nextSector = (int) ((dat.length() + (long) (SECTOR_SIZE - 1)) / (long) SECTOR_SIZE);
+				if (nextSector == 0)
+				{
+					++nextSector;
+				}
+
+				if (nextSector == sector)
+				{
+					++nextSector;
+				}
+			}
+
+>>>>>>> initial import of runelite
 			if (0xFFFF < archiveId)
 			{
 				if (data.remaining() <= 510)

@@ -30,14 +30,20 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+>>>>>>> initial import of runelite
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.Instant;
 import java.util.Locale;
 import javax.inject.Inject;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.NPC;
 import net.runelite.api.NPCComposition;
 import net.runelite.api.Perspective;
@@ -48,7 +54,10 @@ import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayUtil;
+<<<<<<< HEAD
 import net.runelite.client.util.Text;
+=======
+>>>>>>> initial import of runelite
 
 public class NpcSceneOverlay extends Overlay
 {
@@ -56,6 +65,12 @@ public class NpcSceneOverlay extends Overlay
 	// a dark background
 	private static final Color TEXT_COLOR = Color.WHITE;
 
+<<<<<<< HEAD
+=======
+	// Estimated time of a game tick in seconds
+	private static final double ESTIMATED_TICK_LENGTH = 0.6;
+
+>>>>>>> initial import of runelite
 	private static final NumberFormat TIME_LEFT_FORMATTER = DecimalFormat.getInstance(Locale.US);
 
 	static
@@ -87,7 +102,11 @@ public class NpcSceneOverlay extends Overlay
 
 		for (NPC npc : plugin.getHighlightedNpcs())
 		{
+<<<<<<< HEAD
 			renderNpcOverlay(graphics, npc, config.getHighlightColor());
+=======
+			renderNpcOverlay(graphics, npc, npc.getName(), config.getHighlightColor());
+>>>>>>> initial import of runelite
 		}
 
 		return null;
@@ -122,7 +141,11 @@ public class NpcSceneOverlay extends Overlay
 		}
 
 		final Instant now = Instant.now();
+<<<<<<< HEAD
 		final double baseTick = ((npc.getDiedOnTick() + npc.getRespawnTime()) - client.getTickCount()) * (Constants.GAME_TICK_LENGTH / 1000.0);
+=======
+		final double baseTick = ((npc.getDiedOnTick() + npc.getRespawnTime()) - client.getTickCount()) * ESTIMATED_TICK_LENGTH;
+>>>>>>> initial import of runelite
 		final double sinceLast = (now.toEpochMilli() - plugin.getLastTickUpdate().toEpochMilli()) / 1000.0;
 		final double timeLeft = Math.max(0.0, baseTick - sinceLast);
 		final String timeLeftStr = TIME_LEFT_FORMATTER.format(timeLeft);
@@ -143,7 +166,11 @@ public class NpcSceneOverlay extends Overlay
 		}
 	}
 
+<<<<<<< HEAD
 	private void renderNpcOverlay(Graphics2D graphics, NPC actor, Color color)
+=======
+	private void renderNpcOverlay(Graphics2D graphics, NPC actor, String name, Color color)
+>>>>>>> initial import of runelite
 	{
 		switch (config.renderStyle())
 		{
@@ -168,12 +195,17 @@ public class NpcSceneOverlay extends Overlay
 				break;
 
 			case HULL:
+<<<<<<< HEAD
 				Shape objectClickbox = actor.getConvexHull();
+=======
+				Polygon objectClickbox = actor.getConvexHull();
+>>>>>>> initial import of runelite
 
 				renderPoly(graphics, color, objectClickbox);
 				break;
 		}
 
+<<<<<<< HEAD
 		if (config.drawNames() && actor.getName() != null)
 		{
 			String npcName = Text.removeTags(actor.getName());
@@ -182,11 +214,24 @@ public class NpcSceneOverlay extends Overlay
 			if (textLocation != null)
 			{
 				OverlayUtil.renderTextLocation(graphics, textLocation, npcName, color);
+=======
+		if (config.drawNames())
+		{
+			Point textLocation = actor.getCanvasTextLocation(graphics, name, actor.getLogicalHeight() + 40);
+
+			if (textLocation != null)
+			{
+				OverlayUtil.renderTextLocation(graphics, textLocation, name, color);
+>>>>>>> initial import of runelite
 			}
 		}
 	}
 
+<<<<<<< HEAD
 	private void renderPoly(Graphics2D graphics, Color color, Shape polygon)
+=======
+	private void renderPoly(Graphics2D graphics, Color color, Polygon polygon)
+>>>>>>> initial import of runelite
 	{
 		if (polygon != null)
 		{

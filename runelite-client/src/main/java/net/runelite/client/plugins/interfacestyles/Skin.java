@@ -33,7 +33,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Skin
 {
+<<<<<<< HEAD
 	DEFAULT("Default"),
+=======
+>>>>>>> initial import of runelite
 	AROUND_2005("2005"),
 	AROUND_2010("2010");
 

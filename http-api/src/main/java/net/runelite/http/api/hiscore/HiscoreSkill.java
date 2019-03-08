@@ -52,14 +52,23 @@ public enum HiscoreSkill
 	CONSTRUCTION("Construction"),
 	BOUNTY_HUNTER_HUNTER("Bounty Hunter - Hunter"),
 	BOUNTY_HUNTER_ROGUE("Bounty Hunter - Rogue"),
+<<<<<<< HEAD
 	LAST_MAN_STANDING("Last Man Standing"),
 	CLUE_SCROLL_ALL("Clue Scrolls (all)"),
 	CLUE_SCROLL_BEGINNER("Clue Scrolls (beginner)"),
+=======
+	CLUE_SCROLL_ALL("Clue Scrolls (all)"),
+>>>>>>> initial import of runelite
 	CLUE_SCROLL_EASY("Clue Scrolls (easy)"),
 	CLUE_SCROLL_MEDIUM("Clue Scrolls (medium)"),
 	CLUE_SCROLL_HARD("Clue Scrolls (hard)"),
 	CLUE_SCROLL_ELITE("Clue Scrolls (elite)"),
+<<<<<<< HEAD
 	CLUE_SCROLL_MASTER("Clue Scrolls (master)");
+=======
+	CLUE_SCROLL_MASTER("Clue Scrolls (master)"),
+	LAST_MAN_STANDING("Last Man Standing");
+>>>>>>> initial import of runelite
 
 	private final String name;
 

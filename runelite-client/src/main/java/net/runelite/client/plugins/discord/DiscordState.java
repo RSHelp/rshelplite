@@ -58,14 +58,26 @@ class DiscordState
 	private final DiscordService discordService;
 	private final DiscordConfig config;
 	private PartyService party;
+<<<<<<< HEAD
 	private DiscordPresence lastPresence;
 
 	@Inject
 	private DiscordState(final DiscordService discordService, final DiscordConfig config, final PartyService party)
+=======
+	private final RuneLiteProperties properties;
+	private DiscordPresence lastPresence;
+
+	@Inject
+	private DiscordState(final DiscordService discordService, final DiscordConfig config, final PartyService party, final RuneLiteProperties properties)
+>>>>>>> initial import of runelite
 	{
 		this.discordService = discordService;
 		this.config = config;
 		this.party = party;
+<<<<<<< HEAD
+=======
+		this.properties = properties;
+>>>>>>> initial import of runelite
 	}
 
 	/**
@@ -171,12 +183,20 @@ class DiscordState
 		}
 
 		// Replace snapshot with + to make tooltip shorter (so it will span only 1 line)
+<<<<<<< HEAD
 		final String versionShortHand = RuneLiteProperties.getVersion().replace("-SNAPSHOT", "+");
+=======
+		final String versionShortHand = properties.getVersion().replace("-SNAPSHOT", "+");
+>>>>>>> initial import of runelite
 
 		final DiscordPresence.DiscordPresenceBuilder presenceBuilder = DiscordPresence.builder()
 			.state(MoreObjects.firstNonNull(state, ""))
 			.details(MoreObjects.firstNonNull(details, ""))
+<<<<<<< HEAD
 			.largeImageText(RuneLiteProperties.getTitle() + " v" + versionShortHand)
+=======
+			.largeImageText(properties.getTitle() + " v" + versionShortHand)
+>>>>>>> initial import of runelite
 			.startTimestamp(event.getStart())
 			.smallImageKey(imageKey)
 			.partyMax(PARTY_MAX)

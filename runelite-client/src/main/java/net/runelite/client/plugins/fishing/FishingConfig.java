@@ -24,7 +24,10 @@
  */
 package net.runelite.client.plugins.fishing;
 
+<<<<<<< HEAD
 import java.awt.Color;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
@@ -77,6 +80,7 @@ public interface FishingConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "overlayColor",
 		name = "Overlay Color",
 		description = "Color of overlays",
@@ -111,6 +115,9 @@ public interface FishingConfig extends Config
 
 	@ConfigItem(
 		position = 7,
+=======
+		position = 4,
+>>>>>>> initial import of runelite
 		keyName = "statTimeout",
 		name = "Reset stats (minutes)",
 		description = "The time until fishing session data is reset in minutes."
@@ -121,7 +128,11 @@ public interface FishingConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 8,
+=======
+		position = 5,
+>>>>>>> initial import of runelite
 		keyName = "showFishingStats",
 		name = "Show Fishing session stats",
 		description = "Display the fishing session stats."
@@ -132,7 +143,11 @@ public interface FishingConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 9,
+=======
+		position = 6,
+>>>>>>> initial import of runelite
 		keyName = "showMinnowOverlay",
 		name = "Show Minnow Movement overlay",
 		description = "Display the minnow progress pie overlay."
@@ -143,7 +158,11 @@ public interface FishingConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		position = 10,
+=======
+		position = 7,
+>>>>>>> initial import of runelite
 		keyName = "trawlerNotification",
 		name = "Trawler activity notification",
 		description = "Send a notification when fishing trawler activity drops below 15%."
@@ -152,6 +171,7 @@ public interface FishingConfig extends Config
 	{
 		return true;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		position = 11,
@@ -163,4 +183,6 @@ public interface FishingConfig extends Config
 	{
 		return true;
 	}
+=======
+>>>>>>> initial import of runelite
 }

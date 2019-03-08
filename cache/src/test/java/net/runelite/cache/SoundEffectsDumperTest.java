@@ -71,7 +71,11 @@ public class SoundEffectsDumperTest
 				SoundEffectLoader soundEffectLoader = new SoundEffectLoader();
 				SoundEffectDefinition soundEffect = soundEffectLoader.load(contents);
 
+<<<<<<< HEAD
 				Files.asCharSink(new File(dumpDir, archive.getArchiveId() + ".json"), Charset.defaultCharset()).write(gson.toJson(soundEffect));
+=======
+				Files.write(gson.toJson(soundEffect), new File(dumpDir, archive.getArchiveId() + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

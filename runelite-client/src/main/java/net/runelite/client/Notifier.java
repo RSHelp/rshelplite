@@ -46,13 +46,19 @@ import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.GameState;
 import net.runelite.client.chat.ChatColorType;
 import net.runelite.client.chat.ChatMessageBuilder;
 import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.chat.QueuedMessage;
+<<<<<<< HEAD
 import net.runelite.client.config.FlashNotification;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.config.RuneLiteConfig;
 import net.runelite.client.ui.ClientUI;
 import net.runelite.client.util.OSType;
@@ -70,12 +76,19 @@ public class Notifier
 
 	// Notifier properties
 	private static final Color FLASH_COLOR = new Color(255, 0, 0, 70);
+<<<<<<< HEAD
 	private static final int MINIMUM_FLASH_DURATION_MILLIS = 2000;
 	private static final int MINIMUM_FLASH_DURATION_TICKS = MINIMUM_FLASH_DURATION_MILLIS / Constants.CLIENT_TICK_LENGTH;
 
 	private static final String appName = RuneLiteProperties.getTitle();
 
 	private final Client client;
+=======
+	private static final int FLASH_DURATION = 2000;
+
+	private final Client client;
+	private final String appName;
+>>>>>>> initial import of runelite
 	private final RuneLiteConfig runeLiteConfig;
 	private final ClientUI clientUI;
 	private final ScheduledExecutorService executorService;
@@ -83,17 +96,28 @@ public class Notifier
 	private final Path notifyIconPath;
 	private final boolean terminalNotifierAvailable;
 	private Instant flashStart;
+<<<<<<< HEAD
 	private long mouseLastPressedMillis;
+=======
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Notifier(
 		final ClientUI clientUI,
 		final Client client,
 		final RuneLiteConfig runeliteConfig,
+<<<<<<< HEAD
+=======
+		final RuneLiteProperties runeLiteProperties,
+>>>>>>> initial import of runelite
 		final ScheduledExecutorService executorService,
 		final ChatMessageManager chatMessageManager)
 	{
 		this.client = client;
+<<<<<<< HEAD
+=======
+		this.appName = runeLiteProperties.getTitle();
+>>>>>>> initial import of runelite
 		this.clientUI = clientUI;
 		this.runeLiteConfig = runeliteConfig;
 		this.executorService = executorService;
@@ -143,12 +167,17 @@ public class Notifier
 				.build();
 
 			chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 				.type(ChatMessageType.CONSOLE)
+=======
+				.type(ChatMessageType.GAME)
+>>>>>>> initial import of runelite
 				.name(appName)
 				.runeLiteFormattedMessage(formattedMessage)
 				.build());
 		}
 
+<<<<<<< HEAD
 		if (runeLiteConfig.flashNotification() != FlashNotification.DISABLED)
 		{
 			flashStart = Instant.now();
@@ -156,10 +185,17 @@ public class Notifier
 		}
 
 		log.debug(message);
+=======
+		if (runeLiteConfig.enableFlashNotification())
+		{
+			flashStart = Instant.now();
+		}
+>>>>>>> initial import of runelite
 	}
 
 	public void processFlash(final Graphics2D graphics)
 	{
+<<<<<<< HEAD
 		if (flashStart == null || client.getGameState() != GameState.LOGGED_IN)
 		{
 			flashStart = null;
@@ -173,6 +209,15 @@ public class Notifier
 			&& (flashNotification == FlashNotification.FLASH_TWO_SECONDS
 			|| flashNotification == FlashNotification.FLASH_UNTIL_CANCELLED))
 		{
+=======
+		if (flashStart == null || client.getGameCycle() % 40 >= 20)
+		{
+			return;
+		}
+		else if (client.getGameState() != GameState.LOGGED_IN)
+		{
+			flashStart = null;
+>>>>>>> initial import of runelite
 			return;
 		}
 
@@ -181,6 +226,7 @@ public class Notifier
 		graphics.fill(new Rectangle(client.getCanvas().getSize()));
 		graphics.setColor(color);
 
+<<<<<<< HEAD
 		if (!Instant.now().minusMillis(MINIMUM_FLASH_DURATION_MILLIS).isAfter(flashStart))
 		{
 			return;
@@ -202,6 +248,11 @@ public class Notifier
 					flashStart = null;
 				}
 				break;
+=======
+		if (Instant.now().minusMillis(FLASH_DURATION).isAfter(flashStart))
+		{
+			flashStart = null;
+>>>>>>> initial import of runelite
 		}
 	}
 

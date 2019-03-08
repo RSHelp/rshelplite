@@ -24,30 +24,48 @@
  */
 package net.runelite.api;
 
+<<<<<<< HEAD
 import java.awt.Shape;
 
 /**
  * Represents one or two walls on a tile
+=======
+/**
+ * Represents the wall of a tile, which is an un-passable boundary.
+>>>>>>> initial import of runelite
  */
 public interface WallObject extends TileObject
 {
 	/**
+<<<<<<< HEAD
 	 * A bitfield with the orientation of a wall
 	 * 1 = East
 	 * 2 = North
 	 * 4 = West
 	 * 8 = South
+=======
+	 * Gets the first orientation of the wall.
+	 *
+	 * @return the first orientation, 0-2048 where 0 is north
+>>>>>>> initial import of runelite
 	 */
 	int getOrientationA();
 
 	/**
+<<<<<<< HEAD
 	 * A bitfield containing the orientation of the second wall on this tile,
 	 * or 0 if there is no second wall.
 	 * @see #getOrientationA
+=======
+	 * Gets the second orientation value of the wall.
+	 *
+	 * @return the second orientation, 0-2048 where 0 is north
+>>>>>>> initial import of runelite
 	 */
 	int getOrientationB();
 
 	/**
+<<<<<<< HEAD
 	 * A bitfield containing various flags:
 	 * <pre>{@code
 	 * object type id = bits & 0x20
@@ -65,6 +83,13 @@ public interface WallObject extends TileObject
 	 */
 	Shape getConvexHull();
 	Shape getConvexHull2();
+=======
+	 * Gets the boundary configuration of the wall.
+	 *
+	 * @return the boundary configuration
+	 */
+	int getConfig();
+>>>>>>> initial import of runelite
 
 	Renderable getRenderable1();
 	Renderable getRenderable2();

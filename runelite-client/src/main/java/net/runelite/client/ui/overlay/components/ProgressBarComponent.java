@@ -24,7 +24,10 @@
  */
 package net.runelite.client.ui.overlay.components;
 
+<<<<<<< HEAD
 import com.google.common.base.Strings;
+=======
+>>>>>>> initial import of runelite
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
@@ -41,23 +44,33 @@ public class ProgressBarComponent implements LayoutableRenderableEntity
 	public enum LabelDisplayMode
 	{
 		PERCENTAGE,
+<<<<<<< HEAD
 		FULL,
 		TEXT_ONLY,
 		BOTH
+=======
+		FULL
+>>>>>>> initial import of runelite
 	}
 
 	private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.0");
 	private static final DecimalFormat DECIMAL_FORMAT_ABS = new DecimalFormat("#0");
 
+<<<<<<< HEAD
 	private static final int SIDE_LABEL_OFFSET = 4;
 
+=======
+>>>>>>> initial import of runelite
 	private long minimum;
 	private long maximum = 100;
 	private double value;
 	private LabelDisplayMode labelDisplayMode = LabelDisplayMode.PERCENTAGE;
+<<<<<<< HEAD
 	private String centerLabel;
 	private String leftLabel;
 	private String rightLabel;
+=======
+>>>>>>> initial import of runelite
 	private Color foregroundColor = new Color(82, 161, 82);
 	private Color backgroundColor = new Color(255, 255, 255, 127);
 	private Color fontColor = Color.WHITE;
@@ -78,6 +91,7 @@ public class ProgressBarComponent implements LayoutableRenderableEntity
 		final long span = maximum - minimum;
 		final double currentValue = value - minimum;
 		final double pc = currentValue / span;
+<<<<<<< HEAD
 		String textToWrite;
 
 		switch (labelDisplayMode)
@@ -104,6 +118,17 @@ public class ProgressBarComponent implements LayoutableRenderableEntity
 			}
 
 			textToWrite += centerLabel;
+=======
+		final String textToWrite;
+
+		switch (labelDisplayMode)
+		{
+			case PERCENTAGE:
+				textToWrite = DECIMAL_FORMAT.format(pc * 100d) + "%";
+				break;
+			default:
+				textToWrite = DECIMAL_FORMAT_ABS.format(Math.floor(currentValue)) + "/" + maximum;
+>>>>>>> initial import of runelite
 		}
 
 		final int width = preferredSize.width;
@@ -124,6 +149,7 @@ public class ProgressBarComponent implements LayoutableRenderableEntity
 		textComponent.setText(textToWrite);
 		textComponent.render(graphics);
 
+<<<<<<< HEAD
 		if (leftLabel != null)
 		{
 			final TextComponent leftTextComponent = new TextComponent();
@@ -142,11 +168,14 @@ public class ProgressBarComponent implements LayoutableRenderableEntity
 			leftTextComponent.render(graphics);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		final Dimension dimension = new Dimension(width, height);
 		bounds.setLocation(preferredLocation);
 		bounds.setSize(dimension);
 		return dimension;
 	}
+<<<<<<< HEAD
 
 	private static String formatFullProgress(double current, long maximum)
 	{
@@ -157,4 +186,6 @@ public class ProgressBarComponent implements LayoutableRenderableEntity
 	{
 		return DECIMAL_FORMAT.format(ratio * 100d) + "%";
 	}
+=======
+>>>>>>> initial import of runelite
 }

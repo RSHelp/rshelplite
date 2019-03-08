@@ -77,7 +77,11 @@ public class OverlayDumper
 				OverlayLoader loader = new OverlayLoader();
 				OverlayDefinition overlay = loader.load(file.getFileId(), file.getContents());
 
+<<<<<<< HEAD
 				Files.asCharSink(new File(outDir, file.getFileId() + ".json"), Charset.defaultCharset()).write(gson.toJson(overlay));
+=======
+				Files.write(gson.toJson(overlay), new File(outDir, file.getFileId() + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

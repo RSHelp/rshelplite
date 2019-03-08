@@ -89,6 +89,7 @@ public class Constants
 	 * the maximum framerate of 50 fps.
 	 */
 	public static final int CLIENT_TICK_LENGTH = 20;
+<<<<<<< HEAD
 
 	/**
 	 * The number of milliseconds in a server game tick.
@@ -114,4 +115,6 @@ public class Constants
 	 * @see ItemComposition#getPrice
 	 */
 	public static final float HIGH_ALCHEMY_MULTIPLIER = .6f;
+=======
+>>>>>>> initial import of runelite
 }

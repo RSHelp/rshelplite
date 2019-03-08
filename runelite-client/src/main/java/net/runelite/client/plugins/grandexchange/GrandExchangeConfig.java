@@ -74,6 +74,7 @@ public interface GrandExchangeConfig extends Config
 	{
 		return true;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		position = 5,
@@ -96,4 +97,6 @@ public interface GrandExchangeConfig extends Config
 	{
 		return false;
 	}
+=======
+>>>>>>> initial import of runelite
 }

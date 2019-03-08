@@ -39,7 +39,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+<<<<<<< HEAD
 import org.mockito.junit.MockitoJUnitRunner;
+=======
+import org.mockito.runners.MockitoJUnitRunner;
+>>>>>>> initial import of runelite
 
 @RunWith(MockitoJUnitRunner.class)
 public class ConfigManagerTest

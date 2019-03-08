@@ -27,19 +27,34 @@ package net.runelite.api;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+import java.awt.Rectangle;
+import java.awt.geom.Area;
+>>>>>>> initial import of runelite
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
+=======
+import java.util.stream.Collectors;
+>>>>>>> initial import of runelite
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import static net.runelite.api.Constants.TILE_FLAG_BRIDGE;
 import net.runelite.api.coords.LocalPoint;
+<<<<<<< HEAD
 import net.runelite.api.geometry.RectangleUnion;
 import net.runelite.api.geometry.Shapes;
 import net.runelite.api.geometry.SimplePolygon;
 import net.runelite.api.model.Jarvis;
+=======
+import net.runelite.api.model.Jarvis;
+import net.runelite.api.model.Triangle;
+import net.runelite.api.model.Vertex;
+>>>>>>> initial import of runelite
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 
@@ -53,7 +68,10 @@ public class Perspective
 
 	public static final int LOCAL_COORD_BITS = 7;
 	public static final int LOCAL_TILE_SIZE = 1 << LOCAL_COORD_BITS; // 128 - size of a tile in local coordinates
+<<<<<<< HEAD
 	public static final int LOCAL_HALF_TILE_SIZE = LOCAL_TILE_SIZE / 2;
+=======
+>>>>>>> initial import of runelite
 
 	public static final int SCENE_SIZE = Constants.SCENE_SIZE; // in tiles
 
@@ -114,7 +132,11 @@ public class Perspective
 	 * @return a {@link Point} on screen corresponding to the position in
 	 * 3D-space
 	 */
+<<<<<<< HEAD
 	public static Point localToCanvas(@Nonnull Client client, int x, int y, int z)
+=======
+	private static Point localToCanvas(@Nonnull Client client, int x, int y, int z)
+>>>>>>> initial import of runelite
 	{
 		if (x >= 128 && y >= 128 && x <= 13056 && y <= 13056)
 		{
@@ -147,6 +169,7 @@ public class Perspective
 		}
 
 		return null;
+<<<<<<< HEAD
 	}
 
 	/**
@@ -215,6 +238,9 @@ public class Perspective
 			x2d[i] = viewX;
 			y2d[i] = viewY;
 		}
+=======
+
+>>>>>>> initial import of runelite
 	}
 
 	/**
@@ -561,6 +587,7 @@ public class Perspective
 	 * Get the on-screen clickable area of {@code model} as though it's for the
 	 * object on the tile at ({@code localX}, {@code localY}) and rotated to
 	 * angle {@code orientation}.
+<<<<<<< HEAD
 	 * @param client      the game client
 	 * @param model       the model to calculate a clickbox for
 	 * @param orientation the orientation of the model (0-2048, where 0 is north)
@@ -569,12 +596,23 @@ public class Perspective
 	 */
 	@Nullable
 	public static Shape getClickbox(@Nonnull Client client, Model model, int orientation, LocalPoint point)
+=======
+	 *
+	 * @param client the game client
+	 * @param model the model to calculate a clickbox for
+	 * @param orientation the orientation of the model (0-2048, where 0 is north)
+	 * @param point the coordinate of the tile
+	 * @return the clickable area of the model
+	 */
+	public static @Nullable Area getClickbox(@Nonnull Client client, Model model, int orientation, @Nonnull LocalPoint point)
+>>>>>>> initial import of runelite
 	{
 		if (model == null)
 		{
 			return null;
 		}
 
+<<<<<<< HEAD
 		int x = point.getX();
 		int y = point.getY();
 		int z = getTileHeight(client, point, client.getPlane());
@@ -593,10 +631,25 @@ public class Perspective
 
 		Shapes<SimplePolygon> bounds2d = calculate2DBounds(client, model, orientation, x, y, z);
 		if (bounds2d == null)
+=======
+		List<Triangle> triangles = model.getTriangles().stream()
+			.map(triangle -> triangle.rotate(orientation))
+			.collect(Collectors.toList());
+
+		List<Vertex> vertices = model.getVertices().stream()
+				.map(v -> v.rotate(orientation))
+				.collect(Collectors.toList());
+
+		Area clickBox = get2DGeometry(client, triangles, point);
+		Area visibleAABB = getAABB(client, vertices, point);
+
+		if (visibleAABB == null)
+>>>>>>> initial import of runelite
 		{
 			return null;
 		}
 
+<<<<<<< HEAD
 		for (SimplePolygon poly : bounds2d.getShapes())
 		{
 			poly.intersectWithConvex(bounds);
@@ -733,6 +786,216 @@ public class Perspective
 		}
 
 		return RectangleUnion.union(rects);
+=======
+		clickBox.intersect(visibleAABB);
+		return clickBox;
+	}
+
+	/**
+	 * Determine if a given point is off-screen.
+	 *
+	 * @param client
+	 * @param point
+	 * @return
+	 */
+	private static boolean isOffscreen(@Nonnull Client client, @Nonnull Point point)
+	{
+		return (point.getX() < 0 || point.getX() >= client.getViewportWidth())
+			&& (point.getY() < 0 || point.getY() >= client.getViewportHeight());
+	}
+
+	private static @Nonnull Area get2DGeometry(
+		@Nonnull Client client,
+		@Nonnull List<Triangle> triangles,
+		@Nonnull LocalPoint point
+	)
+	{
+		int radius = 5;
+		Area geometry = new Area();
+
+		final int tileHeight = getTileHeight(client, point, client.getPlane());
+
+		for (Triangle triangle : triangles)
+		{
+			Vertex _a = triangle.getA();
+			Point a = localToCanvas(client,
+				point.getX() - _a.getX(),
+				point.getY() - _a.getZ(),
+				tileHeight + _a.getY());
+			if (a == null)
+			{
+				continue;
+			}
+
+			Vertex _b = triangle.getB();
+			Point b = localToCanvas(client,
+				point.getX() - _b.getX(),
+				point.getY() - _b.getZ(),
+				tileHeight + _b.getY());
+			if (b == null)
+			{
+				continue;
+			}
+
+			Vertex _c = triangle.getC();
+			Point c = localToCanvas(client,
+				point.getX() - _c.getX(),
+				point.getY() - _c.getZ(),
+				tileHeight + _c.getY());
+			if (c == null)
+			{
+				continue;
+			}
+
+			if (isOffscreen(client, a) && isOffscreen(client, b) && isOffscreen(client, c))
+			{
+				continue;
+			}
+
+			int minX = Math.min(Math.min(a.getX(), b.getX()), c.getX());
+			int minY = Math.min(Math.min(a.getY(), b.getY()), c.getY());
+
+			// For some reason, this calculation is always 4 pixels short of the actual in-client one
+			int maxX = Math.max(Math.max(a.getX(), b.getX()), c.getX()) + 4;
+			int maxY = Math.max(Math.max(a.getY(), b.getY()), c.getY()) + 4;
+
+			Rectangle clickableRect = new Rectangle(
+				minX - radius, minY - radius,
+				maxX - minX + radius, maxY - minY + radius
+			);
+
+			if (geometry.contains(clickableRect))
+			{
+				continue;
+			}
+
+			geometry.add(new Area(clickableRect));
+		}
+
+		return geometry;
+	}
+
+	private static Area getAABB(
+		@Nonnull Client client,
+		@Nonnull List<Vertex> vertices,
+		@Nonnull LocalPoint point
+	)
+	{
+		int maxX = 0;
+		int minX = 0;
+		int maxY = 0;
+		int minY = 0;
+		int maxZ = 0;
+		int minZ = 0;
+
+		for (Vertex vertex : vertices)
+		{
+			int x = vertex.getX();
+			int y = vertex.getY();
+			int z = vertex.getZ();
+
+			if (x > maxX)
+			{
+				maxX = x;
+			}
+			if (x < minX)
+			{
+				minX = x;
+			}
+
+			if (y > maxY)
+			{
+				maxY = y;
+			}
+			if (y < minY)
+			{
+				minY = y;
+			}
+
+			if (z > maxZ)
+			{
+				maxZ = z;
+			}
+			if (z < minZ)
+			{
+				minZ = z;
+			}
+		}
+
+		int centerX = (minX + maxX) / 2;
+		int centerY = (minY + maxY) / 2;
+		int centerZ = (minZ + maxZ) / 2;
+
+		int extremeX = (maxX - minX + 1) / 2;
+		int extremeY = (maxY - minY + 1) / 2;
+		int extremeZ = (maxZ - minZ + 1) / 2;
+
+		if (extremeX < 32)
+		{
+			extremeX = 32;
+		}
+
+		if (extremeZ < 32)
+		{
+			extremeZ = 32;
+		}
+
+		int x1 = point.getX() - (centerX - extremeX);
+		int y1 = centerY - extremeY;
+		int z1 = point.getY() - (centerZ - extremeZ);
+
+		int x2 = point.getX() - (centerX + extremeX);
+		int y2 = centerY + extremeY;
+		int z2 = point.getY() - (centerZ + extremeZ);
+
+		final int tileHeight = getTileHeight(client, point, client.getPlane());
+
+		Point p1 = localToCanvas(client, x1, z1, tileHeight + y1);
+		Point p2 = localToCanvas(client, x1, z2, tileHeight + y1);
+		Point p3 = localToCanvas(client, x2, z2, tileHeight + y1);
+
+		Point p4 = localToCanvas(client, x2, z1, tileHeight + y1);
+		Point p5 = localToCanvas(client, x1, z1, tileHeight + y2);
+		Point p6 = localToCanvas(client, x1, z2, tileHeight + y2);
+		Point p7 = localToCanvas(client, x2, z2, tileHeight + y2);
+		Point p8 = localToCanvas(client, x2, z1, tileHeight + y2);
+
+		List<Point> points = new ArrayList<>(8);
+		points.add(p1);
+		points.add(p2);
+		points.add(p3);
+		points.add(p4);
+		points.add(p5);
+		points.add(p6);
+		points.add(p7);
+		points.add(p8);
+
+		try
+		{
+			points = Jarvis.convexHull(points);
+		}
+		catch (NullPointerException e)
+		{
+			// No non-null screen points for this AABB e.g. for an way off-screen model
+			return null;
+		}
+
+		if (points == null)
+		{
+			return null;
+		}
+
+		Polygon hull = new Polygon();
+		for (Point p : points)
+		{
+			if (p != null)
+			{
+				hull.addPoint(p.getX(), p.getY());
+			}
+		}
+
+		return new Area(hull);
+>>>>>>> initial import of runelite
 	}
 
 	/**

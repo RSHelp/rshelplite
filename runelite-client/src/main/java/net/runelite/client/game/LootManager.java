@@ -38,7 +38,11 @@ import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.AnimationID;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.TileItem;
+=======
+import net.runelite.api.Item;
+>>>>>>> initial import of runelite
 import net.runelite.api.ItemID;
 import net.runelite.api.NPC;
 import net.runelite.api.NpcID;
@@ -109,7 +113,11 @@ public class LootManager
 				case NpcID.LIZARD:
 
 				case NpcID.ZYGOMITE:
+<<<<<<< HEAD
 				case NpcID.ZYGOMITE_1024:
+=======
+				case NpcID.ZYGOMITE_474:
+>>>>>>> initial import of runelite
 				case NpcID.ANCIENT_ZYGOMITE:
 
 					// these monsters die with >0 hp, so we just look for coincident
@@ -156,26 +164,44 @@ public class LootManager
 	@Subscribe
 	public void onItemSpawned(ItemSpawned itemSpawned)
 	{
+<<<<<<< HEAD
 		final TileItem item = itemSpawned.getItem();
+=======
+		final Item item = itemSpawned.getItem();
+>>>>>>> initial import of runelite
 		final Tile tile = itemSpawned.getTile();
 		final LocalPoint location = tile.getLocalLocation();
 		final int packed = location.getSceneX() << 8 | location.getSceneY();
 		itemSpawns.put(packed, new ItemStack(item.getId(), item.getQuantity(), location));
+<<<<<<< HEAD
 		log.debug("Item spawn {} ({}) location {}", item.getId(), item.getQuantity(), location);
+=======
+		log.debug("Item spawn {} ({}) location {},{}", item.getId(), item.getQuantity(), location);
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
 	public void onItemDespawned(ItemDespawned itemDespawned)
 	{
+<<<<<<< HEAD
 		final TileItem item = itemDespawned.getItem();
 		final LocalPoint location = itemDespawned.getTile().getLocalLocation();
 		log.debug("Item despawn {} ({}) location {}", item.getId(), item.getQuantity(), location);
+=======
+		final Item item = itemDespawned.getItem();
+		final LocalPoint location = itemDespawned.getTile().getLocalLocation();
+		log.debug("Item despawn {} ({}) location {},{}", item.getId(), item.getQuantity(), location);
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
 	public void onItemQuantityChanged(ItemQuantityChanged itemQuantityChanged)
 	{
+<<<<<<< HEAD
 		final TileItem item = itemQuantityChanged.getItem();
+=======
+		final Item item = itemQuantityChanged.getItem();
+>>>>>>> initial import of runelite
 		final Tile tile = itemQuantityChanged.getTile();
 		final LocalPoint location = tile.getLocalLocation();
 		final int packed = location.getSceneX() << 8 | location.getSceneY();

@@ -89,6 +89,7 @@ public class ChatboxPanelManager
 	private void unsafeCloseInput()
 	{
 		client.runScript(
+<<<<<<< HEAD
 			ScriptID.MESSAGE_LAYER_CLOSE,
 			0,
 			1
@@ -97,11 +98,21 @@ public class ChatboxPanelManager
 		{
 			killCurrentPanel();
 		}
+=======
+			ScriptID.RESET_CHATBOX_INPUT,
+			0,
+			1
+		);
+>>>>>>> initial import of runelite
 	}
 
 	private void unsafeOpenInput(ChatboxInput input)
 	{
+<<<<<<< HEAD
 		client.runScript(ScriptID.MESSAGE_LAYER_OPEN, 0);
+=======
+		client.runScript(ScriptID.CLEAR_CHATBOX_PANEL);
+>>>>>>> initial import of runelite
 
 		eventBus.register(input);
 		if (input instanceof KeyListener)
@@ -117,11 +128,14 @@ public class ChatboxPanelManager
 			mouseManager.registerMouseWheelListener((MouseWheelListener) input);
 		}
 
+<<<<<<< HEAD
 		if (currentInput != null)
 		{
 			killCurrentPanel();
 		}
 
+=======
+>>>>>>> initial import of runelite
 		currentInput = input;
 		client.setVar(VarClientInt.INPUT_TYPE, InputType.RUNELITE_CHATBOX_PANEL.getType());
 		client.getWidget(WidgetInfo.CHATBOX_TITLE).setHidden(true);

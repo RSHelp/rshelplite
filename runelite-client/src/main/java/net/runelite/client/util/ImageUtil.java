@@ -24,7 +24,10 @@
  */
 package net.runelite.client.util;
 
+<<<<<<< HEAD
 import com.google.common.primitives.Ints;
+=======
+>>>>>>> initial import of runelite
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -35,15 +38,22 @@ import java.awt.image.DirectColorModel;
 import java.awt.image.PixelGrabber;
 import java.awt.image.RescaleOp;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+=======
+import java.util.Arrays;
+>>>>>>> initial import of runelite
 import javax.imageio.ImageIO;
 import javax.swing.GrayFilter;
 import java.util.function.Predicate;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.IndexedSprite;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.SpritePixels;
 
 /**
@@ -52,11 +62,14 @@ import net.runelite.api.SpritePixels;
 @Slf4j
 public class ImageUtil
 {
+<<<<<<< HEAD
 	static
 	{
 		ImageIO.setUseCache(false);
 	}
 
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * Creates a {@link BufferedImage} from an {@link Image}.
 	 *
@@ -457,6 +470,7 @@ public class ImageUtil
 
 		return client.createSpritePixels(pixels, image.getWidth(), image.getHeight());
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Converts an image into an {@code IndexedSprite} instance.
@@ -527,4 +541,6 @@ public class ImageUtil
 
 		return sprite;
 	}
+=======
+>>>>>>> initial import of runelite
 }

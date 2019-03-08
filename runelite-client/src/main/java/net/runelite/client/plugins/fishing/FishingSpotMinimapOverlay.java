@@ -64,7 +64,11 @@ class FishingSpotMinimapOverlay extends Overlay
 
 		for (NPC npc : plugin.getFishingSpots())
 		{
+<<<<<<< HEAD
 			FishingSpot spot = FishingSpot.findSpot(npc.getId());
+=======
+			FishingSpot spot = FishingSpot.getSPOTS().get(npc.getId());
+>>>>>>> initial import of runelite
 
 			if (spot == null)
 			{
@@ -76,9 +80,13 @@ class FishingSpotMinimapOverlay extends Overlay
 				continue;
 			}
 
+<<<<<<< HEAD
 			Color color = npc.getGraphic() == GraphicID.FLYING_FISH
 				? config.getMinnowsOverlayColor()
 				: config.getOverlayColor();
+=======
+			Color color = npc.getGraphic() == GraphicID.FLYING_FISH ? Color.RED : Color.CYAN;
+>>>>>>> initial import of runelite
 
 			net.runelite.api.Point minimapLocation = npc.getMinimapLocation();
 			if (minimapLocation != null)

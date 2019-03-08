@@ -24,6 +24,7 @@
  */
 package net.runelite.client.plugins.cluescrolls.clues;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -32,12 +33,25 @@ import lombok.Getter;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.client.plugins.cluescrolls.ClueScrollPlugin;
+=======
+import java.awt.Color;
+import java.awt.Graphics2D;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import net.runelite.api.ItemID;
+import net.runelite.api.coords.LocalPoint;
+import net.runelite.api.coords.WorldPoint;
+import net.runelite.client.plugins.cluescrolls.ClueScrollPlugin;
+import net.runelite.client.plugins.cluescrolls.clues.emote.ItemRequirement;
+import net.runelite.client.plugins.cluescrolls.clues.emote.SingleItemRequirement;
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 import net.runelite.client.ui.overlay.components.TitleComponent;
 
 @Getter
+<<<<<<< HEAD
 public class CoordinateClue extends ClueScroll implements TextClueScroll, LocationClueScroll
 {
 	private static final ImmutableMap<WorldPoint, String> CLUES = new ImmutableMap.Builder<WorldPoint, String>()
@@ -226,12 +240,21 @@ public class CoordinateClue extends ClueScroll implements TextClueScroll, Locati
 			return new WorldPoint[]{location};
 		}
 	}
+=======
+@AllArgsConstructor
+public class CoordinateClue extends ClueScroll implements TextClueScroll, LocationClueScroll
+{
+	private String text;
+	private WorldPoint location;
+	private static final ItemRequirement HAS_SPADE = new SingleItemRequirement(ItemID.SPADE);
+>>>>>>> initial import of runelite
 
 	@Override
 	public void makeOverlayHint(PanelComponent panelComponent, ClueScrollPlugin plugin)
 	{
 		panelComponent.getChildren().add(TitleComponent.builder().text("Coordinate Clue").build());
 
+<<<<<<< HEAD
 		String solution = CLUES.get(location);
 
 		if (solution != null)
@@ -245,11 +268,26 @@ public class CoordinateClue extends ClueScroll implements TextClueScroll, Locati
 		panelComponent.getChildren().add(LineComponent.builder()
 			.left("Click the clue scroll on your world map to see dig location.")
 			.build());
+=======
+		panelComponent.getChildren().add(LineComponent.builder()
+			.left("Click the clue scroll along the edge of your world map to see where you should dig.")
+			.build());
+
+		if (plugin.getInventoryItems() != null)
+		{
+			if (!HAS_SPADE.fulfilledBy(plugin.getInventoryItems()))
+			{
+				panelComponent.getChildren().add(LineComponent.builder().left("").build());
+				panelComponent.getChildren().add(LineComponent.builder().left("Requires Spade!").leftColor(Color.RED).build());
+			}
+		}
+>>>>>>> initial import of runelite
 	}
 
 	@Override
 	public void makeWorldOverlayHint(Graphics2D graphics, ClueScrollPlugin plugin)
 	{
+<<<<<<< HEAD
 		for (WorldPoint worldPoint : getLocations())
 		{
 			LocalPoint localLocation = LocalPoint.fromWorld(plugin.getClient(), worldPoint);
@@ -259,5 +297,15 @@ public class CoordinateClue extends ClueScroll implements TextClueScroll, Locati
 				OverlayUtil.renderTileOverlay(plugin.getClient(), graphics, localLocation, plugin.getSpadeImage(), Color.ORANGE);
 			}
 		}
+=======
+		LocalPoint localLocation = LocalPoint.fromWorld(plugin.getClient(), getLocation());
+
+		if (localLocation == null)
+		{
+			return;
+		}
+
+		OverlayUtil.renderTileOverlay(plugin.getClient(), graphics, localLocation, plugin.getSpadeImage(), Color.ORANGE);
+>>>>>>> initial import of runelite
 	}
 }

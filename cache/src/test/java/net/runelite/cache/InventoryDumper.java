@@ -77,7 +77,11 @@ public class InventoryDumper
 				InventoryLoader loader = new InventoryLoader();
 				InventoryDefinition inv = loader.load(file.getFileId(), file.getContents());
 
+<<<<<<< HEAD
 				Files.asCharSink(new File(outDir, inv.id + ".json"), Charset.defaultCharset()).write(gson.toJson(inv));
+=======
+				Files.write(gson.toJson(inv), new File(outDir, inv.id + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

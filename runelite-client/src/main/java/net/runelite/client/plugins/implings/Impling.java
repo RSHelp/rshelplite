@@ -24,7 +24,11 @@
  */
 package net.runelite.client.plugins.implings;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
+=======
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -61,6 +65,7 @@ enum Impling
 	NINJA(ImplingType.NINJA, NpcID.NINJA_IMPLING),
 	NINJA_2(ImplingType.NINJA, NpcID.NINJA_IMPLING_1653),
 
+<<<<<<< HEAD
 	CRYSTAL(ImplingType.CRYSTAL, NpcID.CRYSTAL_IMPLING),
 	CRYSTAL_2(ImplingType.CRYSTAL, NpcID.CRYSTAL_IMPLING_8742),
 	CRYSTAL_3(ImplingType.CRYSTAL, NpcID.CRYSTAL_IMPLING_8743),
@@ -79,6 +84,8 @@ enum Impling
 	CRYSTAL_16(ImplingType.CRYSTAL, NpcID.CRYSTAL_IMPLING_8756),
 	CRYSTAL_17(ImplingType.CRYSTAL, NpcID.CRYSTAL_IMPLING_8757),
 
+=======
+>>>>>>> initial import of runelite
 	DRAGON(ImplingType.DRAGON, NpcID.DRAGON_IMPLING),
 	DRAGON_2(ImplingType.DRAGON, NpcID.DRAGON_IMPLING_1654),
 
@@ -88,6 +95,7 @@ enum Impling
 	private ImplingType implingType;
 	private final int npcId;
 
+<<<<<<< HEAD
 	private static final Map<Integer, Impling> IMPLINGS;
 
 	static
@@ -100,6 +108,16 @@ enum Impling
 		}
 
 		IMPLINGS = builder.build();
+=======
+	private static final Map<Integer, Impling> IMPLINGS = new HashMap<>();
+
+	static
+	{
+		for (Impling impling : values())
+		{
+			IMPLINGS.put(impling.npcId, impling);
+		}
+>>>>>>> initial import of runelite
 	}
 
 	static Impling findImpling(int npcId)

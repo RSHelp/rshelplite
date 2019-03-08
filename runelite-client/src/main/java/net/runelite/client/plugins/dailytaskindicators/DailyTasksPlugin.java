@@ -63,10 +63,16 @@ public class DailyTasksPlugin extends Plugin
 	private static final String SAND_MESSAGE = "You have sand waiting to be collected from Bert.";
 	private static final int SAND_QUEST_COMPLETE = 160;
 	private static final String FLAX_MESSAGE = "You have bowstrings waiting to be converted from flax from the Flax keeper.";
+<<<<<<< HEAD
 	private static final String ARROWS_MESSAGE = "You have ogre arrows waiting to be collected from Rantz.";
 	private static final String BONEMEAL_MESSAGE = "You have bonemeal and slime waiting to be collected from Robin.";
 	private static final int BONEMEAL_PER_DIARY = 13;
 	private static final String DYNAMITE_MESSAGE = "You have dynamite waiting to be collected from Thirus.";
+=======
+	private static final String BONEMEAL_MESSAGE = "You have bonemeal and slime waiting to be collected from Robin.";
+	private static final int BONEMEAL_PER_DIARY = 13;
+	private static final String RELOG_MESSAGE = " (Requires relog)";
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Client client;
@@ -154,6 +160,7 @@ public class DailyTasksPlugin extends Plugin
 			{
 				checkBonemeal(dailyReset);
 			}
+<<<<<<< HEAD
 
 			if (config.showDynamite())
 			{
@@ -164,62 +171,130 @@ public class DailyTasksPlugin extends Plugin
 			{
 				checkArrows(dailyReset);
 			}
+=======
+>>>>>>> initial import of runelite
 		}
 	}
 
 	private void checkHerbBoxes(boolean dailyReset)
 	{
 		if (client.getAccountType() == AccountType.NORMAL
+<<<<<<< HEAD
 			&& client.getVar(VarPlayer.NMZ_REWARD_POINTS) >= HERB_BOX_COST
 			&& (client.getVar(Varbits.DAILY_HERB_BOXES_COLLECTED) < HERB_BOX_MAX
 			|| dailyReset))
 		{
 			sendChatMessage(HERB_BOX_MESSAGE);
+=======
+			&& client.getVar(VarPlayer.NMZ_REWARD_POINTS) >= HERB_BOX_COST)
+		{
+			if (client.getVar(Varbits.DAILY_HERB_BOXES_COLLECTED) < HERB_BOX_MAX)
+			{
+				sendChatMessage(HERB_BOX_MESSAGE);
+			}
+			else if (dailyReset)
+			{
+				sendChatMessage(HERB_BOX_MESSAGE + RELOG_MESSAGE);
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
 	private void checkStaves(boolean dailyReset)
 	{
+<<<<<<< HEAD
 		if (client.getVar(Varbits.DIARY_VARROCK_EASY) == 1
 			&& (client.getVar(Varbits.DAILY_STAVES_COLLECTED) == 0
 			|| dailyReset))
 		{
 			sendChatMessage(STAVES_MESSAGE);
+=======
+		if (client.getVar(Varbits.DIARY_VARROCK_EASY) == 1)
+		{
+			if (client.getVar(Varbits.DAILY_STAVES_COLLECTED) == 0)
+			{
+				sendChatMessage(STAVES_MESSAGE);
+			}
+			else if (dailyReset)
+			{
+				sendChatMessage(STAVES_MESSAGE + RELOG_MESSAGE);
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
 	private void checkEssence(boolean dailyReset)
 	{
+<<<<<<< HEAD
 		if (client.getVar(Varbits.DIARY_ARDOUGNE_MEDIUM) == 1
 			&& (client.getVar(Varbits.DAILY_ESSENCE_COLLECTED) == 0
 			|| dailyReset))
 		{
 			sendChatMessage(ESSENCE_MESSAGE);
+=======
+		if (client.getVar(Varbits.DIARY_ARDOUGNE_MEDIUM) == 1)
+		{
+			if (client.getVar(Varbits.DAILY_ESSENCE_COLLECTED) == 0)
+			{
+				sendChatMessage(ESSENCE_MESSAGE);
+			}
+			else if (dailyReset)
+			{
+				sendChatMessage(ESSENCE_MESSAGE + RELOG_MESSAGE);
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
 	private void checkRunes(boolean dailyReset)
 	{
+<<<<<<< HEAD
 		if (client.getVar(Varbits.DIARY_WILDERNESS_EASY) == 1
 			&& (client.getVar(Varbits.DAILY_RUNES_COLLECTED) == 0
 			|| dailyReset))
 		{
 			sendChatMessage(RUNES_MESSAGE);
+=======
+		if (client.getVar(Varbits.DIARY_WILDERNESS_EASY) == 1)
+		{
+			if (client.getVar(Varbits.DAILY_RUNES_COLLECTED) == 0)
+			{
+				sendChatMessage(RUNES_MESSAGE);
+			}
+			else if (dailyReset)
+			{
+				sendChatMessage(RUNES_MESSAGE + RELOG_MESSAGE);
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
 	private void checkSand(boolean dailyReset)
 	{
+<<<<<<< HEAD
 		if (client.getVar(Varbits.QUEST_THE_HAND_IN_THE_SAND) >= SAND_QUEST_COMPLETE
 			&& (client.getVar(Varbits.DAILY_SAND_COLLECTED) == 0
 			|| dailyReset))
 		{
 			sendChatMessage(SAND_MESSAGE);
+=======
+		if (client.getVar(Varbits.QUEST_THE_HAND_IN_THE_SAND) >= SAND_QUEST_COMPLETE)
+		{
+			if (client.getVar(Varbits.DAILY_SAND_COLLECTED) == 0)
+			{
+				sendChatMessage(SAND_MESSAGE);
+			}
+			else if (dailyReset)
+			{
+				sendChatMessage(SAND_MESSAGE + RELOG_MESSAGE);
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
 	private void checkFlax(boolean dailyReset)
 	{
+<<<<<<< HEAD
 		if (client.getVar(Varbits.DIARY_KANDARIN_EASY) == 1
 			&& (client.getVar(Varbits.DAILY_FLAX_STATE) == 0
 			|| dailyReset))
@@ -235,6 +310,18 @@ public class DailyTasksPlugin extends Plugin
 			|| dailyReset))
 		{
 			sendChatMessage(ARROWS_MESSAGE);
+=======
+		if (client.getVar(Varbits.DIARY_KANDARIN_EASY) == 1)
+		{
+			if (client.getVar(Varbits.DAILY_FLAX_STATE) == 0)
+			{
+				sendChatMessage(FLAX_MESSAGE);
+			}
+			else if (dailyReset)
+			{
+				sendChatMessage(FLAX_MESSAGE + RELOG_MESSAGE);
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -252,6 +339,7 @@ public class DailyTasksPlugin extends Plugin
 					max += BONEMEAL_PER_DIARY;
 				}
 			}
+<<<<<<< HEAD
 			if (collected < max || dailyReset)
 			{
 				sendChatMessage(BONEMEAL_MESSAGE);
@@ -266,6 +354,16 @@ public class DailyTasksPlugin extends Plugin
 			|| dailyReset))
 		{
 			sendChatMessage(DYNAMITE_MESSAGE);
+=======
+			if (collected < max)
+			{
+				sendChatMessage(BONEMEAL_MESSAGE);
+			}
+			else if (dailyReset)
+			{
+				sendChatMessage(BONEMEAL_MESSAGE + RELOG_MESSAGE);
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -278,7 +376,11 @@ public class DailyTasksPlugin extends Plugin
 
 		chatMessageManager.queue(
 			QueuedMessage.builder()
+<<<<<<< HEAD
 				.type(ChatMessageType.CONSOLE)
+=======
+				.type(ChatMessageType.GAME)
+>>>>>>> initial import of runelite
 				.runeLiteFormattedMessage(message)
 				.build());
 	}

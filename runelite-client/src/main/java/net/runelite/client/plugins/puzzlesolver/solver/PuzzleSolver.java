@@ -78,7 +78,11 @@ public class PuzzleSolver implements Runnable
 
 	public boolean hasExceededWaitDuration()
 	{
+<<<<<<< HEAD
 		return stopwatch != null && stopwatch.elapsed().compareTo(MAX_WAIT_DURATION) > 0;
+=======
+		return stopwatch.elapsed().compareTo(MAX_WAIT_DURATION) > 0;
+>>>>>>> initial import of runelite
 	}
 
 	public boolean hasFailed()

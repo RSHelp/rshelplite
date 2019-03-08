@@ -62,7 +62,10 @@ public class ChatHistoryPlugin extends Plugin implements KeyListener
 	private static final String CLEAR_HISTORY = "Clear history";
 	private static final String CLEAR_PRIVATE = "<col=ffff00>Private:";
 	private static final int CYCLE_HOTKEY = KeyEvent.VK_TAB;
+<<<<<<< HEAD
 	private static final int FRIENDS_MAX_SIZE = 5;
+=======
+>>>>>>> initial import of runelite
 
 	private Queue<QueuedMessage> messageQueue;
 	private Deque<String> friends;
@@ -92,7 +95,11 @@ public class ChatHistoryPlugin extends Plugin implements KeyListener
 	protected void startUp()
 	{
 		messageQueue = EvictingQueue.create(100);
+<<<<<<< HEAD
 		friends = new ArrayDeque<>(FRIENDS_MAX_SIZE + 1);
+=======
+		friends = new ArrayDeque<>(5);
+>>>>>>> initial import of runelite
 		keyManager.registerKeyListener(this);
 	}
 
@@ -130,6 +137,7 @@ public class ChatHistoryPlugin extends Plugin implements KeyListener
 
 		switch (chatMessage.getType())
 		{
+<<<<<<< HEAD
 			case PRIVATECHATOUT:
 			case PRIVATECHAT:
 			case MODPRIVATECHAT:
@@ -149,6 +157,20 @@ public class ChatHistoryPlugin extends Plugin implements KeyListener
 			case MODCHAT:
 			case FRIENDSCHAT:
 			case CONSOLE:
+=======
+			case PRIVATE_MESSAGE_SENT:
+			case PRIVATE_MESSAGE_RECEIVED:
+			case PRIVATE_MESSAGE_RECEIVED_MOD:
+				final String name = Text.removeTags(chatMessage.getName());
+				// Remove to ensure uniqueness & its place in history
+				friends.remove(name);
+				friends.add(name);
+				// intentional fall-through
+			case PUBLIC:
+			case PUBLIC_MOD:
+			case CLANCHAT:
+			case GAME:
+>>>>>>> initial import of runelite
 				final QueuedMessage queuedMessage = QueuedMessage.builder()
 					.type(chatMessage.getType())
 					.name(chatMessage.getName())
@@ -174,6 +196,7 @@ public class ChatHistoryPlugin extends Plugin implements KeyListener
 		{
 			if (menuOption.startsWith(CLEAR_PRIVATE))
 			{
+<<<<<<< HEAD
 				messageQueue.removeIf(e -> e.getType() == ChatMessageType.PRIVATECHAT ||
 					e.getType() == ChatMessageType.PRIVATECHATOUT || e.getType() == ChatMessageType.MODPRIVATECHAT);
 				friends.clear();
@@ -181,6 +204,14 @@ public class ChatHistoryPlugin extends Plugin implements KeyListener
 			else
 			{
 				messageQueue.removeIf(e -> e.getType() == ChatMessageType.PUBLICCHAT || e.getType() == ChatMessageType.MODCHAT);
+=======
+				messageQueue.removeIf(e -> e.getType() == ChatMessageType.PRIVATE_MESSAGE_RECEIVED ||
+					e.getType() == ChatMessageType.PRIVATE_MESSAGE_SENT || e.getType() == ChatMessageType.PRIVATE_MESSAGE_RECEIVED_MOD);
+			}
+			else
+			{
+				messageQueue.removeIf(e -> e.getType() == ChatMessageType.PUBLIC || e.getType() == ChatMessageType.PUBLIC_MOD);
+>>>>>>> initial import of runelite
 			}
 		}
 	}

@@ -30,7 +30,11 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+import java.awt.Polygon;
+>>>>>>> initial import of runelite
 import java.util.List;
 import javax.inject.Inject;
 import net.runelite.api.NPC;
@@ -71,7 +75,11 @@ public class TargetClickboxOverlay extends Overlay
 
 	private void renderTargetOverlay(Graphics2D graphics, NPC actor, Color color)
 	{
+<<<<<<< HEAD
 		Shape objectClickbox = actor.getConvexHull();
+=======
+		Polygon objectClickbox = actor.getConvexHull();
+>>>>>>> initial import of runelite
 		if (objectClickbox != null)
 		{
 			graphics.setColor(color);

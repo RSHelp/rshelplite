@@ -26,7 +26,12 @@ package net.runelite.client.plugins.wiki;
 
 import com.google.common.primitives.Ints;
 import java.util.Arrays;
+<<<<<<< HEAD
 import java.util.stream.Stream;
+=======
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import javax.inject.Provider;
 import lombok.extern.slf4j.Slf4j;
@@ -81,6 +86,12 @@ public class WikiPlugin extends Plugin
 	private static final String MENUOP_QUICKGUIDE = "Quick Guide";
 	private static final String MENUOP_WIKI = "Wiki";
 
+<<<<<<< HEAD
+=======
+	private static final Pattern SKILL_REGEX = Pattern.compile("([A-Za-z]+) guide");
+	private static final Pattern DIARY_REGEX = Pattern.compile("([A-Za-z &]+) Journal");
+
+>>>>>>> initial import of runelite
 	@Inject
 	private SpriteManager spriteManager;
 
@@ -127,9 +138,12 @@ public class WikiPlugin extends Plugin
 				return;
 			}
 			children[0] = null;
+<<<<<<< HEAD
 
 			onDeselect();
 			client.setSpellSelected(false);
+=======
+>>>>>>> initial import of runelite
 		});
 	}
 
@@ -160,14 +174,21 @@ public class WikiPlugin extends Plugin
 		icon.setOriginalHeight(16);
 		icon.setTargetVerb("Lookup");
 		icon.setName("Wiki");
+<<<<<<< HEAD
 		icon.setClickMask(WidgetConfig.USE_GROUND_ITEM | WidgetConfig.USE_ITEM | WidgetConfig.USE_NPC
 			| WidgetConfig.USE_OBJECT | WidgetConfig.USE_WIDGET);
+=======
+		icon.setClickMask(WidgetConfig.USE_GROUND_ITEM | WidgetConfig.USE_ITEM | WidgetConfig.USE_NPC | WidgetConfig.USE_OBJECT);
+>>>>>>> initial import of runelite
 		icon.setNoClickThrough(true);
 		icon.setOnTargetEnterListener((JavaScriptCallback) ev ->
 		{
 			wikiSelected = true;
 			icon.setSpriteId(WikiSprite.WIKI_SELECTED_ICON.getSpriteId());
+<<<<<<< HEAD
 			client.setAllWidgetsAreOpTargetable(true);
+=======
+>>>>>>> initial import of runelite
 		});
 		icon.setAction(5, "Search"); // Start at option 5 so the target op is ontop
 		icon.setOnOpListener((JavaScriptCallback) ev ->
@@ -186,6 +207,7 @@ public class WikiPlugin extends Plugin
 
 	private void onDeselect()
 	{
+<<<<<<< HEAD
 		client.setAllWidgetsAreOpTargetable(false);
 
 		wikiSelected = false;
@@ -193,12 +215,19 @@ public class WikiPlugin extends Plugin
 		{
 			icon.setSpriteId(WikiSprite.WIKI_ICON.getSpriteId());
 		}
+=======
+		wikiSelected = false;
+		icon.setSpriteId(WikiSprite.WIKI_ICON.getSpriteId());
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
 	private void onMenuOptionClicked(MenuOptionClicked ev)
 	{
+<<<<<<< HEAD
 		optarget:
+=======
+>>>>>>> initial import of runelite
 		if (wikiSelected)
 		{
 			onDeselect();
@@ -212,9 +241,12 @@ public class WikiPlugin extends Plugin
 
 			switch (ev.getMenuAction())
 			{
+<<<<<<< HEAD
 				case RUNELITE:
 					// This is a quest widget op
 					break optarget;
+=======
+>>>>>>> initial import of runelite
 				case CANCEL:
 					return;
 				case ITEM_USE_ON_WIDGET:
@@ -249,6 +281,7 @@ public class WikiPlugin extends Plugin
 					location = WorldPoint.fromScene(client, ev.getActionParam(), ev.getWidgetId(), client.getPlane());
 					break;
 				}
+<<<<<<< HEAD
 				case SPELL_CAST_ON_WIDGET:
 					Widget w = getWidget(ev.getWidgetId(), ev.getActionParam());
 
@@ -261,6 +294,8 @@ public class WikiPlugin extends Plugin
 						break;
 					}
 					// fallthrough
+=======
+>>>>>>> initial import of runelite
 				default:
 					log.info("Unknown menu option: {} {} {}", ev, ev.getMenuAction(), ev.getMenuAction() == MenuAction.CANCEL);
 					return;
@@ -309,12 +344,34 @@ public class WikiPlugin extends Plugin
 					LinkBrowser.browse(ub.build().toString());
 					break;
 				case MENUOP_WIKI:
+<<<<<<< HEAD
 					LinkBrowser.browse(WIKI_BASE.newBuilder()
 						.addPathSegment("w")
 						.addPathSegment(Text.removeTags(ev.getMenuTarget()))
 						.addQueryParameter(UTM_SORUCE_KEY, UTM_SORUCE_VALUE)
 						.build().toString());
 
+=======
+					Matcher skillRegex = WikiPlugin.SKILL_REGEX.matcher(Text.removeTags(ev.getMenuTarget()));
+					Matcher diaryRegex = WikiPlugin.DIARY_REGEX.matcher(Text.removeTags(ev.getMenuTarget()));
+
+					if (skillRegex.find())
+					{
+						LinkBrowser.browse(WIKI_BASE.newBuilder()
+							.addPathSegment("w")
+							.addPathSegment(skillRegex.group(1))
+							.addQueryParameter(UTM_SORUCE_KEY, UTM_SORUCE_VALUE)
+							.build().toString());
+					}
+					else if (diaryRegex.find())
+					{
+						LinkBrowser.browse(WIKI_BASE.newBuilder()
+							.addPathSegment("w")
+							.addPathSegment(diaryRegex.group(1) + " Diary")
+							.addQueryParameter(UTM_SORUCE_KEY, UTM_SORUCE_VALUE)
+							.build().toString());
+					}
+>>>>>>> initial import of runelite
 			}
 		}
 	}
@@ -325,6 +382,7 @@ public class WikiPlugin extends Plugin
 			.build();
 	}
 
+<<<<<<< HEAD
 	private Widget getWidget(int wid, int index)
 	{
 		Widget w = client.getWidget(WidgetInfo.TO_GROUP(wid), WidgetInfo.TO_CHILD(wid));
@@ -335,6 +393,8 @@ public class WikiPlugin extends Plugin
 		return w;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event)
 	{
@@ -342,6 +402,7 @@ public class WikiPlugin extends Plugin
 		int widgetID = event.getActionParam1();
 		MenuEntry[] menuEntries = client.getMenuEntries();
 
+<<<<<<< HEAD
 		if (wikiSelected && event.getType() == MenuAction.SPELL_CAST_ON_WIDGET.getId())
 		{
 			Widget w = getWidget(widgetID, widgetIndex);
@@ -371,13 +432,25 @@ public class WikiPlugin extends Plugin
 
 			MenuEntry menuEntry = menuEntries[menuEntries.length - 1] = new MenuEntry();
 			menuEntry.setTarget(target);
+=======
+		if (Ints.contains(QUESTLIST_WIDGET_IDS, widgetID) && "Read Journal:".equals(event.getOption()))
+		{
+			menuEntries = Arrays.copyOf(menuEntries, menuEntries.length + 2);
+
+			MenuEntry menuEntry = menuEntries[menuEntries.length - 1] = new MenuEntry();
+			menuEntry.setTarget(event.getTarget());
+>>>>>>> initial import of runelite
 			menuEntry.setOption(MENUOP_GUIDE);
 			menuEntry.setParam0(widgetIndex);
 			menuEntry.setParam1(widgetID);
 			menuEntry.setType(MenuAction.RUNELITE.getId());
 
 			menuEntry = menuEntries[menuEntries.length - 2] = new MenuEntry();
+<<<<<<< HEAD
 			menuEntry.setTarget(target);
+=======
+			menuEntry.setTarget(event.getTarget());
+>>>>>>> initial import of runelite
 			menuEntry.setOption(MENUOP_QUICKGUIDE);
 			menuEntry.setParam0(widgetIndex);
 			menuEntry.setParam1(widgetID);
@@ -386,6 +459,7 @@ public class WikiPlugin extends Plugin
 			client.setMenuEntries(menuEntries);
 		}
 
+<<<<<<< HEAD
 		if (widgetID == WidgetInfo.ACHIEVEMENT_DIARY_CONTAINER.getId())
 		{
 			Widget w = getWidget(widgetID, widgetIndex);
@@ -437,6 +511,19 @@ public class WikiPlugin extends Plugin
 			menuEntry.setOption(MENUOP_WIKI);
 			menuEntry.setParam0(widgetIndex);
 			menuEntry.setParam1(widgetID);
+=======
+		if ((WidgetInfo.TO_GROUP(widgetID) == WidgetID.SKILLS_GROUP_ID && event.getOption().startsWith("View"))
+			|| (WidgetInfo.TO_GROUP(widgetID) == WidgetID.DIARY_GROUP_ID && event.getOption().startsWith("Open")))
+		{
+			menuEntries = Arrays.copyOf(menuEntries, menuEntries.length + 1);
+
+			MenuEntry menuEntry = menuEntries[menuEntries.length - 1] = new MenuEntry();
+			menuEntry.setTarget(event.getOption().replace("View ", "").replace("Open ", ""));
+			menuEntry.setOption(MENUOP_WIKI);
+			menuEntry.setParam0(widgetIndex);
+			menuEntry.setParam1(widgetID);
+			menuEntry.setIdentifier(event.getIdentifier());
+>>>>>>> initial import of runelite
 			menuEntry.setType(MenuAction.RUNELITE.getId());
 
 			client.setMenuEntries(menuEntries);

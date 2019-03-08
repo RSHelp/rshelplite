@@ -36,7 +36,10 @@ import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
 import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.components.ComponentOrientation;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.components.ImageComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 
@@ -56,7 +59,11 @@ public class TeamCapesOverlay extends Overlay
 		this.plugin = plugin;
 		this.config = config;
 		this.manager = manager;
+<<<<<<< HEAD
 		panelComponent.setOrientation(ComponentOrientation.HORIZONTAL);
+=======
+		panelComponent.setOrientation(PanelComponent.Orientation.HORIZONTAL);
+>>>>>>> initial import of runelite
 		panelComponent.setWrapping(4);
 		getMenuEntries().add(new OverlayMenuEntry(RUNELITE_OVERLAY_CONFIG, OPTION_CONFIGURE, "Teamcapes overlay"));
 	}

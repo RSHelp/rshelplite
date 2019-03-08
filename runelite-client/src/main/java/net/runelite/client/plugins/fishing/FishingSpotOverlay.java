@@ -40,20 +40,29 @@ import net.runelite.api.NPC;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
+<<<<<<< HEAD
 import net.runelite.api.coords.WorldPoint;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.ui.overlay.components.ProgressPieComponent;
+<<<<<<< HEAD
 import net.runelite.client.util.ImageUtil;
+=======
+>>>>>>> initial import of runelite
 
 class FishingSpotOverlay extends Overlay
 {
 	private static final Duration MINNOW_MOVE = Duration.ofSeconds(15);
 	private static final Duration MINNOW_WARN = Duration.ofSeconds(3);
+<<<<<<< HEAD
 	private static final int ONE_TICK_AERIAL_FISHING = 3;
+=======
+>>>>>>> initial import of runelite
 
 	private final FishingPlugin plugin;
 	private final FishingConfig config;
@@ -82,11 +91,17 @@ class FishingSpotOverlay extends Overlay
 			return null;
 		}
 
+<<<<<<< HEAD
 		FishingSpot previousSpot = null;
 		WorldPoint previousLocation = null;
 		for (NPC npc : plugin.getFishingSpots())
 		{
 			FishingSpot spot = FishingSpot.findSpot(npc.getId());
+=======
+		for (NPC npc : plugin.getFishingSpots())
+		{
+			FishingSpot spot = FishingSpot.getSPOTS().get(npc.getId());
+>>>>>>> initial import of runelite
 
 			if (spot == null)
 			{
@@ -98,6 +113,7 @@ class FishingSpotOverlay extends Overlay
 				continue;
 			}
 
+<<<<<<< HEAD
 			// This relies on the sort order to keep identical npcs on the same tile adjacent to each other
 			if (previousSpot == spot && previousLocation.equals(npc.getWorldLocation()))
 			{
@@ -117,6 +133,9 @@ class FishingSpotOverlay extends Overlay
 			{
 				color = config.getOverlayColor();
 			}
+=======
+			Color color = npc.getGraphic() == GraphicID.FLYING_FISH ? Color.RED : Color.CYAN;
+>>>>>>> initial import of runelite
 
 			if (spot == FishingSpot.MINNOW && config.showMinnowOverlay())
 			{
@@ -147,7 +166,10 @@ class FishingSpotOverlay extends Overlay
 			if (config.showSpotTiles())
 			{
 				Polygon poly = npc.getCanvasTilePoly();
+<<<<<<< HEAD
 
+=======
+>>>>>>> initial import of runelite
 				if (poly != null)
 				{
 					OverlayUtil.renderPolygon(graphics, poly, color.darker());
@@ -156,6 +178,7 @@ class FishingSpotOverlay extends Overlay
 
 			if (config.showSpotIcons())
 			{
+<<<<<<< HEAD
 				BufferedImage fishImage = itemManager.getImage(spot.getFishSpriteId());
 
 				if (spot == FishingSpot.COMMON_TENCH
@@ -164,6 +187,9 @@ class FishingSpotOverlay extends Overlay
 					fishImage = ImageUtil.outlineImage(itemManager.getImage(spot.getFishSpriteId()), color);
 				}
 
+=======
+				BufferedImage fishImage = itemManager.getImage(spot.getFishSpriteId());;
+>>>>>>> initial import of runelite
 				if (fishImage != null)
 				{
 					Point imageLocation = npc.getCanvasImageLocation(fishImage, npc.getLogicalHeight());
@@ -178,15 +204,21 @@ class FishingSpotOverlay extends Overlay
 			{
 				String text = spot.getName();
 				Point textLocation = npc.getCanvasTextLocation(graphics, text, npc.getLogicalHeight() + 40);
+<<<<<<< HEAD
 
+=======
+>>>>>>> initial import of runelite
 				if (textLocation != null)
 				{
 					OverlayUtil.renderTextLocation(graphics, textLocation, text, color.darker());
 				}
 			}
+<<<<<<< HEAD
 
 			previousSpot = spot;
 			previousLocation = npc.getWorldLocation();
+=======
+>>>>>>> initial import of runelite
 		}
 
 		return null;

@@ -29,7 +29,11 @@ import com.google.inject.Provides;
 import java.text.DecimalFormat;
 import java.time.Instant;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.List;
+=======
+import java.util.Arrays;
+>>>>>>> initial import of runelite
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.inject.Inject;
@@ -39,7 +43,10 @@ import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.InstanceTemplates;
+<<<<<<< HEAD
 import net.runelite.api.MenuAction;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.NullObjectID;
 import static net.runelite.api.Perspective.SCENE_SIZE;
 import net.runelite.api.Point;
@@ -57,7 +64,10 @@ import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.chat.QueuedMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
+<<<<<<< HEAD
 import net.runelite.client.events.OverlayMenuClicked;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -67,10 +77,13 @@ import net.runelite.client.plugins.raids.solver.RotationSolver;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.Text;
+<<<<<<< HEAD
 import net.runelite.client.ws.PartyMember;
 import net.runelite.client.ws.PartyService;
 import net.runelite.client.ws.WSClient;
 import net.runelite.http.api.ws.messages.party.PartyChatMessage;
+=======
+>>>>>>> initial import of runelite
 
 @PluginDescriptor(
 	name = "Chambers Of Xeric",
@@ -85,7 +98,12 @@ public class RaidsPlugin extends Plugin
 	private static final String LEVEL_COMPLETE_MESSAGE = "level complete!";
 	private static final String RAID_COMPLETE_MESSAGE = "Congratulations - your raid is complete!";
 	private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("###.##");
+<<<<<<< HEAD
 	private static final DecimalFormat POINTS_FORMAT = new DecimalFormat("#,###");
+=======
+	static final DecimalFormat POINTS_FORMAT = new DecimalFormat("#,###");
+	private static final String SPLIT_REGEX = "\\s*,\\s*";
+>>>>>>> initial import of runelite
 	private static final Pattern ROTATION_REGEX = Pattern.compile("\\[(.*?)]");
 
 	@Inject
@@ -115,12 +133,15 @@ public class RaidsPlugin extends Plugin
 	@Inject
 	private ClientThread clientThread;
 
+<<<<<<< HEAD
 	@Inject
 	private PartyService party;
 
 	@Inject
 	private WSClient ws;
 
+=======
+>>>>>>> initial import of runelite
 	@Getter
 	private final ArrayList<String> roomWhitelist = new ArrayList<>();
 
@@ -198,14 +219,22 @@ public class RaidsPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (inRaidChambers && event.getType() == ChatMessageType.FRIENDSCHATNOTIFICATION)
+=======
+		if (inRaidChambers && event.getType() == ChatMessageType.CLANCHAT_INFO)
+>>>>>>> initial import of runelite
 		{
 			String message = Text.removeTags(event.getMessage());
 
 			if (config.raidsTimer() && message.startsWith(RAID_START_MESSAGE))
 			{
+<<<<<<< HEAD
 				timer = new RaidsTimer(this, Instant.now());
 				spriteManager.getSpriteAsync(TAB_QUESTS_BROWN_RAIDING_PARTY, 0, timer);
+=======
+				timer = new RaidsTimer(spriteManager.getSprite(TAB_QUESTS_BROWN_RAIDING_PARTY, 0), this, Instant.now());
+>>>>>>> initial import of runelite
 				infoBoxManager.addInfoBox(timer);
 			}
 
@@ -247,7 +276,11 @@ public class RaidsPlugin extends Plugin
 						.build();
 
 					chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 						.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
+=======
+						.type(ChatMessageType.CLANCHAT_INFO)
+>>>>>>> initial import of runelite
 						.runeLiteFormattedMessage(chatMessage)
 						.build());
 				}
@@ -255,6 +288,7 @@ public class RaidsPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onOverlayMenuClicked(final OverlayMenuClicked event)
 	{
@@ -266,6 +300,8 @@ public class RaidsPlugin extends Plugin
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void checkRaidPresence(boolean force)
 	{
 		if (client.getGameState() != GameState.LOGGED_IN)
@@ -301,11 +337,15 @@ public class RaidsPlugin extends Plugin
 				raid.updateLayout(layout);
 				RotationSolver.solve(raid.getCombatRooms());
 				overlay.setScoutOverlayShown(true);
+<<<<<<< HEAD
 
 				if (config.layoutMessage())
 				{
 					sendRaidLayoutMessage();
 				}
+=======
+				sendRaidLayoutMessage();
+>>>>>>> initial import of runelite
 			}
 			else if (!config.scoutOverlayAtBank())
 			{
@@ -322,10 +362,19 @@ public class RaidsPlugin extends Plugin
 
 	private void sendRaidLayoutMessage()
 	{
+<<<<<<< HEAD
+=======
+		if (!config.layoutMessage())
+		{
+			return;
+		}
+
+>>>>>>> initial import of runelite
 		final String layout = getRaid().getLayout().toCodeString();
 		final String rooms = getRaid().toRoomString();
 		final String raidData = "[" + layout + "]: " + rooms;
 
+<<<<<<< HEAD
 		final String layoutMessage = new ChatMessageBuilder()
 			.append(ChatColorType.HIGHLIGHT)
 			.append("Layout: ")
@@ -348,6 +397,17 @@ public class RaidsPlugin extends Plugin
 			message.setMemberId(localMember.getMemberId());
 			ws.send(message);
 		}
+=======
+		chatMessageManager.queue(QueuedMessage.builder()
+			.type(ChatMessageType.CLANCHAT_INFO)
+			.runeLiteFormattedMessage(new ChatMessageBuilder()
+				.append(ChatColorType.HIGHLIGHT)
+				.append("Layout: ")
+				.append(ChatColorType.NORMAL)
+				.append(raidData)
+				.build())
+			.build());
+>>>>>>> initial import of runelite
 	}
 
 	private void updateInfoBoxState()
@@ -402,28 +462,48 @@ public class RaidsPlugin extends Plugin
 		}
 		else
 		{
+<<<<<<< HEAD
 			list.addAll(Text.fromCSV(input.toLowerCase()));
+=======
+			list.addAll(Arrays.asList(input.toLowerCase().split(SPLIT_REGEX)));
+>>>>>>> initial import of runelite
 		}
 	}
 
 	int getRotationMatches()
 	{
 		String rotation = raid.getRotationString().toLowerCase();
+<<<<<<< HEAD
 		List<String> bosses = Text.fromCSV(rotation);
 
 		if (rotationWhitelist.contains(rotation))
 		{
 			return bosses.size();
+=======
+		String[] bosses = rotation.split(SPLIT_REGEX);
+
+		if (rotationWhitelist.contains(rotation))
+		{
+			return bosses.length;
+>>>>>>> initial import of runelite
 		}
 
 		for (String whitelisted : rotationWhitelist)
 		{
 			int matches = 0;
+<<<<<<< HEAD
 			List<String> whitelistedBosses = Text.fromCSV(whitelisted);
 
 			for (int i = 0; i < whitelistedBosses.size(); i++)
 			{
 				if (i < bosses.size() && whitelistedBosses.get(i).equals(bosses.get(i)))
+=======
+			String[] whitelistedBosses = whitelisted.split(SPLIT_REGEX);
+
+			for (int i = 0; i < whitelistedBosses.length; i++)
+			{
+				if (i < bosses.length && whitelistedBosses[i].equals(bosses[i]))
+>>>>>>> initial import of runelite
 				{
 					matches++;
 				}

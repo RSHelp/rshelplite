@@ -70,7 +70,10 @@ import net.runelite.client.events.PluginChanged;
 import net.runelite.client.task.Schedule;
 import net.runelite.client.task.ScheduledMethod;
 import net.runelite.client.task.Scheduler;
+<<<<<<< HEAD
 import net.runelite.client.ui.SplashScreen;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.util.GameEventManager;
 
 @Singleton
@@ -141,7 +144,11 @@ public class PluginManager
 				}
 				catch (PluginInstantiationException e)
 				{
+<<<<<<< HEAD
 					log.warn("Error during starting/stopping plugin {}", plugin.getClass().getSimpleName(), e);
+=======
+					log.warn("Error during starting/stopping plugin {}. {}", plugin.getClass().getSimpleName(), e);
+>>>>>>> initial import of runelite
 				}
 			}));
 	}
@@ -201,7 +208,10 @@ public class PluginManager
 	public void startCorePlugins()
 	{
 		List<Plugin> scannedPlugins = new ArrayList<>(plugins);
+<<<<<<< HEAD
 		int loaded = 0;
+=======
+>>>>>>> initial import of runelite
 		for (Plugin plugin : scannedPlugins)
 		{
 			try
@@ -210,18 +220,27 @@ public class PluginManager
 			}
 			catch (PluginInstantiationException ex)
 			{
+<<<<<<< HEAD
 				log.warn("Unable to start plugin {}", plugin.getClass().getSimpleName(), ex);
 				plugins.remove(plugin);
 			}
 
 			loaded++;
 			SplashScreen.stage(.80, 1, null, "Starting plugins", loaded, scannedPlugins.size(), false);
+=======
+				log.warn("Unable to start plugin {}. {}", plugin.getClass().getSimpleName(), ex);
+				plugins.remove(plugin);
+			}
+>>>>>>> initial import of runelite
 		}
 	}
 
 	List<Plugin> scanAndInstantiate(ClassLoader classLoader, String packageName) throws IOException
 	{
+<<<<<<< HEAD
 		SplashScreen.stage(.59, null, "Loading Plugins");
+=======
+>>>>>>> initial import of runelite
 		MutableGraph<Class<? extends Plugin>> graph = GraphBuilder
 			.directed()
 			.build();
@@ -286,22 +305,35 @@ public class PluginManager
 		List<Class<? extends Plugin>> sortedPlugins = topologicalSort(graph);
 		sortedPlugins = Lists.reverse(sortedPlugins);
 
+<<<<<<< HEAD
 		int loaded = 0;
+=======
+>>>>>>> initial import of runelite
 		for (Class<? extends Plugin> pluginClazz : sortedPlugins)
 		{
 			Plugin plugin;
 			try
 			{
 				plugin = instantiate(scannedPlugins, (Class<Plugin>) pluginClazz);
+<<<<<<< HEAD
 				scannedPlugins.add(plugin);
+=======
+>>>>>>> initial import of runelite
 			}
 			catch (PluginInstantiationException ex)
 			{
 				log.warn("Error instantiating plugin!", ex);
+<<<<<<< HEAD
 			}
 
 			loaded++;
 			SplashScreen.stage(.60, .70, null, "Loading Plugins", loaded, sortedPlugins.size(), false);
+=======
+				continue;
+			}
+
+			scannedPlugins.add(plugin);
+>>>>>>> initial import of runelite
 		}
 
 		return scannedPlugins;

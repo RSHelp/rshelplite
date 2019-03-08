@@ -42,6 +42,7 @@ public interface InterfaceStylesConfig extends Config
 	{
 		return Skin.AROUND_2010;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "hdHealthBars",
@@ -72,4 +73,6 @@ public interface InterfaceStylesConfig extends Config
 	{
 		return false;
 	}
+=======
+>>>>>>> initial import of runelite
 }

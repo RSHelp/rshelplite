@@ -35,7 +35,10 @@ public interface TimestampConfig extends Config
 	@ConfigItem(
 		keyName = "opaqueTimestamp",
 		name = "Timestamps (opaque)",
+<<<<<<< HEAD
 		position = 1,
+=======
+>>>>>>> initial import of runelite
 		description = "Colour of Timestamps from the Timestamps plugin (opaque)"
 	)
 	Color opaqueTimestamp();
@@ -43,6 +46,7 @@ public interface TimestampConfig extends Config
 	@ConfigItem(
 		keyName = "transparentTimestamp",
 		name = "Timestamps (transparent)",
+<<<<<<< HEAD
 		position = 2,
 		description = "Colour of Timestamps from the Timestamps plugin (transparent)"
 	)
@@ -65,4 +69,9 @@ public interface TimestampConfig extends Config
 	{
 		return "[HH:mm]";
 	}
+=======
+		description = "Colour of Timestamps from the Timestamps plugin (transparent)"
+	)
+	Color transparentTimestamp();
+>>>>>>> initial import of runelite
 }

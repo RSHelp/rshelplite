@@ -57,10 +57,13 @@ import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.NpcDespawned;
 import net.runelite.api.events.NpcSpawned;
 import net.runelite.api.events.VarbitChanged;
+<<<<<<< HEAD
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetID;
 import net.runelite.api.widgets.WidgetInfo;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.Notifier;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -82,10 +85,15 @@ public class FishingPlugin extends Plugin
 {
 	private static final int TRAWLER_SHIP_REGION_NORMAL = 7499;
 	private static final int TRAWLER_SHIP_REGION_SINKING = 8011;
+<<<<<<< HEAD
 	private static final int TRAWLER_TIME_LIMIT_IN_SECONDS = 614;
 	private static final int TRAWLER_ACTIVITY_THRESHOLD = Math.round(0.15f * 255);
 
 	private Instant trawlerStartTime;
+=======
+
+	private static final int TRAWLER_ACTIVITY_THRESHOLD = Math.round(0.15f * 255);
+>>>>>>> initial import of runelite
 
 	@Getter(AccessLevel.PACKAGE)
 	private final FishingSession session = new FishingSession();
@@ -148,7 +156,10 @@ public class FishingPlugin extends Plugin
 		minnowSpots.clear();
 		trawlerNotificationSent = false;
 		currentSpot = null;
+<<<<<<< HEAD
 		trawlerStartTime = null;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -187,7 +198,11 @@ public class FishingPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.SPAM)
+=======
+		if (event.getType() != ChatMessageType.FILTERED)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -217,7 +232,11 @@ public class FishingPlugin extends Plugin
 		}
 
 		final NPC npc = (NPC) target;
+<<<<<<< HEAD
 		FishingSpot spot = FishingSpot.findSpot(npc.getId());
+=======
+		FishingSpot spot = FishingSpot.getSPOTS().get(npc.getId());
+>>>>>>> initial import of runelite
 
 		if (spot == null)
 		{
@@ -289,7 +308,11 @@ public class FishingPlugin extends Plugin
 
 		for (NPC npc : fishingSpots)
 		{
+<<<<<<< HEAD
 			if (FishingSpot.findSpot(npc.getId()) == FishingSpot.MINNOW && config.showMinnowOverlay())
+=======
+			if (FishingSpot.getSPOTS().get(npc.getId()) == FishingSpot.MINNOW && config.showMinnowOverlay())
+>>>>>>> initial import of runelite
 			{
 				final int id = npc.getIndex();
 				final MinnowSpot minnowSpot = minnowSpots.get(id);
@@ -303,11 +326,14 @@ public class FishingPlugin extends Plugin
 				}
 			}
 		}
+<<<<<<< HEAD
 
 		if (config.trawlerTimer())
 		{
 			updateTrawlerTimer();
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -315,7 +341,11 @@ public class FishingPlugin extends Plugin
 	{
 		final NPC npc = event.getNpc();
 
+<<<<<<< HEAD
 		if (FishingSpot.findSpot(npc.getId()) == null)
+=======
+		if (!FishingSpot.getSPOTS().containsKey(npc.getId()))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -363,6 +393,7 @@ public class FishingPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onWidgetLoaded(WidgetLoaded event)
 	{
@@ -447,5 +478,11 @@ public class FishingPlugin extends Plugin
 				// And then by id
 				.thenComparing(NPC::getId)
 		);
+=======
+	private void inverseSortSpotDistanceFromPlayer()
+	{
+		final LocalPoint cameraPoint = new LocalPoint(client.getCameraX(), client.getCameraY());
+		fishingSpots.sort(Comparator.comparing(npc -> -1 * npc.getLocalLocation().distanceTo(cameraPoint)));
+>>>>>>> initial import of runelite
 	}
 }

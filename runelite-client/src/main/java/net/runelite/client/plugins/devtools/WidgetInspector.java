@@ -27,20 +27,29 @@
 package net.runelite.client.plugins.devtools;
 
 import com.google.inject.Inject;
+<<<<<<< HEAD
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import java.awt.BorderLayout;
 import java.awt.Color;
+=======
+import java.awt.BorderLayout;
+>>>>>>> initial import of runelite
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Collection;
+<<<<<<< HEAD
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 import java.util.stream.Stream;
+=======
+import java.util.HashMap;
+import java.util.Map;
+>>>>>>> initial import of runelite
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -52,6 +61,7 @@ import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+<<<<<<< HEAD
 import javax.swing.tree.TreePath;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -68,10 +78,19 @@ import net.runelite.api.widgets.WidgetConfig;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.widgets.WidgetItem;
 import net.runelite.api.widgets.WidgetType;
+=======
+import lombok.extern.slf4j.Slf4j;
+import net.runelite.api.Client;
+import net.runelite.api.events.ConfigChanged;
+import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetInfo;
+import net.runelite.api.widgets.WidgetItem;
+>>>>>>> initial import of runelite
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.EventBus;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.ui.ClientUI;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ColorUtil;
 
@@ -96,10 +115,22 @@ class WidgetInspector extends JFrame
 	private final DevToolsConfig config;
 	private final Provider<WidgetInspectorOverlay> overlay;
 	private final OverlayManager overlayManager;
+=======
+
+@Slf4j
+class WidgetInspector extends JFrame
+{
+	private final Client client;
+	private final ClientThread clientThread;
+	private final DevToolsConfig config;
+	private final DevToolsOverlay overlay;
+	private final DevToolsPlugin plugin;
+>>>>>>> initial import of runelite
 
 	private final JTree widgetTree;
 	private final WidgetInfoTableModel infoTableModel;
 	private final JCheckBox alwaysOnTop;
+<<<<<<< HEAD
 	private final JCheckBox hideHidden;
 
 	private DefaultMutableTreeNode root;
@@ -114,6 +145,10 @@ class WidgetInspector extends JFrame
 
 	@Getter
 	private boolean pickerSelected = false;
+=======
+
+	private static final Map<Integer, WidgetInfo> widgetIdMap = new HashMap<>();
+>>>>>>> initial import of runelite
 
 	@Inject
 	private WidgetInspector(
@@ -121,17 +156,27 @@ class WidgetInspector extends JFrame
 		ClientThread clientThread,
 		WidgetInfoTableModel infoTableModel,
 		DevToolsConfig config,
+<<<<<<< HEAD
 		DevToolsPlugin plugin,
 		EventBus eventBus,
 		Provider<WidgetInspectorOverlay> overlay,
 		OverlayManager overlayManager)
+=======
+		EventBus eventBus,
+		DevToolsOverlay overlay,
+		DevToolsPlugin plugin)
+>>>>>>> initial import of runelite
 	{
 		this.client = client;
 		this.clientThread = clientThread;
 		this.infoTableModel = infoTableModel;
 		this.config = config;
 		this.overlay = overlay;
+<<<<<<< HEAD
 		this.overlayManager = overlayManager;
+=======
+		this.plugin = plugin;
+>>>>>>> initial import of runelite
 
 		eventBus.register(this);
 
@@ -161,12 +206,24 @@ class WidgetInspector extends JFrame
 			{
 				WidgetTreeNode node = (WidgetTreeNode) selected;
 				Widget widget = node.getWidget();
+<<<<<<< HEAD
 				setSelectedWidget(widget, -1, false);
+=======
+				overlay.setWidget(widget);
+				overlay.setItemIndex(widget.getItemId());
+				refreshInfo();
+				log.debug("Set widget to {} and item index to {}", widget, widget.getItemId());
+>>>>>>> initial import of runelite
 			}
 			else if (selected instanceof WidgetItemNode)
 			{
 				WidgetItemNode node = (WidgetItemNode) selected;
+<<<<<<< HEAD
 				setSelectedWidget(node.getWidgetItem().getWidget(), node.getWidgetItem().getIndex(), false);
+=======
+				overlay.setItemIndex(node.getWidgetItem().getIndex());
+				log.debug("Set item index to {}", node.getWidgetItem().getIndex());
+>>>>>>> initial import of runelite
 			}
 		});
 
@@ -192,6 +249,7 @@ class WidgetInspector extends JFrame
 		onConfigChanged(null);
 		bottomPanel.add(alwaysOnTop);
 
+<<<<<<< HEAD
 		hideHidden = new JCheckBox("Hide hidden");
 		hideHidden.setSelected(true);
 		hideHidden.addItemListener(ev -> refreshWidgets());
@@ -201,11 +259,21 @@ class WidgetInspector extends JFrame
 		revalidateWidget.addActionListener(ev -> clientThread.invokeLater(() ->
 		{
 			if (selectedWidget == null)
+=======
+		final JButton revalidateWidget = new JButton("Revalidate");
+		revalidateWidget.addActionListener(ev -> clientThread.invokeLater(() ->
+		{
+			if (overlay.getWidget() == null)
+>>>>>>> initial import of runelite
 			{
 				return;
 			}
 
+<<<<<<< HEAD
 			selectedWidget.revalidate();
+=======
+			overlay.getWidget().revalidate();
+>>>>>>> initial import of runelite
 		}));
 		bottomPanel.add(revalidateWidget);
 
@@ -228,6 +296,7 @@ class WidgetInspector extends JFrame
 		clientThread.invokeLater(() ->
 		{
 			Widget[] rootWidgets = client.getWidgetRoots();
+<<<<<<< HEAD
 			root = new DefaultMutableTreeNode();
 
 			Widget wasSelectedWidget = selectedWidget;
@@ -235,6 +304,12 @@ class WidgetInspector extends JFrame
 
 			selectedWidget = null;
 			selectedItem = -1;
+=======
+			DefaultMutableTreeNode root = new DefaultMutableTreeNode();
+
+			overlay.setWidget(null);
+			overlay.setItemIndex(-1);
+>>>>>>> initial import of runelite
 
 			for (Widget widget : rootWidgets)
 			{
@@ -247,15 +322,26 @@ class WidgetInspector extends JFrame
 
 			SwingUtilities.invokeLater(() ->
 			{
+<<<<<<< HEAD
 				widgetTree.setModel(new DefaultTreeModel(root));
 				setSelectedWidget(wasSelectedWidget, wasSelectedItem, true);
+=======
+				overlay.setWidget(null);
+				overlay.setItemIndex(-1);
+				refreshInfo();
+				widgetTree.setModel(new DefaultTreeModel(root));
+>>>>>>> initial import of runelite
 			});
 		});
 	}
 
 	private DefaultMutableTreeNode addWidget(String type, Widget widget)
 	{
+<<<<<<< HEAD
 		if (widget == null || (hideHidden.isSelected() && widget.isHidden()))
+=======
+		if (widget == null || widget.isHidden())
+>>>>>>> initial import of runelite
 		{
 			return null;
 		}
@@ -318,6 +404,7 @@ class WidgetInspector extends JFrame
 		return node;
 	}
 
+<<<<<<< HEAD
 	private void setSelectedWidget(Widget widget, int item, boolean updateTree)
 	{
 		infoTableModel.setWidget(widget);
@@ -382,6 +469,11 @@ class WidgetInspector extends JFrame
 				widgetTree.getSelectionModel().addSelectionPath(new TreePath(fnode.getPath()));
 			});
 		});
+=======
+	private void refreshInfo()
+	{
+		infoTableModel.setWidget(overlay.getWidget());
+>>>>>>> initial import of runelite
 	}
 
 	static WidgetInfo getWidgetInfo(int packedId)
@@ -405,12 +497,16 @@ class WidgetInspector extends JFrame
 		setVisible(true);
 		toFront();
 		repaint();
+<<<<<<< HEAD
 		overlayManager.add(this.overlay.get());
 		clientThread.invokeLater(this::addPickerWidget);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	public void close()
 	{
+<<<<<<< HEAD
 		overlayManager.remove(this.overlay.get());
 		clientThread.invokeLater(this::removePickerWidget);
 		setSelectedWidget(null, -1, false);
@@ -578,4 +674,10 @@ class WidgetInspector extends JFrame
 
 		return null;
 	}
+=======
+		overlay.setWidget(null);
+		overlay.setItemIndex(-1);
+		setVisible(false);
+	}
+>>>>>>> initial import of runelite
 }

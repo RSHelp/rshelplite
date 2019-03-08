@@ -55,6 +55,7 @@ public interface AgilityConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "lapsToLevel",
 		name = "Show Laps Until Level",
 		description = "Show number of laps remaining until next level is reached.",
@@ -81,6 +82,12 @@ public interface AgilityConfig extends Config
 		name = "Overlay Color",
 		description = "Color of Agility overlay",
 		position = 5
+=======
+		keyName = "overlayColor",
+		name = "Overlay Color",
+		description = "Color of Agility overlay",
+		position = 3
+>>>>>>> initial import of runelite
 	)
 	default Color getOverlayColor()
 	{
@@ -91,7 +98,11 @@ public interface AgilityConfig extends Config
 		keyName = "highlightMarks",
 		name = "Highlight Marks of Grace",
 		description = "Enable/disable the highlighting of retrievable Marks of Grace",
+<<<<<<< HEAD
 		position = 6
+=======
+		position = 4
+>>>>>>> initial import of runelite
 	)
 	default boolean highlightMarks()
 	{
@@ -102,7 +113,11 @@ public interface AgilityConfig extends Config
 		keyName = "markHighlight",
 		name = "Mark Highlight Color",
 		description = "Color of highlighted Marks of Grace",
+<<<<<<< HEAD
 		position = 7
+=======
+		position = 5
+>>>>>>> initial import of runelite
 	)
 	default Color getMarkColor()
 	{
@@ -113,7 +128,11 @@ public interface AgilityConfig extends Config
 		keyName = "highlightShortcuts",
 		name = "Highlight Agility Shortcuts",
 		description = "Enable/disable the highlighting of Agility shortcuts",
+<<<<<<< HEAD
 		position = 8
+=======
+		position = 6
+>>>>>>> initial import of runelite
 	)
 	default boolean highlightShortcuts()
 	{
@@ -124,7 +143,11 @@ public interface AgilityConfig extends Config
 		keyName = "trapOverlay",
 		name = "Show Trap Overlay",
 		description = "Enable/disable the highlighting of traps on Agility courses",
+<<<<<<< HEAD
 		position = 9
+=======
+		position = 7
+>>>>>>> initial import of runelite
 	)
 	default boolean showTrapOverlay()
 	{
@@ -135,7 +158,11 @@ public interface AgilityConfig extends Config
 		keyName = "trapHighlight",
 		name = "Trap Overlay Color",
 		description = "Color of Agility trap overlay",
+<<<<<<< HEAD
 		position = 10
+=======
+		position = 8
+>>>>>>> initial import of runelite
 	)
 	default Color getTrapColor()
 	{
@@ -146,7 +173,11 @@ public interface AgilityConfig extends Config
 		keyName = "agilityArenaNotifier",
 		name = "Agility Arena notifier",
 		description = "Notify on ticket location change in Agility Arena",
+<<<<<<< HEAD
 		position = 11
+=======
+		position = 9
+>>>>>>> initial import of runelite
 	)
 	default boolean notifyAgilityArena()
 	{
@@ -157,7 +188,11 @@ public interface AgilityConfig extends Config
 		keyName = "agilityArenaTimer",
 		name = "Agility Arena timer",
 		description = "Configures whether Agility Arena timer is displayed",
+<<<<<<< HEAD
 		position = 12
+=======
+		position = 10
+>>>>>>> initial import of runelite
 	)
 	default boolean showAgilityArenaTimer()
 	{

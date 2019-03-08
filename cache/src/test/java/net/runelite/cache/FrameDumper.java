@@ -88,7 +88,11 @@ public class FrameDumper
 
 					int framemapArchiveId = (contents[0] & 0xff) << 8 | contents[1] & 0xff;
 
+<<<<<<< HEAD
 					Archive framemapArchive = framemapIndex.getArchive(framemapArchiveId);
+=======
+					Archive framemapArchive = framemapIndex.getArchives().get(framemapArchiveId);
+>>>>>>> initial import of runelite
 					archiveData = storage.loadArchive(framemapArchive);
 					byte[] framemapContents = framemapArchive.decompress(archiveData);
 
@@ -101,7 +105,11 @@ public class FrameDumper
 					frames.add(frame);
 				}
 
+<<<<<<< HEAD
 				Files.asCharSink(new File(outDir, archive.getArchiveId() + ".json"), Charset.defaultCharset()).write(gson.toJson(frames));
+=======
+				Files.write(gson.toJson(frames), new File(outDir, archive.getArchiveId() + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

@@ -27,6 +27,7 @@ package net.runelite.client.ui.overlay;
 import com.google.common.base.MoreObjects;
 import com.google.common.primitives.Ints;
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.Composite;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -38,11 +39,22 @@ import java.awt.Stroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
+=======
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+>>>>>>> initial import of runelite
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.swing.SwingUtilities;
+<<<<<<< HEAD
 import lombok.extern.slf4j.Slf4j;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.MenuAction;
@@ -62,7 +74,10 @@ import net.runelite.client.ui.JagexColors;
 import net.runelite.client.util.ColorUtil;
 
 @Singleton
+<<<<<<< HEAD
 @Slf4j
+=======
+>>>>>>> initial import of runelite
 public class OverlayRenderer extends MouseAdapter implements KeyListener
 {
 	private static final int BORDER = 5;
@@ -203,6 +218,7 @@ public class OverlayRenderer extends MouseAdapter implements KeyListener
 		final net.runelite.api.Point mouseCanvasPosition = client.getMouseCanvasPosition();
 		final Point mouse = new Point(mouseCanvasPosition.getX(), mouseCanvasPosition.getY());
 
+<<<<<<< HEAD
 		// Save graphics2d properties so we can restore them later
 		final AffineTransform transform = graphics.getTransform();
 		final Stroke stroke = graphics.getStroke();
@@ -211,6 +227,8 @@ public class OverlayRenderer extends MouseAdapter implements KeyListener
 		final RenderingHints renderingHints = graphics.getRenderingHints();
 		final Color background = graphics.getBackground();
 
+=======
+>>>>>>> initial import of runelite
 		for (Overlay overlay : overlays)
 		{
 			OverlayPosition overlayPosition = overlay.getPosition();
@@ -240,6 +258,7 @@ public class OverlayRenderer extends MouseAdapter implements KeyListener
 			if (overlayPosition == OverlayPosition.DYNAMIC || overlayPosition == OverlayPosition.TOOLTIP)
 			{
 				safeRender(client, overlay, layer, graphics, new Point());
+<<<<<<< HEAD
 
 				// Restore graphics2d properties
 				graphics.setTransform(transform);
@@ -248,6 +267,8 @@ public class OverlayRenderer extends MouseAdapter implements KeyListener
 				graphics.setPaint(paint);
 				graphics.setRenderingHints(renderingHints);
 				graphics.setBackground(background);
+=======
+>>>>>>> initial import of runelite
 			}
 			else
 			{
@@ -283,6 +304,7 @@ public class OverlayRenderer extends MouseAdapter implements KeyListener
 				}
 
 				safeRender(client, overlay, layer, graphics, location);
+<<<<<<< HEAD
 
 				// Restore graphics2d properties prior to drawing bounds
 				graphics.setTransform(transform);
@@ -308,6 +330,26 @@ public class OverlayRenderer extends MouseAdapter implements KeyListener
 					{
 						menuEntries = createRightClickMenuEntries(overlay);
 					}
+=======
+				final Rectangle bounds = overlay.getBounds();
+
+				if (bounds.isEmpty())
+				{
+					continue;
+				}
+
+				if (inOverlayDraggingMode)
+				{
+					final Color previous = graphics.getColor();
+					graphics.setColor(movedOverlay == overlay ? MOVING_OVERLAY_ACTIVE_COLOR : MOVING_OVERLAY_COLOR);
+					graphics.draw(bounds);
+					graphics.setColor(previous);
+				}
+
+				if (menuEntries == null && !client.isMenuOpen() && bounds.contains(mouse))
+				{
+					menuEntries = createRightClickMenuEntries(overlay);
+>>>>>>> initial import of runelite
 				}
 			}
 		}
@@ -461,23 +503,35 @@ public class OverlayRenderer extends MouseAdapter implements KeyListener
 
 	private void safeRender(Client client, Overlay overlay, OverlayLayer layer, Graphics2D graphics, Point point)
 	{
+<<<<<<< HEAD
 		if (!isResizeable && (layer == OverlayLayer.ABOVE_SCENE || layer == OverlayLayer.UNDER_WIDGETS))
 		{
 			graphics.setClip(client.getViewportXOffset(),
+=======
+		final Graphics2D subGraphics = (Graphics2D) graphics.create();
+
+		if (!isResizeable && (layer == OverlayLayer.ABOVE_SCENE || layer == OverlayLayer.UNDER_WIDGETS))
+		{
+			subGraphics.setClip(client.getViewportXOffset(),
+>>>>>>> initial import of runelite
 				client.getViewportYOffset(),
 				client.getViewportWidth(),
 				client.getViewportHeight());
 		}
+<<<<<<< HEAD
 		else
 		{
 			graphics.setClip(0, 0, client.getCanvasWidth(), client.getCanvasHeight());
 		}
+=======
+>>>>>>> initial import of runelite
 
 		final OverlayPosition position = overlay.getPosition();
 
 		// Set font based on configuration
 		if (position == OverlayPosition.DYNAMIC || position == OverlayPosition.DETACHED)
 		{
+<<<<<<< HEAD
 			graphics.setFont(runeLiteConfig.fontType().getFont());
 		}
 		else if (position == OverlayPosition.TOOLTIP)
@@ -503,6 +557,22 @@ public class OverlayRenderer extends MouseAdapter implements KeyListener
 		}
 
 		final Dimension dimension = MoreObjects.firstNonNull(overlayDimension, new Dimension());
+=======
+			subGraphics.setFont(runeLiteConfig.fontType().getFont());
+		}
+		else if (position == OverlayPosition.TOOLTIP)
+		{
+			subGraphics.setFont(runeLiteConfig.tooltipFontType().getFont());
+		}
+		else
+		{
+			subGraphics.setFont(runeLiteConfig.interfaceFontType().getFont());
+		}
+
+		subGraphics.translate(point.x, point.y);
+		final Dimension dimension = MoreObjects.firstNonNull(overlay.render(subGraphics), new Dimension());
+		subGraphics.dispose();
+>>>>>>> initial import of runelite
 		overlay.setBounds(new Rectangle(point, dimension));
 	}
 

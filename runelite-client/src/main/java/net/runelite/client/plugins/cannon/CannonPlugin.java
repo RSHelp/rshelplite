@@ -283,7 +283,11 @@ public class CannonPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.SPAM && event.getType() != ChatMessageType.GAMEMESSAGE)
+=======
+		if (event.getType() != ChatMessageType.FILTERED && event.getType() != ChatMessageType.SERVER)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -295,8 +299,12 @@ public class CannonPlugin extends Plugin
 			cballsLeft = 0;
 		}
 
+<<<<<<< HEAD
 		if (event.getMessage().contains("You pick up the cannon")
 			|| event.getMessage().contains("Your cannon has decayed. Speak to Nulodion to get a new one!"))
+=======
+		if (event.getMessage().contains("You pick up the cannon"))
+>>>>>>> initial import of runelite
 		{
 			cannonPlaced = false;
 			cballsLeft = 0;

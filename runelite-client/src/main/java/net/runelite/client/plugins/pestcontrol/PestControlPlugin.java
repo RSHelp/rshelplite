@@ -102,7 +102,11 @@ public class PestControlPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage chatMessage)
 	{
+<<<<<<< HEAD
 		if (overlay.getGame() != null && chatMessage.getType() == ChatMessageType.GAMEMESSAGE)
+=======
+		if (overlay.getGame() != null && chatMessage.getType() == ChatMessageType.SERVER)
+>>>>>>> initial import of runelite
 		{
 			Matcher matcher = SHIELD_DROP.matcher(chatMessage.getMessage());
 			if (matcher.lookingAt())

@@ -25,10 +25,15 @@
  */
 package net.runelite.client.plugins.menuentryswapper;
 
+<<<<<<< HEAD
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.Provides;
 import java.util.List;
+=======
+import com.google.common.collect.ImmutableSet;
+import com.google.inject.Provides;
+>>>>>>> initial import of runelite
 import java.util.Set;
 import javax.inject.Inject;
 import lombok.Getter;
@@ -39,9 +44,15 @@ import net.runelite.api.ItemComposition;
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.NPC;
+<<<<<<< HEAD
 import net.runelite.api.events.ClientTick;
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.FocusChanged;
+=======
+import net.runelite.api.events.ConfigChanged;
+import net.runelite.api.events.FocusChanged;
+import net.runelite.api.events.MenuEntryAdded;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.MenuOpened;
 import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.events.PostItemComposition;
@@ -132,8 +143,11 @@ public class MenuEntrySwapperPlugin extends Plugin
 	@Setter
 	private boolean shiftModifier = false;
 
+<<<<<<< HEAD
 	private final ArrayListMultimap<String, Integer> optionIndexes = ArrayListMultimap.create();
 
+=======
+>>>>>>> initial import of runelite
 	@Provides
 	MenuEntrySwapperConfig provideConfig(ConfigManager configManager)
 	{
@@ -266,12 +280,21 @@ public class MenuEntrySwapperPlugin extends Plugin
 		ItemComposition itemComposition = client.getItemDefinition(itemId);
 		String itemName = itemComposition.getName();
 		String option = "Use";
+<<<<<<< HEAD
 		int shiftClickActionIndex = itemComposition.getShiftClickActionIndex();
 		String[] inventoryActions = itemComposition.getInventoryActions();
 
 		if (shiftClickActionIndex >= 0 && shiftClickActionIndex < inventoryActions.length)
 		{
 			option = inventoryActions[shiftClickActionIndex];
+=======
+		int shiftClickActionindex = itemComposition.getShiftClickActionIndex();
+		String[] inventoryActions = itemComposition.getInventoryActions();
+
+		if (shiftClickActionindex >= 0 && shiftClickActionindex < inventoryActions.length)
+		{
+			option = inventoryActions[shiftClickActionindex];
+>>>>>>> initial import of runelite
 		}
 
 		MenuEntry[] entries = event.getMenuEntries();
@@ -355,6 +378,7 @@ public class MenuEntrySwapperPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	private void swapMenuEntry(int index, MenuEntry menuEntry)
 	{
 		final int eventId = menuEntry.getIdentifier();
@@ -365,12 +389,31 @@ public class MenuEntrySwapperPlugin extends Plugin
 		if (hintArrowNpc != null
 			&& hintArrowNpc.getIndex() == eventId
 			&& NPC_MENU_TYPES.contains(MenuAction.of(menuEntry.getType())))
+=======
+	@Subscribe
+	public void onMenuEntryAdded(MenuEntryAdded event)
+	{
+		if (client.getGameState() != GameState.LOGGED_IN)
+		{
+			return;
+		}
+
+		final int eventId = event.getIdentifier();
+		final String option = Text.removeTags(event.getOption()).toLowerCase();
+		final String target = Text.removeTags(event.getTarget()).toLowerCase();
+		final NPC hintArrowNpc  = client.getHintArrowNpc();
+
+		if (hintArrowNpc != null
+			&& hintArrowNpc.getIndex() == eventId
+			&& NPC_MENU_TYPES.contains(MenuAction.of(event.getType())))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
 
 		if (option.equals("talk-to"))
 		{
+<<<<<<< HEAD
 			if (config.swapAbyssTeleport() && target.contains("mage of zamorak"))
 			{
 				swap("teleport", option, target, index);
@@ -379,48 +422,84 @@ public class MenuEntrySwapperPlugin extends Plugin
 			if (config.swapHardWoodGrove() && target.contains("rionasta"))
 			{
 				swap("send-parcel", option, target, index);
+=======
+			if (config.swapPickpocket() && target.contains("h.a.m."))
+			{
+				swap("pickpocket", option, target, true);
+			}
+
+			if (config.swapAbyssTeleport() && target.contains("mage of zamorak"))
+			{
+				swap("teleport", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.swapBank())
 			{
+<<<<<<< HEAD
 				swap("bank", option, target, index);
 			}
 
 			if (config.swapContract())
 			{
 				swap("contract", option, target, index);
+=======
+				swap("bank", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.swapExchange())
 			{
+<<<<<<< HEAD
 				swap("exchange", option, target, index);
+=======
+				swap("exchange", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.swapDarkMage())
 			{
+<<<<<<< HEAD
 				swap("repairs", option, target, index);
+=======
+				swap("repairs", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			// make sure assignment swap is higher priority than trade swap for slayer masters
 			if (config.swapAssignment())
 			{
+<<<<<<< HEAD
 				swap("assignment", option, target, index);
+=======
+				swap("assignment", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.swapTrade())
 			{
+<<<<<<< HEAD
 				swap("trade", option, target, index);
 				swap("trade-with", option, target, index);
 				swap("shop", option, target, index);
+=======
+				swap("trade", option, target, true);
+				swap("trade-with", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.claimSlime() && target.equals("robin"))
 			{
+<<<<<<< HEAD
 				swap("claim-slime", option, target, index);
+=======
+				swap("claim-slime", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.swapTravel())
 			{
+<<<<<<< HEAD
 				swap("travel", option, target, index);
 				swap("pay-fare", option, target, index);
 				swap("charter", option, target, index);
@@ -431,21 +510,43 @@ public class MenuEntrySwapperPlugin extends Plugin
 				swap("rellekka", option, target, index);
 				swap("follow", option, target, index);
 				swap("transport", option, target, index);
+=======
+				swap("travel", option, target, true);
+				swap("pay-fare", option, target, true);
+				swap("charter", option, target, true);
+				swap("take-boat", option, target, true);
+				swap("fly", option, target, true);
+				swap("jatizso", option, target, true);
+				swap("neitiznot", option, target, true);
+				swap("rellekka", option, target, true);
+				swap("follow", option, target, true);
+				swap("transport", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.swapPay())
 			{
+<<<<<<< HEAD
 				swap("pay", option, target, index);
 				swapContains("pay (", option, target, index);
+=======
+				swap("pay", option, target, true);
+				swap("pay (", option, target, false);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.swapDecant())
 			{
+<<<<<<< HEAD
 				swap("decant", option, target, index);
+=======
+				swap("decant", option, target, true);
+>>>>>>> initial import of runelite
 			}
 
 			if (config.swapQuick())
 			{
+<<<<<<< HEAD
 				swap("quick-travel", option, target, index);
 			}
 
@@ -486,12 +587,37 @@ public class MenuEntrySwapperPlugin extends Plugin
 		else if (config.swapHarpoon() && (option.equals("big net") || option.equals("net")))
 		{
 			swap("harpoon", option, target, index);
+=======
+				swap("quick-travel", option, target, true);
+			}
+		}
+		else if (config.swapTravel() && option.equals("pass") && target.equals("energy barrier"))
+		{
+			swap("pay-toll(2-ecto)", option, target, true);
+		}
+		else if (config.swapTravel() && option.equals("open") && target.equals("gate"))
+		{
+			swap("pay-toll(10gp)", option, target, true);
+		}
+		else if (config.swapTravel() && option.equals("inspect") && target.equals("trapdoor"))
+		{
+			swap("travel", option, target, true);
+		}
+		else if (config.swapHarpoon() && option.equals("cage"))
+		{
+			swap("harpoon", option, target, true);
+		}
+		else if (config.swapHarpoon() && (option.equals("big net") || option.equals("net")))
+		{
+			swap("harpoon", option, target, true);
+>>>>>>> initial import of runelite
 		}
 		else if (config.swapHomePortal() != HouseMode.ENTER && option.equals("enter"))
 		{
 			switch (config.swapHomePortal())
 			{
 				case HOME:
+<<<<<<< HEAD
 					swap("home", option, target, index);
 					break;
 				case BUILD_MODE:
@@ -511,6 +637,15 @@ public class MenuEntrySwapperPlugin extends Plugin
 					break;
 				case VISIT_LAST:
 					swap("visit-last", option, target, index);
+=======
+					swap("home", option, target, true);
+					break;
+				case BUILD_MODE:
+					swap("build mode", option, target, true);
+					break;
+				case FRIENDS_HOUSE:
+					swap("friend's house", option, target, true);
+>>>>>>> initial import of runelite
 					break;
 			}
 		}
@@ -519,15 +654,24 @@ public class MenuEntrySwapperPlugin extends Plugin
 		{
 			if (config.swapFairyRing() == FairyRingMode.LAST_DESTINATION)
 			{
+<<<<<<< HEAD
 				swapContains("last-destination", option, target, index);
 			}
 			else if (config.swapFairyRing() == FairyRingMode.CONFIGURE)
 			{
 				swapContains("configure", option, target, index);
+=======
+				swap("last-destination", option, target, false);
+			}
+			else if (config.swapFairyRing() == FairyRingMode.CONFIGURE)
+			{
+				swap("configure", option, target, false);
+>>>>>>> initial import of runelite
 			}
 		}
 		else if (config.swapFairyRing() == FairyRingMode.ZANARIS && option.equals("tree"))
 		{
+<<<<<<< HEAD
 			swapContains("zanaris", option, target, index);
 		}
 		else if (config.swapBoxTrap() && (option.equals("check") || option.equals("dismantle")))
@@ -581,6 +725,52 @@ public class MenuEntrySwapperPlugin extends Plugin
 		else if (config.swapPick() && option.equals("pick"))
 		{
 			swap("pick-lots", option, target, index);
+=======
+			swap("zanaris", option, target, false);
+		}
+		else if (config.swapBoxTrap() && (option.equals("check") || option.equals("dismantle")))
+		{
+			swap("reset", option, target, true);
+		}
+		else if (config.swapBoxTrap() && option.equals("take"))
+		{
+			swap("lay", option, target, true);
+		}
+		else if (config.swapChase() && option.equals("pick-up"))
+		{
+			swap("chase", option, target, true);
+		}
+		else if (config.swapBirdhouseEmpty() && option.equals("interact") && target.contains("birdhouse"))
+		{
+			swap("empty", option, target, true);
+		}
+		else if (config.swapQuick() && option.equals("ring"))
+		{
+			swap("quick-start", option, target, true);
+		}
+		else if (config.swapQuick() && option.equals("pass"))
+		{
+			swap("quick-pass", option, target, true);
+			swap("quick pass", option, target, true);
+		}
+		else if (config.swapQuick() && option.equals("open"))
+		{
+			swap("quick-open", option, target, true);
+		}
+		else if (config.swapAdmire() && option.equals("admire"))
+		{
+			swap("teleport", option, target, true);
+			swap("spellbook", option, target, true);
+			swap("perks", option, target, true);
+		}
+		else if (config.swapPrivate() && option.equals("shared"))
+		{
+			swap("private", option, target, true);
+		}
+		else if (config.swapPick() && option.equals("pick"))
+		{
+			swap("pick-lots", option, target, true);
+>>>>>>> initial import of runelite
 		}
 		else if (config.shiftClickCustomization() && shiftModifier && !option.equals("use"))
 		{
@@ -588,24 +778,38 @@ public class MenuEntrySwapperPlugin extends Plugin
 
 			if (customOption != null && customOption == -1)
 			{
+<<<<<<< HEAD
 				swap("use", option, target, index);
+=======
+				swap("use", option, target, true);
+>>>>>>> initial import of runelite
 			}
 		}
 		// Put all item-related swapping after shift-click
 		else if (config.swapTeleportItem() && option.equals("wear"))
 		{
+<<<<<<< HEAD
 			swap("rub", option, target, index);
 			swap("teleport", option, target, index);
+=======
+			swap("rub", option, target, true);
+			swap("teleport", option, target, true);
+>>>>>>> initial import of runelite
 		}
 		else if (option.equals("wield"))
 		{
 			if (config.swapTeleportItem())
 			{
+<<<<<<< HEAD
 				swap("teleport", option, target, index);
+=======
+				swap("teleport", option, target, true);
+>>>>>>> initial import of runelite
 			}
 		}
 		else if (config.swapBones() && option.equals("bury"))
 		{
+<<<<<<< HEAD
 			swap("use", option, target, index);
 		}
 
@@ -668,6 +872,9 @@ public class MenuEntrySwapperPlugin extends Plugin
 		for (MenuEntry entry : menuEntries)
 		{
 			swapMenuEntry(idx++, entry);
+=======
+			swap("use", option, target, true);
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -692,6 +899,7 @@ public class MenuEntrySwapperPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	private void swap(String optionA, String optionB, String target, int index)
 	{
 		swap(optionA, optionB, target, index, true);
@@ -745,17 +953,40 @@ public class MenuEntrySwapperPlugin extends Plugin
 				String entryOption = Text.removeTags(entry.getOption()).toLowerCase();
 				String entryTarget = Text.removeTags(entry.getTarget()).toLowerCase();
 
+=======
+	private int searchIndex(MenuEntry[] entries, String option, String target, boolean strict)
+	{
+		for (int i = entries.length - 1; i >= 0; i--)
+		{
+			MenuEntry entry = entries[i];
+			String entryOption = Text.removeTags(entry.getOption()).toLowerCase();
+			String entryTarget = Text.removeTags(entry.getTarget()).toLowerCase();
+
+			if (strict)
+			{
+				if (entryOption.equals(option) && entryTarget.equals(target))
+				{
+					return i;
+				}
+			}
+			else
+			{
+>>>>>>> initial import of runelite
 				if (entryOption.contains(option.toLowerCase()) && entryTarget.equals(target))
 				{
 					return i;
 				}
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> initial import of runelite
 		}
 
 		return -1;
 	}
 
+<<<<<<< HEAD
 	private void swap(ArrayListMultimap<String, Integer> optionIndexes, MenuEntry[] entries, int index1, int index2)
 	{
 		MenuEntry entry = entries[index1];
@@ -771,6 +1002,22 @@ public class MenuEntrySwapperPlugin extends Plugin
 		{
 			String option = Text.removeTags(menuEntry.getOption()).toLowerCase();
 			optionIndexes.put(option, idx++);
+=======
+	private void swap(String optionA, String optionB, String target, boolean strict)
+	{
+		MenuEntry[] entries = client.getMenuEntries();
+
+		int idxA = searchIndex(entries, optionA, target, strict);
+		int idxB = searchIndex(entries, optionB, target, strict);
+
+		if (idxA >= 0 && idxB >= 0)
+		{
+			MenuEntry entry = entries[idxA];
+			entries[idxA] = entries[idxB];
+			entries[idxB] = entry;
+
+			client.setMenuEntries(entries);
+>>>>>>> initial import of runelite
 		}
 	}
 

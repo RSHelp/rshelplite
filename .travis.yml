@@ -1,12 +1,20 @@
 language: java
 sudo: false
+<<<<<<< HEAD
 dist: xenial
+=======
+dist: trusty
+>>>>>>> initial import of runelite
 cache:
   directories:
     - $HOME/.m2
 jdk:
+<<<<<<< HEAD
 - openjdk8
 - openjdk11
+=======
+- oraclejdk8
+>>>>>>> initial import of runelite
 install: true
 script: ./travis/build.sh
 notifications:

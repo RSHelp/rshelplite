@@ -29,7 +29,10 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import javax.inject.Inject;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.GraphicID;
+=======
+>>>>>>> initial import of runelite
 import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
 import net.runelite.api.Skill;
 import net.runelite.client.plugins.xptracker.XpTrackerService;
@@ -73,9 +76,14 @@ class FishingOverlay extends Overlay
 		}
 
 		panelComponent.getChildren().clear();
+<<<<<<< HEAD
 		if (client.getLocalPlayer().getInteracting() != null
 			&& client.getLocalPlayer().getInteracting().getName().contains(FISHING_SPOT)
 			&& client.getLocalPlayer().getInteracting().getGraphic() != GraphicID.FLYING_FISH)
+=======
+		if (client.getLocalPlayer().getInteracting() != null && client.getLocalPlayer().getInteracting().getName()
+			.contains(FISHING_SPOT))
+>>>>>>> initial import of runelite
 		{
 			panelComponent.getChildren().add(TitleComponent.builder()
 				.text("Fishing")

@@ -25,27 +25,39 @@
  */
 package net.runelite.client.plugins.xptracker;
 
+<<<<<<< HEAD
 import com.google.common.annotations.VisibleForTesting;
+=======
+>>>>>>> initial import of runelite
 import static com.google.common.base.MoreObjects.firstNonNull;
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Binder;
 import com.google.inject.Provides;
 import java.awt.image.BufferedImage;
 import java.time.temporal.ChronoUnit;
+<<<<<<< HEAD
 import java.util.Arrays;
+=======
+>>>>>>> initial import of runelite
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 import javax.inject.Inject;
+<<<<<<< HEAD
 import lombok.AccessLevel;
 import lombok.Setter;
+=======
+>>>>>>> initial import of runelite
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Actor;
 import net.runelite.api.Client;
 import net.runelite.api.Experience;
 import net.runelite.api.GameState;
+<<<<<<< HEAD
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.NPC;
 import net.runelite.api.Player;
 import net.runelite.api.Skill;
@@ -54,11 +66,15 @@ import net.runelite.api.WorldType;
 import net.runelite.api.events.ExperienceChanged;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
+<<<<<<< HEAD
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.events.NpcDespawned;
 import net.runelite.api.widgets.WidgetID;
 import static net.runelite.api.widgets.WidgetInfo.TO_GROUP;
+=======
+import net.runelite.api.events.NpcDespawned;
+>>>>>>> initial import of runelite
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.NPCManager;
@@ -69,9 +85,13 @@ import static net.runelite.client.plugins.xptracker.XpWorldType.NORMAL;
 import net.runelite.client.task.Schedule;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.Text;
+=======
+import net.runelite.client.util.ImageUtil;
+>>>>>>> initial import of runelite
 import net.runelite.http.api.xp.XpClient;
 
 @PluginDescriptor(
@@ -87,9 +107,12 @@ public class XpTrackerPlugin extends Plugin
 	 */
 	private static final int XP_THRESHOLD = 10_000;
 
+<<<<<<< HEAD
 	private static final String MENUOP_ADD_CANVAS_TRACKER = "Add to canvas";
 	private static final String MENUOP_REMOVE_CANVAS_TRACKER = "Remove from canvas";
 
+=======
+>>>>>>> initial import of runelite
 	static final List<Skill> COMBAT = ImmutableList.of(
 		Skill.ATTACK,
 		Skill.STRENGTH,
@@ -113,19 +136,28 @@ public class XpTrackerPlugin extends Plugin
 	@Inject
 	private NPCManager npcManager;
 
+<<<<<<< HEAD
 	@Inject
 	private OverlayManager overlayManager;
 
 	private NavigationButton navButton;
 	@Setter(AccessLevel.PACKAGE)
 	@VisibleForTesting
+=======
+	private NavigationButton navButton;
+>>>>>>> initial import of runelite
 	private XpPanel xpPanel;
 	private XpWorldType lastWorldType;
 	private String lastUsername;
 	private long lastTickMillis = 0;
+<<<<<<< HEAD
 	private boolean fetchXp; // fetch lastXp for the online xp tracker
 	private long lastXp = 0;
 	private boolean initializeTracker;
+=======
+	private boolean fetchXp;
+	private long lastXp = 0;
+>>>>>>> initial import of runelite
 
 	private final XpClient xpClient = new XpClient();
 	private final XpState xpState = new XpState();
@@ -158,16 +190,22 @@ public class XpTrackerPlugin extends Plugin
 			.build();
 
 		clientToolbar.addNavigation(navButton);
+<<<<<<< HEAD
 
 		// Initialize the tracker & last xp if already logged in
 		fetchXp = true;
 		initializeTracker = true;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
+<<<<<<< HEAD
 		overlayManager.removeIf(e -> e instanceof XpInfoBoxOverlay);
+=======
+>>>>>>> initial import of runelite
 		xpState.reset();
 		clientToolbar.removeNavigation(navButton);
 	}
@@ -195,6 +233,7 @@ public class XpTrackerPlugin extends Plugin
 				fetchXp = true;
 				lastWorldType = type;
 				resetState();
+<<<<<<< HEAD
 				// Must be set from hitting the LOGGING_IN or HOPPING case below
 				assert initializeTracker;
 			}
@@ -203,6 +242,10 @@ public class XpTrackerPlugin extends Plugin
 		{
 			initializeTracker = true;
 		}
+=======
+			}
+		}
+>>>>>>> initial import of runelite
 		else if (state == GameState.LOGIN_SCREEN)
 		{
 			Player local = client.getLocalPlayer();
@@ -222,7 +265,10 @@ public class XpTrackerPlugin extends Plugin
 			if (Math.abs(totalXp - lastXp) > XP_THRESHOLD)
 			{
 				xpClient.update(username);
+<<<<<<< HEAD
 				lastXp = totalXp;
+=======
+>>>>>>> initial import of runelite
 			}
 		}
 	}
@@ -242,6 +288,7 @@ public class XpTrackerPlugin extends Plugin
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Adds an overlay to the canvas for tracking a specific skill.
 	 *
 	 * @param skill the skill for which the overlay should be added
@@ -274,6 +321,8 @@ public class XpTrackerPlugin extends Plugin
 	}
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Reset internal state and re-initialize all skills with XP currently cached by the RS client
 	 * This is called by the user manually clicking resetSkillState in the UI.
 	 * It reloads the current skills from the client after resetting internal state.
@@ -295,7 +344,10 @@ public class XpTrackerPlugin extends Plugin
 			}
 
 			xpState.initializeSkill(skill, currentXp);
+<<<<<<< HEAD
 			removeOverlay(skill);
+=======
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -308,7 +360,10 @@ public class XpTrackerPlugin extends Plugin
 		xpState.reset();
 		xpPanel.resetAllInfoBoxes();
 		xpPanel.updateTotal(new XpSnapshotSingle.XpSnapshotSingleBuilder().build());
+<<<<<<< HEAD
 		overlayManager.removeIf(e -> e instanceof XpInfoBoxOverlay);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	/**
@@ -321,7 +376,11 @@ public class XpTrackerPlugin extends Plugin
 		int currentXp = client.getSkillExperience(skill);
 		xpState.resetSkill(skill, currentXp);
 		xpPanel.resetSkill(skill);
+<<<<<<< HEAD
 		removeOverlay(skill);
+=======
+		xpPanel.updateTotal(xpState.getTotalSnapshot());
+>>>>>>> initial import of runelite
 	}
 
 	/**
@@ -332,14 +391,22 @@ public class XpTrackerPlugin extends Plugin
 	{
 		for (Skill s : Skill.values())
 		{
+<<<<<<< HEAD
 			// Overall is not reset from resetting individual skills
 			if (skill != s && s != Skill.OVERALL)
+=======
+			if (skill != s)
+>>>>>>> initial import of runelite
 			{
 				resetSkillState(s);
 			}
 		}
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> initial import of runelite
 	@Subscribe
 	public void onExperienceChanged(ExperienceChanged event)
 	{
@@ -351,12 +418,15 @@ public class XpTrackerPlugin extends Plugin
 		final int startGoalXp = startGoal != null ? client.getVar(startGoal) : -1;
 		final int endGoalXp = endGoal != null ? client.getVar(endGoal) : -1;
 
+<<<<<<< HEAD
 		if (initializeTracker)
 		{
 			// This is the XP sync on login, wait until after login to begin counting
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		if (xpTrackerConfig.hideMaxed() && currentLevel >= Experience.MAX_REAL_LEVEL)
 		{
 			return;
@@ -375,9 +445,22 @@ public class XpTrackerPlugin extends Plugin
 		final XpUpdateResult updateResult = xpState.updateSkill(skill, currentXp, startGoalXp, endGoalXp);
 		xpPanel.updateSkillExperience(updateResult == XpUpdateResult.UPDATED, xpPauseState.isPaused(skill), skill, xpState.getSkillSnapshot(skill));
 
+<<<<<<< HEAD
 		// Also update the total experience
 		xpState.updateSkill(Skill.OVERALL, client.getOverallExperience(), -1, -1);
 		xpPanel.updateTotal(xpState.getTotalSnapshot());
+=======
+		if (skill == Skill.CONSTRUCTION && updateResult == XpUpdateResult.INITIALIZED)
+		{
+			// Construction is the last skill initialized on login, now initialize the total experience
+			xpState.initializeSkill(Skill.OVERALL, client.getOverallExperience());
+		}
+		else if (xpState.isInitialized(Skill.OVERALL))
+		{
+			xpState.updateSkill(Skill.OVERALL, client.getOverallExperience(), -1, -1);
+			xpPanel.updateTotal(xpState.getTotalSnapshot());
+		}
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -403,6 +486,7 @@ public class XpTrackerPlugin extends Plugin
 	@Subscribe
 	public void onGameTick(GameTick event)
 	{
+<<<<<<< HEAD
 		if (initializeTracker)
 		{
 			initializeTracker = false;
@@ -459,11 +543,15 @@ public class XpTrackerPlugin extends Plugin
 			}
 		}
 
+=======
+		rebuildSkills();
+>>>>>>> initial import of runelite
 		if (fetchXp)
 		{
 			lastXp = client.getOverallExperience();
 			fetchXp = false;
 		}
+<<<<<<< HEAD
 
 		rebuildSkills();
 	}
@@ -531,6 +619,8 @@ public class XpTrackerPlugin extends Plugin
 	XpStateSingle getSkillState(Skill skill)
 	{
 		return xpState.getSkill(skill);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	XpSnapshotSingle getSkillSnapshot(Skill skill)

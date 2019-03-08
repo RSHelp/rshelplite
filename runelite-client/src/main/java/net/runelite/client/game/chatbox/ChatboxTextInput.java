@@ -67,7 +67,11 @@ public class ChatboxTextInput extends ChatboxInput implements KeyListener, Mouse
 	private static final Pattern BREAK_MATCHER = Pattern.compile("[^a-zA-Z0-9']");
 
 	private final ChatboxPanelManager chatboxPanelManager;
+<<<<<<< HEAD
 	protected final ClientThread clientThread;
+=======
+	private final ClientThread clientThread;
+>>>>>>> initial import of runelite
 
 	private static IntPredicate getDefaultCharValidator()
 	{
@@ -129,12 +133,15 @@ public class ChatboxTextInput extends ChatboxInput implements KeyListener, Mouse
 		this.clientThread = clientThread;
 	}
 
+<<<<<<< HEAD
 	public ChatboxTextInput addCharValidator(IntPredicate validator)
 	{
 		this.charValidator = this.charValidator.and(validator);
 		return this;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	public ChatboxTextInput lines(int lines)
 	{
 		this.lines = lines;
@@ -157,6 +164,7 @@ public class ChatboxTextInput extends ChatboxInput implements KeyListener, Mouse
 
 	public ChatboxTextInput value(String value)
 	{
+<<<<<<< HEAD
 		StringBuffer sb = new StringBuffer();
 		for (char c : value.toCharArray())
 		{
@@ -166,6 +174,9 @@ public class ChatboxTextInput extends ChatboxInput implements KeyListener, Mouse
 			}
 		}
 		this.value = sb;
+=======
+		this.value = new StringBuffer(value);
+>>>>>>> initial import of runelite
 		cursorAt(this.value.length());
 		return this;
 	}

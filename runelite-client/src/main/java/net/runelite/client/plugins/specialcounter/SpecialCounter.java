@@ -25,23 +25,33 @@
 package net.runelite.client.plugins.specialcounter;
 
 import java.awt.image.BufferedImage;
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
 import lombok.AccessLevel;
 import lombok.Getter;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.infobox.Counter;
 
 class SpecialCounter extends Counter
 {
+<<<<<<< HEAD
 	private final SpecialCounterPlugin plugin;
 	private SpecialWeapon weapon;
 	@Getter(AccessLevel.PACKAGE)
 	private final Map<String, Integer> partySpecs = new HashMap<>();
+=======
+	private SpecialWeapon weapon;
+>>>>>>> initial import of runelite
 
 	SpecialCounter(BufferedImage image, SpecialCounterPlugin plugin, int hitValue, SpecialWeapon weapon)
 	{
 		super(image, plugin, hitValue);
+<<<<<<< HEAD
 		this.plugin = plugin;
+=======
+>>>>>>> initial import of runelite
 		this.weapon = weapon;
 	}
 
@@ -55,6 +65,7 @@ class SpecialCounter extends Counter
 	public String getTooltip()
 	{
 		int hitValue = getCount();
+<<<<<<< HEAD
 
 		if (partySpecs.isEmpty())
 		{
@@ -76,6 +87,8 @@ class SpecialCounter extends Counter
 
 	private String buildTooltip(int hitValue)
 	{
+=======
+>>>>>>> initial import of runelite
 		if (!weapon.isDamage())
 		{
 			if (hitValue == 1)

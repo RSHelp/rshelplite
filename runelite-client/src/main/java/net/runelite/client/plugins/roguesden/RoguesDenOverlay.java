@@ -28,7 +28,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.coords.LocalPoint;
@@ -66,11 +69,19 @@ public class RoguesDenOverlay extends Overlay
 		{
 			if (tile.getPlane() == client.getPlane() && obstacle.getLocalLocation().distanceTo(playerLocation) < MAX_DISTANCE)
 			{
+<<<<<<< HEAD
 				Shape p = tile.getGameObjects()[0].getConvexHull();
 				if (p != null)
 				{
 					graphics.setColor(Color.CYAN);
 					graphics.draw(p);
+=======
+				Polygon p = tile.getGameObjects()[0].getConvexHull();
+				if (p != null)
+				{
+					graphics.setColor(Color.CYAN);
+					graphics.drawPolygon(p);
+>>>>>>> initial import of runelite
 				}
 			}
 		});
@@ -83,7 +94,11 @@ public class RoguesDenOverlay extends Overlay
 				if (p != null)
 				{
 					graphics.setColor(Color.CYAN);
+<<<<<<< HEAD
 					graphics.draw(p);
+=======
+					graphics.drawPolygon(p);
+>>>>>>> initial import of runelite
 				}
 			}
 		});

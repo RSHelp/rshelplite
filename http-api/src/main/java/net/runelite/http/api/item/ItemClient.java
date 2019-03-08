@@ -34,10 +34,15 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Map;
 import javax.imageio.ImageIO;
+<<<<<<< HEAD
 import javax.inject.Inject;
 import net.runelite.http.api.RuneLiteAPI;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+=======
+import net.runelite.http.api.RuneLiteAPI;
+import okhttp3.HttpUrl;
+>>>>>>> initial import of runelite
 import okhttp3.Request;
 import okhttp3.Response;
 import org.slf4j.Logger;
@@ -47,6 +52,7 @@ public class ItemClient
 {
 	private static final Logger logger = LoggerFactory.getLogger(ItemClient.class);
 
+<<<<<<< HEAD
 	private final OkHttpClient client;
 
 	@Inject
@@ -55,6 +61,8 @@ public class ItemClient
 		this.client = client;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	public ItemPrice lookupItemPrice(int itemId) throws IOException
 	{
 		HttpUrl url = RuneLiteAPI.getApiBase().newBuilder()
@@ -69,11 +77,19 @@ public class ItemClient
 			.url(url)
 			.build();
 
+<<<<<<< HEAD
 		try (Response response = client.newCall(request).execute())
 		{
 			if (!response.isSuccessful())
 			{
 				logger.debug("Error looking up item {}: {}", itemId, response);
+=======
+		try (Response response = RuneLiteAPI.CLIENT.newCall(request).execute())
+		{
+			if (!response.isSuccessful())
+			{
+				logger.debug("Error looking up item {}: {}", itemId, response.message());
+>>>>>>> initial import of runelite
 				return null;
 			}
 
@@ -105,11 +121,19 @@ public class ItemClient
 				.url(url)
 				.build();
 
+<<<<<<< HEAD
 		try (Response response = client.newCall(request).execute())
 		{
 			if (!response.isSuccessful())
 			{
 				logger.debug("Error looking up items {}: {}", Arrays.toString(itemIds), response);
+=======
+		try (Response response = RuneLiteAPI.CLIENT.newCall(request).execute())
+		{
+			if (!response.isSuccessful())
+			{
+				logger.debug("Error looking up items {}: {}", Arrays.toString(itemIds), response.message());
+>>>>>>> initial import of runelite
 				return null;
 			}
 
@@ -136,11 +160,19 @@ public class ItemClient
 			.url(url)
 			.build();
 
+<<<<<<< HEAD
 		try (Response response = client.newCall(request).execute())
 		{
 			if (!response.isSuccessful())
 			{
 				logger.debug("Error grabbing icon {}: {}", itemId, response);
+=======
+		try (Response response = RuneLiteAPI.CLIENT.newCall(request).execute())
+		{
+			if (!response.isSuccessful())
+			{
+				logger.debug("Error grabbing icon {}: {}", itemId, response.message());
+>>>>>>> initial import of runelite
 				return null;
 			}
 
@@ -166,11 +198,19 @@ public class ItemClient
 			.url(url)
 			.build();
 
+<<<<<<< HEAD
 		try (Response response = client.newCall(request).execute())
 		{
 			if (!response.isSuccessful())
 			{
 				logger.debug("Error looking up item {}: {}", itemName, response);
+=======
+		try (Response response = RuneLiteAPI.CLIENT.newCall(request).execute())
+		{
+			if (!response.isSuccessful())
+			{
+				logger.debug("Error looking up item {}: {}", itemName, response.message());
+>>>>>>> initial import of runelite
 				return null;
 			}
 
@@ -197,11 +237,19 @@ public class ItemClient
 			.url(url)
 			.build();
 
+<<<<<<< HEAD
 		try (Response response = client.newCall(request).execute())
 		{
 			if (!response.isSuccessful())
 			{
 				logger.warn("Error looking up prices: {}", response);
+=======
+		try (Response response = RuneLiteAPI.CLIENT.newCall(request).execute())
+		{
+			if (!response.isSuccessful())
+			{
+				logger.warn("Error looking up prices: {}", response.message());
+>>>>>>> initial import of runelite
 				return null;
 			}
 
@@ -229,11 +277,19 @@ public class ItemClient
 			.url(url)
 			.build();
 
+<<<<<<< HEAD
 		try (Response response = client.newCall(request).execute())
 		{
 			if (!response.isSuccessful())
 			{
 				logger.warn("Error looking up item stats: {}", response);
+=======
+		try (Response response = RuneLiteAPI.CLIENT.newCall(request).execute())
+		{
+			if (!response.isSuccessful())
+			{
+				logger.warn("Error looking up item stats: {}", response.message());
+>>>>>>> initial import of runelite
 				return null;
 			}
 

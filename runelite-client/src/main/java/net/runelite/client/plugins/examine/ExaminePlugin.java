@@ -35,16 +35,24 @@ import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
 import net.runelite.api.ItemComposition;
 import net.runelite.api.ItemID;
+=======
+import net.runelite.api.ItemComposition;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.widgets.Widget;
+<<<<<<< HEAD
 import net.runelite.api.widgets.WidgetID;
 import net.runelite.api.widgets.WidgetInfo;
 import static net.runelite.api.widgets.WidgetInfo.SEED_VAULT_ITEM_CONTAINER;
+=======
+import net.runelite.api.widgets.WidgetInfo;
+>>>>>>> initial import of runelite
 import static net.runelite.api.widgets.WidgetInfo.TO_CHILD;
 import static net.runelite.api.widgets.WidgetInfo.TO_GROUP;
 import net.runelite.api.widgets.WidgetItem;
@@ -56,8 +64,12 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
 import net.runelite.client.util.Text;
+=======
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 import net.runelite.http.api.examine.ExamineClient;
 
 /**
@@ -73,6 +85,10 @@ import net.runelite.http.api.examine.ExamineClient;
 @Slf4j
 public class ExaminePlugin extends Plugin
 {
+<<<<<<< HEAD
+=======
+	private static final float HIGH_ALCHEMY_CONSTANT = 0.6f;
+>>>>>>> initial import of runelite
 	private static final Pattern X_PATTERN = Pattern.compile("^\\d+ x ");
 
 	private final Deque<PendingExamine> pending = new ArrayDeque<>();
@@ -95,6 +111,10 @@ public class ExaminePlugin extends Plugin
 	@Inject
 	private ScheduledExecutorService executor;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> initial import of runelite
 	@Subscribe
 	public void onGameStateChanged(GameStateChanged event)
 	{
@@ -104,7 +124,11 @@ public class ExaminePlugin extends Plugin
 	@Subscribe
 	public void onMenuOptionClicked(MenuOptionClicked event)
 	{
+<<<<<<< HEAD
 		if (!Text.removeTags(event.getMenuOption()).equals("Examine"))
+=======
+		if (!event.getMenuOption().equals("Examine"))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -123,7 +147,11 @@ public class ExaminePlugin extends Plugin
 				int widgetChild = TO_CHILD(widgetId);
 				Widget widget = client.getWidget(widgetGroup, widgetChild);
 				WidgetItem widgetItem = widget.getWidgetItem(event.getActionParam());
+<<<<<<< HEAD
 				quantity = widgetItem != null && widgetItem.getId() >= 0 ? widgetItem.getQuantity() : 1;
+=======
+				quantity = widgetItem != null ? widgetItem.getQuantity() : 1;
+>>>>>>> initial import of runelite
 				break;
 			}
 			case EXAMINE_ITEM_BANK_EQ:
@@ -165,6 +193,7 @@ public class ExaminePlugin extends Plugin
 		ExamineType type;
 		switch (event.getType())
 		{
+<<<<<<< HEAD
 			case ITEM_EXAMINE:
 				type = ExamineType.ITEM;
 				break;
@@ -175,6 +204,18 @@ public class ExaminePlugin extends Plugin
 				type = ExamineType.NPC;
 				break;
 			case GAMEMESSAGE:
+=======
+			case EXAMINE_ITEM:
+				type = ExamineType.ITEM;
+				break;
+			case EXAMINE_OBJECT:
+				type = ExamineType.OBJECT;
+				break;
+			case EXAMINE_NPC:
+				type = ExamineType.NPC;
+				break;
+			case SERVER:
+>>>>>>> initial import of runelite
 				type = ExamineType.ITEM_BANK_EQ;
 				break;
 			default:
@@ -204,12 +245,15 @@ public class ExaminePlugin extends Plugin
 		{
 			final int itemId = pendingExamine.getId();
 			final int itemQuantity = pendingExamine.getQuantity();
+<<<<<<< HEAD
 
 			if (itemId == ItemID.COINS_995)
 			{
 				return;
 			}
 
+=======
+>>>>>>> initial import of runelite
 			itemComposition = itemManager.getItemComposition(itemId);
 
 			if (itemComposition != null)
@@ -282,6 +326,7 @@ public class ExaminePlugin extends Plugin
 				return new int[]{widgetItem.getItemQuantity(), widgetItem.getItemId()};
 			}
 		}
+<<<<<<< HEAD
 		else if (WidgetInfo.BANK_ITEM_CONTAINER.getGroupId() == widgetGroup
 			|| WidgetInfo.CLUE_SCROLL_REWARD_ITEM_CONTAINER.getGroupId() == widgetGroup
 			|| WidgetInfo.LOOTING_BAG_CONTAINER.getGroupId() == widgetGroup
@@ -289,6 +334,9 @@ public class ExaminePlugin extends Plugin
 			|| WidgetID.SEED_BOX_GROUP_ID == widgetGroup
 			|| WidgetID.PLAYER_TRADE_SCREEN_GROUP_ID == widgetGroup
 			|| WidgetID.PLAYER_TRADE_INVENTORY_GROUP_ID == widgetGroup)
+=======
+		else if (WidgetInfo.BANK_ITEM_CONTAINER.getGroupId() == widgetGroup)
+>>>>>>> initial import of runelite
 		{
 			Widget[] children = widget.getDynamicChildren();
 			if (actionParam < children.length)
@@ -306,9 +354,24 @@ public class ExaminePlugin extends Plugin
 				return new int[]{1, widgetItem.getItemId()};
 			}
 		}
+<<<<<<< HEAD
 		else if (WidgetID.SEED_VAULT_GROUP_ID == widgetGroup)
 		{
 			Widget[] children = client.getWidget(SEED_VAULT_ITEM_CONTAINER).getDynamicChildren();
+=======
+		else if (WidgetInfo.CLUE_SCROLL_REWARD_ITEM_CONTAINER.getGroupId() == widgetGroup)
+		{
+			Widget[] children = widget.getDynamicChildren();
+			if (actionParam < children.length)
+			{
+				Widget widgetItem = children[actionParam];
+				return new int[]{widgetItem.getItemQuantity(), widgetItem.getItemId()};
+			}
+		}
+		else if (WidgetInfo.LOOTING_BAG_CONTAINER.getGroupId() == widgetGroup)
+		{
+			Widget[] children = widget.getDynamicChildren();
+>>>>>>> initial import of runelite
 			if (actionParam < children.length)
 			{
 				Widget widgetItem = children[actionParam];
@@ -325,7 +388,11 @@ public class ExaminePlugin extends Plugin
 		quantity = Math.max(1, quantity);
 		int itemCompositionPrice = itemComposition.getPrice();
 		final int gePrice = itemManager.getItemPrice(id);
+<<<<<<< HEAD
 		final int alchPrice = itemCompositionPrice <= 0 ? 0 : Math.round(itemCompositionPrice * Constants.HIGH_ALCHEMY_MULTIPLIER);
+=======
+		final int alchPrice = itemCompositionPrice <= 0 ? 0 : Math.round(itemCompositionPrice * HIGH_ALCHEMY_CONSTANT);
+>>>>>>> initial import of runelite
 
 		if (gePrice > 0 || alchPrice > 0)
 		{
@@ -337,7 +404,11 @@ public class ExaminePlugin extends Plugin
 			if (quantity > 1)
 			{
 				message
+<<<<<<< HEAD
 					.append(QuantityFormatter.formatNumber(quantity))
+=======
+					.append(StackFormatter.formatNumber(quantity))
+>>>>>>> initial import of runelite
 					.append(" x ");
 			}
 
@@ -352,7 +423,11 @@ public class ExaminePlugin extends Plugin
 					.append(ChatColorType.NORMAL)
 					.append(" GE average ")
 					.append(ChatColorType.HIGHLIGHT)
+<<<<<<< HEAD
 					.append(QuantityFormatter.formatNumber(gePrice * quantity));
+=======
+					.append(StackFormatter.formatNumber(gePrice * quantity));
+>>>>>>> initial import of runelite
 
 				if (quantity > 1)
 				{
@@ -360,7 +435,11 @@ public class ExaminePlugin extends Plugin
 						.append(ChatColorType.NORMAL)
 						.append(" (")
 						.append(ChatColorType.HIGHLIGHT)
+<<<<<<< HEAD
 						.append(QuantityFormatter.formatNumber(gePrice))
+=======
+						.append(StackFormatter.formatNumber(gePrice))
+>>>>>>> initial import of runelite
 						.append(ChatColorType.NORMAL)
 						.append("ea)");
 				}
@@ -372,7 +451,11 @@ public class ExaminePlugin extends Plugin
 					.append(ChatColorType.NORMAL)
 					.append(" HA value ")
 					.append(ChatColorType.HIGHLIGHT)
+<<<<<<< HEAD
 					.append(QuantityFormatter.formatNumber(alchPrice * quantity));
+=======
+					.append(StackFormatter.formatNumber(alchPrice * quantity));
+>>>>>>> initial import of runelite
 
 				if (quantity > 1)
 				{
@@ -380,14 +463,22 @@ public class ExaminePlugin extends Plugin
 						.append(ChatColorType.NORMAL)
 						.append(" (")
 						.append(ChatColorType.HIGHLIGHT)
+<<<<<<< HEAD
 						.append(QuantityFormatter.formatNumber(alchPrice))
+=======
+						.append(StackFormatter.formatNumber(alchPrice))
+>>>>>>> initial import of runelite
 						.append(ChatColorType.NORMAL)
 						.append("ea)");
 				}
 			}
 
 			chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 				.type(ChatMessageType.ITEM_EXAMINE)
+=======
+				.type(ChatMessageType.EXAMINE_ITEM)
+>>>>>>> initial import of runelite
 				.runeLiteFormattedMessage(message.build())
 				.build());
 		}

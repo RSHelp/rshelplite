@@ -25,7 +25,10 @@
  */
 package net.runelite.client.plugins.chatnotifications;
 
+<<<<<<< HEAD
 import com.google.common.annotations.VisibleForTesting;
+=======
+>>>>>>> initial import of runelite
 import com.google.common.base.Strings;
 import com.google.inject.Provides;
 import java.util.List;
@@ -69,6 +72,12 @@ public class ChatNotificationsPlugin extends Plugin
 	@Inject
 	private Notifier notifier;
 
+<<<<<<< HEAD
+=======
+	@Inject
+	private RuneLiteProperties runeLiteProperties;
+
+>>>>>>> initial import of runelite
 	//Custom Highlights
 	private Pattern usernameMatcher = null;
 	private String usernameReplacer = "";
@@ -115,12 +124,18 @@ public class ChatNotificationsPlugin extends Plugin
 		{
 			List<String> items = Text.fromCSV(config.highlightWordsString());
 			String joined = items.stream()
+<<<<<<< HEAD
 				.map(Text::escapeJagex) // we compare these strings to the raw Jagex ones
 				.map(this::quoteAndIgnoreColor) // regex escape and ignore nested colors in the target message
 				.collect(Collectors.joining("|"));
 			// To match <word> \b doesn't work due to <> not being in \w,
 			// so match \b or \s
 			highlightMatcher = Pattern.compile("(?:\\b|(?<=\\s))(" + joined + ")(?:\\b|(?=\\s))", Pattern.CASE_INSENSITIVE);
+=======
+				.map(Pattern::quote)
+				.collect(Collectors.joining("|"));
+			highlightMatcher = Pattern.compile("\\b(" + joined + ")\\b", Pattern.CASE_INSENSITIVE);
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -128,25 +143,43 @@ public class ChatNotificationsPlugin extends Plugin
 	public void onChatMessage(ChatMessage chatMessage)
 	{
 		MessageNode messageNode = chatMessage.getMessageNode();
+<<<<<<< HEAD
+=======
+		String nodeValue = Text.removeTags(messageNode.getValue());
+>>>>>>> initial import of runelite
 		boolean update = false;
 
 		switch (chatMessage.getType())
 		{
+<<<<<<< HEAD
 			case TRADEREQ:
+=======
+			case TRADE:
+>>>>>>> initial import of runelite
 				if (chatMessage.getMessage().contains("wishes to trade with you.") && config.notifyOnTrade())
 				{
 					notifier.notify(chatMessage.getMessage());
 				}
 				break;
+<<<<<<< HEAD
 			case CHALREQ_TRADE:
+=======
+			case DUEL:
+>>>>>>> initial import of runelite
 				if (chatMessage.getMessage().contains("wishes to duel with you.") && config.notifyOnDuel())
 				{
 					notifier.notify(chatMessage.getMessage());
 				}
 				break;
+<<<<<<< HEAD
 			case CONSOLE:
 				// Don't notify for notification messages
 				if (chatMessage.getName().equals(RuneLiteProperties.getTitle()))
+=======
+			case GAME:
+				// Don't notify for notification messages
+				if (chatMessage.getName().equals(runeLiteProperties.getTitle()))
+>>>>>>> initial import of runelite
 				{
 					return;
 				}
@@ -177,7 +210,10 @@ public class ChatNotificationsPlugin extends Plugin
 
 		if (highlightMatcher != null)
 		{
+<<<<<<< HEAD
 			String nodeValue = messageNode.getValue();
+=======
+>>>>>>> initial import of runelite
 			Matcher matcher = highlightMatcher.matcher(nodeValue);
 			boolean found = false;
 			StringBuffer stringBuffer = new StringBuffer();
@@ -185,6 +221,7 @@ public class ChatNotificationsPlugin extends Plugin
 			while (matcher.find())
 			{
 				String value = matcher.group();
+<<<<<<< HEAD
 
 				// Determine the ending color by:
 				// 1) use the color from value if it has one
@@ -205,6 +242,9 @@ public class ChatNotificationsPlugin extends Plugin
 				// Append end color
 				stringBuffer.append(endColor == null ? "<col" + ChatColorType.NORMAL + ">" : endColor);
 
+=======
+				matcher.appendReplacement(stringBuffer, "<col" + ChatColorType.HIGHLIGHT + ">" + value + "<col" + ChatColorType.NORMAL + ">");
+>>>>>>> initial import of runelite
 				update = true;
 				found = true;
 			}
@@ -248,6 +288,7 @@ public class ChatNotificationsPlugin extends Plugin
 		String notification = stringBuilder.toString();
 		notifier.notify(notification);
 	}
+<<<<<<< HEAD
 
 	private String quoteAndIgnoreColor(String str)
 	{
@@ -305,4 +346,6 @@ public class ChatNotificationsPlugin extends Plugin
 	{
 		return str.replaceAll("(<col=[0-9a-f]+>|</col>)", "");
 	}
+=======
+>>>>>>> initial import of runelite
 }

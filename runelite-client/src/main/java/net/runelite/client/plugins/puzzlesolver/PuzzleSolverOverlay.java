@@ -299,11 +299,14 @@ public class PuzzleSolverOverlay extends Overlay
 										arrow = getUpArrow();
 									}
 
+<<<<<<< HEAD
 									if (arrow == null)
 									{
 										continue;
 									}
 
+=======
+>>>>>>> initial import of runelite
 									int x = puzzleBoxLocation.getX() + blankX * PUZZLE_TILE_SIZE
 											+ PUZZLE_TILE_SIZE / 2 - arrow.getWidth() / 2;
 

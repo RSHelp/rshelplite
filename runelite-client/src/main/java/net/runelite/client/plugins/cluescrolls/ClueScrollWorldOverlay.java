@@ -44,7 +44,11 @@ public class ClueScrollWorldOverlay extends Overlay
 	private final ClueScrollPlugin plugin;
 
 	@Inject
+<<<<<<< HEAD
 	private ClueScrollWorldOverlay(ClueScrollPlugin plugin)
+=======
+	public ClueScrollWorldOverlay(ClueScrollPlugin plugin)
+>>>>>>> initial import of runelite
 	{
 		setPosition(OverlayPosition.DYNAMIC);
 		setLayer(OverlayLayer.ABOVE_SCENE);

@@ -26,40 +26,70 @@ package net.runelite.api;
 
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+import java.awt.geom.Area;
+>>>>>>> initial import of runelite
 import javax.annotation.Nullable;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
 
 /**
+<<<<<<< HEAD
  * Represents an object on a Tile
  */
 public interface TileObject
 {
+=======
+ * Represents an object that a tile holds.
+ */
+public interface TileObject
+{
+	/**
+	 * Gets the hashed value of this object.
+	 *
+	 * @return the object hash
+	 */
+>>>>>>> initial import of runelite
 	long getHash();
 
 	/**
 	 * Gets the x-axis coordinate of the object in local context.
 	 *
+<<<<<<< HEAD
 	 * @see LocalPoint
+=======
+	 * @return the x-axis coordinate
+>>>>>>> initial import of runelite
 	 */
 	int getX();
 
 	/**
 	 * Gets the y-axis coordinate of the object in local context.
 	 *
+<<<<<<< HEAD
 	 * @see LocalPoint
+=======
+	 * @return the y-axis coordinate
+>>>>>>> initial import of runelite
 	 */
 	int getY();
 
 	/**
 	 * Gets the plane of the tile that the object is on.
+<<<<<<< HEAD
+=======
+	 *
+	 * @return the tile plane
+>>>>>>> initial import of runelite
 	 */
 	int getPlane();
 
 	/**
 	 * Gets the ID of the object.
 	 *
+<<<<<<< HEAD
 	 * @see ObjectID
 	 * @see NullObjectID
 	 */
@@ -71,26 +101,72 @@ public interface TileObject
 
 	/**
 	 * Calculates the position of the center of this tile on the canvas
+=======
+	 * @return the object ID
+	 */
+	int getId();
+
+	/**
+	 * Gets the location coordinate of the object in the world.
+	 *
+	 * @return the world location
+	 */
+	WorldPoint getWorldLocation();
+
+	/**
+	 * Gets the local location of the object.
+	 *
+	 * @return the local location
+	 */
+	LocalPoint getLocalLocation();
+
+	/**
+	 * Gets the upper-left canvas point where this object is drawn.
+	 *
+	 * @return the canvas location
+>>>>>>> initial import of runelite
 	 */
 	Point getCanvasLocation();
 
 	/**
+<<<<<<< HEAD
 	 * Calculates the position of the center of this tile on the canvas
 	 *
 	 * @param zOffset Vertical offset to apply before projection
+=======
+	 * Gets the upper-left canvas point where this object is drawn,
+	 * offset by the passed value.
+	 *
+	 * @param zOffset the z-axis offset
+	 * @return the canvas location
+>>>>>>> initial import of runelite
 	 */
 	Point getCanvasLocation(int zOffset);
 
 	/**
+<<<<<<< HEAD
 	 * Creates a polygon outlining the tile this object is on
+=======
+	 * Gets the polygon of the objects model as drawn on the canvas.
+	 *
+	 * @return the canvas polygon
+>>>>>>> initial import of runelite
 	 */
 	Polygon getCanvasTilePoly();
 
 	/**
+<<<<<<< HEAD
 	 * Calculates the canvas point to center {@code text} above the tile this object is on.
 	 *
 	 * @param graphics the graphics to use for font size calculation
 	 * @param zOffset Vertical offset to apply before projection
+=======
+	 * Gets the text position on the canvas.
+	 *
+	 * @param graphics the client graphics
+	 * @param text the text to draw
+	 * @param zOffset the offset from ground plane
+>>>>>>> initial import of runelite
 	 * @return the canvas point to draw the text at
 	 */
 	Point getCanvasTextLocation(Graphics2D graphics, String text, int zOffset);
@@ -104,8 +180,17 @@ public interface TileObject
 	Point getMinimapLocation();
 
 	/**
+<<<<<<< HEAD
 	 * Calculate the on-screen clickable area of the object.
 	 */
 	@Nullable
 	Shape getClickbox();
+=======
+	 * Get the on-screen clickable area of the object.
+	 *
+	 * @return the clickable area
+	 */
+	@Nullable
+	Area getClickbox();
+>>>>>>> initial import of runelite
 }

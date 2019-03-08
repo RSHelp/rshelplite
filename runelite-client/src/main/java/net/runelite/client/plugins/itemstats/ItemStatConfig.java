@@ -53,6 +53,7 @@ public interface ItemStatConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "geStats",
 		name = "Enable GE item information",
 		description = "Shows an item information panel when buying items in the GE"
@@ -63,6 +64,8 @@ public interface ItemStatConfig extends Config
 	}
 
 	@ConfigItem(
+=======
+>>>>>>> initial import of runelite
 		keyName = "relative",
 		name = "Show Relative",
 		description = "Show relative stat change in tooltip"
@@ -93,6 +96,7 @@ public interface ItemStatConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "showWeight",
 		name = "Show Weight",
 		description = "Show weight in tooltip"
@@ -103,6 +107,8 @@ public interface ItemStatConfig extends Config
 	}
 
 	@ConfigItem(
+=======
+>>>>>>> initial import of runelite
 		keyName = "colorBetterUncapped",
 		name = "Better (Uncapped)",
 		description = "Color to show when the stat change is fully consumed",

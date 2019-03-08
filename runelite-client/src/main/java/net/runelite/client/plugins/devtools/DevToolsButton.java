@@ -37,7 +37,10 @@ class DevToolsButton extends JButton
 	{
 		super(title);
 		addActionListener((ev) -> setActive(!active));
+<<<<<<< HEAD
 		this.setToolTipText(title);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	void setActive(boolean active)

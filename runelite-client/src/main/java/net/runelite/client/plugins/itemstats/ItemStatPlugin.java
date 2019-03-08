@@ -24,6 +24,7 @@
  */
 package net.runelite.client.plugins.itemstats;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -65,6 +66,15 @@ import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.QuantityFormatter;
 import net.runelite.http.api.item.ItemEquipmentStats;
 import net.runelite.http.api.item.ItemStats;
+=======
+import com.google.inject.Binder;
+import com.google.inject.Inject;
+import com.google.inject.Provides;
+import net.runelite.client.config.ConfigManager;
+import net.runelite.client.plugins.Plugin;
+import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.overlay.OverlayManager;
+>>>>>>> initial import of runelite
 
 @PluginDescriptor(
 	name = "Item Stats",
@@ -73,16 +83,20 @@ import net.runelite.http.api.item.ItemStats;
 )
 public class ItemStatPlugin extends Plugin
 {
+<<<<<<< HEAD
 	private static final int ORANGE_TEXT = JagexColors.DARK_ORANGE_INTERFACE_TEXT.getRGB();
 	private static final int YELLOW_TEXT = JagexColors.YELLOW_INTERFACE_TEXT.getRGB();
 	private static final int TEXT_HEIGHT = 11;
 
+=======
+>>>>>>> initial import of runelite
 	@Inject
 	private OverlayManager overlayManager;
 
 	@Inject
 	private ItemStatOverlay overlay;
 
+<<<<<<< HEAD
 	@Inject
 	private Client client;
 
@@ -97,6 +111,8 @@ public class ItemStatPlugin extends Plugin
 
 	private Widget itemInformationTitle;
 
+=======
+>>>>>>> initial import of runelite
 	@Provides
 	ItemStatConfig getConfig(ConfigManager configManager)
 	{
@@ -119,6 +135,7 @@ public class ItemStatPlugin extends Plugin
 	protected void shutDown() throws Exception
 	{
 		overlayManager.remove(overlay);
+<<<<<<< HEAD
 		clientThread.invokeLater(this::resetGEInventory);
 	}
 
@@ -434,5 +451,7 @@ public class ItemStatPlugin extends Plugin
 		{
 			return client.getWidget(WidgetInfo.FIXED_VIEWPORT_INVENTORY_CONTAINER);
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 }

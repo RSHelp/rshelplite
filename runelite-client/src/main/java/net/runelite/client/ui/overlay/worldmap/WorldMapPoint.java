@@ -30,7 +30,10 @@ import java.awt.image.BufferedImage;
 import lombok.Data;
 import net.runelite.api.Point;
 import net.runelite.api.coords.WorldPoint;
+<<<<<<< HEAD
 import javax.annotation.Nullable;
+=======
+>>>>>>> initial import of runelite
 
 @Data
 public class WorldMapPoint
@@ -40,12 +43,15 @@ public class WorldMapPoint
 	private WorldPoint worldPoint;
 
 	/**
+<<<<<<< HEAD
 	 * The WorldPoint which the worldmap will jump to when clicked
 	 */
 	@Nullable
 	private WorldPoint target;
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * The point on the image that will be drawn at WorldPoint
 	 * WorldMapPointManager will center the image if imagePoint is null
 	 */
@@ -58,7 +64,11 @@ public class WorldMapPoint
 	private boolean currentlyEdgeSnapped;
 
 	/**
+<<<<<<< HEAD
 	 * Whether or not the map jumps to target, or worldPoint when the overlay is clicked
+=======
+	 * Whether or not the map jumps to worldPoint when the overlay is clicked
+>>>>>>> initial import of runelite
 	 */
 	private boolean jumpOnClick;
 

@@ -87,8 +87,11 @@ public interface ItemComposition
 	 * alchemy values, respectively.
 	 *
 	 * @return the general store value of the item
+<<<<<<< HEAD
 	 *
 	 * @see Constants#HIGH_ALCHEMY_MULTIPLIER
+=======
+>>>>>>> initial import of runelite
 	 */
 	int getPrice();
 
@@ -129,9 +132,15 @@ public interface ItemComposition
 	/**
 	 * Sets the menu action index of the shift-click action.
 	 *
+<<<<<<< HEAD
 	 * @param shiftClickActionIndex the new index of the shift-click action
 	 */
 	void setShiftClickActionIndex(int shiftClickActionIndex);
+=======
+	 * @param shiftclickActionIndex the new index of the shift-click action
+	 */
+	void setShiftClickActionIndex(int shiftclickActionIndex);
+>>>>>>> initial import of runelite
 
 	/**
 	 * Resets the menu action index of the shift-click action to its

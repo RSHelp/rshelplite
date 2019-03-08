@@ -28,20 +28,32 @@ package net.runelite.client.plugins.xptracker;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Getter;
+<<<<<<< HEAD
+=======
+import lombok.RequiredArgsConstructor;
+>>>>>>> initial import of runelite
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Experience;
 import net.runelite.api.Skill;
 
 @Slf4j
+<<<<<<< HEAD
+=======
+@RequiredArgsConstructor
+>>>>>>> initial import of runelite
 class XpStateSingle
 {
 	private final Skill skill;
 	private final Map<XpActionType, XpAction> actions = new HashMap<>();
 
 	@Getter
+<<<<<<< HEAD
 	@Setter
 	private long startXp;
+=======
+	private final long startXp;
+>>>>>>> initial import of runelite
 
 	@Getter
 	private int xpGained = 0;
@@ -53,19 +65,26 @@ class XpStateSingle
 	private int startLevelExp = 0;
 	private int endLevelExp = 0;
 
+<<<<<<< HEAD
 	XpStateSingle(Skill skill, long startXp)
 	{
 		this.skill = skill;
 		this.startXp = startXp;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	XpAction getXpAction(final XpActionType type)
 	{
 		actions.putIfAbsent(type, new XpAction());
 		return actions.get(type);
 	}
 
+<<<<<<< HEAD
 	long getCurrentXp()
+=======
+	private long getCurrentXp()
+>>>>>>> initial import of runelite
 	{
 		return startXp + xpGained;
 	}
@@ -220,7 +239,11 @@ class XpStateSingle
 		// Determine XP goals, overall has no goals
 		if (skill != Skill.OVERALL)
 		{
+<<<<<<< HEAD
 			if (goalStartXp < 0 || currentXp > goalEndXp)
+=======
+			if (goalStartXp <= 0 || currentXp > goalEndXp)
+>>>>>>> initial import of runelite
 			{
 				startLevelExp = Experience.getXpForLevel(Experience.getLevelForXp((int) currentXp));
 			}

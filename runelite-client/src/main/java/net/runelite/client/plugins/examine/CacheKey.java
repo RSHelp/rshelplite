@@ -66,6 +66,14 @@ class CacheKey
 		{
 			return false;
 		}
+<<<<<<< HEAD
 		return this.type == other.type;
+=======
+		if (this.type != other.type)
+		{
+			return false;
+		}
+		return true;
+>>>>>>> initial import of runelite
 	}
 }

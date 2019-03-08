@@ -29,7 +29,10 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+<<<<<<< HEAD
 import javax.annotation.Nullable;
+=======
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.Getter;
@@ -88,10 +91,15 @@ class InstanceMapOverlay extends Overlay
 
 	@Setter
 	private boolean isCloseButtonHovered;
+<<<<<<< HEAD
 
 	@Getter
 	private Rectangle closeButtonBounds;
 
+=======
+	@Getter
+	private Rectangle closeButtonBounds;
+>>>>>>> initial import of runelite
 	private BufferedImage closeButtonImage;
 	private BufferedImage closeButtonHoveredImage;
 
@@ -169,6 +177,11 @@ class InstanceMapOverlay extends Overlay
 
 		if (image == null)
 		{
+<<<<<<< HEAD
+=======
+			BufferedImage closeButton = getCloseButtonImage();
+
+>>>>>>> initial import of runelite
 			SpritePixels map = client.drawInstanceMap(viewedPlane);
 			image = minimapToBufferedImage(map);
 			synchronized (this)
@@ -178,12 +191,16 @@ class InstanceMapOverlay extends Overlay
 					mapImage = image;
 				}
 			}
+<<<<<<< HEAD
 		}
 
 		BufferedImage closeButton = getCloseButtonImage();
 		BufferedImage closeButtonHover = getCloseButtonHoveredImage();
 		if (closeButton != null && closeButtonBounds == null)
 		{
+=======
+
+>>>>>>> initial import of runelite
 			closeButtonBounds = new Rectangle(image.getWidth() - closeButton.getWidth() - 5, 6,
 				closeButton.getWidth(), closeButton.getHeight());
 		}
@@ -197,6 +214,7 @@ class InstanceMapOverlay extends Overlay
 			drawPlayerDot(graphics, client.getLocalPlayer(), Color.white, Color.black);
 		}
 
+<<<<<<< HEAD
 		if (isCloseButtonHovered)
 		{
 			closeButton = closeButtonHover;
@@ -206,6 +224,10 @@ class InstanceMapOverlay extends Overlay
 		{
 			graphics.drawImage(closeButton, (int) closeButtonBounds.getX(), (int) closeButtonBounds.getY(), null);
 		}
+=======
+		graphics.drawImage(isCloseButtonHovered ? getCloseButtonHoveredImage() : getCloseButtonImage(),
+			(int) closeButtonBounds.getX(), (int) closeButtonBounds.getY(), null);
+>>>>>>> initial import of runelite
 
 		return new Dimension(image.getWidth(), image.getHeight());
 	}
@@ -265,7 +287,10 @@ class InstanceMapOverlay extends Overlay
 		return img;
 	}
 
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	private BufferedImage getCloseButtonImage()
 	{
 		if (closeButtonImage == null)
@@ -275,7 +300,10 @@ class InstanceMapOverlay extends Overlay
 		return closeButtonImage;
 	}
 
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	private BufferedImage getCloseButtonHoveredImage()
 	{
 		if (closeButtonHoveredImage == null)

@@ -130,11 +130,15 @@
     169,
     171,
     173,
+<<<<<<< HEAD
     2444,
     23551,
     23553,
     23555,
     23557
+=======
+    2444
+>>>>>>> initial import of runelite
   ],
   "antipoison": [
     175,
@@ -174,6 +178,7 @@
   "vial": [
     229,
     2389,
+<<<<<<< HEAD
     2390,
     23839,
     23879
@@ -181,11 +186,15 @@
   "pestle and mortar": [
     233,
     23865
+=======
+    2390
+>>>>>>> initial import of runelite
   ],
   "unicorn horn": [
     237,
     1487
   ],
+<<<<<<< HEAD
   "wine of zamorak": [
     245,
     23489
@@ -194,6 +203,10 @@
     275,
     293,
     298,
+=======
+  "key": [
+    275,
+>>>>>>> initial import of runelite
     423,
     1543,
     1544,
@@ -238,6 +251,13 @@
     21057,
     21058
   ],
+<<<<<<< HEAD
+=======
+  "a key": [
+    293,
+    298
+  ],
+>>>>>>> initial import of runelite
   "glarials urn": [
     296,
     297
@@ -256,8 +276,12 @@
     357,
     367,
     369,
+<<<<<<< HEAD
     20854,
     23873
+=======
+    20854
+>>>>>>> initial import of runelite
   ],
   "shark": [
     385,
@@ -545,6 +569,7 @@
   ],
   "monks robe": [
     542,
+<<<<<<< HEAD
     20202,
     23306
   ],
@@ -552,6 +577,13 @@
     544,
     20199,
     23303
+=======
+    20202
+  ],
+  "monks robe top": [
+    544,
+    20199
+>>>>>>> initial import of runelite
   ],
   "shade robe": [
     548,
@@ -661,7 +693,11 @@
     8987,
     9665
   ],
+<<<<<<< HEAD
   "bronze fire arrow": [
+=======
+  "bronze fire arrows": [
+>>>>>>> initial import of runelite
     598,
     942
   ],
@@ -1294,6 +1330,7 @@
     22000,
     22001,
     23045,
+<<<<<<< HEAD
     23046,
     23131,
     23133,
@@ -1349,6 +1386,9 @@
     23816,
     23817,
     24253
+=======
+    23046
+>>>>>>> initial import of runelite
   ],
   "radimus notes": [
     714,
@@ -1616,10 +1656,13 @@
     11046,
     20587
   ],
+<<<<<<< HEAD
   "flier": [
     956,
     23670
   ],
+=======
+>>>>>>> initial import of runelite
   "skull": [
     964,
     965
@@ -1745,10 +1788,13 @@
     3476,
     3477
   ],
+<<<<<<< HEAD
   "leather chaps": [
     1095,
     23384
   ],
+=======
+>>>>>>> initial import of runelite
   "studded chaps": [
     1097,
     7366,
@@ -1785,24 +1831,32 @@
     2607,
     10697,
     10698,
+<<<<<<< HEAD
     20415,
     23392,
     23395,
     23398,
     23401,
     23404
+=======
+    20415
+>>>>>>> initial import of runelite
   ],
   "black platebody": [
     1125,
     2583,
     2591,
     10690,
+<<<<<<< HEAD
     10691,
     23366,
     23369,
     23372,
     23375,
     23378
+=======
+    10691
+>>>>>>> initial import of runelite
   ],
   "rune platebody": [
     1127,
@@ -1810,6 +1864,7 @@
     2623,
     10798,
     10800,
+<<<<<<< HEAD
     20421,
     23209,
     23212,
@@ -1820,6 +1875,9 @@
   "leather body": [
     1129,
     23381
+=======
+    20421
+>>>>>>> initial import of runelite
   ],
   "studded body": [
     1133,
@@ -2120,10 +2178,14 @@
   ],
   "rune scimitar": [
     1333,
+<<<<<<< HEAD
     20402,
     23330,
     23332,
     23334
+=======
+    20402
+>>>>>>> initial import of runelite
   ],
   "rune battleaxe": [
     1373,
@@ -2146,14 +2208,25 @@
     1481,
     1482,
     1483,
+<<<<<<< HEAD
     1484,
     23812
+=======
+    1484
+>>>>>>> initial import of runelite
   ],
   "paladins badge": [
     1488,
     1489,
     1490
   ],
+<<<<<<< HEAD
+=======
+  "a magic scroll": [
+    1505,
+    6949
+  ],
+>>>>>>> initial import of runelite
   "logs": [
     1511,
     2511
@@ -2261,6 +2334,7 @@
     10366,
     10738
   ],
+<<<<<<< HEAD
   "amulet of defence": [
     1729,
     23309
@@ -2269,6 +2343,11 @@
     1731,
     20585,
     23354
+=======
+  "amulet of power": [
+    1731,
+    20585
+>>>>>>> initial import of runelite
   ],
   "shears": [
     1735,
@@ -2278,10 +2357,13 @@
     1755,
     5601
   ],
+<<<<<<< HEAD
   "molten glass": [
     1775,
     24260
   ],
+=======
+>>>>>>> initial import of runelite
   "woad leaf": [
     1793,
     5738
@@ -2677,8 +2759,12 @@
     2380,
     2381,
     2382,
+<<<<<<< HEAD
     2383,
     23802
+=======
+    2383
+>>>>>>> initial import of runelite
   ],
   "silverlight key": [
     2399,
@@ -2787,6 +2873,7 @@
     2529,
     17152
   ],
+<<<<<<< HEAD
   "iron fire arrow": [
     2532,
     2533
@@ -2804,6 +2891,25 @@
     2539
   ],
   "rune fire arrow": [
+=======
+  "iron fire arrows": [
+    2532,
+    2533
+  ],
+  "steel fire arrows": [
+    2534,
+    2535
+  ],
+  "mithril fire arrows": [
+    2536,
+    2537
+  ],
+  "adamant fire arrows": [
+    2538,
+    2539
+  ],
+  "rune fire arrows": [
+>>>>>>> initial import of runelite
     2540,
     2541
   ],
@@ -2918,10 +3024,14 @@
     19911,
     20280,
     20281,
+<<<<<<< HEAD
     20282,
     23171,
     23173,
     23417
+=======
+    20282
+>>>>>>> initial import of runelite
   ],
   "challenge scroll": [
     2842,
@@ -2986,9 +3096,13 @@
     19901,
     19905,
     19907,
+<<<<<<< HEAD
     19909,
     23132,
     23134
+=======
+    19909
+>>>>>>> initial import of runelite
   ],
   "ogre bellows": [
     2871,
@@ -3080,11 +3194,15 @@
     3024,
     3026,
     3028,
+<<<<<<< HEAD
     3030,
     23567,
     23569,
     23571,
     23573
+=======
+    3030
+>>>>>>> initial import of runelite
   ],
   "agility potion": [
     3032,
@@ -3118,8 +3236,12 @@
   ],
   "climbing boots": [
     3105,
+<<<<<<< HEAD
     20578,
     23413
+=======
+    20578
+>>>>>>> initial import of runelite
   ],
   "stone ball": [
     3109,
@@ -3148,8 +3270,12 @@
   ],
   "cooked karambwan": [
     3144,
+<<<<<<< HEAD
     3147,
     23533
+=======
+    3147
+>>>>>>> initial import of runelite
   ],
   "karambwan paste": [
     3152,
@@ -3273,8 +3399,12 @@
     6125,
     6126,
     6127,
+<<<<<<< HEAD
     13079,
     23458
+=======
+    13079
+>>>>>>> initial import of runelite
   ],
   "branch": [
     3692,
@@ -3318,6 +3448,13 @@
     3755,
     20573
   ],
+<<<<<<< HEAD
+=======
+  "fremennik shield": [
+    3758,
+    10826
+  ],
+>>>>>>> initial import of runelite
   "saradomin page": [
     3827,
     3828,
@@ -3444,16 +3581,23 @@
     4041,
     4042
   ],
+<<<<<<< HEAD
   "explosive potion": [
     4045,
     23818
   ],
+=======
+>>>>>>> initial import of runelite
   "decorative sword": [
     4068,
     4503,
     4508,
+<<<<<<< HEAD
     20483,
     24157
+=======
+    20483
+>>>>>>> initial import of runelite
   ],
   "decorative armour": [
     4069,
@@ -3480,6 +3624,7 @@
     20499,
     20501,
     20503,
+<<<<<<< HEAD
     20505,
     24158,
     24159,
@@ -3490,20 +3635,31 @@
     24166,
     24167,
     24168
+=======
+    20505
+>>>>>>> initial import of runelite
   ],
   "decorative helm": [
     4071,
     4506,
     4511,
+<<<<<<< HEAD
     20489,
     24160
+=======
+    20489
+>>>>>>> initial import of runelite
   ],
   "decorative shield": [
     4072,
     4507,
     4512,
+<<<<<<< HEAD
     20491,
     24161
+=======
+    20491
+>>>>>>> initial import of runelite
   ],
   "yoyo": [
     4079,
@@ -3581,9 +3737,13 @@
   "granite maul": [
     4153,
     12848,
+<<<<<<< HEAD
     20557,
     24225,
     24227
+=======
+    20557
+>>>>>>> initial import of runelite
   ],
   "leafbladed spear": [
     4158,
@@ -3626,7 +3786,10 @@
   ],
   "crystal bow": [
     4212,
+<<<<<<< HEAD
     4213,
+=======
+>>>>>>> initial import of runelite
     4214,
     4215,
     4216,
@@ -3647,6 +3810,7 @@
     11755,
     11756,
     11757,
+<<<<<<< HEAD
     11758,
     16888,
     16889,
@@ -3656,6 +3820,9 @@
     23983,
     23985,
     24123
+=======
+    11758
+>>>>>>> initial import of runelite
   ],
   "crystal shield": [
     4224,
@@ -3669,7 +3836,10 @@
     4232,
     4233,
     4234,
+<<<<<<< HEAD
     4235,
+=======
+>>>>>>> initial import of runelite
     11759,
     11760,
     11761,
@@ -3680,12 +3850,16 @@
     11766,
     11767,
     11768,
+<<<<<<< HEAD
     11769,
     16890,
     16891,
     23991,
     23993,
     24127
+=======
+    11769
+>>>>>>> initial import of runelite
   ],
   "nettle tea": [
     4239,
@@ -4006,8 +4180,12 @@
     4863,
     4864,
     4865,
+<<<<<<< HEAD
     4866,
     23653
+=======
+    4866
+>>>>>>> initial import of runelite
   ],
   "ahrims robetop": [
     4712,
@@ -4033,8 +4211,12 @@
     4881,
     4882,
     4883,
+<<<<<<< HEAD
     4884,
     23639
+=======
+    4884
+>>>>>>> initial import of runelite
   ],
   "dharoks greataxe": [
     4718,
@@ -4058,8 +4240,12 @@
     4899,
     4900,
     4901,
+<<<<<<< HEAD
     4902,
     23633
+=======
+    4902
+>>>>>>> initial import of runelite
   ],
   "guthans helm": [
     4724,
@@ -4067,8 +4253,12 @@
     4905,
     4906,
     4907,
+<<<<<<< HEAD
     4908,
     23638
+=======
+    4908
+>>>>>>> initial import of runelite
   ],
   "guthans warspear": [
     4726,
@@ -4116,8 +4306,12 @@
     4941,
     4942,
     4943,
+<<<<<<< HEAD
     4944,
     23632
+=======
+    4944
+>>>>>>> initial import of runelite
   ],
   "karils leatherskirt": [
     4738,
@@ -4133,8 +4327,12 @@
     4953,
     4954,
     4955,
+<<<<<<< HEAD
     4956,
     23637
+=======
+    4956
+>>>>>>> initial import of runelite
   ],
   "torags hammers": [
     4747,
@@ -4158,8 +4356,12 @@
     4971,
     4972,
     4973,
+<<<<<<< HEAD
     4974,
     23634
+=======
+    4974
+>>>>>>> initial import of runelite
   ],
   "veracs helm": [
     4753,
@@ -4167,8 +4369,12 @@
     4977,
     4978,
     4979,
+<<<<<<< HEAD
     4980,
     23636
+=======
+    4980
+>>>>>>> initial import of runelite
   ],
   "veracs flail": [
     4755,
@@ -4192,8 +4398,12 @@
     4995,
     4996,
     4997,
+<<<<<<< HEAD
     4998,
     23635
+=======
+    4998
+>>>>>>> initial import of runelite
   ],
   "sithik portrait": [
     4814,
@@ -4632,13 +4842,24 @@
     6065,
     10621
   ],
+<<<<<<< HEAD
+=======
+  "mourner trousers": [
+    6066,
+    6067
+  ],
+>>>>>>> initial import of runelite
   "teleport crystal": [
     6099,
     6100,
     6101,
     6102,
+<<<<<<< HEAD
     13102,
     23904
+=======
+    13102
+>>>>>>> initial import of runelite
   ],
   "ghostly boots": [
     6106,
@@ -4831,10 +5052,13 @@
     6523,
     20554
   ],
+<<<<<<< HEAD
   "tzhaarketom": [
     6528,
     23235
   ],
+=======
+>>>>>>> initial import of runelite
   "present": [
     6542,
     13346,
@@ -4865,8 +5089,12 @@
     6570,
     10566,
     10637,
+<<<<<<< HEAD
     20445,
     24223
+=======
+    20445
+>>>>>>> initial import of runelite
   ],
   "onyx amulet": [
     6579,
@@ -4874,8 +5102,12 @@
   ],
   "amulet of fury": [
     6585,
+<<<<<<< HEAD
     12436,
     23640
+=======
+    12436
+>>>>>>> initial import of runelite
   ],
   "white dagger": [
     6591,
@@ -4887,6 +5119,7 @@
     6617,
     10618
   ],
+<<<<<<< HEAD
   "hand mirror": [
     6639,
     23775
@@ -4921,6 +5154,15 @@
     6646,
     6647,
     23784
+=======
+  "cyan crystal": [
+    6643,
+    22366
+  ],
+  "fractured crystal": [
+    6646,
+    6647
+>>>>>>> initial import of runelite
   ],
   "newly made crystal": [
     6651,
@@ -4962,11 +5204,15 @@
     6685,
     6687,
     6689,
+<<<<<<< HEAD
     6691,
     23575,
     23577,
     23579,
     23581
+=======
+    6691
+>>>>>>> initial import of runelite
   ],
   "slayer gloves": [
     6708,
@@ -4983,8 +5229,12 @@
   ],
   "seers ring": [
     6731,
+<<<<<<< HEAD
     11770,
     23624
+=======
+    11770
+>>>>>>> initial import of runelite
   ],
   "archers ring": [
     6733,
@@ -4996,8 +5246,12 @@
   ],
   "berserker ring": [
     6737,
+<<<<<<< HEAD
     11773,
     23595
+=======
+    11773
+>>>>>>> initial import of runelite
   ],
   "darklight": [
     6746,
@@ -5117,10 +5371,13 @@
     6886,
     6887
   ],
+<<<<<<< HEAD
   "mages book": [
     6889,
     23652
   ],
+=======
+>>>>>>> initial import of runelite
   "animals bones": [
     6904,
     6905,
@@ -5340,10 +5597,13 @@
     7460,
     20583
   ],
+<<<<<<< HEAD
   "barrows gloves": [
     7462,
     23593
   ],
+=======
+>>>>>>> initial import of runelite
   "cornflour": [
     7463,
     7466
@@ -6247,6 +6507,7 @@
   "void knight top": [
     8839,
     10611,
+<<<<<<< HEAD
     20465,
     24177
   ],
@@ -6300,6 +6561,49 @@
     20461,
     23230,
     24142
+=======
+    20465
+  ],
+  "void knight robe": [
+    8840,
+    20469
+  ],
+  "void knight mace": [
+    8841,
+    20473
+  ],
+  "void knight gloves": [
+    8842,
+    20475
+  ],
+  "bronze defender": [
+    8844,
+    20449
+  ],
+  "iron defender": [
+    8845,
+    20451
+  ],
+  "steel defender": [
+    8846,
+    20453
+  ],
+  "black defender": [
+    8847,
+    20455
+  ],
+  "mithril defender": [
+    8848,
+    20457
+  ],
+  "adamant defender": [
+    8849,
+    20459
+  ],
+  "rune defender": [
+    8850,
+    20461
+>>>>>>> initial import of runelite
   ],
   "zanik": [
     8870,
@@ -6474,10 +6778,13 @@
     9183,
     9463
   ],
+<<<<<<< HEAD
   "rune crossbow": [
     9185,
     23601
   ],
+=======
+>>>>>>> initial import of runelite
   "jade bolts": [
     9237,
     9335
@@ -6500,8 +6807,12 @@
   ],
   "diamond bolts": [
     9243,
+<<<<<<< HEAD
     9340,
     23649
+=======
+    9340
+>>>>>>> initial import of runelite
   ],
   "dragonstone bolts": [
     9244,
@@ -6922,6 +7233,13 @@
     10370,
     10790
   ],
+<<<<<<< HEAD
+=======
+  "guthix dragonhide": [
+    10378,
+    10794
+  ],
+>>>>>>> initial import of runelite
   "saradomin dhide": [
     10386,
     10792
@@ -6974,10 +7292,13 @@
     10462,
     10788
   ],
+<<<<<<< HEAD
   "avas accumulator": [
     10499,
     23609
   ],
+=======
+>>>>>>> initial import of runelite
   "reindeer hat": [
     10507,
     10722
@@ -7019,6 +7340,7 @@
   ],
   "healer hat": [
     10547,
+<<<<<<< HEAD
     20511,
     24172
   ],
@@ -7036,6 +7358,21 @@
     10551,
     20513,
     24175
+=======
+    20511
+  ],
+  "fighter hat": [
+    10548,
+    20507
+  ],
+  "ranger hat": [
+    10550,
+    20509
+  ],
+  "fighter torso": [
+    10551,
+    20513
+>>>>>>> initial import of runelite
   ],
   "penance gloves": [
     10553,
@@ -7043,6 +7380,7 @@
   ],
   "penance skirt": [
     10555,
+<<<<<<< HEAD
     20515,
     24176
   ],
@@ -7117,6 +7455,9 @@
     23484,
     23485,
     23486
+=======
+    20515
+>>>>>>> initial import of runelite
   ],
   "keris": [
     10581,
@@ -7151,10 +7492,13 @@
     10822,
     10824
   ],
+<<<<<<< HEAD
   "helm of neitiznot": [
     10828,
     23591
   ],
+=======
+>>>>>>> initial import of runelite
   "hard hat": [
     10862,
     10883
@@ -7185,11 +7529,15 @@
     10925,
     10927,
     10929,
+<<<<<<< HEAD
     10931,
     23559,
     23561,
     23563,
     23565
+=======
+    10931
+>>>>>>> initial import of runelite
   ],
   "lumberjack top": [
     10939,
@@ -7293,10 +7641,13 @@
     11972,
     11974
   ],
+<<<<<<< HEAD
   "berserker necklace": [
     11128,
     23240
   ],
+=======
+>>>>>>> initial import of runelite
   "onyx bracelet": [
     11130,
     11132
@@ -7328,7 +7679,11 @@
     11229,
     20389
   ],
+<<<<<<< HEAD
   "dragon fire arrow": [
+=======
+  "dragon fire arrows": [
+>>>>>>> initial import of runelite
     11217,
     11222
   ],
@@ -7539,20 +7894,32 @@
   "void mage helm": [
     11663,
     11674,
+<<<<<<< HEAD
     20477,
     24183
+=======
+    20477
+>>>>>>> initial import of runelite
   ],
   "void ranger helm": [
     11664,
     11675,
+<<<<<<< HEAD
     20479,
     24184
+=======
+    20479
+>>>>>>> initial import of runelite
   ],
   "void melee helm": [
     11665,
     11676,
+<<<<<<< HEAD
     20481,
     24185
+=======
+    20481
+>>>>>>> initial import of runelite
   ],
   "void seal": [
     11666,
@@ -7604,10 +7971,13 @@
     11736,
     11737
   ],
+<<<<<<< HEAD
   "armadyl crossbow": [
     11785,
     23611
   ],
+=======
+>>>>>>> initial import of runelite
   "steam battlestaff": [
     11787,
     12795
@@ -7616,10 +7986,13 @@
     11789,
     12796
   ],
+<<<<<<< HEAD
   "staff of the dead": [
     11791,
     23613
   ],
+=======
+>>>>>>> initial import of runelite
   "godsword shards": [
     11794,
     11796,
@@ -7650,10 +8023,13 @@
     11820,
     11822
   ],
+<<<<<<< HEAD
   "bandos tassets": [
     11834,
     23646
   ],
+=======
+>>>>>>> initial import of runelite
   "dragon boots": [
     11840,
     22234
@@ -7810,8 +8186,12 @@
   ],
   "dragon pickaxe": [
     11920,
+<<<<<<< HEAD
     12797,
     23677
+=======
+    12797
+>>>>>>> initial import of runelite
   ],
   "malediction ward": [
     11924,
@@ -7847,8 +8227,12 @@
   ],
   "occult necklace": [
     12002,
+<<<<<<< HEAD
     19720,
     23654
+=======
+    19720
+>>>>>>> initial import of runelite
   ],
   "soft clay pack": [
     12009,
@@ -7890,11 +8274,15 @@
     12625,
     12627,
     12629,
+<<<<<<< HEAD
     12631,
     23583,
     23585,
     23587,
     23589
+=======
+    12631
+>>>>>>> initial import of runelite
   ],
   "stamina mix": [
     12633,
@@ -7902,6 +8290,7 @@
   ],
   "saradomin halo": [
     12637,
+<<<<<<< HEAD
     20537,
     24169
   ],
@@ -7914,6 +8303,17 @@
     12639,
     20541,
     24171
+=======
+    20537
+  ],
+  "zamorak halo": [
+    12638,
+    20539
+  ],
+  "guthix halo": [
+    12639,
+    20541
+>>>>>>> initial import of runelite
   ],
   "kalphite princess": [
     12647,
@@ -7997,19 +8397,28 @@
     12695,
     12697,
     12699,
+<<<<<<< HEAD
     12701,
     23543,
     23545,
     23547,
     23549
+=======
+    12701
+>>>>>>> initial import of runelite
   ],
   "menagerie": [
     12725,
     12726
   ],
+<<<<<<< HEAD
   "archaic emblem": [
     12746,
     12747,
+=======
+  "mysterious emblem": [
+    12746,
+>>>>>>> initial import of runelite
     12748,
     12749,
     12750,
@@ -8018,12 +8427,16 @@
     12753,
     12754,
     12755,
+<<<<<<< HEAD
     12756,
     23487
   ],
   "rune pouch": [
     12791,
     23650
+=======
+    12756
+>>>>>>> initial import of runelite
   ],
   "nest box": [
     12792,
@@ -8036,6 +8449,7 @@
     12817,
     19559
   ],
+<<<<<<< HEAD
   "spirit shield": [
     12829,
     23599
@@ -8044,6 +8458,8 @@
     12831,
     23642
   ],
+=======
+>>>>>>> initial import of runelite
   "amulet of the damned": [
     12851,
     12853
@@ -8096,9 +8512,13 @@
   "dragon defender": [
     12954,
     19722,
+<<<<<<< HEAD
     20463,
     23597,
     24143
+=======
+    20463
+>>>>>>> initial import of runelite
   ],
   "bronze set": [
     12960,
@@ -8210,6 +8630,7 @@
   ],
   "elite void top": [
     13072,
+<<<<<<< HEAD
     20467,
     24178
   ],
@@ -8217,6 +8638,13 @@
     13073,
     20471,
     24180
+=======
+    20467
+  ],
+  "elite void robe": [
+    13073,
+    20471
+>>>>>>> initial import of runelite
   ],
   "crystal halberd": [
     13080,
@@ -8240,6 +8668,7 @@
     13098,
     13099,
     13100,
+<<<<<<< HEAD
     13101,
     16892,
     16893,
@@ -8249,6 +8678,9 @@
     23987,
     23989,
     24125
+=======
+    13101
+>>>>>>> initial import of runelite
   ],
   "vetion jr": [
     13179,
@@ -8263,10 +8695,13 @@
     13222,
     13224
   ],
+<<<<<<< HEAD
   "eternal boots": [
     13235,
     23644
   ],
+=======
+>>>>>>> initial import of runelite
   "infernal axe": [
     13241,
     13242
@@ -8293,6 +8728,7 @@
     13305,
     13306
   ],
+<<<<<<< HEAD
   "deadmans chest": [
     13317,
     24189
@@ -8305,6 +8741,8 @@
     13319,
     24191
   ],
+=======
+>>>>>>> initial import of runelite
   "rock golem": [
     13321,
     21187,
@@ -8332,8 +8770,12 @@
   "fire max cape": [
     13329,
     20447,
+<<<<<<< HEAD
     21186,
     24134
+=======
+    21186
+>>>>>>> initial import of runelite
   ],
   "vial of tears": [
     13347,
@@ -8549,23 +8991,34 @@
     13648,
     13649,
     13650,
+<<<<<<< HEAD
     13651,
     23129
+=======
+    13651
+>>>>>>> initial import of runelite
   ],
   "dragon claws": [
     13652,
     20784
   ],
+<<<<<<< HEAD
   "heavy ballista": [
     19481,
     23630
   ],
+=======
+>>>>>>> initial import of runelite
   "dragon javelin": [
     19484,
     19486,
     19488,
+<<<<<<< HEAD
     19490,
     23648
+=======
+    19490
+>>>>>>> initial import of runelite
   ],
   "zenyte bracelet": [
     19492,
@@ -8584,10 +9037,13 @@
     19527,
     19528
   ],
+<<<<<<< HEAD
   "tormented bracelet": [
     19544,
     23444
   ],
+=======
+>>>>>>> initial import of runelite
   "necklace of anguish": [
     19547,
     22249
@@ -8610,26 +9066,37 @@
     19712,
     19714,
     19716,
+<<<<<<< HEAD
     19718,
     23127
+=======
+    19718
+>>>>>>> initial import of runelite
   ],
   "reward casket": [
     19836,
     20543,
     20544,
     20545,
+<<<<<<< HEAD
     20546,
     23245
+=======
+    20546
+>>>>>>> initial import of runelite
   ],
   "torn clue scroll": [
     19837,
     19838,
     19839
   ],
+<<<<<<< HEAD
   "strange device": [
     19939,
     23183
   ],
+=======
+>>>>>>> initial import of runelite
   "bucket helm": [
     19991,
     20059
@@ -8642,8 +9109,12 @@
     20358,
     20360,
     20362,
+<<<<<<< HEAD
     20364,
     23442
+=======
+    20364
+>>>>>>> initial import of runelite
   ],
   "steel trimmed set": [
     20376,
@@ -8658,8 +9129,12 @@
     20533,
     20534,
     20535,
+<<<<<<< HEAD
     20536,
     23416
+=======
+    20536
+>>>>>>> initial import of runelite
   ],
   "dark altar": [
     20619,
@@ -8718,12 +9193,15 @@
     20781,
     21059
   ],
+<<<<<<< HEAD
   "corrupted helm": [
     20838,
     23840,
     23841,
     23842
   ],
+=======
+>>>>>>> initial import of runelite
   "dragon thrownaxe": [
     20849,
     21207
@@ -8825,10 +9303,13 @@
     21003,
     21205
   ],
+<<<<<<< HEAD
   "kodai wand": [
     21006,
     23626
   ],
+=======
+>>>>>>> initial import of runelite
   "dragon sword": [
     21009,
     21206
@@ -8886,15 +9367,23 @@
   "infernal max cape": [
     21284,
     21285,
+<<<<<<< HEAD
     21289,
     24133
+=======
+    21289
+>>>>>>> initial import of runelite
   ],
   "infernal cape": [
     21287,
     21295,
+<<<<<<< HEAD
     21297,
     23622,
     24224
+=======
+    21297
+>>>>>>> initial import of runelite
   ],
   "amethyst javelin": [
     21318,
@@ -8908,7 +9397,11 @@
     21334,
     21336
   ],
+<<<<<<< HEAD
   "amethyst fire arrow": [
+=======
+  "amethyst fire arrows": [
+>>>>>>> initial import of runelite
     21328,
     21330
   ],
@@ -8956,6 +9449,7 @@
     21739,
     21752
   ],
+<<<<<<< HEAD
   "imbued saradomin max cape": [
     21776,
     24232,
@@ -8989,6 +9483,8 @@
     24244,
     24250
   ],
+=======
+>>>>>>> initial import of runelite
   "bracelet of ethereum": [
     21816,
     21817
@@ -9040,8 +9536,12 @@
   ],
   "assembler max cape": [
     21898,
+<<<<<<< HEAD
     21916,
     24135
+=======
+    21916
+>>>>>>> initial import of runelite
   ],
   "dragon crossbow": [
     21902,
@@ -9060,8 +9560,12 @@
   ],
   "avas assembler": [
     21914,
+<<<<<<< HEAD
     22109,
     24222
+=======
+    22109
+>>>>>>> initial import of runelite
   ],
   "opal dragon bolts": [
     21932,
@@ -9208,17 +9712,24 @@
   ],
   "avernic defender": [
     22322,
+<<<<<<< HEAD
     22441,
     24186
+=======
+    22441
+>>>>>>> initial import of runelite
   ],
   "sanguinesti staff": [
     22323,
     22481
   ],
+<<<<<<< HEAD
   "ghrazi rapier": [
     22324,
     23628
   ],
+=======
+>>>>>>> initial import of runelite
   "scythe of vitur": [
     22325,
     22486,
@@ -9283,6 +9794,7 @@
     22552,
     22555
   ],
+<<<<<<< HEAD
   "vestas longsword": [
     22613,
     23615
@@ -9299,6 +9811,8 @@
     22647,
     23617
   ],
+=======
+>>>>>>> initial import of runelite
   "dragon hasta": [
     22731,
     22734,
@@ -9372,6 +9886,7 @@
     23067,
     23068,
     23070
+<<<<<<< HEAD
   ],
   "birthday cake": [
     23108,
@@ -9629,5 +10144,7 @@
   "spooky boots": [
     24304,
     24313
+=======
+>>>>>>> initial import of runelite
   ]
 }

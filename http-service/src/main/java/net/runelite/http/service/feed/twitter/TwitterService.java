@@ -103,9 +103,15 @@ public class TwitterService
 						{
 							return getTweets(true);
 						}
+<<<<<<< HEAD
 						throw new InternalServerErrorException("Could not auth to Twitter after trying once: " + response);
 					default:
 						throw new IOException("Error getting Twitter list: " + response);
+=======
+						throw new InternalServerErrorException("Could not auth to Twitter after trying once: " + response.message());
+					default:
+						throw new IOException("Error getting Twitter list: " + response.message());
+>>>>>>> initial import of runelite
 				}
 			}
 
@@ -146,7 +152,11 @@ public class TwitterService
 		{
 			if (!response.isSuccessful())
 			{
+<<<<<<< HEAD
 				throw new IOException("Error authing to Twitter: " + response);
+=======
+				throw new IOException("Error authing to Twitter: " + response.message());
+>>>>>>> initial import of runelite
 			}
 
 			InputStream in = response.body().byteStream();

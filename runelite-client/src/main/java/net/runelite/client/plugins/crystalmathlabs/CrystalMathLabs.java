@@ -31,6 +31,10 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.Player;
+<<<<<<< HEAD
+=======
+import net.runelite.api.Skill;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.client.eventbus.Subscribe;
@@ -56,7 +60,11 @@ public class CrystalMathLabs extends Plugin
 	/**
 	 * Amount of EXP that must be gained for an update to be submitted.
 	 */
+<<<<<<< HEAD
 	private static final int XP_THRESHOLD = 10000;
+=======
+	private static final int XP_THRESHOLD = 1000;
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Client client;
@@ -65,12 +73,15 @@ public class CrystalMathLabs extends Plugin
 	private boolean fetchXp;
 	private long lastXp;
 
+<<<<<<< HEAD
 	@Override
 	protected void startUp()
 	{
 		fetchXp = true;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@Subscribe
 	public void onGameStateChanged(GameStateChanged gameStateChanged)
 	{
@@ -80,7 +91,11 @@ public class CrystalMathLabs extends Plugin
 			if (!Objects.equals(client.getUsername(), lastUsername))
 			{
 				lastUsername = client.getUsername();
+<<<<<<< HEAD
 				fetchXp = true;
+=======
+				lastXp = getTotalXp();
+>>>>>>> initial import of runelite
 			}
 		}
 		else if (state == GameState.LOGIN_SCREEN)
@@ -91,13 +106,20 @@ public class CrystalMathLabs extends Plugin
 				return;
 			}
 
+<<<<<<< HEAD
 			long totalXp = client.getOverallExperience();
+=======
+			long totalXp = getTotalXp();
+>>>>>>> initial import of runelite
 			// Don't submit update unless xp threshold is reached
 			if (Math.abs(totalXp - lastXp) > XP_THRESHOLD)
 			{
 				log.debug("Submitting update for {}", local.getName());
 				sendUpdateRequest(local.getName());
+<<<<<<< HEAD
 				lastXp = totalXp;
+=======
+>>>>>>> initial import of runelite
 			}
 		}
 	}
@@ -107,11 +129,28 @@ public class CrystalMathLabs extends Plugin
 	{
 		if (fetchXp)
 		{
+<<<<<<< HEAD
 			lastXp = client.getOverallExperience();
+=======
+			lastXp = getTotalXp();
+>>>>>>> initial import of runelite
 			fetchXp = false;
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	private long getTotalXp()
+	{
+		long total = 0;
+		for (Skill skill : Skill.values())
+		{
+			total += client.getSkillExperience(skill);
+		}
+		return total;
+	}
+
+>>>>>>> initial import of runelite
 	private void sendUpdateRequest(String username)
 	{
 		String reformedUsername = username.replace(" ", "_");

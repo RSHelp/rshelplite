@@ -25,15 +25,19 @@
  */
 package net.runelite.client.plugins.loottracker;
 
+<<<<<<< HEAD
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Multisets;
+=======
+>>>>>>> initial import of runelite
 import com.google.inject.Provides;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.time.Instant;
+<<<<<<< HEAD
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +46,13 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+=======
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+>>>>>>> initial import of runelite
 import java.util.Set;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.regex.Matcher;
@@ -54,8 +65,11 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
 import net.runelite.api.GameState;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.InventoryID;
 import net.runelite.api.ItemComposition;
 import net.runelite.api.ItemContainer;
@@ -65,8 +79,13 @@ import net.runelite.api.SpriteID;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.ConfigChanged;
+<<<<<<< HEAD
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.ItemContainerChanged;
+=======
+import net.runelite.client.events.SessionClose;
+import net.runelite.client.events.SessionOpen;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.widgets.WidgetID;
 import net.runelite.client.account.AccountSession;
@@ -76,14 +95,20 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.NpcLootReceived;
 import net.runelite.client.events.PlayerLootReceived;
+<<<<<<< HEAD
 import net.runelite.client.events.SessionClose;
 import net.runelite.client.events.SessionOpen;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.game.ItemStack;
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+<<<<<<< HEAD
 import net.runelite.client.task.Schedule;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.util.ImageUtil;
@@ -92,7 +117,10 @@ import net.runelite.http.api.loottracker.GameItem;
 import net.runelite.http.api.loottracker.LootRecord;
 import net.runelite.http.api.loottracker.LootRecordType;
 import net.runelite.http.api.loottracker.LootTrackerClient;
+<<<<<<< HEAD
 import org.apache.commons.lang3.ArrayUtils;
+=======
+>>>>>>> initial import of runelite
 
 @PluginDescriptor(
 	name = "Loot Tracker",
@@ -107,6 +135,7 @@ public class LootTrackerPlugin extends Plugin
 	private static final Pattern CLUE_SCROLL_PATTERN = Pattern.compile("You have completed [0-9]+ ([a-z]+) Treasure Trails.");
 	private static final int THEATRE_OF_BLOOD_REGION = 12867;
 
+<<<<<<< HEAD
 	// Herbiboar loot handling
 	private static final String HERBIBOAR_LOOTED_MESSAGE = "You harvest herbs from the herbiboar, whereupon it escapes.";
 	private static final String HERBIBOAR_EVENT = "Herbiboar";
@@ -135,6 +164,8 @@ public class LootTrackerPlugin extends Plugin
 	// Last man standing map regions
 	private static final Set<Integer> LAST_MAN_STANDING_REGIONS = ImmutableSet.of(13658, 13659, 13914, 13915, 13916);
 
+=======
+>>>>>>> initial import of runelite
 	@Inject
 	private ClientToolbar clientToolbar;
 
@@ -162,6 +193,7 @@ public class LootTrackerPlugin extends Plugin
 	private LootTrackerPanel panel;
 	private NavigationButton navButton;
 	private String eventType;
+<<<<<<< HEAD
 	private boolean chestLooted;
 
 	private List<String> ignoredItems = new ArrayList<>();
@@ -171,6 +203,13 @@ public class LootTrackerPlugin extends Plugin
 	@Getter(AccessLevel.PACKAGE)
 	private LootTrackerClient lootTrackerClient;
 	private final List<LootRecord> queuedLoots = new ArrayList<>();
+=======
+
+	private List<String> ignoredItems = new ArrayList<>();
+
+	@Getter(AccessLevel.PACKAGE)
+	private LootTrackerClient lootTrackerClient;
+>>>>>>> initial import of runelite
 
 	private static Collection<ItemStack> stack(Collection<ItemStack> items)
 	{
@@ -224,7 +263,10 @@ public class LootTrackerPlugin extends Plugin
 	@Subscribe
 	public void onSessionClose(SessionClose sessionClose)
 	{
+<<<<<<< HEAD
 		submitLoot();
+=======
+>>>>>>> initial import of runelite
 		lootTrackerClient = null;
 	}
 
@@ -305,6 +347,7 @@ public class LootTrackerPlugin extends Plugin
 	@Override
 	protected void shutDown()
 	{
+<<<<<<< HEAD
 		submitLoot();
 		clientToolbar.removeNavigation(navButton);
 		lootTrackerClient = null;
@@ -318,6 +361,10 @@ public class LootTrackerPlugin extends Plugin
 		{
 			chestLooted = false;
 		}
+=======
+		clientToolbar.removeNavigation(navButton);
+		lootTrackerClient = null;
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -330,6 +377,7 @@ public class LootTrackerPlugin extends Plugin
 		final LootTrackerItem[] entries = buildEntries(stack(items));
 		SwingUtilities.invokeLater(() -> panel.add(name, combat, entries));
 
+<<<<<<< HEAD
 		if (config.saveLoot())
 		{
 			LootRecord lootRecord = new LootRecord(name, LootRecordType.NPC, toGameItems(items), Instant.now());
@@ -337,18 +385,27 @@ public class LootTrackerPlugin extends Plugin
 			{
 				queuedLoots.add(lootRecord);
 			}
+=======
+		if (lootTrackerClient != null && config.saveLoot())
+		{
+			LootRecord lootRecord = new LootRecord(name, LootRecordType.NPC, toGameItems(items), Instant.now());
+			lootTrackerClient.submit(lootRecord);
+>>>>>>> initial import of runelite
 		}
 	}
 
 	@Subscribe
 	public void onPlayerLootReceived(final PlayerLootReceived playerLootReceived)
 	{
+<<<<<<< HEAD
 		// Ignore Last Man Standing player loots
 		if (isAtLMS())
 		{
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		final Player player = playerLootReceived.getPlayer();
 		final Collection<ItemStack> items = playerLootReceived.getItems();
 		final String name = player.getName();
@@ -356,6 +413,7 @@ public class LootTrackerPlugin extends Plugin
 		final LootTrackerItem[] entries = buildEntries(stack(items));
 		SwingUtilities.invokeLater(() -> panel.add(name, combat, entries));
 
+<<<<<<< HEAD
 		if (config.saveLoot())
 		{
 			LootRecord lootRecord = new LootRecord(name, LootRecordType.PLAYER, toGameItems(items), Instant.now());
@@ -363,6 +421,12 @@ public class LootTrackerPlugin extends Plugin
 			{
 				queuedLoots.add(lootRecord);
 			}
+=======
+		if (lootTrackerClient != null && config.saveLoot())
+		{
+			LootRecord lootRecord = new LootRecord(name, LootRecordType.PLAYER, toGameItems(items), Instant.now());
+			lootTrackerClient.submit(lootRecord);
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -377,6 +441,7 @@ public class LootTrackerPlugin extends Plugin
 				container = client.getItemContainer(InventoryID.BARROWS_REWARD);
 				break;
 			case (WidgetID.CHAMBERS_OF_XERIC_REWARD_GROUP_ID):
+<<<<<<< HEAD
 				if (chestLooted)
 				{
 					return;
@@ -390,6 +455,12 @@ public class LootTrackerPlugin extends Plugin
 				{
 					return;
 				}
+=======
+				eventType = "Chambers of Xeric";
+				container = client.getItemContainer(InventoryID.CHAMBERS_OF_XERIC_CHEST);
+				break;
+			case (WidgetID.THEATRE_OF_BLOOD_GROUP_ID):
+>>>>>>> initial import of runelite
 				int region = WorldPoint.fromLocalInstance(client, client.getLocalPlayer().getLocalLocation()).getRegionID();
 				if (region != THEATRE_OF_BLOOD_REGION)
 				{
@@ -397,13 +468,17 @@ public class LootTrackerPlugin extends Plugin
 				}
 				eventType = "Theatre of Blood";
 				container = client.getItemContainer(InventoryID.THEATRE_OF_BLOOD_CHEST);
+<<<<<<< HEAD
 				chestLooted = true;
+=======
+>>>>>>> initial import of runelite
 				break;
 			case (WidgetID.CLUE_SCROLL_REWARD_GROUP_ID):
 				// event type should be set via ChatMessage for clue scrolls.
 				// Clue Scrolls use same InventoryID as Barrows
 				container = client.getItemContainer(InventoryID.BARROWS_REWARD);
 				break;
+<<<<<<< HEAD
 			case (WidgetID.KINGDOM_GROUP_ID):
 				eventType = "Kingdom of Miscellania";
 				container = client.getItemContainer(InventoryID.KINGDOM_OF_MISCELLANIA);
@@ -412,6 +487,8 @@ public class LootTrackerPlugin extends Plugin
 				eventType = "Fishing Trawler";
 				container = client.getItemContainer(InventoryID.FISHING_TRAWLER_REWARD);
 				break;
+=======
+>>>>>>> initial import of runelite
 			default:
 				return;
 		}
@@ -436,6 +513,7 @@ public class LootTrackerPlugin extends Plugin
 		final LootTrackerItem[] entries = buildEntries(stack(items));
 		SwingUtilities.invokeLater(() -> panel.add(eventType, -1, entries));
 
+<<<<<<< HEAD
 		if (config.saveLoot())
 		{
 			LootRecord lootRecord = new LootRecord(eventType, LootRecordType.EVENT, toGameItems(items), Instant.now());
@@ -443,12 +521,19 @@ public class LootTrackerPlugin extends Plugin
 			{
 				queuedLoots.add(lootRecord);
 			}
+=======
+		if (lootTrackerClient != null && config.saveLoot())
+		{
+			LootRecord lootRecord = new LootRecord(eventType, LootRecordType.EVENT, toGameItems(items), Instant.now());
+			lootTrackerClient.submit(lootRecord);
+>>>>>>> initial import of runelite
 		}
 	}
 
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.GAMEMESSAGE && event.getType() != ChatMessageType.SPAM)
 		{
 			return;
@@ -490,19 +575,30 @@ public class LootTrackerPlugin extends Plugin
 		{
 			eventType = GAUNTLET_EVENT;
 			takeInventorySnapshot();
+=======
+		if (event.getType() != ChatMessageType.SERVER && event.getType() != ChatMessageType.FILTERED)
+		{
+>>>>>>> initial import of runelite
 			return;
 		}
 
 		// Check if message is for a clue scroll reward
+<<<<<<< HEAD
 		final Matcher m = CLUE_SCROLL_PATTERN.matcher(Text.removeTags(message));
+=======
+		final Matcher m = CLUE_SCROLL_PATTERN.matcher(Text.removeTags(event.getMessage()));
+>>>>>>> initial import of runelite
 		if (m.find())
 		{
 			final String type = m.group(1).toLowerCase();
 			switch (type)
 			{
+<<<<<<< HEAD
 				case "beginner":
 					eventType = "Clue Scroll (Beginner)";
 					break;
+=======
+>>>>>>> initial import of runelite
 				case "easy":
 					eventType = "Clue Scroll (Easy)";
 					break;
@@ -522,6 +618,7 @@ public class LootTrackerPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onItemContainerChanged(ItemContainerChanged event)
 	{
@@ -615,6 +712,8 @@ public class LootTrackerPlugin extends Plugin
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	void toggleItem(String name, boolean ignore)
 	{
 		final Set<String> ignoredItemSet = new HashSet<>(ignoredItems);
@@ -641,16 +740,24 @@ public class LootTrackerPlugin extends Plugin
 	{
 		final ItemComposition itemComposition = itemManager.getItemComposition(itemId);
 		final int realItemId = itemComposition.getNote() != -1 ? itemComposition.getLinkedNoteId() : itemId;
+<<<<<<< HEAD
 		final long gePrice = (long) itemManager.getItemPrice(realItemId) * (long) quantity;
 		final long haPrice = (long) Math.round(itemComposition.getPrice() * Constants.HIGH_ALCHEMY_MULTIPLIER) * (long) quantity;
+=======
+		final long price = (long) itemManager.getItemPrice(realItemId) * (long) quantity;
+>>>>>>> initial import of runelite
 		final boolean ignored = ignoredItems.contains(itemComposition.getName());
 
 		return new LootTrackerItem(
 			itemId,
 			itemComposition.getName(),
 			quantity,
+<<<<<<< HEAD
 			gePrice,
 			haPrice,
+=======
+			price,
+>>>>>>> initial import of runelite
 			ignored);
 	}
 
@@ -670,6 +777,7 @@ public class LootTrackerPlugin extends Plugin
 
 	private Collection<LootTrackerRecord> convertToLootTrackerRecord(final Collection<LootRecord> records)
 	{
+<<<<<<< HEAD
 		return records.stream()
 			.sorted(Comparator.comparing(LootRecord::getTime))
 			.map(record ->
@@ -699,5 +807,18 @@ public class LootTrackerPlugin extends Plugin
 		}
 
 		return false;
+=======
+		Collection<LootTrackerRecord> trackerRecords = new ArrayList<>();
+		for (LootRecord record : records)
+		{
+			LootTrackerItem[] drops = record.getDrops().stream().map(itemStack ->
+				buildLootTrackerItem(itemStack.getId(), itemStack.getQty())
+			).toArray(LootTrackerItem[]::new);
+
+			trackerRecords.add(new LootTrackerRecord(record.getEventId(), "", drops, -1));
+		}
+
+		return trackerRecords;
+>>>>>>> initial import of runelite
 	}
 }

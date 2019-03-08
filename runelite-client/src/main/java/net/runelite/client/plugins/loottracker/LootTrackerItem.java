@@ -38,9 +38,13 @@ class LootTrackerItem
 	@Getter
 	private final int quantity;
 	@Getter
+<<<<<<< HEAD
 	private final long gePrice;
 	@Getter
 	private final long haPrice;
+=======
+	private final long price;
+>>>>>>> initial import of runelite
 	@Getter
 	@Setter
 	private boolean ignored;

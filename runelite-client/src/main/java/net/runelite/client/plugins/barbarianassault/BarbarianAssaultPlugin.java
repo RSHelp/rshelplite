@@ -31,10 +31,20 @@ import java.awt.Image;
 import javax.inject.Inject;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Varbits;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.events.WidgetLoaded;
+=======
+import net.runelite.api.ItemID;
+import net.runelite.api.Varbits;
+import net.runelite.api.events.ChatMessage;
+import net.runelite.api.events.GameTick;
+import net.runelite.api.events.VarbitChanged;
+import net.runelite.api.events.WidgetLoaded;
+import net.runelite.api.kit.KitType;
+>>>>>>> initial import of runelite
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetID;
 import net.runelite.api.widgets.WidgetInfo;
@@ -110,6 +120,7 @@ public class BarbarianAssaultPlugin extends Plugin
 	@Subscribe
 	public void onWidgetLoaded(WidgetLoaded event)
 	{
+<<<<<<< HEAD
 		switch (event.getGroupId())
 		{
 			case WidgetID.BA_REWARD_GROUP_ID:
@@ -143,6 +154,15 @@ public class BarbarianAssaultPlugin extends Plugin
 			{
 				setOverlayRound(Role.COLLECTOR);
 				break;
+=======
+		if (event.getGroupId() == WidgetID.BA_REWARD_GROUP_ID)
+		{
+			Widget rewardWidget = client.getWidget(WidgetInfo.BA_REWARD_TEXT);
+
+			if (config.waveTimes() && rewardWidget != null && rewardWidget.getText().contains(ENDGAME_REWARD_NEEDLE_TEXT) && gameTime != null)
+			{
+				announceTime("Game finished, duration: ", gameTime.getTime(false));
+>>>>>>> initial import of runelite
 			}
 		}
 	}
@@ -150,7 +170,11 @@ public class BarbarianAssaultPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() == ChatMessageType.GAMEMESSAGE
+=======
+		if (event.getType() == ChatMessageType.SERVER
+>>>>>>> initial import of runelite
 			&& event.getMessage().startsWith("---- Wave:"))
 		{
 			String[] message = event.getMessage().split(" ");
@@ -168,6 +192,34 @@ public class BarbarianAssaultPlugin extends Plugin
 	}
 
 	@Subscribe
+<<<<<<< HEAD
+=======
+	public void onGameTick(GameTick event)
+	{
+		if (client.getVar(Varbits.IN_GAME_BA) == 0 || client.getLocalPlayer() == null || overlay.getCurrentRound() != null)
+		{
+			return;
+		}
+
+		switch (client.getLocalPlayer().getPlayerComposition().getEquipmentId(KitType.CAPE))
+		{
+			case ItemID.ATTACKER_ICON:
+				overlay.setCurrentRound(new Round(Role.ATTACKER));
+				break;
+			case ItemID.COLLECTOR_ICON:
+				overlay.setCurrentRound(new Round(Role.COLLECTOR));
+				break;
+			case ItemID.DEFENDER_ICON:
+				overlay.setCurrentRound(new Round(Role.DEFENDER));
+				break;
+			case ItemID.HEALER_ICON:
+				overlay.setCurrentRound(new Round(Role.HEALER));
+				break;
+		}
+	}
+
+	@Subscribe
+>>>>>>> initial import of runelite
 	public void onVarbitChanged(VarbitChanged event)
 	{
 		int inGame = client.getVar(Varbits.IN_GAME_BA);
@@ -178,10 +230,14 @@ public class BarbarianAssaultPlugin extends Plugin
 			{
 				overlay.setCurrentRound(null);
 
+<<<<<<< HEAD
 				// Use an instance check to determine if this is exiting a game or a tutorial
 				// After exiting tutorials there is a small delay before changing IN_GAME_BA back to
 				// 0 whereas when in a real wave it changes while still in the instance.
 				if (config.waveTimes() && gameTime != null && client.isInInstancedRegion())
+=======
+				if (config.waveTimes() && gameTime != null)
+>>>>>>> initial import of runelite
 				{
 					announceTime("Wave " + currentWave + " duration: ", gameTime.getTime(true));
 				}
@@ -191,6 +247,7 @@ public class BarbarianAssaultPlugin extends Plugin
 		inGameBit = inGame;
 	}
 
+<<<<<<< HEAD
 	private void setOverlayRound(Role role)
 	{
 		// Prevent changing roles when a role is already set, as widgets can be
@@ -204,6 +261,8 @@ public class BarbarianAssaultPlugin extends Plugin
 		overlay.setCurrentRound(new Round(role));
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void announceTime(String preText, String time)
 	{
 		final String chatMessage = new ChatMessageBuilder()
@@ -214,7 +273,11 @@ public class BarbarianAssaultPlugin extends Plugin
 			.build();
 
 		chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 			.type(ChatMessageType.CONSOLE)
+=======
+			.type(ChatMessageType.GAME)
+>>>>>>> initial import of runelite
 			.runeLiteFormattedMessage(chatMessage)
 			.build());
 	}

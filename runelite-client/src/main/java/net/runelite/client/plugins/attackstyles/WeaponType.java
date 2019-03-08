@@ -24,6 +24,7 @@
  */
 package net.runelite.client.plugins.attackstyles;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
 import java.util.Map;
 import static net.runelite.client.plugins.attackstyles.AttackStyle.ACCURATE;
@@ -35,6 +36,11 @@ import static net.runelite.client.plugins.attackstyles.AttackStyle.DEFENSIVE_CAS
 import static net.runelite.client.plugins.attackstyles.AttackStyle.LONGRANGE;
 import static net.runelite.client.plugins.attackstyles.AttackStyle.OTHER;
 import static net.runelite.client.plugins.attackstyles.AttackStyle.RANGING;
+=======
+import java.util.HashMap;
+import java.util.Map;
+import static net.runelite.client.plugins.attackstyles.AttackStyle.*;
+>>>>>>> initial import of runelite
 
 enum WeaponType
 {
@@ -67,6 +73,7 @@ enum WeaponType
 	TYPE_26(AGGRESSIVE, AGGRESSIVE, null, AGGRESSIVE),
 	TYPE_27(ACCURATE, null, null, OTHER);
 
+<<<<<<< HEAD
 	private final AttackStyle[] attackStyles;
 
 	private static final Map<Integer, WeaponType> weaponTypes;
@@ -81,6 +88,18 @@ enum WeaponType
 		}
 
 		weaponTypes = builder.build();
+=======
+	private static final Map<Integer, WeaponType> weaponTypes = new HashMap<>();
+
+	private final AttackStyle[] attackStyles;
+
+	static
+	{
+		for (WeaponType weaponType : values())
+		{
+			weaponTypes.put(weaponType.ordinal(), weaponType);
+		}
+>>>>>>> initial import of runelite
 	}
 
 	WeaponType(AttackStyle... attackStyles)

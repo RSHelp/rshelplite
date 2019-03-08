@@ -28,8 +28,11 @@ package net.runelite.client.plugins.loottracker;
 import com.google.common.base.Strings;
 import java.awt.BorderLayout;
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.Component;
 import java.awt.Dimension;
+=======
+>>>>>>> initial import of runelite
 import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -37,8 +40,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
 import javax.annotation.Nullable;
+<<<<<<< HEAD
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+=======
+>>>>>>> initial import of runelite
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -48,22 +54,34 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import lombok.AccessLevel;
 import lombok.Getter;
+<<<<<<< HEAD
 import net.runelite.client.util.AsyncBufferedImage;
+=======
+import net.runelite.client.game.AsyncBufferedImage;
+>>>>>>> initial import of runelite
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
 import net.runelite.client.util.ImageUtil;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
+=======
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 import net.runelite.client.util.Text;
 
 class LootTrackerBox extends JPanel
 {
 	private static final int ITEMS_PER_ROW = 5;
+<<<<<<< HEAD
 	private static final int TITLE_PADDING = 5;
+=======
+>>>>>>> initial import of runelite
 
 	private final JPanel itemContainer = new JPanel();
 	private final JLabel priceLabel = new JLabel();
 	private final JLabel subTitleLabel = new JLabel();
+<<<<<<< HEAD
 	private final JPanel logTitle = new JPanel();
 	private final JLabel titleLabel = new JLabel();
 	private final ItemManager itemManager;
@@ -71,6 +89,11 @@ class LootTrackerBox extends JPanel
 	private final String id;
 	private final LootTrackerPriceType priceType;
 	private final boolean showPriceType;
+=======
+	private final ItemManager itemManager;
+	@Getter(AccessLevel.PACKAGE)
+	private final String id;
+>>>>>>> initial import of runelite
 
 	@Getter
 	private final List<LootTrackerRecord> records = new ArrayList<>();
@@ -84,20 +107,27 @@ class LootTrackerBox extends JPanel
 		final String id,
 		@Nullable final String subtitle,
 		final boolean hideIgnoredItems,
+<<<<<<< HEAD
 		final LootTrackerPriceType priceType,
 		final boolean showPriceType,
+=======
+>>>>>>> initial import of runelite
 		final BiConsumer<String, Boolean> onItemToggle)
 	{
 		this.id = id;
 		this.itemManager = itemManager;
 		this.onItemToggle = onItemToggle;
 		this.hideIgnoredItems = hideIgnoredItems;
+<<<<<<< HEAD
 		this.priceType = priceType;
 		this.showPriceType = showPriceType;
+=======
+>>>>>>> initial import of runelite
 
 		setLayout(new BorderLayout(0, 1));
 		setBorder(new EmptyBorder(5, 0, 0, 0));
 
+<<<<<<< HEAD
 		logTitle.setLayout(new BoxLayout(logTitle, BoxLayout.X_AXIS));
 		logTitle.setBorder(new EmptyBorder(7, 7, 7, 7));
 		logTitle.setBackground(ColorScheme.DARKER_GRAY_COLOR.darker());
@@ -111,12 +141,28 @@ class LootTrackerBox extends JPanel
 
 		subTitleLabel.setFont(FontManager.getRunescapeSmallFont());
 		subTitleLabel.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
+=======
+		final JPanel logTitle = new JPanel(new BorderLayout(5, 0));
+		logTitle.setBorder(new EmptyBorder(7, 7, 7, 7));
+		logTitle.setBackground(ColorScheme.DARKER_GRAY_COLOR.darker());
+
+		final JLabel titleLabel = new JLabel(Text.removeTags(id));
+		titleLabel.setFont(FontManager.getRunescapeSmallFont());
+		titleLabel.setForeground(Color.WHITE);
+
+		logTitle.add(titleLabel, BorderLayout.WEST);
+
+		subTitleLabel.setFont(FontManager.getRunescapeSmallFont());
+		subTitleLabel.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
+		logTitle.add(subTitleLabel, BorderLayout.CENTER);
+>>>>>>> initial import of runelite
 
 		if (!Strings.isNullOrEmpty(subtitle))
 		{
 			subTitleLabel.setText(subtitle);
 		}
 
+<<<<<<< HEAD
 		logTitle.add(Box.createRigidArea(new Dimension(TITLE_PADDING, 0)));
 		logTitle.add(subTitleLabel);
 		logTitle.add(Box.createHorizontalGlue());
@@ -125,6 +171,11 @@ class LootTrackerBox extends JPanel
 		priceLabel.setFont(FontManager.getRunescapeSmallFont());
 		priceLabel.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
 		logTitle.add(priceLabel);
+=======
+		priceLabel.setFont(FontManager.getRunescapeSmallFont());
+		priceLabel.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
+		logTitle.add(priceLabel, BorderLayout.EAST);
+>>>>>>> initial import of runelite
 
 		add(logTitle, BorderLayout.NORTH);
 		add(itemContainer, BorderLayout.CENTER);
@@ -187,6 +238,7 @@ class LootTrackerBox extends JPanel
 	{
 		buildItems();
 
+<<<<<<< HEAD
 		String priceTypeString = " ";
 		if (showPriceType)
 		{
@@ -195,6 +247,10 @@ class LootTrackerBox extends JPanel
 
 		priceLabel.setText(priceTypeString + QuantityFormatter.quantityToStackSize(totalPrice) + " gp");
 		priceLabel.setToolTipText(QuantityFormatter.formatNumber(totalPrice) + " gp");
+=======
+		priceLabel.setText(StackFormatter.quantityToStackSize(totalPrice) + " gp");
+		priceLabel.setToolTipText(StackFormatter.formatNumber(totalPrice) + " gp");
+>>>>>>> initial import of runelite
 
 		final long kills = getTotalKills();
 		if (kills > 1)
@@ -206,6 +262,7 @@ class LootTrackerBox extends JPanel
 		repaint();
 	}
 
+<<<<<<< HEAD
 	void collapse()
 	{
 		if (!isCollapsed())
@@ -239,6 +296,8 @@ class LootTrackerBox extends JPanel
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * This method creates stacked items from the item list, calculates total price and then
 	 * displays all the items in the UI.
@@ -273,7 +332,11 @@ class LootTrackerBox extends JPanel
 				continue;
 			}
 
+<<<<<<< HEAD
 			totalPrice += priceType == LootTrackerPriceType.HIGH_ALCHEMY ? entry.getHaPrice() : entry.getGePrice();
+=======
+			totalPrice += entry.getPrice();
+>>>>>>> initial import of runelite
 
 			int quantity = 0;
 			for (final LootTrackerItem i : items)
@@ -289,10 +352,16 @@ class LootTrackerBox extends JPanel
 			if (quantity > 0)
 			{
 				int newQuantity = entry.getQuantity() + quantity;
+<<<<<<< HEAD
 				long gePricePerItem = entry.getGePrice() == 0 ? 0 : (entry.getGePrice() / entry.getQuantity());
 				long haPricePerItem = entry.getHaPrice() == 0 ? 0 : (entry.getHaPrice() / entry.getQuantity());
 
 				items.add(new LootTrackerItem(entry.getId(), entry.getName(), newQuantity, gePricePerItem * newQuantity, haPricePerItem * newQuantity, entry.isIgnored()));
+=======
+				long pricePerItem = entry.getPrice() == 0 ? 0 : (entry.getPrice() / entry.getQuantity());
+
+				items.add(new LootTrackerItem(entry.getId(), entry.getName(), newQuantity, pricePerItem * newQuantity, entry.isIgnored()));
+>>>>>>> initial import of runelite
 			}
 			else
 			{
@@ -300,6 +369,7 @@ class LootTrackerBox extends JPanel
 			}
 		}
 
+<<<<<<< HEAD
 		if (priceType == LootTrackerPriceType.HIGH_ALCHEMY)
 		{
 			items.sort((i1, i2) -> Long.compare(i2.getHaPrice(), i1.getHaPrice()));
@@ -308,6 +378,9 @@ class LootTrackerBox extends JPanel
 		{
 			items.sort((i1, i2) -> Long.compare(i2.getGePrice(), i1.getGePrice()));
 		}
+=======
+		items.sort((i1, i2) -> Long.compare(i2.getPrice(), i1.getPrice()));
+>>>>>>> initial import of runelite
 
 		// Calculates how many rows need to be display to fit all items
 		final int rowSize = ((items.size() % ITEMS_PER_ROW == 0) ? 0 : 1) + items.size() / ITEMS_PER_ROW;
@@ -337,7 +410,11 @@ class LootTrackerBox extends JPanel
 						BufferedImage transparentImage = ImageUtil.alphaOffset(itemImage, .3f);
 						imageLabel.setIcon(new ImageIcon(transparentImage));
 					};
+<<<<<<< HEAD
 					itemImage.onLoaded(addTransparency);
+=======
+					itemImage.onChanged(addTransparency);
+>>>>>>> initial import of runelite
 					addTransparency.run();
 				}
 				else
@@ -372,11 +449,17 @@ class LootTrackerBox extends JPanel
 	{
 		final String name = item.getName();
 		final int quantity = item.getQuantity();
+<<<<<<< HEAD
 		final long gePrice = item.getGePrice();
 		final long haPrice = item.getHaPrice();
 		final String ignoredLabel = item.isIgnored() ? " - Ignored" : "";
 		return "<html>" + name + " x " + quantity + ignoredLabel
 			+ "<br>GE: " + QuantityFormatter.quantityToStackSize(gePrice)
 			+ "<br>HA: " + QuantityFormatter.quantityToStackSize(haPrice) + "</html>";
+=======
+		final long price = item.getPrice();
+		final String ignoredLabel = item.isIgnored() ? " - Ignored" : "";
+		return name + " x " + quantity + " (" + StackFormatter.quantityToStackSize(price) + ") " + ignoredLabel;
+>>>>>>> initial import of runelite
 	}
 }

@@ -41,7 +41,10 @@ import static net.runelite.api.AnimationID.WOODCUTTING_3A_AXE;
 import static net.runelite.api.AnimationID.WOODCUTTING_ADAMANT;
 import static net.runelite.api.AnimationID.WOODCUTTING_BLACK;
 import static net.runelite.api.AnimationID.WOODCUTTING_BRONZE;
+<<<<<<< HEAD
 import static net.runelite.api.AnimationID.WOODCUTTING_CRYSTAL;
+=======
+>>>>>>> initial import of runelite
 import static net.runelite.api.AnimationID.WOODCUTTING_DRAGON;
 import static net.runelite.api.AnimationID.WOODCUTTING_INFERNAL;
 import static net.runelite.api.AnimationID.WOODCUTTING_IRON;
@@ -57,12 +60,18 @@ import static net.runelite.api.ItemID.BRUMA_KINDLING;
 import static net.runelite.api.ItemID.BRUMA_ROOT;
 import net.runelite.api.MessageNode;
 import net.runelite.api.Player;
+<<<<<<< HEAD
 import net.runelite.api.Varbits;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.events.AnimationChanged;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ItemContainerChanged;
+<<<<<<< HEAD
 import net.runelite.api.events.VarbitChanged;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.Notifier;
 import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.config.ConfigManager;
@@ -120,8 +129,11 @@ public class WintertodtPlugin extends Plugin
 
 	private Instant lastActionTime;
 
+<<<<<<< HEAD
 	private int previousTimerValue;
 
+=======
+>>>>>>> initial import of runelite
 	@Provides
 	WintertodtConfig getConfig(ConfigManager configManager)
 	{
@@ -187,6 +199,7 @@ public class WintertodtPlugin extends Plugin
 		checkActionTimeout();
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onVarbitChanged(VarbitChanged varbitChanged)
 	{
@@ -211,6 +224,8 @@ public class WintertodtPlugin extends Plugin
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void checkActionTimeout()
 	{
 		if (currentActivity == WintertodtActivity.IDLE)
@@ -244,7 +259,11 @@ public class WintertodtPlugin extends Plugin
 
 		ChatMessageType chatMessageType = chatMessage.getType();
 
+<<<<<<< HEAD
 		if (chatMessageType != ChatMessageType.GAMEMESSAGE && chatMessageType != ChatMessageType.SPAM)
+=======
+		if (chatMessageType != ChatMessageType.SERVER && chatMessageType != ChatMessageType.FILTERED)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -406,7 +425,10 @@ public class WintertodtPlugin extends Plugin
 			case WOODCUTTING_DRAGON:
 			case WOODCUTTING_INFERNAL:
 			case WOODCUTTING_3A_AXE:
+<<<<<<< HEAD
 			case WOODCUTTING_CRYSTAL:
+=======
+>>>>>>> initial import of runelite
 				setActivity(WintertodtActivity.WOODCUTTING);
 				break;
 

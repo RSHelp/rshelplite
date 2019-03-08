@@ -167,7 +167,11 @@ public class FriendNotesPlugin extends Plugin
 		if (groupId == WidgetInfo.FRIENDS_LIST.getGroupId() && event.getOption().equals("Message"))
 		{
 			// Friends have color tags
+<<<<<<< HEAD
 			setHoveredFriend(Text.toJagexName(Text.removeTags(event.getTarget())));
+=======
+			setHoveredFriend(Text.removeTags(event.getTarget()));
+>>>>>>> initial import of runelite
 
 			// Build "Add Note" or "Edit Note" menu entry
 			final MenuEntry addNote = new MenuEntry();
@@ -197,13 +201,22 @@ public class FriendNotesPlugin extends Plugin
 				return;
 			}
 
+<<<<<<< HEAD
+=======
+			//Friends have color tags
+			final String sanitizedTarget = Text.removeTags(event.getMenuTarget());
+
+>>>>>>> initial import of runelite
 			// Handle clicks on "Add Note" or "Edit Note"
 			if (event.getMenuOption().equals(ADD_NOTE) || event.getMenuOption().equals(EDIT_NOTE))
 			{
 				event.consume();
+<<<<<<< HEAD
 
 				//Friends have color tags
 				final String sanitizedTarget = Text.toJagexName(Text.removeTags(event.getMenuTarget()));
+=======
+>>>>>>> initial import of runelite
 				final String note = getFriendNote(sanitizedTarget);
 
 				// Open the new chatbox input dialog
@@ -234,6 +247,7 @@ public class FriendNotesPlugin extends Plugin
 		{
 			// Migrate a friend's note to their new display name
 			final Friend friend = (Friend) nameable;
+<<<<<<< HEAD
 			String name = friend.getName();
 			String prevName = friend.getPrevName();
 
@@ -244,6 +258,9 @@ public class FriendNotesPlugin extends Plugin
 					Text.toJagexName(prevName)
 				);
 			}
+=======
+			migrateFriendNote(friend.getName(), friend.getPrevName());
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -251,7 +268,11 @@ public class FriendNotesPlugin extends Plugin
 	public void onRemovedFriend(RemovedFriend event)
 	{
 		// Delete a friend's note if they are removed
+<<<<<<< HEAD
 		final String displayName = Text.toJagexName(event.getName());
+=======
+		final String displayName = event.getName();
+>>>>>>> initial import of runelite
 		log.debug("Remove friend: '{}'", displayName);
 		setFriendNote(displayName, null);
 	}

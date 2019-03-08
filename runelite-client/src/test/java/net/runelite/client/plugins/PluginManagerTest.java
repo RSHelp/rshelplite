@@ -38,7 +38,10 @@ import java.applet.Applet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+<<<<<<< HEAD
 import java.lang.reflect.Method;
+=======
+>>>>>>> initial import of runelite
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -49,8 +52,12 @@ import net.runelite.api.Client;
 import net.runelite.client.RuneLite;
 import net.runelite.client.RuneLiteModule;
 import net.runelite.client.eventbus.EventBus;
+<<<<<<< HEAD
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigItem;
+=======
+import net.runelite.client.rs.ClientUpdateCheckMode;
+>>>>>>> initial import of runelite
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Rule;
@@ -58,7 +65,11 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+<<<<<<< HEAD
 import org.mockito.junit.MockitoJUnitRunner;
+=======
+import org.mockito.runners.MockitoJUnitRunner;
+>>>>>>> initial import of runelite
 
 @RunWith(MockitoJUnitRunner.class)
 public class PluginManagerTest
@@ -77,20 +88,32 @@ public class PluginManagerTest
 	public Client client;
 
 	private Set<Class> pluginClasses;
+<<<<<<< HEAD
 	private Set<Class> configClasses;
+=======
+>>>>>>> initial import of runelite
 
 	@Before
 	public void before() throws IOException
 	{
 		Injector injector = Guice.createInjector(Modules
+<<<<<<< HEAD
 			.override(new RuneLiteModule(() -> null, true))
+=======
+			.override(new RuneLiteModule(ClientUpdateCheckMode.AUTO, true))
+>>>>>>> initial import of runelite
 			.with(BoundFieldModule.of(this)));
 
 		RuneLite.setInjector(injector);
 
+<<<<<<< HEAD
 		// Find plugins and configs we expect to have
 		pluginClasses = new HashSet<>();
 		configClasses = new HashSet<>();
+=======
+		// Find plugins we expect to have
+		pluginClasses = new HashSet<>();
+>>>>>>> initial import of runelite
 		Set<ClassInfo> classes = ClassPath.from(getClass().getClassLoader()).getTopLevelClassesRecursive(PLUGIN_PACKAGE);
 		for (ClassInfo classInfo : classes)
 		{
@@ -99,6 +122,7 @@ public class PluginManagerTest
 			if (pluginDescriptor != null)
 			{
 				pluginClasses.add(clazz);
+<<<<<<< HEAD
 				continue;
 			}
 
@@ -107,6 +131,11 @@ public class PluginManagerTest
 				configClasses.add(clazz);
 			}
 		}
+=======
+			}
+		}
+
+>>>>>>> initial import of runelite
 	}
 
 	@Test
@@ -144,7 +173,11 @@ public class PluginManagerTest
 	{
 		List<Module> modules = new ArrayList<>();
 		modules.add(new GraphvizModule());
+<<<<<<< HEAD
 		modules.add(new RuneLiteModule(() -> null, true));
+=======
+		modules.add(new RuneLiteModule(ClientUpdateCheckMode.AUTO, true));
+>>>>>>> initial import of runelite
 
 		PluginManager pluginManager = new PluginManager(true, null, null, null, null, null);
 		pluginManager.loadCorePlugins();
@@ -164,6 +197,7 @@ public class PluginManagerTest
 		}
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void ensureNoDuplicateConfigKeyNames()
 	{
@@ -197,4 +231,6 @@ public class PluginManagerTest
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 }

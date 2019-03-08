@@ -25,6 +25,7 @@
  */
 package net.runelite.client.rs;
 
+<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -51,10 +52,40 @@ class ClientConfigLoader
 
 		final Request request = new Request.Builder()
 			.url(url)
+=======
+import com.google.common.annotations.VisibleForTesting;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+@Singleton
+class ClientConfigLoader
+{
+	private static final String CONFIG_URL = "http://oldschool.runescape.com/jav_config.ws";
+	private final OkHttpClient httpClient;
+
+	@Inject
+	@VisibleForTesting
+	ClientConfigLoader(final OkHttpClient httpClient)
+	{
+		this.httpClient = httpClient;
+	}
+
+	RSConfig fetch() throws IOException
+	{
+		final Request request = new Request.Builder()
+			.url(CONFIG_URL)
+>>>>>>> initial import of runelite
 			.build();
 
 		final RSConfig config = new RSConfig();
 
+<<<<<<< HEAD
 		try (final Response response = RuneLiteAPI.CLIENT.newCall(request).execute())
 		{
 			if (!response.isSuccessful())
@@ -64,6 +95,13 @@ class ClientConfigLoader
 
 			String str;
 			final BufferedReader in = new BufferedReader(new InputStreamReader(response.body().byteStream()));
+=======
+		try (final Response response = httpClient.newCall(request).execute(); final BufferedReader in = new BufferedReader(
+			new InputStreamReader(response.body().byteStream())))
+		{
+			String str;
+
+>>>>>>> initial import of runelite
 			while ((str = in.readLine()) != null)
 			{
 				int idx = str.indexOf('=');

@@ -30,10 +30,13 @@ package net.runelite.api;
 public enum InventoryID
 {
 	/**
+<<<<<<< HEAD
 	 * Reward from fishing trawler
 	 */
 	FISHING_TRAWLER_REWARD(0),
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Standard player inventory.
 	 */
 	INVENTORY(93),
@@ -58,22 +61,29 @@ public enum InventoryID
 	 */
 	MONKEY_MADNESS_PUZZLE_BOX(221),
 	/**
+<<<<<<< HEAD
 	 * Kingdom Of Miscellania reward inventory.
 	 */
 	KINGDOM_OF_MISCELLANIA(390),
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Chambers of Xeric chest inventory.
 	 */
 	CHAMBERS_OF_XERIC_CHEST(581),
 	/**
 	 * Theater of Blood reward chest inventory (Raids 2)
 	 */
+<<<<<<< HEAD
 	THEATRE_OF_BLOOD_CHEST(612),
 
 	/**
 	 * Seed vault located inside the Farming Guild
 	 */
 	SEED_VAULT(626);
+=======
+	THEATRE_OF_BLOOD_CHEST(612);
+>>>>>>> initial import of runelite
 
 	private final int id;
 

@@ -111,6 +111,7 @@ public interface ScreenshotConfig extends Config
 
 	@ConfigItem(
 		keyName = "uploadScreenshot",
+<<<<<<< HEAD
 		name = "Upload",
 		description = "Configures whether or not screenshots are uploaded to Imgur, or placed on your clipboard",
 		position = 7
@@ -120,6 +121,18 @@ public interface ScreenshotConfig extends Config
 		return UploadStyle.NEITHER;
 	}
 
+=======
+		name = "Upload To Imgur",
+		description = "Configures whether or not screenshots are uploaded to Imgur and copied into your clipboard",
+		position = 7
+	)
+	default boolean uploadScreenshot()
+	{
+		return false;
+	}
+
+
+>>>>>>> initial import of runelite
 	@ConfigItem(
 		keyName = "kills",
 		name = "Screenshot PvP Kills",

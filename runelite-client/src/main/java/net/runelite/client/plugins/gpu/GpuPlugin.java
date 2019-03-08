@@ -37,9 +37,13 @@ import com.jogamp.opengl.GLException;
 import com.jogamp.opengl.GLProfile;
 import java.awt.Canvas;
 import java.awt.Dimension;
+<<<<<<< HEAD
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
+=======
+import java.awt.Image;
+>>>>>>> initial import of runelite
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.nio.ByteBuffer;
@@ -48,7 +52,10 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.function.Function;
 import javax.inject.Inject;
+<<<<<<< HEAD
 import jogamp.nativewindow.SurfaceScaleUtils;
+=======
+>>>>>>> initial import of runelite
 import jogamp.nativewindow.jawt.x11.X11JAWTWindow;
 import jogamp.newt.awt.NewtFactoryAWT;
 import lombok.extern.slf4j.Slf4j;
@@ -74,7 +81,22 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.PluginInstantiationException;
 import net.runelite.client.plugins.PluginManager;
+<<<<<<< HEAD
 import static net.runelite.client.plugins.gpu.GLUtil.*;
+=======
+import static net.runelite.client.plugins.gpu.GLUtil.glDeleteBuffer;
+import static net.runelite.client.plugins.gpu.GLUtil.glDeleteFrameBuffer;
+import static net.runelite.client.plugins.gpu.GLUtil.glDeleteRenderbuffers;
+import static net.runelite.client.plugins.gpu.GLUtil.glDeleteTexture;
+import static net.runelite.client.plugins.gpu.GLUtil.glDeleteVertexArrays;
+import static net.runelite.client.plugins.gpu.GLUtil.glGenBuffers;
+import static net.runelite.client.plugins.gpu.GLUtil.glGetInteger;
+import static net.runelite.client.plugins.gpu.GLUtil.glGenFrameBuffer;
+import static net.runelite.client.plugins.gpu.GLUtil.glGenRenderbuffer;
+import static net.runelite.client.plugins.gpu.GLUtil.glGenTexture;
+import static net.runelite.client.plugins.gpu.GLUtil.glGenVertexArrays;
+import static net.runelite.client.plugins.gpu.GLUtil.inputStreamToString;
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.gpu.config.AntiAliasingMode;
 import net.runelite.client.plugins.gpu.template.Template;
 import net.runelite.client.ui.DrawManager;
@@ -207,8 +229,11 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 
 	private int centerX;
 	private int centerY;
+<<<<<<< HEAD
 	private int yaw;
 	private int pitch;
+=======
+>>>>>>> initial import of runelite
 
 	// Uniforms
 	private int uniUseFog;
@@ -235,6 +260,7 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 				bufferId = uvBufferId = uniformBufferId = -1;
 				unorderedModels = smallModels = largeModels = 0;
 
+<<<<<<< HEAD
 				canvas = client.getCanvas();
 
 				if (!canvas.isDisplayable())
@@ -244,6 +270,8 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 
 				canvas.setIgnoreRepaint(true);
 
+=======
+>>>>>>> initial import of runelite
 				vertexBuffer = new GpuIntBuffer();
 				uvBuffer = new GpuFloatBuffer();
 
@@ -251,6 +279,12 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 				modelBufferSmall = new GpuIntBuffer();
 				modelBuffer = new GpuIntBuffer();
 
+<<<<<<< HEAD
+=======
+				canvas = client.getCanvas();
+				canvas.setIgnoreRepaint(true);
+
+>>>>>>> initial import of runelite
 				if (log.isDebugEnabled())
 				{
 					System.setProperty("jogl.debug", "true");
@@ -346,7 +380,11 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 
 				shutDown();
 			}
+<<<<<<< HEAD
 			return true;
+=======
+
+>>>>>>> initial import of runelite
 		});
 	}
 
@@ -651,7 +689,11 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 		}
 		uniformBuffer.flip();
 
+<<<<<<< HEAD
 		gl.glBufferData(gl.GL_UNIFORM_BUFFER, uniformBuffer.limit() * Integer.BYTES, uniformBuffer, gl.GL_DYNAMIC_DRAW);
+=======
+		gl.glBufferData(gl.GL_UNIFORM_BUFFER, uniformBuffer.limit() * Integer.BYTES, uniformBuffer, gl.GL_STATIC_DRAW);
+>>>>>>> initial import of runelite
 		gl.glBindBuffer(gl.GL_UNIFORM_BUFFER, 0);
 	}
 
@@ -727,8 +769,11 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 	{
 		centerX = client.getCenterX();
 		centerY = client.getCenterY();
+<<<<<<< HEAD
 		yaw = client.getCameraYaw();
 		pitch = client.getCameraPitch();
+=======
+>>>>>>> initial import of runelite
 
 		final Scene scene = client.getScene();
 		final int drawDistance = Math.max(0, Math.min(MAX_DISTANCE, config.drawDistance()));
@@ -921,8 +966,13 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 		gl.glBindBuffer(gl.GL_UNIFORM_BUFFER, uniformBufferId);
 		uniformBuffer.clear();
 		uniformBuffer
+<<<<<<< HEAD
 			.put(yaw)
 			.put(pitch)
+=======
+			.put(client.getCameraYaw())
+			.put(client.getCameraPitch())
+>>>>>>> initial import of runelite
 			.put(centerX)
 			.put(centerY)
 			.put(client.getScale())
@@ -1023,7 +1073,11 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 				renderWidthOff       = (int) Math.floor(scaleFactorX * (renderWidthOff )) - padding;
 			}
 
+<<<<<<< HEAD
 			glDpiAwareViewport(renderWidthOff, renderCanvasHeight - renderViewportHeight - renderHeightOff, renderViewportWidth, renderViewportHeight);
+=======
+			gl.glViewport(renderWidthOff, renderCanvasHeight - renderViewportHeight - renderHeightOff, renderViewportWidth, renderViewportHeight);
+>>>>>>> initial import of runelite
 
 			gl.glUseProgram(glProgram);
 
@@ -1156,11 +1210,19 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 		if (client.isStretchedEnabled())
 		{
 			Dimension dim = client.getStretchedDimensions();
+<<<<<<< HEAD
 			glDpiAwareViewport(0, 0, dim.width, dim.height);
 		}
 		else
 		{
 			glDpiAwareViewport(0, 0, canvasWidth, canvasHeight);
+=======
+			gl.glViewport(0, 0, dim.width, dim.height);
+		}
+		else
+		{
+			gl.glViewport(0, 0, canvasWidth, canvasHeight);
+>>>>>>> initial import of runelite
 		}
 
 		// Use the texture bound in the first pass
@@ -1324,7 +1386,14 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 					{
 						int var21 = (pitchCos * modelHeight >> 16) + var19;
 						int var22 = (var18 - var21) * zoom;
+<<<<<<< HEAD
 						return var22 / var14 < Rasterizer3D_clipMidY2;
+=======
+						if (var22 / var14 < Rasterizer3D_clipMidY2)
+						{
+							return true;
+						}
+>>>>>>> initial import of runelite
 					}
 				}
 			}
@@ -1452,6 +1521,7 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 		}
 	}
 
+<<<<<<< HEAD
 	private int getScaledValue(final double scale, final int value)
 	{
 		return SurfaceScaleUtils.scale(value, (float) scale);
@@ -1466,4 +1536,6 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 			getScaledValue(t.getScaleX(), width),
 			getScaledValue(t.getScaleY(), height));
 	}
+=======
+>>>>>>> initial import of runelite
 }

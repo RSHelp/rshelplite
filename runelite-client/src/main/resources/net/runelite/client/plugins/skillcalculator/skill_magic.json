@@ -460,7 +460,11 @@
       "level": 60,
       "sprite": 354,
       "name": "Bones To Peaches",
+<<<<<<< HEAD
       "xp": 35.5
+=======
+      "xp": 65
+>>>>>>> initial import of runelite
     },
     {
       "level": 61,

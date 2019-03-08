@@ -52,7 +52,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+>>>>>>> initial import of runelite
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -89,6 +92,10 @@ public class AccountService
 
 	private static final String SCOPE = "https://www.googleapis.com/auth/userinfo.email";
 	private static final String USERINFO = "https://www.googleapis.com/oauth2/v2/userinfo";
+<<<<<<< HEAD
+=======
+	private static final String RL_OAUTH_URL = "https://api.runelite.net/oauth/";
+>>>>>>> initial import of runelite
 	private static final String RL_REDIR = "https://runelite.net/logged-in";
 
 	private final Gson gson = RuneLiteAPI.GSON;
@@ -97,7 +104,10 @@ public class AccountService
 	private final Sql2o sql2o;
 	private final String oauthClientId;
 	private final String oauthClientSecret;
+<<<<<<< HEAD
 	private final String oauthCallback;
+=======
+>>>>>>> initial import of runelite
 	private final AuthFilter auth;
 	private final RedisPool jedisPool;
 
@@ -106,7 +116,10 @@ public class AccountService
 		@Qualifier("Runelite SQL2O") Sql2o sql2o,
 		@Value("${oauth.client-id}") String oauthClientId,
 		@Value("${oauth.client-secret}") String oauthClientSecret,
+<<<<<<< HEAD
 		@Value("${oauth.callback}") String oauthCallback,
+=======
+>>>>>>> initial import of runelite
 		AuthFilter auth,
 		RedisPool jedisPool
 	)
@@ -114,7 +127,10 @@ public class AccountService
 		this.sql2o = sql2o;
 		this.oauthClientId = oauthClientId;
 		this.oauthClientSecret = oauthClientSecret;
+<<<<<<< HEAD
 		this.oauthCallback = oauthCallback;
+=======
+>>>>>>> initial import of runelite
 		this.auth = auth;
 		this.jedisPool = jedisPool;
 
@@ -138,7 +154,11 @@ public class AccountService
 		}
 	}
 
+<<<<<<< HEAD
 	@GetMapping("/login")
+=======
+	@RequestMapping("/login")
+>>>>>>> initial import of runelite
 	public OAuthResponse login(@RequestParam UUID uuid)
 	{
 		State state = new State();
@@ -149,7 +169,11 @@ public class AccountService
 			.apiKey(oauthClientId)
 			.apiSecret(oauthClientSecret)
 			.scope(SCOPE)
+<<<<<<< HEAD
 			.callback(oauthCallback)
+=======
+			.callback(RL_OAUTH_URL)
+>>>>>>> initial import of runelite
 			.state(gson.toJson(state))
 			.build(GoogleApi20.instance());
 
@@ -165,7 +189,11 @@ public class AccountService
 		return lr;
 	}
 
+<<<<<<< HEAD
 	@GetMapping("/callback")
+=======
+	@RequestMapping("/callback")
+>>>>>>> initial import of runelite
 	public Object callback(
 		HttpServletRequest request,
 		HttpServletResponse response,
@@ -188,7 +216,11 @@ public class AccountService
 			.apiKey(oauthClientId)
 			.apiSecret(oauthClientSecret)
 			.scope(SCOPE)
+<<<<<<< HEAD
 			.callback(oauthCallback)
+=======
+			.callback(RL_OAUTH_URL)
+>>>>>>> initial import of runelite
 			.state(gson.toJson(state))
 			.build(GoogleApi20.instance());
 
@@ -253,7 +285,11 @@ public class AccountService
 		}
 	}
 
+<<<<<<< HEAD
 	@GetMapping("/logout")
+=======
+	@RequestMapping("/logout")
+>>>>>>> initial import of runelite
 	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		SessionEntry session = auth.handle(request, response);
@@ -263,8 +299,11 @@ public class AccountService
 			return;
 		}
 
+<<<<<<< HEAD
 		auth.invalidate(session.getUuid());
 
+=======
+>>>>>>> initial import of runelite
 		try (Connection con = sql2o.open())
 		{
 			con.createQuery("delete from sessions where uuid = :uuid")
@@ -273,7 +312,11 @@ public class AccountService
 		}
 	}
 
+<<<<<<< HEAD
 	@GetMapping("/session-check")
+=======
+	@RequestMapping("/session-check")
+>>>>>>> initial import of runelite
 	public void sessionCheck(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		auth.handle(request, response);

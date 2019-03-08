@@ -33,6 +33,7 @@ enum ItemChargeType
 	TELEPORT,
 	WATERCAN,
 	WATERSKIN,
+<<<<<<< HEAD
 	DODGY_NECKLACE,
 	BINDING_NECKLACE,
 	EXPLORER_RING,
@@ -40,4 +41,7 @@ enum ItemChargeType
 	SACK,
 	RING_OF_FORGING,
 	GUTHIX_REST,
+=======
+	DODGY_NECKLACE
+>>>>>>> initial import of runelite
 }

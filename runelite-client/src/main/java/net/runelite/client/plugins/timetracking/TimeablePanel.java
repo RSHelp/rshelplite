@@ -33,7 +33,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import lombok.Getter;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.components.ThinProgressBar;
@@ -59,7 +62,11 @@ public class TimeablePanel<T> extends JPanel
 		topContainer.setLayout(new BorderLayout());
 		topContainer.setBackground(ColorScheme.DARKER_GRAY_COLOR);
 
+<<<<<<< HEAD
 		icon.setMinimumSize(new Dimension(Constants.ITEM_SPRITE_WIDTH, Constants.ITEM_SPRITE_HEIGHT));
+=======
+		icon.setMinimumSize(new Dimension(36, 32));
+>>>>>>> initial import of runelite
 
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBackground(ColorScheme.DARKER_GRAY_COLOR);

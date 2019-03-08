@@ -37,8 +37,13 @@ import java.util.Map;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
+<<<<<<< HEAD
 import javax.inject.Named;
 import lombok.Getter;
+=======
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> initial import of runelite
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
@@ -48,7 +53,10 @@ import net.runelite.api.Skill;
 import net.runelite.api.SoundEffectID;
 import net.runelite.api.Tile;
 import net.runelite.api.coords.WorldPoint;
+<<<<<<< HEAD
 import net.runelite.api.events.CommandExecuted;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.events.FocusChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.MenuOptionClicked;
@@ -85,6 +93,10 @@ import net.runelite.http.api.ws.messages.party.UserSync;
 	name = "Party",
 	description = "Shows useful information about current party"
 )
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 public class PartyPlugin extends Plugin implements KeyListener
 {
 	@Inject
@@ -120,10 +132,13 @@ public class PartyPlugin extends Plugin implements KeyListener
 	@Inject
 	private ChatMessageManager chatMessageManager;
 
+<<<<<<< HEAD
 	@Inject
 	@Named("developerMode")
 	boolean developerMode;
 
+=======
+>>>>>>> initial import of runelite
 	@Getter
 	private final Map<UUID, PartyData> partyDataMap = Collections.synchronizedMap(new HashMap<>());
 
@@ -195,7 +210,11 @@ public class PartyPlugin extends Plugin implements KeyListener
 				.build();
 
 			chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 				.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
+=======
+				.type(ChatMessageType.CLANCHAT_INFO)
+>>>>>>> initial import of runelite
 				.runeLiteFormattedMessage(leaveMessage)
 				.build());
 		}
@@ -385,7 +404,11 @@ public class PartyPlugin extends Plugin implements KeyListener
 			.build();
 
 		chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 			.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
+=======
+			.type(ChatMessageType.CLANCHAT_INFO)
+>>>>>>> initial import of runelite
 			.runeLiteFormattedMessage(joinMessage)
 			.build());
 
@@ -434,7 +457,11 @@ public class PartyPlugin extends Plugin implements KeyListener
 					.build();
 
 				chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 					.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
+=======
+					.type(ChatMessageType.CLANCHAT_INFO)
+>>>>>>> initial import of runelite
 					.runeLiteFormattedMessage(joinMessage)
 					.build());
 			}
@@ -452,6 +479,7 @@ public class PartyPlugin extends Plugin implements KeyListener
 		worldMapManager.removeIf(PartyWorldMapPoint.class::isInstance);
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onCommandExecuted(CommandExecuted commandExecuted)
 	{
@@ -469,6 +497,8 @@ public class PartyPlugin extends Plugin implements KeyListener
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@Nullable
 	PartyData getPartyData(final UUID uuid)
 	{
@@ -540,7 +570,11 @@ public class PartyPlugin extends Plugin implements KeyListener
 			.build();
 
 		chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 			.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
+=======
+			.type(ChatMessageType.CLANCHAT_INFO)
+>>>>>>> initial import of runelite
 			.runeLiteFormattedMessage(helpMessage)
 			.build());
 	}

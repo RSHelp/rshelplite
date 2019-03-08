@@ -29,7 +29,10 @@ import java.time.Instant;
 import javax.inject.Inject;
 import lombok.Getter;
 import lombok.Setter;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 
 class Round
 {
@@ -53,7 +56,11 @@ class Round
 	public Round(Role role)
 	{
 		this.roundRole = role;
+<<<<<<< HEAD
 		this.roundStartTime = Instant.now().plusMillis(2 * Constants.GAME_TICK_LENGTH);
+=======
+		this.roundStartTime = Instant.now().plusMillis(1200);
+>>>>>>> initial import of runelite
 	}
 
 	public long getRoundTime()

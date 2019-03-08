@@ -40,7 +40,11 @@ public class KandarinDiaryRequirement extends GenericDiaryRequirement
 			new SkillRequirement(Skill.FISHING, 16));
 		add("Plant some Jute seeds in the patch north of McGrubor's Wood.",
 			new SkillRequirement(Skill.FARMING, 13));
+<<<<<<< HEAD
 		add("Defeat one of each elemental in the workshop.",
+=======
+		add("Defeat on of each elemental in the workshop.",
+>>>>>>> initial import of runelite
 			new QuestRequirement(Quest.ELEMENTAL_WORKSHOP_I, true));
 		add("Cross the Coal truck log shortcut.",
 			new SkillRequirement(Skill.AGILITY, 20));
@@ -96,9 +100,12 @@ public class KandarinDiaryRequirement extends GenericDiaryRequirement
 			new SkillRequirement(Skill.MAGIC, 56));
 		add("Burn some Maple logs with a bow in Seers' Village.",
 			new SkillRequirement(Skill.FIREMAKING, 65));
+<<<<<<< HEAD
 		add("Kill a Shadow Hound in the Shadow dungeon.",
 			new SkillRequirement(Skill.THIEVING, 53),
 			new QuestRequirement(Quest.DESERT_TREASURE, true));
+=======
+>>>>>>> initial import of runelite
 		add("Purchase and equip a granite body from Barbarian Assault.",
 			new SkillRequirement(Skill.STRENGTH, 50),
 			new SkillRequirement(Skill.DEFENCE, 50));

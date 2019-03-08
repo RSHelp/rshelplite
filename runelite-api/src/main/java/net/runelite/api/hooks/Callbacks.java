@@ -29,7 +29,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import net.runelite.api.MainBufferProvider;
+<<<<<<< HEAD
 import net.runelite.api.widgets.WidgetItem;
+=======
+>>>>>>> initial import of runelite
 
 /**
  * Interface of callbacks the injected client uses to send events
@@ -81,11 +84,14 @@ public interface Callbacks
 	void draw(MainBufferProvider mainBufferProvider, Graphics graphics, int x, int y);
 
 	/**
+<<<<<<< HEAD
 	 * Called before the client will render an item widget.
 	 */
 	void drawItem(int itemId, WidgetItem widgetItem);
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Mouse pressed event. If this event will be consumed it will not be propagated further to client.
 	 *
 	 * @param mouseEvent the mouse event

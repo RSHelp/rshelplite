@@ -24,7 +24,11 @@
  */
 package net.runelite.client.plugins.tithefarm;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
+=======
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Map;
 import lombok.Getter;
 import net.runelite.api.ObjectID;
@@ -60,6 +64,7 @@ public enum TitheFarmPlantType
 	@Getter
 	private final int[] objectIds;
 
+<<<<<<< HEAD
 	private static final Map<Integer, TitheFarmPlantType> plantTypes;
 
 	static
@@ -75,6 +80,21 @@ public enum TitheFarmPlantType
 		}
 
 		plantTypes = builder.build();
+=======
+	private static final Map<Integer, TitheFarmPlantType> plantTypes = new HashMap<>();
+
+	static
+	{
+		TitheFarmPlantType[] types = values();
+
+		for (TitheFarmPlantType type : types)
+		{
+			for (int spotId : type.getObjectIds())
+			{
+				plantTypes.put(spotId, type);
+			}
+		}
+>>>>>>> initial import of runelite
 	}
 
 	TitheFarmPlantType(String name, int baseId, int... objectIds)

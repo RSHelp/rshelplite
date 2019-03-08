@@ -204,7 +204,11 @@ public class Disassembler
 
 		switch (opcode)
 		{
+<<<<<<< HEAD
 			case Opcodes.ICONST:
+=======
+			case Opcodes.LOAD_INT:
+>>>>>>> initial import of runelite
 			case Opcodes.ILOAD:
 			case Opcodes.SLOAD:
 			case Opcodes.ISTORE:

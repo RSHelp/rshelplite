@@ -198,7 +198,11 @@ public class KourendLibraryPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (lastBookcaseAnimatedOn != null && event.getType() == ChatMessageType.GAMEMESSAGE)
+=======
+		if (lastBookcaseAnimatedOn != null && event.getType() == ChatMessageType.SERVER)
+>>>>>>> initial import of runelite
 		{
 			if (event.getMessage().equals("You don't find anything useful here."))
 			{

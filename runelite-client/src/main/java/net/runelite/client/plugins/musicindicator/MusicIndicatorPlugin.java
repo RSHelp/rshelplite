@@ -197,7 +197,11 @@ public class MusicIndicatorPlugin extends Plugin
 
 		chatMessageManager.queue(
 			QueuedMessage.builder()
+<<<<<<< HEAD
 				.type(ChatMessageType.CONSOLE)
+=======
+				.type(ChatMessageType.GAME)
+>>>>>>> initial import of runelite
 				.runeLiteFormattedMessage(message)
 				.build());
 	}

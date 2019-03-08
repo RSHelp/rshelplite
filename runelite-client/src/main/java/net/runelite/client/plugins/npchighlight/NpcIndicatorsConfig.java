@@ -89,6 +89,7 @@ public interface NpcIndicatorsConfig extends Config
 
 	@ConfigItem(
 		position = 5,
+<<<<<<< HEAD
 		keyName = "highlightMenuNames",
 		name = "Highlight menu names",
 		description = "Highlight NPC names in right click menu"
@@ -100,6 +101,8 @@ public interface NpcIndicatorsConfig extends Config
 
 	@ConfigItem(
 		position = 6,
+=======
+>>>>>>> initial import of runelite
 		keyName = "showRespawnTimer",
 		name = "Show respawn timer",
 		description = "Show respawn timer of tagged NPCs")

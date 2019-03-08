@@ -31,8 +31,11 @@ import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Point;
 import net.runelite.api.events.FocusChanged;
+<<<<<<< HEAD
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
@@ -50,7 +53,11 @@ import net.runelite.client.ui.overlay.OverlayUtil;
 public class FpsOverlay extends Overlay
 {
 	private static final int Y_OFFSET = 1;
+<<<<<<< HEAD
 	private static final int X_OFFSET = 1;
+=======
+	private static final int VALUE_X_OFFSET = 1;
+>>>>>>> initial import of runelite
 	private static final String FPS_STRING = " FPS";
 
 	// Local dependencies
@@ -93,6 +100,7 @@ public class FpsOverlay extends Overlay
 		{
 			return null;
 		}
+<<<<<<< HEAD
 
 		// On resizable bottom line mode the logout button is at the top right, so offset the overlay
 		// to account for it
@@ -102,13 +110,19 @@ public class FpsOverlay extends Overlay
 		{
 			xOffset += logoutButton.getWidth();
 		}
+=======
+>>>>>>> initial import of runelite
 		
 		final String text = client.getFPS() + FPS_STRING;
 		final int textWidth = graphics.getFontMetrics().stringWidth(text);
 		final int textHeight = graphics.getFontMetrics().getAscent() - graphics.getFontMetrics().getDescent();
 
 		final int width = (int) client.getRealDimensions().getWidth();
+<<<<<<< HEAD
 		final Point point = new Point(width - textWidth - xOffset, textHeight + Y_OFFSET);
+=======
+		final Point point = new Point(width - textWidth - VALUE_X_OFFSET, textHeight + Y_OFFSET);
+>>>>>>> initial import of runelite
 		OverlayUtil.renderTextLocation(graphics, point, text, getFpsValueColor());
 
 		return null;

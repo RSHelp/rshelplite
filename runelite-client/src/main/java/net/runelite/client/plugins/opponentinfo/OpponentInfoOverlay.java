@@ -37,6 +37,10 @@ import net.runelite.api.Client;
 import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
 import net.runelite.api.NPC;
 import net.runelite.api.Player;
+<<<<<<< HEAD
+=======
+import net.runelite.api.Varbits;
+>>>>>>> initial import of runelite
 import net.runelite.client.game.HiscoreManager;
 import net.runelite.client.game.NPCManager;
 import net.runelite.client.ui.overlay.Overlay;
@@ -68,6 +72,10 @@ class OpponentInfoOverlay extends Overlay
 	private int lastRatio = 0;
 	private int lastHealthScale = 0;
 	private String opponentName;
+<<<<<<< HEAD
+=======
+	private String opponentsOpponentName;
+>>>>>>> initial import of runelite
 
 	@Inject
 	private OpponentInfoOverlay(
@@ -126,6 +134,20 @@ class OpponentInfoOverlay extends Overlay
 					}
 				}
 			}
+<<<<<<< HEAD
+=======
+
+			final Actor opponentsOpponent = opponent.getInteracting();
+			if (opponentsOpponent != null
+				&& (opponentsOpponent != client.getLocalPlayer() || client.getVar(Varbits.MULTICOMBAT_AREA) == 1))
+			{
+				opponentsOpponentName = Text.removeTags(opponentsOpponent.getName());
+			}
+			else
+			{
+				opponentsOpponentName = null;
+			}
+>>>>>>> initial import of runelite
 		}
 
 		if (opponentName == null)
@@ -151,10 +173,14 @@ class OpponentInfoOverlay extends Overlay
 			progressBarComponent.setBackgroundColor(HP_RED);
 			progressBarComponent.setForegroundColor(HP_GREEN);
 
+<<<<<<< HEAD
 			final HitpointsDisplayStyle displayStyle = opponentInfoConfig.hitpointsDisplayStyle();
 
 			if ((displayStyle == HitpointsDisplayStyle.HITPOINTS || displayStyle == HitpointsDisplayStyle.BOTH)
 				&& lastMaxHealth != null)
+=======
+			if (lastMaxHealth != null && !opponentInfoConfig.showPercent())
+>>>>>>> initial import of runelite
 			{
 				// This is the reverse of the calculation of healthRatio done by the server
 				// which is: healthRatio = 1 + (healthScale - 1) * health / maxHealth (if health > 0, 0 otherwise)
@@ -184,6 +210,7 @@ class OpponentInfoOverlay extends Overlay
 						// so we know nothing about the upper limit except that it can't be higher than maxHealth
 						maxHealth = lastMaxHealth;
 					}
+<<<<<<< HEAD
 					// Take the average of min and max possible healths
 					health = (minHealth + maxHealth + 1) / 2;
 				}
@@ -193,6 +220,13 @@ class OpponentInfoOverlay extends Overlay
 					ProgressBarComponent.LabelDisplayMode.BOTH : ProgressBarComponent.LabelDisplayMode.FULL;
 
 				progressBarComponent.setLabelDisplayMode(progressBarDisplayMode);
+=======
+					// Take the average of min and max possible healts
+					health = (minHealth + maxHealth + 1) / 2;
+				}
+
+				progressBarComponent.setLabelDisplayMode(ProgressBarComponent.LabelDisplayMode.FULL);
+>>>>>>> initial import of runelite
 				progressBarComponent.setMaximum(lastMaxHealth);
 				progressBarComponent.setValue(health);
 			}
@@ -205,6 +239,19 @@ class OpponentInfoOverlay extends Overlay
 			panelComponent.getChildren().add(progressBarComponent);
 		}
 
+<<<<<<< HEAD
+=======
+		// Opponents opponent
+		if (opponentsOpponentName != null && opponentInfoConfig.showOpponentsOpponent())
+		{
+			textWidth = Math.max(textWidth, fontMetrics.stringWidth(opponentsOpponentName));
+			panelComponent.setPreferredSize(new Dimension(textWidth, 0));
+			panelComponent.getChildren().add(TitleComponent.builder()
+				.text(opponentsOpponentName)
+				.build());
+		}
+
+>>>>>>> initial import of runelite
 		return panelComponent.render(graphics);
 	}
 }

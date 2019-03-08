@@ -31,9 +31,15 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.GameStateChanged;
+<<<<<<< HEAD
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.SessionOpen;
+=======
+import net.runelite.client.events.SessionOpen;
+import net.runelite.client.config.ConfigManager;
+import net.runelite.client.eventbus.Subscribe;
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.WorldUtil;
@@ -55,9 +61,13 @@ public class DefaultWorldPlugin extends Plugin
 	@Inject
 	private DefaultWorldConfig config;
 
+<<<<<<< HEAD
 	@Inject
 	private WorldClient worldClient;
 
+=======
+	private final WorldClient worldClient = new WorldClient();
+>>>>>>> initial import of runelite
 	private int worldCache;
 	private boolean worldChangeRequired;
 
@@ -114,6 +124,7 @@ public class DefaultWorldPlugin extends Plugin
 		try
 		{
 			final WorldResult worldResult = worldClient.lookupWorlds();
+<<<<<<< HEAD
 
 			if (worldResult == null)
 			{
@@ -121,6 +132,8 @@ public class DefaultWorldPlugin extends Plugin
 				return;
 			}
 
+=======
+>>>>>>> initial import of runelite
 			final World world = worldResult.findWorld(correctedWorld);
 
 			if (world != null)

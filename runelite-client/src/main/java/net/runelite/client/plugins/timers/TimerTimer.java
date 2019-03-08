@@ -24,6 +24,10 @@
  */
 package net.runelite.client.plugins.timers;
 
+<<<<<<< HEAD
+=======
+import java.awt.image.BufferedImage;
+>>>>>>> initial import of runelite
 import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -35,9 +39,15 @@ class TimerTimer extends Timer
 {
 	private final GameTimer timer;
 
+<<<<<<< HEAD
 	TimerTimer(GameTimer timer, Plugin plugin)
 	{
 		super(timer.getDuration().toMillis(), ChronoUnit.MILLIS, null, plugin);
+=======
+	TimerTimer(GameTimer timer, Plugin plugin, BufferedImage image)
+	{
+		super(timer.getDuration().toMillis(), ChronoUnit.MILLIS, image, plugin);
+>>>>>>> initial import of runelite
 		this.timer = timer;
 		setPriority(InfoBoxPriority.MED);
 	}

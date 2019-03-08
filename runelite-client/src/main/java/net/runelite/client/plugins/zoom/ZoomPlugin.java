@@ -30,11 +30,17 @@ import com.google.inject.Inject;
 import com.google.inject.Provides;
 import java.awt.event.KeyEvent;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.ScriptID;
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.FocusChanged;
 import net.runelite.api.events.ScriptCallbackEvent;
 import net.runelite.client.callback.ClientThread;
+=======
+import net.runelite.api.events.ConfigChanged;
+import net.runelite.api.events.FocusChanged;
+import net.runelite.api.events.ScriptCallbackEvent;
+>>>>>>> initial import of runelite
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.input.KeyListener;
@@ -50,7 +56,16 @@ import net.runelite.client.plugins.PluginDescriptor;
 )
 public class ZoomPlugin extends Plugin implements KeyListener
 {
+<<<<<<< HEAD
 	private static final int DEFAULT_ZOOM_INCREMENT = 25;
+=======
+	/**
+	 * The largest (most zoomed in) value that can be used without the client crashing.
+	 *
+	 * Larger values trigger an overflow in the engine's fov to scale code.
+	 */
+	private static final int INNER_ZOOM_LIMIT = 1004;
+>>>>>>> initial import of runelite
 
 	private boolean controlDown;
 	
@@ -58,9 +73,12 @@ public class ZoomPlugin extends Plugin implements KeyListener
 	private Client client;
 
 	@Inject
+<<<<<<< HEAD
 	private ClientThread clientThread;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private ZoomConfig zoomConfig;
 
 	@Inject
@@ -85,14 +103,22 @@ public class ZoomPlugin extends Plugin implements KeyListener
 		int[] intStack = client.getIntStack();
 		int intStackSize = client.getIntStackSize();
 
+<<<<<<< HEAD
 		if (!controlDown && "scrollWheelZoom".equals(event.getEventName()) && zoomConfig.controlFunction() == ControlFunction.CONTROL_TO_ZOOM)
+=======
+		if ("scrollWheelZoom".equals(event.getEventName()) && zoomConfig.requireControlDown() && !controlDown)
+>>>>>>> initial import of runelite
 		{
 			intStack[intStackSize - 1] = 1;
 		}
 
 		if ("innerZoomLimit".equals(event.getEventName()) && zoomConfig.innerLimit())
 		{
+<<<<<<< HEAD
 			intStack[intStackSize - 1] = ZoomConfig.INNER_ZOOM_LIMIT;
+=======
+			intStack[intStackSize - 1] = INNER_ZOOM_LIMIT;
+>>>>>>> initial import of runelite
 			return;
 		}
 
@@ -104,12 +130,15 @@ public class ZoomPlugin extends Plugin implements KeyListener
 			return;
 		}
 
+<<<<<<< HEAD
 		if ("scrollWheelZoomIncrement".equals(event.getEventName()) && zoomConfig.zoomIncrement() != DEFAULT_ZOOM_INCREMENT)
 		{
 			intStack[intStackSize - 1] = zoomConfig.zoomIncrement();
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		if (zoomConfig.innerLimit())
 		{
 			// This lets the options panel's slider have an exponential rate
@@ -144,7 +173,11 @@ public class ZoomPlugin extends Plugin implements KeyListener
 			controlDown = false;
 		}
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> initial import of runelite
 	@Override
 	protected void startUp()
 	{
@@ -186,12 +219,15 @@ public class ZoomPlugin extends Plugin implements KeyListener
 		if (e.getKeyCode() == KeyEvent.VK_CONTROL)
 		{
 			controlDown = false;
+<<<<<<< HEAD
 
 			if (zoomConfig.controlFunction() == ControlFunction.CONTROL_TO_RESET)
 			{
 				final int zoomValue = Ints.constrainToRange(zoomConfig.ctrlZoomValue(), ZoomConfig.OUTER_LIMIT_MIN, ZoomConfig.INNER_ZOOM_LIMIT);
 				clientThread.invokeLater(() -> client.runScript(ScriptID.CAMERA_DO_ZOOM, zoomValue, zoomValue));
 			}
+=======
+>>>>>>> initial import of runelite
 		}
 	}
 }

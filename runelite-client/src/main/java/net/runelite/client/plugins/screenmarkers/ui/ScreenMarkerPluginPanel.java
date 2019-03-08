@@ -25,6 +25,11 @@
  */
 package net.runelite.client.plugins.screenmarkers.ui;
 
+<<<<<<< HEAD
+=======
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+>>>>>>> initial import of runelite
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -46,6 +51,10 @@ import net.runelite.client.ui.PluginPanel;
 import net.runelite.client.ui.components.PluginErrorPanel;
 import net.runelite.client.util.ImageUtil;
 
+<<<<<<< HEAD
+=======
+@Singleton
+>>>>>>> initial import of runelite
 public class ScreenMarkerPluginPanel extends PluginPanel
 {
 	private static final ImageIcon ADD_ICON;
@@ -59,9 +68,15 @@ public class ScreenMarkerPluginPanel extends PluginPanel
 	private final JLabel addMarker = new JLabel(ADD_ICON);
 	private final JLabel title = new JLabel();
 	private final PluginErrorPanel noMarkersPanel = new PluginErrorPanel();
+<<<<<<< HEAD
 	private final JPanel markerView = new JPanel(new GridBagLayout());
 
 	private final ScreenMarkerPlugin plugin;
+=======
+
+	@Inject
+	private ScreenMarkerPlugin plugin;
+>>>>>>> initial import of runelite
 
 	@Getter
 	private Color selectedColor = DEFAULT_BORDER_COLOR;
@@ -82,10 +97,15 @@ public class ScreenMarkerPluginPanel extends PluginPanel
 		ADD_HOVER_ICON = new ImageIcon(ImageUtil.alphaOffset(addIcon, 0.53f));
 	}
 
+<<<<<<< HEAD
 	public ScreenMarkerPluginPanel(ScreenMarkerPlugin screenMarkerPlugin)
 	{
 		this.plugin = screenMarkerPlugin;
 
+=======
+	public void init()
+	{
+>>>>>>> initial import of runelite
 		setLayout(new BorderLayout());
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 
@@ -101,6 +121,10 @@ public class ScreenMarkerPluginPanel extends PluginPanel
 		JPanel centerPanel = new JPanel(new BorderLayout());
 		centerPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
+<<<<<<< HEAD
+=======
+		JPanel markerView = new JPanel(new GridBagLayout());
+>>>>>>> initial import of runelite
 		markerView.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -109,9 +133,30 @@ public class ScreenMarkerPluginPanel extends PluginPanel
 		constraints.gridx = 0;
 		constraints.gridy = 0;
 
+<<<<<<< HEAD
 		noMarkersPanel.setContent("Screen Markers", "Highlight a region on your screen.");
 		noMarkersPanel.setVisible(false);
 
+=======
+		for (final ScreenMarkerOverlay marker : plugin.getScreenMarkers())
+		{
+			markerView.add(new ScreenMarkerPanel(plugin, marker), constraints);
+			constraints.gridy++;
+
+			markerView.add(Box.createRigidArea(new Dimension(0, 10)), constraints);
+			constraints.gridy++;
+		}
+
+		noMarkersPanel.setContent("Screen Markers", "Highlight a region on your screen.");
+		noMarkersPanel.setVisible(false);
+
+		if (plugin.getScreenMarkers().isEmpty())
+		{
+			noMarkersPanel.setVisible(true);
+			title.setVisible(false);
+		}
+
+>>>>>>> initial import of runelite
 		markerView.add(noMarkersPanel, constraints);
 		constraints.gridy++;
 
@@ -151,6 +196,7 @@ public class ScreenMarkerPluginPanel extends PluginPanel
 
 	public void rebuild()
 	{
+<<<<<<< HEAD
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		constraints.weightx = 1;
@@ -180,6 +226,12 @@ public class ScreenMarkerPluginPanel extends PluginPanel
 
 		repaint();
 		revalidate();
+=======
+		removeAll();
+		repaint();
+		revalidate();
+		init();
+>>>>>>> initial import of runelite
 	}
 
 	/* Enables/Disables new marker creation mode */

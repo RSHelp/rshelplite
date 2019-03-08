@@ -32,6 +32,7 @@ import net.runelite.client.config.ExpandResizeType;
 
 public class ContainableFrame extends JFrame
 {
+<<<<<<< HEAD
 	public enum Mode
 	{
 		ALWAYS,
@@ -39,10 +40,13 @@ public class ContainableFrame extends JFrame
 		NEVER;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private static final int SCREEN_EDGE_CLOSE_DISTANCE = 40;
 
 	@Setter
 	private ExpandResizeType expandResizeType;
+<<<<<<< HEAD
 	private Mode containedInScreen;
 	private boolean expandedClientOppositeDirection;
 
@@ -51,6 +55,16 @@ public class ContainableFrame extends JFrame
 		this.containedInScreen = value;
 
 		if (this.containedInScreen == Mode.ALWAYS)
+=======
+	private boolean containedInScreen;
+	private boolean expandedClientOppositeDirection;
+
+	public void setContainedInScreen(boolean value)
+	{
+		this.containedInScreen = value;
+
+		if (value)
+>>>>>>> initial import of runelite
 		{
 			// Reposition the frame if it is intersecting with the bounds
 			this.setLocation(this.getX(), this.getY());
@@ -61,6 +75,7 @@ public class ContainableFrame extends JFrame
 	@Override
 	public void setLocation(int x, int y)
 	{
+<<<<<<< HEAD
 		if (this.containedInScreen == Mode.ALWAYS)
 		{
 			Rectangle bounds = this.getGraphicsConfiguration().getBounds();
@@ -68,6 +83,15 @@ public class ContainableFrame extends JFrame
 			x = Math.min(x, (int) (bounds.getX() + bounds.getWidth() - this.getWidth()));
 			y = Math.max(y, (int) bounds.getY());
 			y = Math.min(y, (int) (bounds.getY() + bounds.getHeight() - this.getHeight()));
+=======
+		if (containedInScreen)
+		{
+			Rectangle bounds = this.getGraphicsConfiguration().getBounds();
+			x = Math.max(x, (int)bounds.getX());
+			x = Math.min(x, (int)(bounds.getX() + bounds.getWidth() - this.getWidth()));
+			y = Math.max(y, (int)bounds.getY());
+			y = Math.min(y, (int)(bounds.getY() + bounds.getHeight() - this.getHeight()));
+>>>>>>> initial import of runelite
 		}
 
 		super.setLocation(x, y);
@@ -76,6 +100,7 @@ public class ContainableFrame extends JFrame
 	@Override
 	public void setBounds(int x, int y, int width, int height)
 	{
+<<<<<<< HEAD
 		if (this.containedInScreen == Mode.ALWAYS)
 		{
 			// XXX: this is wrong if setSize/resize is called because Component::resize sets private state that is read
@@ -87,6 +112,17 @@ public class ContainableFrame extends JFrame
 			y = Math.max(y, (int) bounds.getY());
 			width = Math.min(width, (int) (bounds.getX() + bounds.getWidth()) - x);
 			height = Math.min(height, (int) (bounds.getY() + bounds.getHeight()) - y);
+=======
+		if (containedInScreen)
+		{
+			Rectangle bounds = this.getGraphicsConfiguration().getBounds();
+			width = Math.min(width, width - (int)bounds.getX() + x);
+			x = Math.max(x, (int)bounds.getX());
+			height = Math.min(height, height - (int)bounds.getY() + y);
+			y = Math.max(y, (int)bounds.getY());
+			width = Math.min(width, (int)(bounds.getX() + bounds.getWidth()) - x);
+			height = Math.min(height, (int)(bounds.getY() + bounds.getHeight()) - y);
+>>>>>>> initial import of runelite
 		}
 
 		super.setBounds(x, y, width, height);
@@ -122,6 +158,7 @@ public class ContainableFrame extends JFrame
 		if (forcedWidthIncrease || expandResizeType == ExpandResizeType.KEEP_GAME_SIZE)
 		{
 			final int newWindowWidth = getWidth() + increment;
+<<<<<<< HEAD
 			int newWindowX = getX();
 
 			if (this.containedInScreen != Mode.NEVER)
@@ -143,6 +180,25 @@ public class ContainableFrame extends JFrame
 
 					expandedClientOppositeDirection = true;
 				}
+=======
+			final Rectangle screenBounds = getGraphicsConfiguration().getBounds();
+			final boolean wouldExpandThroughEdge = getX() + newWindowWidth > screenBounds.getX() + screenBounds.getWidth();
+			int newWindowX = getX();
+
+			if (wouldExpandThroughEdge)
+			{
+				if (!isFrameCloseToRightEdge() || isFrameCloseToLeftEdge())
+				{
+					// Move the window to the edge
+					newWindowX = (int)(screenBounds.getX() + screenBounds.getWidth()) - getWidth();
+				}
+
+				// Expand the window to the left as the user probably don't want the
+				// window to go through the screen
+				newWindowX -= increment;
+
+				expandedClientOppositeDirection = true;
+>>>>>>> initial import of runelite
 			}
 
 			setBounds(newWindowX, getY(), newWindowWidth, getHeight());

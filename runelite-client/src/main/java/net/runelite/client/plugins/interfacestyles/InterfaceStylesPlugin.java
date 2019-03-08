@@ -28,6 +28,7 @@ package net.runelite.client.plugins.interfacestyles;
 
 import com.google.inject.Provides;
 import java.awt.image.BufferedImage;
+<<<<<<< HEAD
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
@@ -40,6 +41,18 @@ import net.runelite.api.events.ClientTick;
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.PostHealthBar;
+=======
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+import javax.inject.Inject;
+import lombok.extern.slf4j.Slf4j;
+import net.runelite.api.Client;
+import net.runelite.api.SpriteID;
+import net.runelite.api.SpritePixels;
+import net.runelite.api.events.ConfigChanged;
+import net.runelite.api.events.WidgetPositioned;
+>>>>>>> initial import of runelite
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.callback.ClientThread;
@@ -71,8 +84,11 @@ public class InterfaceStylesPlugin extends Plugin
 	@Inject
 	private SpriteManager spriteManager;
 
+<<<<<<< HEAD
 	private SpritePixels[] defaultCrossSprites;
 
+=======
+>>>>>>> initial import of runelite
 	@Provides
 	InterfaceStylesConfig provideConfig(ConfigManager configManager)
 	{
@@ -92,8 +108,11 @@ public class InterfaceStylesPlugin extends Plugin
 		{
 			restoreWidgetDimensions();
 			removeGameframe();
+<<<<<<< HEAD
 			restoreHealthBars();
 			restoreCrossSprites();
+=======
+>>>>>>> initial import of runelite
 		});
 	}
 
@@ -107,11 +126,16 @@ public class InterfaceStylesPlugin extends Plugin
 	}
 
 	@Subscribe
+<<<<<<< HEAD
 	public void onClientTick(ClientTick event)
+=======
+	public void onWidgetPositioned(WidgetPositioned widgetPositioned)
+>>>>>>> initial import of runelite
 	{
 		adjustWidgetDimensions();
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onPostHealthBar(PostHealthBar postHealthBar)
 	{
@@ -147,6 +171,8 @@ public class InterfaceStylesPlugin extends Plugin
 		overrideCrossSprites();
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void updateAllOverrides()
 	{
 		removeGameframe();
@@ -154,6 +180,7 @@ public class InterfaceStylesPlugin extends Plugin
 		overrideWidgetSprites();
 		restoreWidgetDimensions();
 		adjustWidgetDimensions();
+<<<<<<< HEAD
 		overrideHealthBars();
 		overrideCrossSprites();
 	}
@@ -166,6 +193,8 @@ public class InterfaceStylesPlugin extends Plugin
 			client.draw2010Menu();
 			event.consume();
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	private void overrideSprites()
@@ -176,8 +205,12 @@ public class InterfaceStylesPlugin extends Plugin
 			{
 				if (skin == config.skin())
 				{
+<<<<<<< HEAD
 					String file = config.skin().toString() + "/" + spriteOverride.getSpriteID() + ".png";
 					SpritePixels spritePixels = getFileSpritePixels(file);
+=======
+					SpritePixels spritePixels = getFileSpritePixels(String.valueOf(spriteOverride.getSpriteID()), null);
+>>>>>>> initial import of runelite
 
 					if (spriteOverride.getSpriteID() == SpriteID.COMPASS_TEXTURE)
 					{
@@ -208,8 +241,12 @@ public class InterfaceStylesPlugin extends Plugin
 		{
 			if (widgetOverride.getSkin() == config.skin())
 			{
+<<<<<<< HEAD
 				String file = config.skin().toString() + "/widget/" + widgetOverride.getName() + ".png";
 				SpritePixels spritePixels = getFileSpritePixels(file);
+=======
+				SpritePixels spritePixels = getFileSpritePixels(widgetOverride.getName(), "widget");
+>>>>>>> initial import of runelite
 
 				if (spritePixels != null)
 				{
@@ -233,6 +270,7 @@ public class InterfaceStylesPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	private SpritePixels getFileSpritePixels(String file)
 	{
 		try
@@ -245,6 +283,35 @@ public class InterfaceStylesPlugin extends Plugin
 		{
 			log.debug("Unable to load image: ", ex);
 		}
+=======
+	private SpritePixels getFileSpritePixels(String file, String subfolder)
+	{
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(config.skin().toString() + "/");
+
+		if (subfolder != null)
+		{
+			stringBuilder.append(subfolder + "/");
+		}
+
+		stringBuilder.append(file + ".png");
+		String filePath = stringBuilder.toString();
+
+		try (InputStream inputStream = InterfaceStylesPlugin.class.getResourceAsStream(filePath))
+		{
+			log.debug("Loading: " + filePath);
+			BufferedImage spriteImage = ImageIO.read(inputStream);
+			return ImageUtil.getImageSpritePixels(spriteImage, client);
+		}
+		catch (IOException ex)
+		{
+			log.debug("Unable to load image: ", ex);
+		}
+		catch (IllegalArgumentException ex)
+		{
+			log.debug("Input stream of file path " + filePath + " could not be read: ", ex);
+		}
+>>>>>>> initial import of runelite
 
 		return null;
 	}
@@ -285,6 +352,7 @@ public class InterfaceStylesPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	private void overrideHealthBars()
 	{
 		if (config.hdHealthBars())
@@ -361,6 +429,8 @@ public class InterfaceStylesPlugin extends Plugin
 		defaultCrossSprites = null;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void restoreWidgetDimensions()
 	{
 		for (WidgetOffset widgetOffset : WidgetOffset.values())

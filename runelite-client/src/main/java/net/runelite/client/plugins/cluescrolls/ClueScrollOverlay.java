@@ -30,30 +30,45 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import javax.inject.Inject;
+<<<<<<< HEAD
 import static net.runelite.api.ItemID.SPADE;
 import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
 import net.runelite.client.plugins.cluescrolls.clues.ClueScroll;
 import net.runelite.client.plugins.cluescrolls.clues.item.ItemRequirement;
 import net.runelite.client.plugins.cluescrolls.clues.item.SingleItemRequirement;
+=======
+import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
+import net.runelite.client.plugins.cluescrolls.clues.ClueScroll;
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.Overlay;
 import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
 import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.components.ComponentConstants;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.components.LineComponent;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.components.PanelComponent;
 
 public class ClueScrollOverlay extends Overlay
 {
+<<<<<<< HEAD
 	private static final ItemRequirement HAS_SPADE = new SingleItemRequirement(SPADE);
 
+=======
+>>>>>>> initial import of runelite
 	public static final Color TITLED_CONTENT_COLOR = new Color(190, 190, 190);
 
 	private final ClueScrollPlugin plugin;
 	private final PanelComponent panelComponent = new PanelComponent();
 
 	@Inject
+<<<<<<< HEAD
 	private ClueScrollOverlay(ClueScrollPlugin plugin)
+=======
+	public ClueScrollOverlay(ClueScrollPlugin plugin)
+>>>>>>> initial import of runelite
 	{
 		super(plugin);
 		this.plugin = plugin;
@@ -76,6 +91,7 @@ public class ClueScrollOverlay extends Overlay
 
 		clue.makeOverlayHint(panelComponent, plugin);
 
+<<<<<<< HEAD
 		if (clue.isRequiresSpade() && plugin.getInventoryItems() != null)
 		{
 			if (!HAS_SPADE.fulfilledBy(plugin.getInventoryItems()))
@@ -85,6 +101,8 @@ public class ClueScrollOverlay extends Overlay
 			}
 		}
 
+=======
+>>>>>>> initial import of runelite
 		return panelComponent.render(graphics);
 	}
 }

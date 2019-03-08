@@ -73,6 +73,7 @@
       "xp": 25
     },
     {
+<<<<<<< HEAD
       "level": 5,
       "icon": 11367,
       "name": "Bronze Hasta",
@@ -85,6 +86,8 @@
       "xp": 25
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 6,
       "icon": 19570,
       "name": "Bronze Javelin Heads",
@@ -253,6 +256,7 @@
       "xp": 50
     },
     {
+<<<<<<< HEAD
       "level": 20,
       "icon": 11369,
       "name": "Iron Hasta",
@@ -265,6 +269,8 @@
       "xp": 50
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 21,
       "icon": 1293,
       "name": "Iron Longsword",
@@ -433,6 +439,7 @@
       "xp": 37.5
     },
     {
+<<<<<<< HEAD
       "level": 35,
       "icon": 11371,
       "name": "Steel Hasta",
@@ -445,6 +452,8 @@
       "xp": 75
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 36,
       "icon": 9425,
       "name": "Steel Limbs",
@@ -625,6 +634,7 @@
       "xp": 100
     },
     {
+<<<<<<< HEAD
       "level": 55,
       "icon": 11373,
       "name": "Mithril Hasta",
@@ -637,6 +647,8 @@
       "xp": 100
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 56,
       "icon": 1299,
       "name": "Mithril Longsword",
@@ -805,6 +817,7 @@
       "xp": 125
     },
     {
+<<<<<<< HEAD
       "level": 75,
       "icon": 11375,
       "name": "Adamant Hasta",
@@ -817,6 +830,8 @@
       "xp": 125
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 76,
       "icon": 9429,
       "name": "Adamantite Limbs",
@@ -974,6 +989,7 @@
     },
     {
       "level": 90,
+<<<<<<< HEAD
       "icon": 11377,
       "name": "Rune Hasta",
       "xp": 150
@@ -986,6 +1002,8 @@
     },
     {
       "level": 90,
+=======
+>>>>>>> initial import of runelite
       "icon": 11283,
       "name": "Dragonfire Shield",
       "xp": 2000

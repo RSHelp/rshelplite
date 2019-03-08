@@ -62,7 +62,10 @@ import net.runelite.http.service.cache.beans.IndexEntry;
 import net.runelite.http.service.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+>>>>>>> initial import of runelite
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,7 +79,11 @@ public class CacheController
 	@Autowired
 	private CacheService cacheService;
 
+<<<<<<< HEAD
 	@GetMapping("/")
+=======
+	@RequestMapping("/")
+>>>>>>> initial import of runelite
 	public List<Cache> listCaches()
 	{
 		return cacheService.listCaches().stream()
@@ -84,7 +91,11 @@ public class CacheController
 			.collect(Collectors.toList());
 	}
 
+<<<<<<< HEAD
 	@GetMapping("{cacheId}")
+=======
+	@RequestMapping("{cacheId}")
+>>>>>>> initial import of runelite
 	public List<CacheIndex> listIndexes(@PathVariable int cacheId)
 	{
 		CacheEntry cache = cacheService.findCache(cacheId);
@@ -100,7 +111,11 @@ public class CacheController
 			.collect(Collectors.toList());
 	}
 
+<<<<<<< HEAD
 	@GetMapping("{cacheId}/{indexId}")
+=======
+	@RequestMapping("{cacheId}/{indexId}")
+>>>>>>> initial import of runelite
 	public List<CacheArchive> listArchives(@PathVariable int cacheId,
 		@PathVariable int indexId)
 	{
@@ -123,7 +138,11 @@ public class CacheController
 			.collect(Collectors.toList());
 	}
 
+<<<<<<< HEAD
 	@GetMapping("{cacheId}/{indexId}/{archiveId}")
+=======
+	@RequestMapping("{cacheId}/{indexId}/{archiveId}")
+>>>>>>> initial import of runelite
 	public CacheArchive getCacheArchive(@PathVariable int cacheId,
 		@PathVariable int indexId,
 		@PathVariable int archiveId)
@@ -150,7 +169,11 @@ public class CacheController
 			archiveEntry.getNameHash(), archiveEntry.getRevision());
 	}
 
+<<<<<<< HEAD
 	@GetMapping("{cacheId}/{indexId}/{archiveId}/data")
+=======
+	@RequestMapping("{cacheId}/{indexId}/{archiveId}/data")
+>>>>>>> initial import of runelite
 	public byte[] getArchiveData(
 		@PathVariable int cacheId,
 		@PathVariable int indexId,
@@ -201,7 +224,11 @@ public class CacheController
 		return archiveEntry;
 	}
 
+<<<<<<< HEAD
 	@GetMapping("item/{itemId}")
+=======
+	@RequestMapping("item/{itemId}")
+>>>>>>> initial import of runelite
 	public ItemDefinition getItem(@PathVariable int itemId) throws IOException
 	{
 		ArchiveEntry archiveEntry = findConfig(ConfigType.ITEM);
@@ -222,7 +249,11 @@ public class CacheController
 		return itemdef;
 	}
 
+<<<<<<< HEAD
 	@GetMapping(path = "item/{itemId}/image", produces = "image/png")
+=======
+	@RequestMapping(path = "item/{itemId}/image", produces = "image/png")
+>>>>>>> initial import of runelite
 	public ResponseEntity<byte[]> getItemImage(
 		@PathVariable int itemId,
 		@RequestParam(defaultValue = "1") int quantity,
@@ -314,7 +345,11 @@ public class CacheController
 		return ResponseEntity.ok(bao.toByteArray());
 	}
 
+<<<<<<< HEAD
 	@GetMapping("object/{objectId}")
+=======
+	@RequestMapping("object/{objectId}")
+>>>>>>> initial import of runelite
 	public ObjectDefinition getObject(
 		@PathVariable int objectId
 	) throws IOException
@@ -337,7 +372,11 @@ public class CacheController
 		return objectdef;
 	}
 
+<<<<<<< HEAD
 	@GetMapping("npc/{npcId}")
+=======
+	@RequestMapping("npc/{npcId}")
+>>>>>>> initial import of runelite
 	public NpcDefinition getNpc(
 		@PathVariable int npcId
 	) throws IOException

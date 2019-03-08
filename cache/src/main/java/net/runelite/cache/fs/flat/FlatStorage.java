@@ -116,7 +116,11 @@ public class FlatStorage implements Storage
 					{
 						int lidx = line.indexOf('=');
 						String key = line.substring(0, lidx);
+<<<<<<< HEAD
 						String value = line.substring(lidx + 1);
+=======
+						String value = line.substring(lidx + 1, line.length());
+>>>>>>> initial import of runelite
 
 						if ("file".equals(key))
 						{
@@ -128,7 +132,11 @@ public class FlatStorage implements Storage
 							int vidx = value.indexOf('=');
 							FileData fd = new FileData();
 							fd.setId(Integer.parseInt(value.substring(0, vidx)));
+<<<<<<< HEAD
 							fd.setNameHash(Integer.parseInt(value.substring(vidx + 1)));
+=======
+							fd.setNameHash(Integer.parseInt(value.substring(vidx + 1, value.length())));
+>>>>>>> initial import of runelite
 							fileData.add(fd);
 							continue;
 						}

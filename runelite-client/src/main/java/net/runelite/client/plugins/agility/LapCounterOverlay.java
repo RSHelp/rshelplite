@@ -81,6 +81,7 @@ class LapCounterOverlay extends Overlay
 
 		panelComponent.getChildren().clear();
 		panelComponent.getChildren().add(LineComponent.builder()
+<<<<<<< HEAD
 			.left("Total Laps:")
 			.right(Integer.toString(session.getTotalLaps()))
 			.build());
@@ -89,10 +90,21 @@ class LapCounterOverlay extends Overlay
 		{
 			panelComponent.getChildren().add(LineComponent.builder()
 				.left("Laps until level:")
+=======
+			.left("Total Laps")
+			.right(Integer.toString(session.getTotalLaps()))
+			.build());
+
+		if (session.getLapsTillLevel() > 0)
+		{
+			panelComponent.getChildren().add(LineComponent.builder()
+				.left("Laps till level")
+>>>>>>> initial import of runelite
 				.right(Integer.toString(session.getLapsTillLevel()))
 				.build());
 		}
 
+<<<<<<< HEAD
 		if (config.lapsToGoal() && session.getLapsTillGoal() > 0)
 		{
 			panelComponent.getChildren().add(LineComponent.builder()
@@ -101,6 +113,8 @@ class LapCounterOverlay extends Overlay
 				.build());
 		}
 
+=======
+>>>>>>> initial import of runelite
 		return panelComponent.render(graphics);
 	}
 }

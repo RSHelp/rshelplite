@@ -26,7 +26,10 @@
  */
 package net.runelite.client.rs;
 
+<<<<<<< HEAD
 import com.google.common.base.Strings;
+=======
+>>>>>>> initial import of runelite
 import com.google.common.hash.Hashing;
 import com.google.common.io.ByteStreams;
 import com.google.common.reflect.TypeToken;
@@ -35,6 +38,7 @@ import io.sigpipe.jbsdiff.InvalidHeaderException;
 import io.sigpipe.jbsdiff.Patch;
 import java.applet.Applet;
 import java.io.ByteArrayOutputStream;
+<<<<<<< HEAD
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,11 +63,28 @@ import net.runelite.client.ui.FatalErrorDialog;
 import net.runelite.client.ui.SplashScreen;
 import net.runelite.http.api.RuneLiteAPI;
 import okhttp3.HttpUrl;
+=======
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.jar.JarEntry;
+import java.util.jar.JarInputStream;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+import lombok.extern.slf4j.Slf4j;
+import static net.runelite.client.rs.ClientUpdateCheckMode.*;
+import net.runelite.http.api.RuneLiteAPI;
+>>>>>>> initial import of runelite
 import okhttp3.Request;
 import okhttp3.Response;
 import org.apache.commons.compress.compressors.CompressorException;
 
 @Slf4j
+<<<<<<< HEAD
 public class ClientLoader implements Supplier<Applet>
 {
 	private static final int NUM_ATTEMPTS = 6;
@@ -92,6 +113,24 @@ public class ClientLoader implements Supplier<Applet>
 	}
 
 	private Object doLoad()
+=======
+@Singleton
+public class ClientLoader
+{
+	private final ClientConfigLoader clientConfigLoader;
+	private ClientUpdateCheckMode updateCheckMode;
+
+	@Inject
+	private ClientLoader(
+		@Named("updateCheckMode") final ClientUpdateCheckMode updateCheckMode,
+		final ClientConfigLoader clientConfigLoader)
+	{
+		this.updateCheckMode = updateCheckMode;
+		this.clientConfigLoader = clientConfigLoader;
+	}
+
+	public Applet load()
+>>>>>>> initial import of runelite
 	{
 		if (updateCheckMode == NONE)
 		{
@@ -100,6 +139,7 @@ public class ClientLoader implements Supplier<Applet>
 
 		try
 		{
+<<<<<<< HEAD
 			SplashScreen.stage(0, null, "Fetching applet viewer config");
 
 			HostSupplier hostSupplier = new HostSupplier();
@@ -219,12 +259,52 @@ public class ClientLoader implements Supplier<Applet>
 						}
 
 						url = url.newBuilder().host(hostSupplier.get()).build();
+=======
+			RSConfig config = clientConfigLoader.fetch();
+
+			Map<String, byte[]> zipFile = new HashMap<>();
+			{
+				String codebase = config.getCodeBase();
+				String initialJar = config.getInitialJar();
+				URL url = new URL(codebase + initialJar);
+				Request request = new Request.Builder()
+					.url(url)
+					.build();
+
+				try (Response response = RuneLiteAPI.CLIENT.newCall(request).execute())
+				{
+					JarInputStream jis = new JarInputStream(response.body().byteStream());
+
+					byte[] tmp = new byte[4096];
+					ByteArrayOutputStream buffer = new ByteArrayOutputStream(756 * 1024);
+					for (; ; )
+					{
+						JarEntry metadata = jis.getNextJarEntry();
+						if (metadata == null)
+						{
+							break;
+						}
+
+						buffer.reset();
+						for (; ; )
+						{
+							int n = jis.read(tmp);
+							if (n <= -1)
+							{
+								break;
+							}
+							buffer.write(tmp, 0, n);
+						}
+
+						zipFile.put(metadata.getName(), buffer.toByteArray());
+>>>>>>> initial import of runelite
 					}
 				}
 			}
 
 			if (updateCheckMode == AUTO)
 			{
+<<<<<<< HEAD
 				SplashScreen.stage(.35, null, "Patching");
 				Map<String, String> hashes;
 				try (InputStream is = ClientLoader.class.getResourceAsStream("/patch/hashes.json"))
@@ -238,6 +318,11 @@ public class ClientLoader implements Supplier<Applet>
 								.open());
 						throw new NullPointerException();
 					}
+=======
+				Map<String, String> hashes;
+				try (InputStream is = ClientLoader.class.getResourceAsStream("/patch/hashes.json"))
+				{
+>>>>>>> initial import of runelite
 					hashes = new Gson().fromJson(new InputStreamReader(is), new TypeToken<HashMap<String, String>>()
 					{
 					}.getType());
@@ -286,14 +371,20 @@ public class ClientLoader implements Supplier<Applet>
 					file.setValue(patchOs.toByteArray());
 
 					++patchCount;
+<<<<<<< HEAD
 					SplashScreen.stage(.38, .45, null, "Patching", patchCount, zipFile.size(), false);
+=======
+>>>>>>> initial import of runelite
 				}
 
 				log.debug("Patched {} classes", patchCount);
 			}
 
+<<<<<<< HEAD
 			SplashScreen.stage(.465, "Starting", "Starting Old School RuneScape");
 
+=======
+>>>>>>> initial import of runelite
 			String initialClass = config.getInitialClass();
 
 			ClassLoader rsClassLoader = new ClassLoader(ClientLoader.class.getClassLoader())
@@ -316,6 +407,7 @@ public class ClientLoader implements Supplier<Applet>
 
 			Applet rs = (Applet) clientClass.newInstance();
 			rs.setStub(new RSAppletStub(config));
+<<<<<<< HEAD
 
 			if (rs instanceof Client)
 			{
@@ -343,4 +435,23 @@ public class ClientLoader implements Supplier<Applet>
 		Collection<? extends Certificate> certificates = certificateFactory.generateCertificates(ClientLoader.class.getResourceAsStream("jagex.crt"));
 		return certificates.toArray(new Certificate[certificates.size()]);
 	}
+=======
+			return rs;
+		}
+		catch (IOException | ClassNotFoundException | InstantiationException | IllegalAccessException
+			| CompressorException | InvalidHeaderException e)
+		{
+			if (e instanceof ClassNotFoundException)
+			{
+				log.error("Unable to load client - class not found. This means you"
+					+ " are not running RuneLite with Maven as the client patch"
+					+ " is not in your classpath.");
+			}
+
+			log.error("Error loading RS!", e);
+			System.exit(-1);
+			return null;
+		}
+	}
+>>>>>>> initial import of runelite
 }

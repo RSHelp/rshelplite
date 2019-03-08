@@ -119,8 +119,11 @@ class DevToolsPanel extends PluginPanel
 			}
 		});
 
+<<<<<<< HEAD
 		container.add(plugin.getSoundEffects());
 
+=======
+>>>>>>> initial import of runelite
 		return container;
 	}
 }

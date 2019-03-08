@@ -24,6 +24,7 @@
  */
 package net.runelite.client.plugins.barrows;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Provides;
 import java.time.temporal.ChronoUnit;
@@ -31,13 +32,38 @@ import javax.inject.Inject;
 import lombok.Getter;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+=======
+import com.google.common.collect.Sets;
+import com.google.inject.Provides;
+import java.util.HashSet;
+import java.util.Set;
+import javax.inject.Inject;
+import lombok.AccessLevel;
+import lombok.Getter;
+import net.runelite.api.ChatMessageType;
+import net.runelite.api.Client;
+import net.runelite.api.GameObject;
+>>>>>>> initial import of runelite
 import net.runelite.api.GameState;
 import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
+<<<<<<< HEAD
 import net.runelite.api.SpriteID;
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.GameStateChanged;
+=======
+import net.runelite.api.NullObjectID;
+import net.runelite.api.ObjectID;
+import net.runelite.api.WallObject;
+import net.runelite.api.events.GameObjectChanged;
+import net.runelite.api.events.GameObjectDespawned;
+import net.runelite.api.events.GameObjectSpawned;
+import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.WallObjectChanged;
+import net.runelite.api.events.WallObjectDespawned;
+import net.runelite.api.events.WallObjectSpawned;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetID;
@@ -49,6 +75,7 @@ import net.runelite.client.chat.QueuedMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemManager;
+<<<<<<< HEAD
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -57,10 +84,17 @@ import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxPriority;
 import net.runelite.client.ui.overlay.infobox.LoopTimer;
 import net.runelite.client.util.QuantityFormatter;
+=======
+import net.runelite.client.plugins.Plugin;
+import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.overlay.OverlayManager;
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 
 @PluginDescriptor(
 	name = "Barrows Brothers",
 	description = "Show helpful information for the Barrows minigame",
+<<<<<<< HEAD
 	tags = {"combat", "minigame", "bosses", "pve", "pvm"}
 )
 public class BarrowsPlugin extends Plugin
@@ -79,6 +113,29 @@ public class BarrowsPlugin extends Plugin
 
 	@Getter
 	private Widget puzzleAnswer;
+=======
+	tags = {"combat", "minigame", "minimap", "bosses", "pve", "pvm"}
+)
+public class BarrowsPlugin extends Plugin
+{
+	@Getter(AccessLevel.PACKAGE)
+	private static final Set<Integer> BARROWS_WALLS = Sets.newHashSet
+	(
+		ObjectID.DOOR_20678, NullObjectID.NULL_20681, NullObjectID.NULL_20682, NullObjectID.NULL_20683, NullObjectID.NULL_20684, NullObjectID.NULL_20685, NullObjectID.NULL_20686, NullObjectID.NULL_20687,
+		NullObjectID.NULL_20688, NullObjectID.NULL_20689, NullObjectID.NULL_20690, NullObjectID.NULL_20691, NullObjectID.NULL_20692, NullObjectID.NULL_20693, NullObjectID.NULL_20694, NullObjectID.NULL_20695,
+		NullObjectID.NULL_20696, ObjectID.DOOR_20697, NullObjectID.NULL_20700, NullObjectID.NULL_20701, NullObjectID.NULL_20702, NullObjectID.NULL_20703, NullObjectID.NULL_20704, NullObjectID.NULL_20705,
+		NullObjectID.NULL_20706, NullObjectID.NULL_20707, NullObjectID.NULL_20708, NullObjectID.NULL_20709, NullObjectID.NULL_20710, NullObjectID.NULL_20711, NullObjectID.NULL_20712, NullObjectID.NULL_20713,
+		NullObjectID.NULL_20714, NullObjectID.NULL_20715, NullObjectID.NULL_20728, NullObjectID.NULL_20730
+	);
+
+	private static final Set<Integer> BARROWS_LADDERS = Sets.newHashSet(NullObjectID.NULL_20675, NullObjectID.NULL_20676, NullObjectID.NULL_20677);
+
+	@Getter(AccessLevel.PACKAGE)
+	private final Set<WallObject> walls = new HashSet<>();
+
+	@Getter(AccessLevel.PACKAGE)
+	private final Set<GameObject> ladders = new HashSet<>();
+>>>>>>> initial import of runelite
 
 	@Inject
 	private OverlayManager overlayManager;
@@ -96,12 +153,15 @@ public class BarrowsPlugin extends Plugin
 	private ItemManager itemManager;
 
 	@Inject
+<<<<<<< HEAD
 	private SpriteManager spriteManager;
 
 	@Inject
 	private InfoBoxManager infoBoxManager;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private ChatMessageManager chatMessageManager;
 
 	@Inject
@@ -125,9 +185,14 @@ public class BarrowsPlugin extends Plugin
 	{
 		overlayManager.remove(barrowsOverlay);
 		overlayManager.remove(brotherOverlay);
+<<<<<<< HEAD
 		puzzleAnswer = null;
 		wasInCrypt = false;
 		stopPrayerDrainTimer();
+=======
+		walls.clear();
+		ladders.clear();
+>>>>>>> initial import of runelite
 
 		// Restore widgets
 		final Widget potential = client.getWidget(WidgetInfo.BARROWS_POTENTIAL);
@@ -144,19 +209,82 @@ public class BarrowsPlugin extends Plugin
 	}
 
 	@Subscribe
+<<<<<<< HEAD
 	public void onConfigChanged(ConfigChanged event)
 	{
 		if (event.getGroup().equals("barrows") && !config.showPrayerDrainTimer())
 		{
 			stopPrayerDrainTimer();
+=======
+	public void onWallObjectSpawned(WallObjectSpawned event)
+	{
+		WallObject wallObject = event.getWallObject();
+		if (BARROWS_WALLS.contains(wallObject.getId()))
+		{
+			walls.add(wallObject);
+>>>>>>> initial import of runelite
 		}
 	}
 
 	@Subscribe
+<<<<<<< HEAD
+=======
+	public void onWallObjectChanged(WallObjectChanged event)
+	{
+		WallObject previous = event.getPrevious();
+		WallObject wallObject = event.getWallObject();
+
+		walls.remove(previous);
+		if (BARROWS_WALLS.contains(wallObject.getId()))
+		{
+			walls.add(wallObject);
+		}
+	}
+
+	@Subscribe
+	public void onWallObjectDespawned(WallObjectDespawned event)
+	{
+		WallObject wallObject = event.getWallObject();
+		walls.remove(wallObject);
+	}
+
+	@Subscribe
+	public void onGameObjectSpawned(GameObjectSpawned event)
+	{
+		GameObject gameObject = event.getGameObject();
+		if (BARROWS_LADDERS.contains(gameObject.getId()))
+		{
+			ladders.add(gameObject);
+		}
+	}
+
+	@Subscribe
+	public void onGameObjectChanged(GameObjectChanged event)
+	{
+		GameObject previous = event.getPrevious();
+		GameObject gameObject = event.getGameObject();
+
+		ladders.remove(previous);
+		if (BARROWS_LADDERS.contains(gameObject.getId()))
+		{
+			ladders.add(gameObject);
+		}
+	}
+
+	@Subscribe
+	public void onGameObjectDespawned(GameObjectDespawned event)
+	{
+		GameObject gameObject = event.getGameObject();
+		ladders.remove(gameObject);
+	}
+
+	@Subscribe
+>>>>>>> initial import of runelite
 	public void onGameStateChanged(GameStateChanged event)
 	{
 		if (event.getGameState() == GameState.LOADING)
 		{
+<<<<<<< HEAD
 			wasInCrypt = isInCrypt();
 			// on region changes the tiles get set to null
 			puzzleAnswer = null;
@@ -172,6 +300,11 @@ public class BarrowsPlugin extends Plugin
 			{
 				startPrayerDrainTimer();
 			}
+=======
+			// on region changes the tiles get set to null
+			walls.clear();
+			ladders.clear();
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -193,11 +326,16 @@ public class BarrowsPlugin extends Plugin
 			final ChatMessageBuilder message = new ChatMessageBuilder()
 				.append(ChatColorType.HIGHLIGHT)
 				.append("Your chest is worth around ")
+<<<<<<< HEAD
 				.append(QuantityFormatter.formatNumber(chestPrice))
+=======
+				.append(StackFormatter.formatNumber(chestPrice))
+>>>>>>> initial import of runelite
 				.append(" coins.")
 				.append(ChatColorType.NORMAL);
 
 			chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 				.type(ChatMessageType.ITEM_EXAMINE)
 				.runeLiteFormattedMessage(message.build())
 				.build());
@@ -250,5 +388,11 @@ public class BarrowsPlugin extends Plugin
 	private boolean isInCrypt()
 	{
 		return client.getLocalPlayer().getWorldLocation().getRegionID() == CRYPT_REGION_ID;
+=======
+				.type(ChatMessageType.EXAMINE_ITEM)
+				.runeLiteFormattedMessage(message.build())
+				.build());
+		}
+>>>>>>> initial import of runelite
 	}
 }

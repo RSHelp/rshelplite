@@ -39,7 +39,10 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Actor;
 import net.runelite.api.AnimationID;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.DecorativeObject;
 import net.runelite.api.GameObject;
 import net.runelite.api.GameState;
@@ -75,12 +78,20 @@ public class PohPlugin extends Plugin
 {
 	static final Set<Integer> BURNER_UNLIT = Sets.newHashSet(ObjectID.INCENSE_BURNER, ObjectID.INCENSE_BURNER_13210, ObjectID.INCENSE_BURNER_13212);
 	static final Set<Integer> BURNER_LIT = Sets.newHashSet(ObjectID.INCENSE_BURNER_13209, ObjectID.INCENSE_BURNER_13211, ObjectID.INCENSE_BURNER_13213);
+<<<<<<< HEAD
+=======
+	private static final double ESTIMATED_TICK_LENGTH = 0.6;
+>>>>>>> initial import of runelite
 
 	@Getter(AccessLevel.PACKAGE)
 	private final Map<TileObject, Tile> pohObjects = new HashMap<>();
 
 	@Getter(AccessLevel.PACKAGE)
+<<<<<<< HEAD
 	private final Map<Tile, IncenseBurner> incenseBurners = new HashMap<>();
+=======
+	private final Map<Tile, IncenseBurner> incenseBurners =  new HashMap<>();
+>>>>>>> initial import of runelite
 
 	@Inject
 	private OverlayManager overlayManager;
@@ -243,8 +254,13 @@ public class PohPlugin extends Plugin
 
 	private static void updateBurner(IncenseBurner incenseBurner, int fmLevel)
 	{
+<<<<<<< HEAD
 		final double tickLengthSeconds = Constants.GAME_TICK_LENGTH / 1000.0;
 		incenseBurner.setCountdownTimer((200 + fmLevel) * tickLengthSeconds);
 		incenseBurner.setRandomTimer(fmLevel * tickLengthSeconds);
+=======
+		incenseBurner.setCountdownTimer((200 + fmLevel) * ESTIMATED_TICK_LENGTH);
+		incenseBurner.setRandomTimer(fmLevel * ESTIMATED_TICK_LENGTH);
+>>>>>>> initial import of runelite
 	}
 }

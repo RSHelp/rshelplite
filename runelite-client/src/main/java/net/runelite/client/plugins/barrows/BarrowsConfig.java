@@ -33,6 +33,20 @@ import net.runelite.client.config.ConfigItem;
 public interface BarrowsConfig extends Config
 {
 	@ConfigItem(
+<<<<<<< HEAD
+=======
+		keyName = "showMinimap",
+		name = "Show Minimap in tunnels",
+		description = "Configures whether or not the minimap is displayed",
+		position = 0
+	)
+	default boolean showMinimap()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+>>>>>>> initial import of runelite
 		keyName = "showBrotherLoc",
 		name = "Show Brothers location",
 		description = "Configures whether or not the brothers location is displayed",
@@ -75,6 +89,7 @@ public interface BarrowsConfig extends Config
 	{
 		return Color.RED;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "showPuzzleAnswer",
@@ -97,4 +112,6 @@ public interface BarrowsConfig extends Config
 	{
 		return true;
 	}
+=======
+>>>>>>> initial import of runelite
 }

@@ -57,6 +57,7 @@ public interface RegenMeterConfig extends Config
 	{
 		return false;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "notifyBeforeHpRegenDuration",
@@ -67,4 +68,6 @@ public interface RegenMeterConfig extends Config
 	{
 		return 0;
 	}
+=======
+>>>>>>> initial import of runelite
 }

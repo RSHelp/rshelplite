@@ -24,9 +24,30 @@
  */
 package net.runelite.client.plugins.fps;
 
+<<<<<<< HEAD
 public enum FpsLimitMode
 {
 	NEVER,
 	UNFOCUSED,
 	ALWAYS
+=======
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
+public enum FpsLimitMode
+{
+	NEVER("Never"),
+	UNFOCUSED("Unfocused"),
+	ALWAYS("Always");
+
+	private final String name;
+
+	@Override
+	public String toString()
+	{
+		return name;
+	}
+>>>>>>> initial import of runelite
 }

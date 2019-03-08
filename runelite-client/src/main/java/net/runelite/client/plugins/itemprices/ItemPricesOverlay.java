@@ -29,7 +29,10 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import javax.inject.Inject;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemComposition;
@@ -45,6 +48,7 @@ import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.tooltip.Tooltip;
 import net.runelite.client.ui.overlay.tooltip.TooltipManager;
 import net.runelite.client.util.ColorUtil;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
 
 class ItemPricesOverlay extends Overlay
@@ -53,6 +57,18 @@ class ItemPricesOverlay extends Overlay
 	private static final int BANK_INVENTORY_ITEM_WIDGETID = WidgetInfo.BANK_INVENTORY_ITEMS_CONTAINER.getPackedId();
 	private static final int BANK_ITEM_WIDGETID = WidgetInfo.BANK_ITEM_CONTAINER.getPackedId();
 	private static final int EXPLORERS_RING_ITEM_WIDGETID = WidgetInfo.EXPLORERS_RING_ALCH_INVENTORY.getPackedId();
+=======
+import net.runelite.client.util.StackFormatter;
+
+class ItemPricesOverlay extends Overlay
+{
+	// Used when getting High Alchemy value - multiplied by general store price.
+	private static final float HIGH_ALCHEMY_CONSTANT = 0.6f;
+
+	private static final int INVENTORY_ITEM_WIDGETID = WidgetInfo.INVENTORY.getPackedId();
+	private static final int BANK_INVENTORY_ITEM_WIDGETID = WidgetInfo.BANK_INVENTORY_ITEMS_CONTAINER.getPackedId();
+	private static final int BANK_ITEM_WIDGETID = WidgetInfo.BANK_ITEM_CONTAINER.getPackedId();
+>>>>>>> initial import of runelite
 
 	private final Client client;
 	private final ItemPricesConfig config;
@@ -95,11 +111,14 @@ class ItemPricesOverlay extends Overlay
 		// Tooltip action type handling
 		switch (action)
 		{
+<<<<<<< HEAD
 			case ITEM_USE_ON_WIDGET:
 				if (!config.showWhileAlching() || !menuEntry.getOption().equals("Cast") || !menuEntry.getTarget().contains("High Level Alchemy"))
 				{
 					break;
 				}
+=======
+>>>>>>> initial import of runelite
 			case WIDGET_DEFAULT:
 			case ITEM_USE:
 			case ITEM_FIRST_OPTION:
@@ -110,11 +129,14 @@ class ItemPricesOverlay extends Overlay
 				// Item tooltip values
 				switch (groupId)
 				{
+<<<<<<< HEAD
 					case WidgetID.EXPLORERS_RING_ALCH_GROUP_ID:
 						if (!config.showWhileAlching())
 						{
 							return null;
 						}
+=======
+>>>>>>> initial import of runelite
 					case WidgetID.INVENTORY_GROUP_ID:
 						if (config.hideInventory())
 						{
@@ -148,7 +170,11 @@ class ItemPricesOverlay extends Overlay
 		ItemContainer container = null;
 
 		// Inventory item
+<<<<<<< HEAD
 		if (widgetId == INVENTORY_ITEM_WIDGETID || widgetId == BANK_INVENTORY_ITEM_WIDGETID || widgetId == EXPLORERS_RING_ITEM_WIDGETID)
+=======
+		if (widgetId == INVENTORY_ITEM_WIDGETID || widgetId == BANK_INVENTORY_ITEM_WIDGETID)
+>>>>>>> initial import of runelite
 		{
 			container = client.getItemContainer(InventoryID.INVENTORY);
 		}
@@ -183,11 +209,19 @@ class ItemPricesOverlay extends Overlay
 		// Special case for coins and platinum tokens
 		if (id == ItemID.COINS_995)
 		{
+<<<<<<< HEAD
 			return QuantityFormatter.formatNumber(qty) + " gp";
 		}
 		else if (id == ItemID.PLATINUM_TOKEN)
 		{
 			return QuantityFormatter.formatNumber(qty * 1000) + " gp";
+=======
+			return StackFormatter.formatNumber(qty) + " gp";
+		}
+		else if (id == ItemID.PLATINUM_TOKEN)
+		{
+			return StackFormatter.formatNumber(qty * 1000) + " gp";
+>>>>>>> initial import of runelite
 		}
 
 		ItemComposition itemDef = itemManager.getItemComposition(id);
@@ -206,7 +240,10 @@ class ItemPricesOverlay extends Overlay
 		int gePrice = 0;
 		int haPrice = 0;
 		int haProfit = 0;
+<<<<<<< HEAD
 		final int itemHaPrice = Math.round(itemDef.getPrice() * Constants.HIGH_ALCHEMY_MULTIPLIER);
+=======
+>>>>>>> initial import of runelite
 
 		if (config.showGEPrice())
 		{
@@ -214,11 +251,19 @@ class ItemPricesOverlay extends Overlay
 		}
 		if (config.showHAValue())
 		{
+<<<<<<< HEAD
 			haPrice = itemHaPrice;
 		}
 		if (gePrice > 0 && itemHaPrice > 0 && config.showAlchProfit())
 		{
 			haProfit = calculateHAProfit(itemHaPrice, gePrice);
+=======
+			haPrice = Math.round(itemDef.getPrice() * HIGH_ALCHEMY_CONSTANT);
+		}
+		if (gePrice > 0 && haPrice > 0 && config.showAlchProfit())
+		{
+			haProfit = calculateHAProfit(haPrice, gePrice);
+>>>>>>> initial import of runelite
 		}
 
 		if (gePrice > 0 || haPrice > 0)
@@ -234,12 +279,20 @@ class ItemPricesOverlay extends Overlay
 		if (gePrice > 0)
 		{
 			itemStringBuilder.append("EX: ")
+<<<<<<< HEAD
 				.append(QuantityFormatter.quantityToStackSize(gePrice * qty))
+=======
+				.append(StackFormatter.quantityToStackSize(gePrice * qty))
+>>>>>>> initial import of runelite
 				.append(" gp");
 			if (config.showEA() && qty > 1)
 			{
 				itemStringBuilder.append(" (")
+<<<<<<< HEAD
 					.append(QuantityFormatter.quantityToStackSize(gePrice))
+=======
+					.append(StackFormatter.quantityToStackSize(gePrice))
+>>>>>>> initial import of runelite
 					.append(" ea)");
 			}
 		}
@@ -251,12 +304,20 @@ class ItemPricesOverlay extends Overlay
 			}
 
 			itemStringBuilder.append("HA: ")
+<<<<<<< HEAD
 				.append(QuantityFormatter.quantityToStackSize(haValue * qty))
+=======
+				.append(StackFormatter.quantityToStackSize(haValue * qty))
+>>>>>>> initial import of runelite
 				.append(" gp");
 			if (config.showEA() && qty > 1)
 			{
 				itemStringBuilder.append(" (")
+<<<<<<< HEAD
 					.append(QuantityFormatter.quantityToStackSize(haValue))
+=======
+					.append(StackFormatter.quantityToStackSize(haValue))
+>>>>>>> initial import of runelite
 					.append(" ea)");
 			}
 		}

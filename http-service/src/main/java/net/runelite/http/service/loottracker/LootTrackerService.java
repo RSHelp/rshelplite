@@ -64,7 +64,11 @@ public class LootTrackerService
 
 	// Queries for inserting kills
 	private static final String INSERT_KILL_QUERY = "INSERT INTO kills (accountId, type, eventId) VALUES (:accountId, :type, :eventId)";
+<<<<<<< HEAD
 	private static final String INSERT_DROP_QUERY = "INSERT INTO drops (killId, itemId, itemQuantity) VALUES (:killId, :itemId, :itemQuantity)";
+=======
+	private static final String INSERT_DROP_QUERY = "INSERT INTO drops (killId, itemId, itemQuantity) VALUES (LAST_INSERT_ID(), :itemId, :itemQuantity)";
+>>>>>>> initial import of runelite
 
 	private static final String SELECT_LOOT_QUERY = "SELECT killId,time,type,eventId,itemId,itemQuantity FROM kills JOIN drops ON drops.killId = kills.id WHERE accountId = :accountId ORDER BY TIME DESC LIMIT :limit OFFSET :offset";
 
@@ -89,14 +93,22 @@ public class LootTrackerService
 	/**
 	 * Store LootRecord
 	 *
+<<<<<<< HEAD
 	 * @param records   LootRecords to store
 	 * @param accountId runelite account id to tie data too
 	 */
 	public void store(Collection<LootRecord> records, int accountId)
+=======
+	 * @param record    LootRecord to store
+	 * @param accountId runelite account id to tie data too
+	 */
+	public void store(LootRecord record, int accountId)
+>>>>>>> initial import of runelite
 	{
 		try (Connection con = sql2o.beginTransaction())
 		{
 			// Kill Entry Query
+<<<<<<< HEAD
 			Query killQuery = con.createQuery(INSERT_KILL_QUERY, true);
 
 			for (LootRecord record : records)
@@ -115,10 +127,18 @@ public class LootTrackerService
 			{
 				throw new RuntimeException("Mismatch in keys vs records size");
 			}
+=======
+			con.createQuery(INSERT_KILL_QUERY, true)
+				.addParameter("accountId", accountId)
+				.addParameter("type", record.getType())
+				.addParameter("eventId", record.getEventId())
+				.executeUpdate();
+>>>>>>> initial import of runelite
 
 			Query insertDrop = con.createQuery(INSERT_DROP_QUERY);
 
 			// Append all queries for inserting drops
+<<<<<<< HEAD
 			int idx = 0;
 			for (LootRecord record : records)
 			{
@@ -132,6 +152,14 @@ public class LootTrackerService
 				}
 
 				++idx;
+=======
+			for (GameItem drop : record.getDrops())
+			{
+				insertDrop
+					.addParameter("itemId", drop.getId())
+					.addParameter("itemQuantity", drop.getQty())
+					.addToBatch();
+>>>>>>> initial import of runelite
 			}
 
 			insertDrop.executeBatch();

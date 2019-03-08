@@ -24,7 +24,10 @@
  */
 package net.runelite.client.plugins.twitch;
 
+<<<<<<< HEAD
 import com.google.common.base.Strings;
+=======
+>>>>>>> initial import of runelite
 import com.google.inject.Provides;
 import java.time.temporal.ChronoUnit;
 import java.util.Map;
@@ -97,6 +100,7 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 		return configManager.getConfig(TwitchConfig.class);
 	}
 
+<<<<<<< HEAD
 	private synchronized void connect()
 	{
 		if (twitchIRCClient != null)
@@ -109,6 +113,13 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 		if (!Strings.isNullOrEmpty(twitchConfig.username())
 			&& !Strings.isNullOrEmpty(twitchConfig.oauthToken())
 			&& !Strings.isNullOrEmpty(twitchConfig.channel()))
+=======
+	private void connect()
+	{
+		if (twitchConfig.username() != null
+			&& twitchConfig.oauthToken() != null
+			&& twitchConfig.channel() != null)
+>>>>>>> initial import of runelite
 		{
 			String channel = twitchConfig.channel().toLowerCase();
 			if (!channel.startsWith("#"))
@@ -116,8 +127,11 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 				channel = "#" + channel;
 			}
 
+<<<<<<< HEAD
 			log.debug("Connecting to Twitch as {}", twitchConfig.username());
 
+=======
+>>>>>>> initial import of runelite
 			twitchIRCClient = new TwitchIRCClient(
 				this,
 				twitchConfig.username(),
@@ -155,6 +169,15 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 			return;
 		}
 
+<<<<<<< HEAD
+=======
+		if (twitchIRCClient != null)
+		{
+			twitchIRCClient.close();
+			twitchIRCClient = null;
+		}
+
+>>>>>>> initial import of runelite
 		connect();
 	}
 
@@ -166,7 +189,11 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 			.build();
 
 		chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 			.type(ChatMessageType.FRIENDSCHAT)
+=======
+			.type(ChatMessageType.CLANCHAT)
+>>>>>>> initial import of runelite
 			.sender("Twitch")
 			.name(sender)
 			.runeLiteFormattedMessage(chatMessage)

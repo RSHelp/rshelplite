@@ -92,6 +92,12 @@ public class DiscordPlugin extends Plugin
 	private ClientToolbar clientToolbar;
 
 	@Inject
+<<<<<<< HEAD
+=======
+	private RuneLiteProperties properties;
+
+	@Inject
+>>>>>>> initial import of runelite
 	private DiscordState discordState;
 
 	@Inject
@@ -122,7 +128,11 @@ public class DiscordPlugin extends Plugin
 			.tab(false)
 			.tooltip("Join Discord")
 			.icon(icon)
+<<<<<<< HEAD
 			.onClick(() -> LinkBrowser.browse(RuneLiteProperties.getDiscordInvite()))
+=======
+			.onClick(() -> LinkBrowser.browse(properties.getDiscordInvite()))
+>>>>>>> initial import of runelite
 			.build();
 
 		clientToolbar.addNavigation(discordButton);
@@ -403,7 +413,14 @@ public class DiscordPlugin extends Plugin
 		final EnumSet<WorldType> worldType = client.getWorldType();
 
 		// Do not show location in PVP activities
+<<<<<<< HEAD
 		if (WorldType.isPvpWorld(worldType))
+=======
+		if (worldType.contains(WorldType.SEASONAL_DEADMAN) ||
+			worldType.contains(WorldType.DEADMAN) ||
+			worldType.contains(WorldType.PVP) ||
+			worldType.contains(WorldType.PVP_HIGH_RISK))
+>>>>>>> initial import of runelite
 		{
 			return false;
 		}

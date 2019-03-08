@@ -30,9 +30,21 @@ import com.google.inject.Provides;
 import java.awt.Color;
 import java.util.List;
 import javax.inject.Inject;
+<<<<<<< HEAD
 import net.runelite.api.Client;
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
+=======
+import lombok.AccessLevel;
+import lombok.Getter;
+import net.runelite.api.Client;
+import net.runelite.api.InventoryID;
+import net.runelite.api.Item;
+import net.runelite.api.ItemContainer;
+import net.runelite.api.MenuAction;
+import net.runelite.api.MenuEntry;
+import net.runelite.api.events.ItemContainerChanged;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.MenuOpened;
 import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.events.WidgetMenuOptionClicked;
@@ -101,6 +113,12 @@ public class InventoryTagsPlugin extends Plugin
 	@Inject
 	private OverlayManager overlayManager;
 
+<<<<<<< HEAD
+=======
+	@Getter(AccessLevel.PACKAGE)
+	private boolean hasTaggedItems;
+
+>>>>>>> initial import of runelite
 	private boolean editorMode;
 
 	@Provides
@@ -142,7 +160,11 @@ public class InventoryTagsPlugin extends Plugin
 	{
 		removeInventoryMenuOptions();
 		overlayManager.remove(overlay);
+<<<<<<< HEAD
 		editorMode = false;
+=======
+		hasTaggedItems = editorMode = false;
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -170,10 +192,20 @@ public class InventoryTagsPlugin extends Plugin
 		if (event.getMenuOption().equals(MENU_SET))
 		{
 			setTag(event.getId(), selectedMenu);
+<<<<<<< HEAD
+=======
+
+			hasTaggedItems = true;
+>>>>>>> initial import of runelite
 		}
 		else if (event.getMenuOption().equals(MENU_REMOVE))
 		{
 			unsetTag(event.getId());
+<<<<<<< HEAD
+=======
+
+			checkForTags(client.getItemContainer(InventoryID.INVENTORY));
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -222,6 +254,50 @@ public class InventoryTagsPlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	@Subscribe
+	public void onItemContainerChanged(ItemContainerChanged itemContainerChanged)
+	{
+		ItemContainer itemContainer = itemContainerChanged.getItemContainer();
+		if (itemContainer == client.getItemContainer(InventoryID.INVENTORY))
+		{
+			checkForTags(itemContainer);
+		}
+	}
+
+	private void checkForTags(ItemContainer itemContainer)
+	{
+		hasTaggedItems = false;
+
+		if (itemContainer == null)
+		{
+			return;
+		}
+
+		Item[] items = itemContainer.getItems();
+		if (items != null)
+		{
+			for (Item item : items)
+			{
+				if (item == null)
+				{
+					continue;
+				}
+
+				String tag = getTag(item.getId());
+				if (tag == null)
+				{
+					continue;
+				}
+
+				hasTaggedItems = true;
+				return;
+			}
+		}
+	}
+
+>>>>>>> initial import of runelite
 	Color getGroupNameColor(final String name)
 	{
 		switch (name)

@@ -28,7 +28,10 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 
 class GameTimer
 {
@@ -46,7 +49,11 @@ class GameTimer
 		}
 		else
 		{
+<<<<<<< HEAD
 			elapsed = Duration.between(startTime, now).minusMillis(Constants.GAME_TICK_LENGTH);
+=======
+			elapsed = Duration.between(startTime, now).minusMillis(600);
+>>>>>>> initial import of runelite
 		}
 
 		return formatTime(LocalTime.ofSecondOfDay(elapsed.getSeconds()));

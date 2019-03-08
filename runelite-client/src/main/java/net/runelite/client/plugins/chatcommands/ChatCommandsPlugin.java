@@ -36,13 +36,19 @@ import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.Experience;
 import net.runelite.api.IconID;
 import net.runelite.api.ItemComposition;
 import net.runelite.api.MessageNode;
 import net.runelite.api.VarPlayer;
+<<<<<<< HEAD
 import net.runelite.api.Varbits;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.VarbitChanged;
@@ -62,10 +68,16 @@ import net.runelite.client.game.ItemManager;
 import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
 import static net.runelite.client.util.Text.sanitize;
 import net.runelite.http.api.chat.ChatClient;
 import net.runelite.http.api.chat.Duels;
+=======
+import net.runelite.client.util.StackFormatter;
+import static net.runelite.client.util.Text.sanitize;
+import net.runelite.http.api.chat.ChatClient;
+>>>>>>> initial import of runelite
 import net.runelite.http.api.hiscore.HiscoreClient;
 import net.runelite.http.api.hiscore.HiscoreEndpoint;
 import net.runelite.http.api.hiscore.HiscoreResult;
@@ -83,6 +95,7 @@ import org.apache.commons.text.WordUtils;
 @Slf4j
 public class ChatCommandsPlugin extends Plugin
 {
+<<<<<<< HEAD
 	private static final Pattern KILLCOUNT_PATTERN = Pattern.compile("Your (.+) (?:kill|harvest|lap|completion) count is: <col=ff0000>(\\d+)</col>");
 	private static final Pattern RAIDS_PATTERN = Pattern.compile("Your completed (.+) count is: <col=ff0000>(\\d+)</col>");
 	private static final Pattern WINTERTODT_PATTERN = Pattern.compile("Your subdued Wintertodt count is: <col=ff0000>(\\d+)</col>");
@@ -92,6 +105,15 @@ public class ChatCommandsPlugin extends Plugin
 	private static final Pattern DUEL_ARENA_WINS_PATTERN = Pattern.compile("You (were defeated|won)! You have(?: now)? won (\\d+) duels?");
 	private static final Pattern DUEL_ARENA_LOSSES_PATTERN = Pattern.compile("You have(?: now)? lost (\\d+) duels?");
 
+=======
+	private static final float HIGH_ALCHEMY_CONSTANT = 0.6f;
+	private static final Pattern KILLCOUNT_PATTERN = Pattern.compile("Your (.+) kill count is: <col=ff0000>(\\d+)</col>");
+	private static final Pattern RAIDS_PATTERN = Pattern.compile("Your completed (.+) count is: <col=ff0000>(\\d+)</col>");
+	private static final Pattern WINTERTODT_PATTERN = Pattern.compile("Your subdued Wintertodt count is: <col=ff0000>(\\d+)</col>");
+	private static final Pattern BARROWS_PATTERN = Pattern.compile("Your Barrows chest count is: <col=ff0000>(\\d+)</col>");
+	private static final Pattern KILL_DURATION_PATTERN = Pattern.compile("Fight duration: <col=ff0000>[0-9:]+</col>. Personal best: ([0-9:]+)");
+	private static final Pattern NEW_PB_PATTERN = Pattern.compile("Fight duration: <col=ff0000>([0-9:]+)</col> \\(new personal best\\)");
+>>>>>>> initial import of runelite
 	private static final String TOTAL_LEVEL_COMMAND_STRING = "!total";
 	private static final String PRICE_COMMAND_STRING = "!price";
 	private static final String LEVEL_COMMAND_STRING = "!lvl";
@@ -100,8 +122,11 @@ public class ChatCommandsPlugin extends Plugin
 	private static final String CMB_COMMAND_STRING = "!cmb";
 	private static final String QP_COMMAND_STRING = "!qp";
 	private static final String PB_COMMAND = "!pb";
+<<<<<<< HEAD
 	private static final String GC_COMMAND_STRING = "!gc";
 	private static final String DUEL_ARENA_COMMAND = "!duels";
+=======
+>>>>>>> initial import of runelite
 
 	private final HiscoreClient hiscoreClient = new HiscoreClient();
 	private final ChatClient chatClient = new ChatClient();
@@ -109,7 +134,10 @@ public class ChatCommandsPlugin extends Plugin
 	private boolean logKills;
 	private HiscoreEndpoint hiscoreEndpoint; // hiscore endpoint for current player
 	private String lastBossKill;
+<<<<<<< HEAD
 	private int lastPb = -1;
+=======
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Client client;
@@ -151,8 +179,11 @@ public class ChatCommandsPlugin extends Plugin
 		chatCommandManager.registerCommandAsync(KILLCOUNT_COMMAND_STRING, this::killCountLookup, this::killCountSubmit);
 		chatCommandManager.registerCommandAsync(QP_COMMAND_STRING, this::questPointsLookup, this::questPointsSubmit);
 		chatCommandManager.registerCommandAsync(PB_COMMAND, this::personalBestLookup, this::personalBestSubmit);
+<<<<<<< HEAD
 		chatCommandManager.registerCommandAsync(GC_COMMAND_STRING, this::gambleCountLookup, this::gambleCountSubmit);
 		chatCommandManager.registerCommandAsync(DUEL_ARENA_COMMAND, this::duelArenaLookup, this::duelArenaSubmit);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Override
@@ -170,8 +201,11 @@ public class ChatCommandsPlugin extends Plugin
 		chatCommandManager.unregisterCommand(KILLCOUNT_COMMAND_STRING);
 		chatCommandManager.unregisterCommand(QP_COMMAND_STRING);
 		chatCommandManager.unregisterCommand(PB_COMMAND);
+<<<<<<< HEAD
 		chatCommandManager.unregisterCommand(GC_COMMAND_STRING);
 		chatCommandManager.unregisterCommand(DUEL_ARENA_COMMAND);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Provides
@@ -209,9 +243,13 @@ public class ChatCommandsPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage chatMessage)
 	{
+<<<<<<< HEAD
 		if (chatMessage.getType() != ChatMessageType.TRADE
 			&& chatMessage.getType() != ChatMessageType.GAMEMESSAGE
 			&& chatMessage.getType() != ChatMessageType.SPAM)
+=======
+		if (chatMessage.getType() != ChatMessageType.SERVER && chatMessage.getType() != ChatMessageType.FILTERED)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -224,6 +262,7 @@ public class ChatCommandsPlugin extends Plugin
 			int kc = Integer.parseInt(matcher.group(2));
 
 			setKc(boss, kc);
+<<<<<<< HEAD
 			// We either already have the pb, or need to remember the boss for the upcoming pb
 			if (lastPb > -1)
 			{
@@ -235,6 +274,9 @@ public class ChatCommandsPlugin extends Plugin
 			{
 				lastBossKill = boss;
 			}
+=======
+			lastBossKill = boss;
+>>>>>>> initial import of runelite
 			return;
 		}
 
@@ -257,6 +299,7 @@ public class ChatCommandsPlugin extends Plugin
 			return;
 		}
 
+<<<<<<< HEAD
 		matcher = DUEL_ARENA_WINS_PATTERN.matcher(message);
 		if (matcher.find())
 		{
@@ -294,6 +337,8 @@ public class ChatCommandsPlugin extends Plugin
 			setKc("Duel Arena Losses", losses);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		matcher = BARROWS_PATTERN.matcher(message);
 		if (matcher.find())
 		{
@@ -302,6 +347,7 @@ public class ChatCommandsPlugin extends Plugin
 			setKc("Barrows Chests", kc);
 		}
 
+<<<<<<< HEAD
 		matcher = KILL_DURATION_PATTERN.matcher(message);
 		if (matcher.find())
 		{
@@ -312,6 +358,21 @@ public class ChatCommandsPlugin extends Plugin
 		if (matcher.find())
 		{
 			matchPb(matcher);
+=======
+		if (lastBossKill != null)
+		{
+			matcher = KILL_DURATION_PATTERN.matcher(message);
+			if (matcher.find())
+			{
+				matchPb(matcher);
+			}
+
+			matcher = NEW_PB_PATTERN.matcher(message);
+			if (matcher.find())
+			{
+				matchPb(matcher);
+			}
+>>>>>>> initial import of runelite
 		}
 
 		lastBossKill = null;
@@ -324,6 +385,7 @@ public class ChatCommandsPlugin extends Plugin
 		if (s.length == 2)
 		{
 			int seconds = Integer.parseInt(s[0]) * 60 + Integer.parseInt(s[1]);
+<<<<<<< HEAD
 			if (lastBossKill != null)
 			{
 				// Most bosses sent boss kill message, and then pb message, so we
@@ -337,6 +399,10 @@ public class ChatCommandsPlugin extends Plugin
 				// Some bosses send the pb message, and then the kill message!
 				lastPb = seconds;
 			}
+=======
+			log.debug("Got personal best for {}: {}", lastBossKill, seconds);
+			setPb(lastBossKill, seconds);
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -435,16 +501,23 @@ public class ChatCommandsPlugin extends Plugin
 			return;
 		}
 
+<<<<<<< HEAD
 		if (message.length() <= KILLCOUNT_COMMAND_STRING.length())
 		{
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		ChatMessageType type = chatMessage.getType();
 		String search = message.substring(KILLCOUNT_COMMAND_STRING.length() + 1);
 
 		final String player;
+<<<<<<< HEAD
 		if (type.equals(ChatMessageType.PRIVATECHATOUT))
+=======
+		if (type.equals(ChatMessageType.PRIVATE_MESSAGE_SENT))
+>>>>>>> initial import of runelite
 		{
 			player = client.getLocalPlayer().getName();
 		}
@@ -482,6 +555,7 @@ public class ChatCommandsPlugin extends Plugin
 		client.refreshChat();
 	}
 
+<<<<<<< HEAD
 	private boolean duelArenaSubmit(ChatInput chatInput, String value)
 	{
 		final int wins = getKc("Duel Arena Wins");
@@ -572,6 +646,8 @@ public class ChatCommandsPlugin extends Plugin
 		client.refreshChat();
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void questPointsLookup(ChatMessage chatMessage, String message)
 	{
 		if (!config.qp())
@@ -582,7 +658,11 @@ public class ChatCommandsPlugin extends Plugin
 		ChatMessageType type = chatMessage.getType();
 
 		final String player;
+<<<<<<< HEAD
 		if (type.equals(ChatMessageType.PRIVATECHATOUT))
+=======
+		if (type.equals(ChatMessageType.PRIVATE_MESSAGE_SENT))
+>>>>>>> initial import of runelite
 		{
 			player = client.getLocalPlayer().getName();
 		}
@@ -647,16 +727,23 @@ public class ChatCommandsPlugin extends Plugin
 			return;
 		}
 
+<<<<<<< HEAD
 		if (message.length() <= PB_COMMAND.length())
 		{
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		ChatMessageType type = chatMessage.getType();
 		String search = message.substring(PB_COMMAND.length() + 1);
 
 		final String player;
+<<<<<<< HEAD
 		if (type.equals(ChatMessageType.PRIVATECHATOUT))
+=======
+		if (type.equals(ChatMessageType.PRIVATE_MESSAGE_SENT))
+>>>>>>> initial import of runelite
 		{
 			player = client.getLocalPlayer().getName();
 		}
@@ -729,6 +816,7 @@ public class ChatCommandsPlugin extends Plugin
 		return true;
 	}
 
+<<<<<<< HEAD
 	private void gambleCountLookup(ChatMessage chatMessage, String message)
 	{
 		if (!config.gc())
@@ -797,6 +885,8 @@ public class ChatCommandsPlugin extends Plugin
 		return true;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * Looks up the item price and changes the original message to the
 	 * response.
@@ -811,11 +901,14 @@ public class ChatCommandsPlugin extends Plugin
 			return;
 		}
 
+<<<<<<< HEAD
 		if (message.length() <= PRICE_COMMAND_STRING.length())
 		{
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		MessageNode messageNode = chatMessage.getMessageNode();
 		String search = message.substring(PRICE_COMMAND_STRING.length() + 1);
 
@@ -836,17 +929,29 @@ public class ChatCommandsPlugin extends Plugin
 				.append(ChatColorType.NORMAL)
 				.append(": GE average ")
 				.append(ChatColorType.HIGHLIGHT)
+<<<<<<< HEAD
 				.append(QuantityFormatter.formatNumber(itemPrice));
+=======
+				.append(StackFormatter.formatNumber(itemPrice));
+>>>>>>> initial import of runelite
 
 			ItemComposition itemComposition = itemManager.getItemComposition(itemId);
 			if (itemComposition != null)
 			{
+<<<<<<< HEAD
 				int alchPrice = Math.round(itemComposition.getPrice() * Constants.HIGH_ALCHEMY_MULTIPLIER);
+=======
+				int alchPrice = Math.round(itemComposition.getPrice() * HIGH_ALCHEMY_CONSTANT);
+>>>>>>> initial import of runelite
 				builder
 					.append(ChatColorType.NORMAL)
 					.append(" HA value ")
 					.append(ChatColorType.HIGHLIGHT)
+<<<<<<< HEAD
 					.append(QuantityFormatter.formatNumber(alchPrice));
+=======
+					.append(StackFormatter.formatNumber(alchPrice));
+>>>>>>> initial import of runelite
 			}
 
 			String response = builder.build();
@@ -879,11 +984,14 @@ public class ChatCommandsPlugin extends Plugin
 		}
 		else
 		{
+<<<<<<< HEAD
 			if (message.length() <= LEVEL_COMMAND_STRING.length())
 			{
 				return;
 			}
 
+=======
+>>>>>>> initial import of runelite
 			search = message.substring(LEVEL_COMMAND_STRING.length() + 1);
 		}
 
@@ -949,7 +1057,11 @@ public class ChatCommandsPlugin extends Plugin
 		ChatMessageType type = chatMessage.getType();
 
 		String player;
+<<<<<<< HEAD
 		if (type == ChatMessageType.PRIVATECHATOUT)
+=======
+		if (type == ChatMessageType.PRIVATE_MESSAGE_SENT)
+>>>>>>> initial import of runelite
 		{
 			player = client.getLocalPlayer().getName();
 		}
@@ -1058,9 +1170,12 @@ public class ChatCommandsPlugin extends Plugin
 
 			switch (level)
 			{
+<<<<<<< HEAD
 				case "beginner":
 					hiscoreSkill = result.getClueScrollBeginner();
 					break;
+=======
+>>>>>>> initial import of runelite
 				case "easy":
 					hiscoreSkill = result.getClueScrollEasy();
 					break;
@@ -1129,7 +1244,11 @@ public class ChatCommandsPlugin extends Plugin
 		final String player;
 		final HiscoreEndpoint ironmanStatus;
 
+<<<<<<< HEAD
 		if (chatMessage.getType().equals(ChatMessageType.PRIVATECHATOUT))
+=======
+		if (chatMessage.getType().equals(ChatMessageType.PRIVATE_MESSAGE_SENT))
+>>>>>>> initial import of runelite
 		{
 			player = client.getLocalPlayer().getName();
 			ironmanStatus = hiscoreEndpoint;
@@ -1338,8 +1457,11 @@ public class ChatCommandsPlugin extends Plugin
 				return "Wintertodt";
 			case "barrows":
 				return "Barrows Chests";
+<<<<<<< HEAD
 			case "herbi":
 				return "Herbiboar";
+=======
+>>>>>>> initial import of runelite
 
 			// cox
 			case "cox":
@@ -1365,6 +1487,7 @@ public class ChatCommandsPlugin extends Plugin
 			case "raids 2":
 				return "Theatre of Blood";
 
+<<<<<<< HEAD
 			// agility course
 			case "prif":
 			case "prifddinas":
@@ -1380,6 +1503,8 @@ public class ChatCommandsPlugin extends Plugin
 			case "cgauntlet":
 				return "Corrupted Gauntlet";
 
+=======
+>>>>>>> initial import of runelite
 			default:
 				return WordUtils.capitalize(boss);
 		}

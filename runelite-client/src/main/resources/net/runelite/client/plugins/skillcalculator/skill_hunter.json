@@ -319,12 +319,15 @@
       "xp": 240
     },
     {
+<<<<<<< HEAD
       "level": 80,
       "icon": 23768,
       "name": "Crystal Impling",
       "xp": 280
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 83,
       "icon": 11256,
       "name": "Dragon Impling",

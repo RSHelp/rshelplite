@@ -49,6 +49,10 @@ import net.runelite.discord.DiscordUser;
 public class DiscordService implements AutoCloseable
 {
 	private final EventBus eventBus;
+<<<<<<< HEAD
+=======
+	private final RuneLiteProperties runeLiteProperties;
+>>>>>>> initial import of runelite
 	private final ScheduledExecutorService executorService;
 	private final DiscordRPC discordRPC;
 
@@ -61,10 +65,18 @@ public class DiscordService implements AutoCloseable
 	@Inject
 	private DiscordService(
 		final EventBus eventBus,
+<<<<<<< HEAD
+=======
+		final RuneLiteProperties runeLiteProperties,
+>>>>>>> initial import of runelite
 		final ScheduledExecutorService executorService)
 	{
 
 		this.eventBus = eventBus;
+<<<<<<< HEAD
+=======
+		this.runeLiteProperties = runeLiteProperties;
+>>>>>>> initial import of runelite
 		this.executorService = executorService;
 
 		DiscordRPC discordRPC = null;
@@ -103,7 +115,11 @@ public class DiscordService implements AutoCloseable
 		discordEventHandlers.joinGame = this::joinGame;
 		discordEventHandlers.spectateGame = this::spectateGame;
 		discordEventHandlers.joinRequest = this::joinRequest;
+<<<<<<< HEAD
 		discordRPC.Discord_Initialize(RuneLiteProperties.getDiscordAppId(), discordEventHandlers, true, null);
+=======
+		discordRPC.Discord_Initialize(runeLiteProperties.getDiscordAppId(), discordEventHandlers, true, null);
+>>>>>>> initial import of runelite
 		executorService.scheduleAtFixedRate(discordRPC::Discord_RunCallbacks, 0, 2, TimeUnit.SECONDS);
 	}
 

@@ -30,7 +30,11 @@ public enum WorldType
 	PVP,
 	BOUNTY,
 	SKILL_TOTAL,
+<<<<<<< HEAD
 	HIGH_RISK,
+=======
+	PVP_HIGH_RISK,
+>>>>>>> initial import of runelite
 	LAST_MAN_STANDING,
 	TOURNAMENT,
 	DEADMAN,

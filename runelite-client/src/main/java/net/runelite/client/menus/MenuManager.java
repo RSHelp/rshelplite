@@ -117,11 +117,14 @@ public class MenuManager
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event)
 	{
+<<<<<<< HEAD
 		if (client.getSpellSelected())
 		{
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		int widgetId = event.getActionParam1();
 		Collection<WidgetMenuOption> options = managedMenuOptions.get(widgetId);
 

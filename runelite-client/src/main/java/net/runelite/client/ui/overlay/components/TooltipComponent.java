@@ -24,7 +24,10 @@
  */
 package net.runelite.client.ui.overlay.components;
 
+<<<<<<< HEAD
 import com.google.common.annotations.VisibleForTesting;
+=======
+>>>>>>> initial import of runelite
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
@@ -97,7 +100,10 @@ public class TooltipComponent implements RenderableEntity
 			char[] chars = line.toCharArray();
 
 			int begin = 0;
+<<<<<<< HEAD
 			boolean inTag = false;
+=======
+>>>>>>> initial import of runelite
 			for (int j = 0; j < chars.length; j++)
 			{
 				if (chars[j] == '<')
@@ -112,9 +118,14 @@ public class TooltipComponent implements RenderableEntity
 					lineX += metrics.stringWidth(text);
 
 					begin = j;
+<<<<<<< HEAD
 					inTag = true;
 				}
 				else if (chars[j] == '>' && inTag)
+=======
+				}
+				else if (chars[j] == '>')
+>>>>>>> initial import of runelite
 				{
 					String subLine = line.substring(begin + 1, j);
 
@@ -151,14 +162,21 @@ public class TooltipComponent implements RenderableEntity
 					}
 
 					begin = j + 1;
+<<<<<<< HEAD
 					inTag = false;
+=======
+>>>>>>> initial import of runelite
 				}
 			}
 
 			// Draw trailing text (after last tag)
 			final TextComponent textComponent = new TextComponent();
 			textComponent.setColor(nextColor);
+<<<<<<< HEAD
 			textComponent.setText(line.substring(begin));
+=======
+			textComponent.setText(line.substring(begin, line.length()));
+>>>>>>> initial import of runelite
 			textComponent.setPosition(new Point(lineX, textY + (i + 1) * textHeight - textDescent));
 			textComponent.render(graphics);
 		}
@@ -166,14 +184,21 @@ public class TooltipComponent implements RenderableEntity
 		return new Dimension(tooltipWidth + OFFSET * 2, tooltipHeight + OFFSET * 2);
 	}
 
+<<<<<<< HEAD
 	@VisibleForTesting
 	static int calculateTextWidth(FontMetrics metrics, String line)
+=======
+	private static int calculateTextWidth(FontMetrics metrics, String line)
+>>>>>>> initial import of runelite
 	{
 		char[] chars = line.toCharArray();
 		int textWidth = 0;
 
 		int begin = 0;
+<<<<<<< HEAD
 		boolean inTag = false;
+=======
+>>>>>>> initial import of runelite
 		for (int j = 0; j < chars.length; j++)
 		{
 			if (chars[j] == '<')
@@ -181,9 +206,14 @@ public class TooltipComponent implements RenderableEntity
 				textWidth += metrics.stringWidth(line.substring(begin, j));
 
 				begin = j;
+<<<<<<< HEAD
 				inTag = true;
 			}
 			else if (chars[j] == '>' && inTag)
+=======
+			}
+			else if (chars[j] == '>')
+>>>>>>> initial import of runelite
 			{
 				String subLine = line.substring(begin + 1, j);
 
@@ -197,12 +227,19 @@ public class TooltipComponent implements RenderableEntity
 				}
 
 				begin = j + 1;
+<<<<<<< HEAD
 				inTag = false;
+=======
+>>>>>>> initial import of runelite
 			}
 		}
 
 		// Include trailing text (after last tag)
+<<<<<<< HEAD
 		textWidth += metrics.stringWidth(line.substring(begin));
+=======
+		textWidth += metrics.stringWidth(line.substring(begin, line.length()));
+>>>>>>> initial import of runelite
 
 		return textWidth;
 	}

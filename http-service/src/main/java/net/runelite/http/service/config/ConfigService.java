@@ -1,5 +1,9 @@
 /*
+<<<<<<< HEAD
  * Copyright (c) 2017-2019, Adam <Adam@sigterm.info>
+=======
+ * Copyright (c) 2017, Adam <Adam@sigterm.info>
+>>>>>>> initial import of runelite
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -24,6 +28,7 @@
  */
 package net.runelite.http.service.config;
 
+<<<<<<< HEAD
 import com.google.common.annotations.VisibleForTesting;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -53,10 +58,23 @@ import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+=======
+import java.util.List;
+import javax.annotation.Nullable;
+import net.runelite.http.api.config.ConfigEntry;
+import net.runelite.http.api.config.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.sql2o.Connection;
+import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
+>>>>>>> initial import of runelite
 
 @Service
 public class ConfigService
 {
+<<<<<<< HEAD
 	private static final int MAX_DEPTH = 8;
 	private static final int MAX_VALUE_LENGTH = 262144;
 
@@ -126,17 +144,69 @@ public class ConfigService
 				configEntry.setValue(value.toString());
 				config.add(configEntry);
 			}
+=======
+	private static final String CREATE_CONFIG = "CREATE TABLE IF NOT EXISTS `config` (\n"
+		+ "  `user` int(11) NOT NULL,\n"
+		+ "  `key` tinytext NOT NULL,\n"
+		+ "  `value` text NOT NULL,\n"
+		+ "  UNIQUE KEY `user_key` (`user`,`key`(64))\n"
+		+ ") ENGINE=InnoDB;";
+
+	private static final String CONFIG_FK = "ALTER TABLE `config`\n"
+		+ "  ADD CONSTRAINT `user_fk` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;";
+
+	private final Sql2o sql2o;
+
+	@Autowired
+	public ConfigService(
+		@Qualifier("Runelite SQL2O") Sql2o sql2o
+	)
+	{
+		this.sql2o = sql2o;
+
+		try (Connection con = sql2o.open())
+		{
+			con.createQuery(CREATE_CONFIG)
+				.executeUpdate();
+
+			try
+			{
+				con.createQuery(CONFIG_FK)
+					.executeUpdate();
+			}
+			catch (Sql2oException ex)
+			{
+				// Ignore, happens when index already exists
+			}
+		}
+	}
+
+	public Configuration get(int userId)
+	{
+		List<ConfigEntry> config;
+
+		try (Connection con = sql2o.open())
+		{
+			config = con.createQuery("select `key`, value from config where user = :user")
+				.addParameter("user", userId)
+				.executeAndFetch(ConfigEntry.class);
+>>>>>>> initial import of runelite
 		}
 
 		return new Configuration(config);
 	}
 
+<<<<<<< HEAD
 	public boolean setKey(
+=======
+	public void setKey(
+>>>>>>> initial import of runelite
 		int userId,
 		String key,
 		@Nullable String value
 	)
 	{
+<<<<<<< HEAD
 		if (key.startsWith("$") || key.startsWith("_"))
 		{
 			return false;
@@ -161,10 +231,24 @@ public class ConfigService
 	}
 
 	public boolean unsetKey(
+=======
+		try (Connection con = sql2o.open())
+		{
+			con.createQuery("insert into config (user, `key`, value) values (:user, :key, :value) on duplicate key update `key` = :key, value = :value")
+				.addParameter("user", userId)
+				.addParameter("key", key)
+				.addParameter("value", value != null ? value : "")
+				.executeUpdate();
+		}
+	}
+
+	public void unsetKey(
+>>>>>>> initial import of runelite
 		int userId,
 		String key
 	)
 	{
+<<<<<<< HEAD
 		if (key.startsWith("$") || key.startsWith("_"))
 		{
 			return false;
@@ -285,5 +369,14 @@ public class ConfigService
 		}
 
 		return true;
+=======
+		try (Connection con = sql2o.open())
+		{
+			con.createQuery("delete from config where user = :user and `key` = :key")
+				.addParameter("user", userId)
+				.addParameter("key", key)
+				.executeUpdate();
+		}
+>>>>>>> initial import of runelite
 	}
 }

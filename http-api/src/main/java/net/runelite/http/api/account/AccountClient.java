@@ -96,7 +96,11 @@ public class AccountClient
 		}
 	}
 
+<<<<<<< HEAD
 	public boolean sessionCheck()
+=======
+	public boolean sesssionCheck()
+>>>>>>> initial import of runelite
 	{
 		HttpUrl url = RuneLiteAPI.getApiBase().newBuilder()
 			.addPathSegment("account")

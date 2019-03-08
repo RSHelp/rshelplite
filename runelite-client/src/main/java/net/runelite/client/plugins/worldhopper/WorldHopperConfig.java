@@ -1,6 +1,9 @@
 /*
  * Copyright (c) 2018, Lotto <https://github.com/devLotto>
+<<<<<<< HEAD
  * Copyright (c) 2019, gregg1494 <https://github.com/gregg1494>
+=======
+>>>>>>> initial import of runelite
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -102,6 +105,7 @@ public interface WorldHopperConfig extends Config
 	{
 		return true;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "menuOption",
@@ -135,4 +139,6 @@ public interface WorldHopperConfig extends Config
 	{
 		return false;
 	}
+=======
+>>>>>>> initial import of runelite
 }

@@ -30,7 +30,10 @@ import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.ItemID;
 import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
+<<<<<<< HEAD
 import net.runelite.api.VarPlayer;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.Varbits;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
@@ -43,7 +46,11 @@ import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
+=======
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 
 class NightmareZoneOverlay extends Overlay
 {
@@ -102,6 +109,7 @@ class NightmareZoneOverlay extends Overlay
 
 		renderAbsorptionCounter();
 
+<<<<<<< HEAD
 		final int currentPoints = client.getVar(Varbits.NMZ_POINTS);
 		final int totalPoints = currentPoints + client.getVar(VarPlayer.NMZ_REWARD_POINTS);
 
@@ -117,6 +125,12 @@ class NightmareZoneOverlay extends Overlay
 		panelComponent.getChildren().add(LineComponent.builder()
 			.left("Total: ")
 			.right(QuantityFormatter.formatNumber(totalPoints))
+=======
+		panelComponent.getChildren().clear();
+		panelComponent.getChildren().add(LineComponent.builder()
+			.left("Points: ")
+			.right(StackFormatter.formatNumber(client.getVar(Varbits.NMZ_POINTS)))
+>>>>>>> initial import of runelite
 			.build());
 
 		return panelComponent.render(graphics);

@@ -26,7 +26,10 @@ package net.runelite.client.config;
 
 import java.awt.Dimension;
 import net.runelite.api.Constants;
+<<<<<<< HEAD
 import net.runelite.client.ui.ContainableFrame;
+=======
+>>>>>>> initial import of runelite
 
 @ConfigGroup("runelite")
 public interface RuneLiteConfig extends Config
@@ -65,6 +68,7 @@ public interface RuneLiteConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "containInScreen2",
 		name = "Contain in screen",
 		description = "Makes the client stay contained in the screen when attempted to move out of it.<br>Note: 'Always' only works if custom chrome is enabled.",
@@ -73,6 +77,16 @@ public interface RuneLiteConfig extends Config
 	default ContainableFrame.Mode containInScreen()
 	{
 		return ContainableFrame.Mode.RESIZING;
+=======
+		keyName = "containInScreen",
+		name = "Contain in screen",
+		description = "Makes the client stay contained in the screen when attempted to move out of it.<br>Note: Only works if custom chrome is enabled.",
+		position = 13
+	)
+	default boolean containInScreen()
+	{
+		return false;
+>>>>>>> initial import of runelite
 	}
 
 	@ConfigItem(
@@ -176,6 +190,7 @@ public interface RuneLiteConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "flashNotification",
 		name = "Flash notification",
 		description = "Flashes the game frame as a notification",
@@ -184,6 +199,16 @@ public interface RuneLiteConfig extends Config
 	default FlashNotification flashNotification()
 	{
 		return FlashNotification.DISABLED;
+=======
+		keyName = "notificationFlash",
+		name = "Enable flash notification",
+		description = "Flashes the game frame as a notification",
+		position = 24
+	)
+	default boolean enableFlashNotification()
+	{
+		return false;
+>>>>>>> initial import of runelite
 	}
 
 	@ConfigItem(

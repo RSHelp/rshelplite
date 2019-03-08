@@ -24,7 +24,11 @@
  */
 package net.runelite.client.plugins.agility;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
+=======
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Map;
 import lombok.Getter;
 import net.runelite.api.coords.WorldPoint;
@@ -46,10 +50,16 @@ enum Courses
 	SEERS(570.0, 435, 10806),
 	POLLNIVNEACH(890.0, 540, 13358),
 	RELLEKA(780.0, 475, 10553),
+<<<<<<< HEAD
 	PRIFDDINAS(1337.0, 1037, 12895),
 	ARDOUGNE(793.0, 529, 10547);
 
 	private final static Map<Integer, Courses> coursesByRegion;
+=======
+	ARDOUGNE(793.0, 529, 10547);
+
+	private final static Map<Integer, Courses> coursesByRegion = new HashMap<>();
+>>>>>>> initial import of runelite
 
 	@Getter
 	private final double totalXp;
@@ -65,6 +75,7 @@ enum Courses
 
 	static
 	{
+<<<<<<< HEAD
 		ImmutableMap.Builder<Integer, Courses> builder = new ImmutableMap.Builder<>();
 
 		for (Courses course : values())
@@ -73,6 +84,12 @@ enum Courses
 		}
 
 		coursesByRegion = builder.build();
+=======
+		for (Courses course : values())
+		{
+			coursesByRegion.put(course.regionId, course);
+		}
+>>>>>>> initial import of runelite
 	}
 
 	Courses(double totalXp, int lastObstacleXp, int regionId, WorldPoint... courseEndWorldPoints)

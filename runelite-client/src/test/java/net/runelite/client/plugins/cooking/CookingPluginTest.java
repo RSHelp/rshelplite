@@ -29,6 +29,7 @@ import com.google.inject.testing.fieldbinder.Bind;
 import com.google.inject.testing.fieldbinder.BoundFieldModule;
 import javax.inject.Inject;
 import net.runelite.api.ChatMessageType;
+<<<<<<< HEAD
 import net.runelite.api.Client;
 import net.runelite.api.GraphicID;
 import net.runelite.api.Player;
@@ -37,17 +38,26 @@ import net.runelite.api.events.GraphicChanged;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
+=======
+import net.runelite.api.events.ChatMessage;
+import net.runelite.client.ui.overlay.OverlayManager;
+>>>>>>> initial import of runelite
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+<<<<<<< HEAD
 import static org.mockito.ArgumentMatchers.any;
 import org.mockito.Mock;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
+=======
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+>>>>>>> initial import of runelite
 
 @RunWith(MockitoJUnitRunner.class)
 public class CookingPluginTest
@@ -59,6 +69,10 @@ public class CookingPluginTest
 		"You cook the karambwan. It looks delicious.",
 		"You roast a lobster.",
 		"You cook a bass.",
+<<<<<<< HEAD
+=======
+		"You squeeze the grapes into the jug. The wine begins to ferment.",
+>>>>>>> initial import of runelite
 		"You successfully bake a tasty garden pie."
 	};
 
@@ -67,6 +81,7 @@ public class CookingPluginTest
 
 	@Mock
 	@Bind
+<<<<<<< HEAD
 	Client client;
 
 	@Mock
@@ -79,6 +94,8 @@ public class CookingPluginTest
 
 	@Mock
 	@Bind
+=======
+>>>>>>> initial import of runelite
 	CookingConfig config;
 
 	@Mock
@@ -100,7 +117,11 @@ public class CookingPluginTest
 	{
 		for (String message : COOKING_MESSAGES)
 		{
+<<<<<<< HEAD
 			ChatMessage chatMessage = new ChatMessage(null, ChatMessageType.SPAM, "", message, "", 0);
+=======
+			ChatMessage chatMessage = new ChatMessage(null, ChatMessageType.FILTERED, "", message, "", 0);
+>>>>>>> initial import of runelite
 			cookingPlugin.onChatMessage(chatMessage);
 		}
 
@@ -108,6 +129,7 @@ public class CookingPluginTest
 		assertNotNull(cookingSession);
 		assertEquals(COOKING_MESSAGES.length, cookingSession.getCookAmount());
 	}
+<<<<<<< HEAD
 
 	@Test
 	public void testOnGraphicChanged()
@@ -124,4 +146,6 @@ public class CookingPluginTest
 
 		verify(infoBoxManager).addInfoBox(any(FermentTimer.class));
 	}
+=======
+>>>>>>> initial import of runelite
 }

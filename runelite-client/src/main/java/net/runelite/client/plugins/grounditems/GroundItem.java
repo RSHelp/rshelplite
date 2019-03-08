@@ -24,9 +24,12 @@
  */
 package net.runelite.client.plugins.grounditems;
 
+<<<<<<< HEAD
 import java.time.Instant;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+=======
+>>>>>>> initial import of runelite
 import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
@@ -46,6 +49,7 @@ class GroundItem
 	private int gePrice;
 	private int offset;
 	private boolean tradeable;
+<<<<<<< HEAD
 	@Nonnull
 	private LootType lootType;
 	/**
@@ -54,6 +58,9 @@ class GroundItem
 	private boolean isDropped;
 	@Nullable
 	private Instant spawnTime;
+=======
+	private boolean isMine;
+>>>>>>> initial import of runelite
 
 	int getHaPrice()
 	{
@@ -65,11 +72,14 @@ class GroundItem
 		return gePrice * quantity;
 	}
 
+<<<<<<< HEAD
 	boolean isMine()
 	{
 		return lootType != LootType.UNKNOWN;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@Value
 	static class GroundItemKey
 	{

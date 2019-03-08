@@ -24,9 +24,12 @@
  */
 package net.runelite.http.service.feed;
 
+<<<<<<< HEAD
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hasher;
 import com.google.common.hash.Hashing;
+=======
+>>>>>>> initial import of runelite
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +44,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+>>>>>>> initial import of runelite
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -54,6 +60,7 @@ public class FeedController
 	private final TwitterService twitterService;
 	private final OSRSNewsService osrsNewsService;
 
+<<<<<<< HEAD
 	private static class MemoizedFeed
 	{
 		final FeedResult feedResult;
@@ -74,6 +81,9 @@ public class FeedController
 	}
 
 	private MemoizedFeed memoizedFeed;
+=======
+	private FeedResult feedResult;
+>>>>>>> initial import of runelite
 
 	@Autowired
 	public FeedController(BlogService blogService, TwitterService twitterService, OSRSNewsService osrsNewsService)
@@ -115,6 +125,7 @@ public class FeedController
 			log.warn(e.getMessage());
 		}
 
+<<<<<<< HEAD
 		memoizedFeed = new MemoizedFeed(new FeedResult(items));
 	}
 
@@ -122,14 +133,28 @@ public class FeedController
 	public ResponseEntity<FeedResult> getFeed()
 	{
 		if (memoizedFeed == null)
+=======
+		feedResult = new FeedResult(items);
+	}
+
+	@RequestMapping
+	public ResponseEntity<FeedResult> getFeed()
+	{
+		if (feedResult == null)
+>>>>>>> initial import of runelite
 		{
 			return ResponseEntity.notFound()
 				.build();
 		}
 
 		return ResponseEntity.ok()
+<<<<<<< HEAD
 			.eTag(memoizedFeed.hash)
 			.cacheControl(CacheControl.maxAge(10, TimeUnit.MINUTES).cachePublic())
 			.body(memoizedFeed.feedResult);
+=======
+			.cacheControl(CacheControl.maxAge(10, TimeUnit.MINUTES).cachePublic())
+			.body(feedResult);
+>>>>>>> initial import of runelite
 	}
 }

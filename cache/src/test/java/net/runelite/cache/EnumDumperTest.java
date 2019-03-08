@@ -80,7 +80,11 @@ public class EnumDumperTest
 
 				if (def != null)
 				{
+<<<<<<< HEAD
 					Files.asCharSink(new File(dumpDir, file.getFileId() + ".json"), Charset.defaultCharset()).write(gson.toJson(def));
+=======
+					Files.write(gson.toJson(def), new File(dumpDir, file.getFileId() + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 					++count;
 				}
 			}

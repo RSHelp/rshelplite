@@ -78,7 +78,11 @@ public class WesternDiaryRequirement extends GenericDiaryRequirement
 		add("Make a Chocolate Bomb at the Grand Tree.",
 			new SkillRequirement(Skill.COOKING, 42));
 		add("Complete a delivery for the Gnome Restaurant.",
+<<<<<<< HEAD
 			new SkillRequirement(Skill.COOKING, 29));
+=======
+			new SkillRequirement(Skill.COOKING, 42));
+>>>>>>> initial import of runelite
 		add("Turn your small crystal seed into a Crystal saw.",
 			new QuestRequirement(Quest.THE_EYES_OF_GLOUPHRIE));
 		add("Mine some Gold ore underneath the Grand Tree.",
@@ -88,7 +92,11 @@ public class WesternDiaryRequirement extends GenericDiaryRequirement
 		// HARD
 		add("Kill an Elf with a Crystal bow.",
 			new SkillRequirement(Skill.RANGED, 70),
+<<<<<<< HEAD
 			new SkillRequirement(Skill.AGILITY, 56),
+=======
+			new SkillRequirement(Skill.AGILITY, 50),
+>>>>>>> initial import of runelite
 			new QuestRequirement(Quest.ROVING_ELVES));
 		add("Catch and cook a Monkfish in Piscatoris.",
 			new SkillRequirement(Skill.FISHING, 62),
@@ -110,7 +118,11 @@ public class WesternDiaryRequirement extends GenericDiaryRequirement
 			new QuestRequirement(Quest.REGICIDE));
 		add("Check the health of your Palm tree in Lletya.",
 			new SkillRequirement(Skill.FARMING, 68),
+<<<<<<< HEAD
 			new QuestRequirement(Quest.MOURNINGS_END_PART_I, true));
+=======
+			new QuestRequirement(Quest.MOURNINGS_ENDS_PART_I, true));
+>>>>>>> initial import of runelite
 		add("Claim a Chompy bird hat from Rantz after registering at least 300 kills.",
 			new QuestRequirement(Quest.BIG_CHOMPY_BIRD_HUNTING));
 		add("Build an Isafdar painting in your POH Quest hall.",
@@ -126,9 +138,15 @@ public class WesternDiaryRequirement extends GenericDiaryRequirement
 			new QuestRequirement(Quest.TREE_GNOME_VILLAGE));
 
 		// ELITE
+<<<<<<< HEAD
 		add("Fletch a Magic Longbow in Tirannwn.",
 			new SkillRequirement(Skill.FLETCHING, 85),
 			new QuestRequirement(Quest.MOURNINGS_END_PART_I));
+=======
+		add("Fletch a Magic Longbow in the Elven lands.",
+			new SkillRequirement(Skill.FLETCHING, 85),
+			new QuestRequirement(Quest.MOURNINGS_ENDS_PART_I));
+>>>>>>> initial import of runelite
 		add("Kill the Thermonuclear Smoke devil (Does not require task).",
 			new SkillRequirement(Skill.SLAYER, 93));
 		add("Have Prissy Scilla protect your Magic tree.",
@@ -140,6 +158,10 @@ public class WesternDiaryRequirement extends GenericDiaryRequirement
 			new QuestRequirement(Quest.BIG_CHOMPY_BIRD_HUNTING));
 		add("Pickpocket an Elf.",
 			new SkillRequirement(Skill.THIEVING, 85),
+<<<<<<< HEAD
 			new QuestRequirement(Quest.MOURNINGS_END_PART_I, true));
+=======
+			new QuestRequirement(Quest.MOURNINGS_ENDS_PART_II));
+>>>>>>> initial import of runelite
 	}
 }

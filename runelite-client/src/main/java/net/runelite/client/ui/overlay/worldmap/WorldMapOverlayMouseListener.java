@@ -68,12 +68,17 @@ public class WorldMapOverlayMouseListener extends MouseAdapter
 				{
 					if (worldMapPoint.isJumpOnClick())
 					{
+<<<<<<< HEAD
 						// jump map to target, or position of point
 						WorldPoint target = worldMapPoint.getTarget();
 						if (target == null)
 						{
 							target = worldMapPoint.getWorldPoint();
 						}
+=======
+						// jump map to position of point
+						WorldPoint target = worldMapPoint.getWorldPoint();
+>>>>>>> initial import of runelite
 						RenderOverview renderOverview = client.getRenderOverview();
 						renderOverview.setWorldMapPositionTarget(target);
 					}

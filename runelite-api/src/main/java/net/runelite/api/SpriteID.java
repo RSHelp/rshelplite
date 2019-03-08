@@ -725,7 +725,11 @@ public final class SpriteID
 	public static final int EMOTE_GOBLIN_SALUTE = 727;
 	public static final int EMOTE_SCARED = 728;
 	public static final int EMOTE_SLAP_HEAD = 729;
+<<<<<<< HEAD
 	public static final int EMOTE_STAMP = 730;
+=======
+	public static final int EMOTE_STOMP = 730;
+>>>>>>> initial import of runelite
 	public static final int EMOTE_FLAP = 731;
 	public static final int EMOTE_IDEA = 732;
 	public static final int EMOTE_ZOMBIE_WALK = 733;
@@ -745,7 +749,11 @@ public final class SpriteID
 	public static final int EMOTE_GOBLIN_SALUTE_LOCKED = 747;
 	public static final int EMOTE_SCARED_LOCKED = 748;
 	public static final int EMOTE_SLAP_HEAD_LOCKED = 749;
+<<<<<<< HEAD
 	public static final int EMOTE_STAMP_LOCKED = 750;
+=======
+	public static final int EMOTE_STOMP_LOCKED = 750;
+>>>>>>> initial import of runelite
 	public static final int EMOTE_FLAP_LOCKED = 751;
 	public static final int EMOTE_IDEA_LOCKED = 752;
 	public static final int EMOTE_ZOMBIE_WALK_LOCKED = 753;
@@ -1564,6 +1572,7 @@ public final class SpriteID
 	public static final int MOBILE_FUNCTION_MODE_DISABLED = 1624;
 	public static final int MOBILE_YELLOW_TOUCH_ANIMATION_1 = 1625;
 	public static final int MOBILE_YELLOW_TOUCH_ANIMATION_2 = 1626;
+<<<<<<< HEAD
 	public static final int MOBILE_FINGER_ON_INTERFACE = 1653;
 	/* Unmapped: 1627~1701 */
 	public static final int BUTTON_FRIENDS = 1702;
@@ -1589,4 +1598,8 @@ public final class SpriteID
 	public static final int HEALTHBAR_DEFAULT_BACK_140PX = 2189;
 	public static final int HEALTHBAR_DEFAULT_FRONT_160PX = 2190;
 	public static final int HEALTHBAR_DEFAULT_BACK_160PX = 2191;
+=======
+	public static final int TAB_MAGIC_SPELLBOOK_ARCEUUS_UNUSED = 1708;
+	public static final int TAB_MAGIC_SPELLBOOK_ARCEUUS = 1711;
+>>>>>>> initial import of runelite
 }

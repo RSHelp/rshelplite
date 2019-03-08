@@ -32,7 +32,10 @@ import net.runelite.client.config.ConfigItem;
 import net.runelite.client.plugins.grounditems.config.ItemHighlightMode;
 import net.runelite.client.plugins.grounditems.config.MenuHighlightMode;
 import net.runelite.client.plugins.grounditems.config.PriceDisplayMode;
+<<<<<<< HEAD
 import net.runelite.client.plugins.grounditems.config.ValueCalculationMode;
+=======
+>>>>>>> initial import of runelite
 
 @ConfigGroup("grounditems")
 public interface GroundItemsConfig extends Config
@@ -173,6 +176,7 @@ public interface GroundItemsConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "highlightValueCalculation",
 		name = "Highlight Value Calculation",
 		description = "Configures which coin value is used to determine highlight color",
@@ -188,6 +192,12 @@ public interface GroundItemsConfig extends Config
 		name = "Highlight > Value",
 		description = "Configures highlighted ground items over either GE or HA value",
 		position = 12
+=======
+		keyName = "highlightOverValue2",
+		name = "Highlight > Value",
+		description = "Configures highlighted ground items over either GE or HA value",
+		position = 11
+>>>>>>> initial import of runelite
 	)
 	default int getHighlightOverValue()
 	{
@@ -198,7 +208,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "hideUnderValue",
 		name = "Hide < Value",
 		description = "Configures hidden ground items under both GE and HA value",
+<<<<<<< HEAD
 		position = 13
+=======
+		position = 12
+>>>>>>> initial import of runelite
 	)
 	default int getHideUnderValue()
 	{
@@ -209,7 +223,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "defaultColor",
 		name = "Default items color",
 		description = "Configures the color for default, non-highlighted items",
+<<<<<<< HEAD
 		position = 14
+=======
+		position = 13
+>>>>>>> initial import of runelite
 	)
 	default Color defaultColor()
 	{
@@ -220,7 +238,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "highlightedColor",
 		name = "Highlighted items color",
 		description = "Configures the color for highlighted items",
+<<<<<<< HEAD
 		position = 15
+=======
+		position = 14
+>>>>>>> initial import of runelite
 	)
 	default Color highlightedColor()
 	{
@@ -231,7 +253,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "hiddenColor",
 		name = "Hidden items color",
 		description = "Configures the color for hidden items in right-click menu and when holding ALT",
+<<<<<<< HEAD
 		position = 16
+=======
+		position = 15
+>>>>>>> initial import of runelite
 	)
 	default Color hiddenColor()
 	{
@@ -242,7 +268,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "lowValueColor",
 		name = "Low value items color",
 		description = "Configures the color for low value items",
+<<<<<<< HEAD
 		position = 17
+=======
+		position = 16
+>>>>>>> initial import of runelite
 	)
 	default Color lowValueColor()
 	{
@@ -253,7 +283,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "lowValuePrice",
 		name = "Low value price",
 		description = "Configures the start price for low value items",
+<<<<<<< HEAD
 		position = 18
+=======
+		position = 17
+>>>>>>> initial import of runelite
 	)
 	default int lowValuePrice()
 	{
@@ -264,7 +298,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "mediumValueColor",
 		name = "Medium value items color",
 		description = "Configures the color for medium value items",
+<<<<<<< HEAD
 		position = 19
+=======
+		position = 18
+>>>>>>> initial import of runelite
 	)
 	default Color mediumValueColor()
 	{
@@ -275,7 +313,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "mediumValuePrice",
 		name = "Medium value price",
 		description = "Configures the start price for medium value items",
+<<<<<<< HEAD
 		position = 20
+=======
+		position = 19
+>>>>>>> initial import of runelite
 	)
 	default int mediumValuePrice()
 	{
@@ -286,7 +328,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "highValueColor",
 		name = "High value items color",
 		description = "Configures the color for high value items",
+<<<<<<< HEAD
 		position = 21
+=======
+		position = 20
+>>>>>>> initial import of runelite
 	)
 	default Color highValueColor()
 	{
@@ -297,7 +343,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "highValuePrice",
 		name = "High value price",
 		description = "Configures the start price for high value items",
+<<<<<<< HEAD
 		position = 22
+=======
+		position = 21
+>>>>>>> initial import of runelite
 	)
 	default int highValuePrice()
 	{
@@ -308,7 +358,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "insaneValueColor",
 		name = "Insane value items color",
 		description = "Configures the color for insane value items",
+<<<<<<< HEAD
 		position = 23
+=======
+		position = 22
+>>>>>>> initial import of runelite
 	)
 	default Color insaneValueColor()
 	{
@@ -319,7 +373,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "insaneValuePrice",
 		name = "Insane value price",
 		description = "Configures the start price for insane value items",
+<<<<<<< HEAD
 		position = 24
+=======
+		position = 23
+>>>>>>> initial import of runelite
 	)
 	default int insaneValuePrice()
 	{
@@ -330,7 +388,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "onlyShowLoot",
 		name = "Only show loot",
 		description = "Only shows drops from NPCs and players",
+<<<<<<< HEAD
 		position = 25
+=======
+		position = 24
+>>>>>>> initial import of runelite
 	)
 	default boolean onlyShowLoot()
 	{
@@ -341,7 +403,11 @@ public interface GroundItemsConfig extends Config
 		keyName = "doubleTapDelay",
 		name = "Delay for double-tap ALT to hide",
 		description = "Decrease this number if you accidentally hide ground items often. (0 = Disabled)",
+<<<<<<< HEAD
 		position = 26
+=======
+		position = 25
+>>>>>>> initial import of runelite
 	)
 	default int doubleTapDelay()
 	{
@@ -352,12 +418,17 @@ public interface GroundItemsConfig extends Config
 		keyName = "collapseEntries",
 		name = "Collapse ground item menu entries",
 		description = "Collapses ground item menu entries together and appends count",
+<<<<<<< HEAD
 		position = 27
+=======
+		position = 26
+>>>>>>> initial import of runelite
 	)
 	default boolean collapseEntries()
 	{
 		return false;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "groundItemTimers",
@@ -369,4 +440,6 @@ public interface GroundItemsConfig extends Config
 	{
 		return false;
 	}
+=======
+>>>>>>> initial import of runelite
 }

@@ -63,7 +63,11 @@ public interface DailyTasksConfig extends Config
 	)
 	default boolean showEssence()
 	{
+<<<<<<< HEAD
 		return false;
+=======
+		return true;
+>>>>>>> initial import of runelite
 	}
 
 	@ConfigItem(
@@ -74,7 +78,11 @@ public interface DailyTasksConfig extends Config
 	)
 	default boolean showRunes()
 	{
+<<<<<<< HEAD
 		return false;
+=======
+		return true;
+>>>>>>> initial import of runelite
 	}
 
 	@ConfigItem(
@@ -85,7 +93,11 @@ public interface DailyTasksConfig extends Config
 	)
 	default boolean showSand()
 	{
+<<<<<<< HEAD
 		return false;
+=======
+		return true;
+>>>>>>> initial import of runelite
 	}
 
 	@ConfigItem(
@@ -96,7 +108,11 @@ public interface DailyTasksConfig extends Config
 	)
 	default boolean showFlax()
 	{
+<<<<<<< HEAD
 		return false;
+=======
+		return true;
+>>>>>>> initial import of runelite
 	}
 
 	@ConfigItem(
@@ -107,6 +123,7 @@ public interface DailyTasksConfig extends Config
 	)
 	default boolean showBonemeal()
 	{
+<<<<<<< HEAD
 		return false;
 	}
 
@@ -130,5 +147,8 @@ public interface DailyTasksConfig extends Config
 	default boolean showArrows()
 	{
 		return false;
+=======
+		return true;
+>>>>>>> initial import of runelite
 	}
 }

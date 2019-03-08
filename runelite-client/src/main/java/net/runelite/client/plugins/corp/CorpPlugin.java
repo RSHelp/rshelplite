@@ -35,12 +35,22 @@ import net.runelite.api.Actor;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
+<<<<<<< HEAD
+=======
+import net.runelite.api.MenuAction;
+import static net.runelite.api.MenuAction.MENU_ACTION_DEPRIORITIZE_OFFSET;
+import net.runelite.api.MenuEntry;
+>>>>>>> initial import of runelite
 import net.runelite.api.NPC;
 import net.runelite.api.NpcID;
 import net.runelite.api.Varbits;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.HitsplatApplied;
 import net.runelite.api.events.InteractingChanged;
+<<<<<<< HEAD
+=======
+import net.runelite.api.events.MenuEntryAdded;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.NpcDespawned;
 import net.runelite.api.events.NpcSpawned;
 import net.runelite.client.chat.ChatColorType;
@@ -61,6 +71,13 @@ import net.runelite.client.ui.overlay.OverlayManager;
 @Slf4j
 public class CorpPlugin extends Plugin
 {
+<<<<<<< HEAD
+=======
+	private static final int NPC_SECTION_ACTION = MenuAction.NPC_SECOND_OPTION.getId();
+	private static final String ATTACK = "Attack";
+	private static final String DARK_ENERGY_CORE = "Dark energy core";
+
+>>>>>>> initial import of runelite
 	@Getter(AccessLevel.PACKAGE)
 	private NPC corp;
 
@@ -173,7 +190,11 @@ public class CorpPlugin extends Plugin
 					.build();
 
 				chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 					.type(ChatMessageType.CONSOLE)
+=======
+					.type(ChatMessageType.GAME)
+>>>>>>> initial import of runelite
 					.runeLiteFormattedMessage(message)
 					.build());
 			}
@@ -216,4 +237,31 @@ public class CorpPlugin extends Plugin
 
 		players.add(source);
 	}
+<<<<<<< HEAD
+=======
+
+	@Subscribe
+	public void onMenuEntryAdded(MenuEntryAdded menuEntryAdded)
+	{
+		if (menuEntryAdded.getType() != NPC_SECTION_ACTION
+			|| !config.leftClickCore() || !menuEntryAdded.getOption().equals(ATTACK))
+		{
+			return;
+		}
+
+		final int npcIndex = menuEntryAdded.getIdentifier();
+		final NPC npc = client.getCachedNPCs()[npcIndex];
+		if (npc == null || !npc.getName().equals(DARK_ENERGY_CORE))
+		{
+			return;
+		}
+
+		// since this is the menu entry add event, this is the last menu entry
+		MenuEntry[] menuEntries = client.getMenuEntries();
+		MenuEntry menuEntry = menuEntries[menuEntries.length - 1];
+
+		menuEntry.setType(NPC_SECTION_ACTION + MENU_ACTION_DEPRIORITIZE_OFFSET);
+		client.setMenuEntries(menuEntries);
+	}
+>>>>>>> initial import of runelite
 }

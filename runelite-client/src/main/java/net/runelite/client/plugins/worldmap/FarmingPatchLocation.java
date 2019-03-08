@@ -35,7 +35,10 @@ enum FarmingPatchLocation
 		new WorldPoint(3793, 2836, 0),
 		new WorldPoint(1269, 3730, 0)
 	),
+<<<<<<< HEAD
 	ALLOTMENT_FLOWER("Allotment/Flower", new WorldPoint(3289, 6100, 0)),
+=======
+>>>>>>> initial import of runelite
 	ALLOTMENT_HERB_FLOWER("Allotment/Herb/Flower",
 		new WorldPoint(1809, 3490, 0),
 		new WorldPoint(3598, 3524, 0),
@@ -60,9 +63,12 @@ enum FarmingPatchLocation
 	CELASTRUS_FRUIT_TREE("Celastrus/Fruit Tree",
 		new WorldPoint(1242, 3755, 0)
 	),
+<<<<<<< HEAD
 	CRYSTAL_TREE("Crystal Tree",
 		new WorldPoint(3292, 6120, 0)
 	),
+=======
+>>>>>>> initial import of runelite
 	FRUIT_TREE("Fruit Tree",
 		new WorldPoint(2487, 3181, 0),
 		new WorldPoint(2343, 3160, 0),

@@ -54,6 +54,7 @@ public interface IdleNotifierConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "movementidle",
 		name = "Idle Movement Notifications",
 		description = "Configures if idle movement notifications are enabled e.g. running, walking",
@@ -69,6 +70,12 @@ public interface IdleNotifierConfig extends Config
 		name = "Idle Logout Notifications",
 		description = "Configures if the idle logout notifications are enabled",
 		position = 4
+=======
+		keyName = "logoutidle",
+		name = "Idle Logout Notifications",
+		description = "Configures if the idle logout notifications are enabled",
+		position = 3
+>>>>>>> initial import of runelite
 	)
 	default boolean logoutIdle()
 	{
@@ -79,7 +86,11 @@ public interface IdleNotifierConfig extends Config
 		keyName = "timeout",
 		name = "Idle Notification Delay (ms)",
 		description = "The notification delay after the player is idle",
+<<<<<<< HEAD
 		position = 5
+=======
+		position = 4
+>>>>>>> initial import of runelite
 	)
 	default int getIdleNotificationDelay()
 	{
@@ -90,7 +101,11 @@ public interface IdleNotifierConfig extends Config
 		keyName = "hitpoints",
 		name = "Hitpoints Notification Threshold",
 		description = "The amount of hitpoints to send a notification at. A value of 0 will disable notification.",
+<<<<<<< HEAD
 		position = 6
+=======
+		position = 5
+>>>>>>> initial import of runelite
 	)
 	default int getHitpointsThreshold()
 	{
@@ -101,7 +116,11 @@ public interface IdleNotifierConfig extends Config
 		keyName = "prayer",
 		name = "Prayer Notification Threshold",
 		description = "The amount of prayer points to send a notification at. A value of 0 will disable notification.",
+<<<<<<< HEAD
 		position = 7
+=======
+		position = 6
+>>>>>>> initial import of runelite
 	)
 	default int getPrayerThreshold()
 	{
@@ -111,7 +130,11 @@ public interface IdleNotifierConfig extends Config
 	@ConfigItem(
 		keyName = "oxygen",
 		name = "Oxygen Notification Threshold",
+<<<<<<< HEAD
 		position = 8,
+=======
+		position = 7,
+>>>>>>> initial import of runelite
 		description = "The amount of remaining oxygen to send a notification at. A value of 0 will disable notification."
 	)
 	default int getOxygenThreshold()
@@ -122,7 +145,11 @@ public interface IdleNotifierConfig extends Config
 	@ConfigItem(
 		keyName = "spec",
 		name = "Special Attack Energy Notification Threshold",
+<<<<<<< HEAD
 		position = 9,
+=======
+		position = 8,
+>>>>>>> initial import of runelite
 		description = "The amount of spec energy reached to send a notification at. A value of 0 will disable notification."
 	)
 	default int getSpecEnergyThreshold()

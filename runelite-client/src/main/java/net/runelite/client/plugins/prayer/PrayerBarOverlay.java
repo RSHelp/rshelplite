@@ -28,7 +28,10 @@ package net.runelite.client.plugins.prayer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+<<<<<<< HEAD
 import java.awt.image.BufferedImage;
+=======
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import net.runelite.api.Client;
@@ -36,13 +39,19 @@ import net.runelite.api.Perspective;
 import net.runelite.api.Player;
 import net.runelite.api.Point;
 import net.runelite.api.Skill;
+<<<<<<< HEAD
 import net.runelite.api.SpriteID;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
+<<<<<<< HEAD
 import net.runelite.client.util.ImageUtil;
+=======
+>>>>>>> initial import of runelite
 
 @Singleton
 class PrayerBarOverlay extends Overlay
@@ -51,9 +60,12 @@ class PrayerBarOverlay extends Overlay
 	private static final Color BAR_BG_COLOR = Color.black;
 	private static final Color FLICK_HELP_COLOR = Color.white;
 	private static final Dimension PRAYER_BAR_SIZE = new Dimension(30, 5);
+<<<<<<< HEAD
 	private static final int HD_PRAYER_BAR_PADDING = 1;
 	private static final BufferedImage HD_FRONT_BAR = ImageUtil.getResourceStreamFromClass(PrayerPlugin.class, "front.png");
 	private static final BufferedImage HD_BACK_BAR = ImageUtil.getResourceStreamFromClass(PrayerPlugin.class, "back.png");
+=======
+>>>>>>> initial import of runelite
 
 	private final Client client;
 	private final PrayerConfig config;
@@ -85,6 +97,7 @@ class PrayerBarOverlay extends Overlay
 		final LocalPoint localLocation = client.getLocalPlayer().getLocalLocation();
 		final Point canvasPoint = Perspective.localToCanvas(client, localLocation, client.getPlane(), height);
 
+<<<<<<< HEAD
 		final float ratio = (float) client.getBoostedSkillLevel(Skill.PRAYER) / client.getRealSkillLevel(Skill.PRAYER);
 
 		// Draw HD bar
@@ -119,11 +132,17 @@ class PrayerBarOverlay extends Overlay
 			return new Dimension(barWidth, barHeight);
 		}
 
+=======
+>>>>>>> initial import of runelite
 		// Draw bar
 		final int barX = canvasPoint.getX() - 15;
 		final int barY = canvasPoint.getY();
 		final int barWidth = PRAYER_BAR_SIZE.width;
 		final int barHeight = PRAYER_BAR_SIZE.height;
+<<<<<<< HEAD
+=======
+		final float ratio = (float) client.getBoostedSkillLevel(Skill.PRAYER) / client.getRealSkillLevel(Skill.PRAYER);
+>>>>>>> initial import of runelite
 
 		// Restricted by the width to prevent the bar from being too long while you are boosted above your real prayer level.
 		final int progressFill = (int) Math.ceil(Math.min((barWidth * ratio), barWidth));
@@ -139,7 +158,11 @@ class PrayerBarOverlay extends Overlay
 		{
 			double t = plugin.getTickProgress();
 
+<<<<<<< HEAD
 			final int xOffset = (int) (-Math.cos(t) * barWidth / 2) + barWidth / 2;
+=======
+			int xOffset = (int) (-Math.cos(t) * barWidth / 2) + barWidth / 2;
+>>>>>>> initial import of runelite
 
 			graphics.setColor(FLICK_HELP_COLOR);
 			graphics.fillRect(barX + xOffset, barY, 1, barHeight);

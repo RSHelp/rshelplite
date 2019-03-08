@@ -263,6 +263,7 @@ public class XpGlobesOverlay extends Overlay
 		{
 			XpActionType xpActionType = xpTrackerService.getActionType(mouseOverSkill.getSkill());
 
+<<<<<<< HEAD
 			if (config.showActionsLeft())
 			{
 				int actionsLeft = xpTrackerService.getActionsLeft(mouseOverSkill.getSkill());
@@ -300,6 +301,36 @@ public class XpGlobesOverlay extends Overlay
 							.right(xpHrString)
 							.build());
 				}
+=======
+			int actionsLeft = xpTrackerService.getActionsLeft(mouseOverSkill.getSkill());
+			if (actionsLeft != Integer.MAX_VALUE)
+			{
+				String actionsLeftString = decimalFormat.format(actionsLeft);
+				xpTooltip.getChildren().add(LineComponent.builder()
+					.left(xpActionType.getLabel() + " left:")
+					.leftColor(Color.ORANGE)
+					.right(actionsLeftString)
+					.build());
+			}
+
+			int xpLeft = goalXp - mouseOverSkill.getCurrentXp();
+			String skillXpToLvl = decimalFormat.format(xpLeft);
+			xpTooltip.getChildren().add(LineComponent.builder()
+				.left("XP left:")
+				.leftColor(Color.ORANGE)
+				.right(skillXpToLvl)
+				.build());
+
+			int xpHr = xpTrackerService.getXpHr(mouseOverSkill.getSkill());
+			if (xpHr != 0)
+			{
+				String xpHrString = decimalFormat.format(xpHr);
+				xpTooltip.getChildren().add(LineComponent.builder()
+					.left("XP per hour:")
+					.leftColor(Color.ORANGE)
+					.right(xpHrString)
+					.build());
+>>>>>>> initial import of runelite
 			}
 		}
 

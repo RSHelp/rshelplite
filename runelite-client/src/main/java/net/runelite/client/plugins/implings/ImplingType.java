@@ -40,7 +40,10 @@ enum ImplingType
 	NATURE("Nature"),
 	MAGPIE("Magpie"),
 	NINJA("Ninja"),
+<<<<<<< HEAD
 	CRYSTAL("Crystal"),
+=======
+>>>>>>> initial import of runelite
 	DRAGON("Dragon"),
 	LUCKY("Lucky");
 

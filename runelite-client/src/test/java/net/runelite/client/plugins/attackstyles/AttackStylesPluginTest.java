@@ -46,7 +46,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+<<<<<<< HEAD
 import org.mockito.junit.MockitoJUnitRunner;
+=======
+import org.mockito.runners.MockitoJUnitRunner;
+>>>>>>> initial import of runelite
 
 @RunWith(MockitoJUnitRunner.class)
 public class AttackStylesPluginTest
@@ -161,6 +165,10 @@ public class AttackStylesPluginTest
 		hideWidgetEvent.setKey("removeWarnedStyles");
 		hideWidgetEvent.setNewValue("false");
 		attackPlugin.onConfigChanged(hideWidgetEvent);
+<<<<<<< HEAD
+=======
+		when(attackConfig.removeWarnedStyles()).thenReturn(false);
+>>>>>>> initial import of runelite
 
 		// verify that the aggressive and accurate attack style widgets are no longer hidden
 		assertFalse(attackPlugin.getHiddenWidgets().get(WeaponType.TYPE_4,

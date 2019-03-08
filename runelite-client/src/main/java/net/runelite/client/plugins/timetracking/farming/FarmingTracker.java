@@ -187,11 +187,14 @@ public class FarmingTracker
 
 		PatchState state = patch.getImplementation().forVarbitValue(value);
 
+<<<<<<< HEAD
 		if (state == null)
 		{
 			return null;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		int stage = state.getStage();
 		int stages = state.getStages();
 		int tickrate = state.getTickRate() * 60;

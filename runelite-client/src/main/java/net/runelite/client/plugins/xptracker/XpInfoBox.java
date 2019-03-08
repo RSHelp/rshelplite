@@ -28,7 +28,10 @@ package net.runelite.client.plugins.xptracker;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+<<<<<<< HEAD
 import java.math.RoundingMode;
+=======
+>>>>>>> initial import of runelite
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,8 +44,11 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+<<<<<<< HEAD
 import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
+=======
+>>>>>>> initial import of runelite
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.Client;
@@ -56,17 +62,24 @@ import net.runelite.client.ui.SkillColor;
 import net.runelite.client.ui.components.ProgressBar;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.LinkBrowser;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
+=======
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 
 class XpInfoBox extends JPanel
 {
 	private static final DecimalFormat TWO_DECIMAL_FORMAT = new DecimalFormat("0.00");
 
+<<<<<<< HEAD
 	static
 	{
 		TWO_DECIMAL_FORMAT.setRoundingMode(RoundingMode.DOWN);
 	}
 
+=======
+>>>>>>> initial import of runelite
 	// Templates
 	private static final String HTML_TOOL_TIP_TEMPLATE =
 		"<html>%s %s done<br/>"
@@ -75,9 +88,12 @@ class XpInfoBox extends JPanel
 	private static final String HTML_LABEL_TEMPLATE =
 		"<html><body style='color:%s'>%s<span style='color:white'>%s</span></body></html>";
 
+<<<<<<< HEAD
 	private static final String REMOVE_STATE = "Remove from canvas";
 	private static final String ADD_STATE = "Add to canvas";
 
+=======
+>>>>>>> initial import of runelite
 	// Instance members
 	private final JPanel panel;
 
@@ -100,7 +116,10 @@ class XpInfoBox extends JPanel
 	private final JLabel expLeft = new JLabel();
 	private final JLabel actionsLeft = new JLabel();
 	private final JMenuItem pauseSkill = new JMenuItem("Pause");
+<<<<<<< HEAD
 	private final JMenuItem canvasItem = new JMenuItem(ADD_STATE);
+=======
+>>>>>>> initial import of runelite
 
 	private final XpTrackerConfig xpTrackerConfig;
 
@@ -140,6 +159,7 @@ class XpInfoBox extends JPanel
 		popupMenu.add(reset);
 		popupMenu.add(resetOthers);
 		popupMenu.add(pauseSkill);
+<<<<<<< HEAD
 		popupMenu.add(canvasItem);
 		popupMenu.addPopupMenuListener(new PopupMenuListener()
 		{
@@ -171,6 +191,8 @@ class XpInfoBox extends JPanel
 				xpTrackerPlugin.addOverlay(skill);
 			}
 		});
+=======
+>>>>>>> initial import of runelite
 
 		JLabel skillIcon = new JLabel(new ImageIcon(iconManager.getSkillImage(skill)));
 		skillIcon.setHorizontalAlignment(SwingConstants.CENTER);
@@ -220,7 +242,10 @@ class XpInfoBox extends JPanel
 
 	void reset()
 	{
+<<<<<<< HEAD
 		canvasItem.setText(ADD_STATE);
+=======
+>>>>>>> initial import of runelite
 		container.remove(statsPanel);
 		panel.remove(this);
 		panel.revalidate();
@@ -259,13 +284,21 @@ class XpInfoBox extends JPanel
 			// Add intermediate level positions to progressBar
 			if (xpTrackerConfig.showIntermediateLevels() && xpSnapshotSingle.getEndLevel() - xpSnapshotSingle.getStartLevel() > 1)
 			{
+<<<<<<< HEAD
 				final List<Integer> positions = new ArrayList<>();
+=======
+				final List<Double> positions = new ArrayList<>();
+>>>>>>> initial import of runelite
 
 				for (int level = xpSnapshotSingle.getStartLevel() + 1; level < xpSnapshotSingle.getEndLevel(); level++)
 				{
 					double relativeStartExperience = Experience.getXpForLevel(level) - xpSnapshotSingle.getStartGoalXp();
 					double relativeEndExperience = xpSnapshotSingle.getEndGoalXp() - xpSnapshotSingle.getStartGoalXp();
+<<<<<<< HEAD
 					positions.add((int) (relativeStartExperience / relativeEndExperience * 100));
+=======
+					positions.add(relativeStartExperience / relativeEndExperience);
+>>>>>>> initial import of runelite
 				}
 
 				progressBar.setPositions(positions);
@@ -310,7 +343,11 @@ class XpInfoBox extends JPanel
 
 	static String htmlLabel(String key, int value)
 	{
+<<<<<<< HEAD
 		String valueStr = QuantityFormatter.quantityToRSDecimalStack(value, true);
+=======
+		String valueStr = StackFormatter.quantityToRSDecimalStack(value);
+>>>>>>> initial import of runelite
 		return String.format(HTML_LABEL_TEMPLATE, ColorUtil.toHexColor(ColorScheme.LIGHT_GRAY_COLOR), key, valueStr);
 	}
 }

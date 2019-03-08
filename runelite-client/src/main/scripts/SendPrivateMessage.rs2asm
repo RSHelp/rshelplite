@@ -30,5 +30,10 @@
 ; Send a private message
    sload                  0
    sload                  1
+<<<<<<< HEAD
    chat_sendprivate      
    return                
+=======
+   privmsg
+   return
+>>>>>>> initial import of runelite

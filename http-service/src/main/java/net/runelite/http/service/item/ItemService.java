@@ -377,7 +377,11 @@ public class ItemService
 		{
 			if (!response.isSuccessful())
 			{
+<<<<<<< HEAD
 				throw new IOException("Unsuccessful http response: " + response);
+=======
+				throw new IOException("Unsuccessful http response: " + response.message());
+>>>>>>> initial import of runelite
 			}
 
 			InputStream in = response.body().byteStream();
@@ -401,7 +405,11 @@ public class ItemService
 		{
 			if (!response.isSuccessful())
 			{
+<<<<<<< HEAD
 				throw new IOException("Unsuccessful http response: " + response);
+=======
+				throw new IOException("Unsuccessful http response: " + response.message());
+>>>>>>> initial import of runelite
 			}
 
 			return response.body().bytes();

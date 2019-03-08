@@ -1569,6 +1569,11 @@ public final class NullItemID
 	public static final int NULL_4177 = 4177;
 	public static final int NULL_4208 = 4208;
 	public static final int NULL_4210 = 4210;
+<<<<<<< HEAD
+=======
+	public static final int NULL_4213 = 4213;
+	public static final int NULL_4235 = 4235;
+>>>>>>> initial import of runelite
 	public static final int NULL_4279 = 4279;
 	public static final int NULL_4280 = 4280;
 	public static final int NULL_4281 = 4281;
@@ -3832,6 +3837,10 @@ public final class NullItemID
 	public static final int NULL_10509 = 10509;
 	public static final int NULL_10511 = 10511;
 	public static final int NULL_10565 = 10565;
+<<<<<<< HEAD
+=======
+	public static final int NULL_10567 = 10567;
+>>>>>>> initial import of runelite
 	public static final int NULL_10568 = 10568;
 	public static final int NULL_10569 = 10569;
 	public static final int NULL_10570 = 10570;
@@ -4465,7 +4474,10 @@ public final class NullItemID
 	public static final int NULL_12396 = 12396;
 	public static final int NULL_12398 = 12398;
 	public static final int NULL_12400 = 12400;
+<<<<<<< HEAD
 	public static final int NULL_12401 = 12401;
+=======
+>>>>>>> initial import of runelite
 	public static final int NULL_12413 = 12413;
 	public static final int NULL_12423 = 12423;
 	public static final int NULL_12425 = 12425;
@@ -4551,6 +4563,10 @@ public final class NullItemID
 	public static final int NULL_12741 = 12741;
 	public static final int NULL_12743 = 12743;
 	public static final int NULL_12745 = 12745;
+<<<<<<< HEAD
+=======
+	public static final int NULL_12747 = 12747;
+>>>>>>> initial import of runelite
 	public static final int NULL_12758 = 12758;
 	public static final int NULL_12760 = 12760;
 	public static final int NULL_12762 = 12762;
@@ -7984,6 +8000,15 @@ public final class NullItemID
 	public static final int NULL_16885 = 16885;
 	public static final int NULL_16886 = 16886;
 	public static final int NULL_16887 = 16887;
+<<<<<<< HEAD
+=======
+	public static final int NULL_16888 = 16888;
+	public static final int NULL_16889 = 16889;
+	public static final int NULL_16890 = 16890;
+	public static final int NULL_16891 = 16891;
+	public static final int NULL_16892 = 16892;
+	public static final int NULL_16893 = 16893;
+>>>>>>> initial import of runelite
 	public static final int NULL_16894 = 16894;
 	public static final int NULL_16895 = 16895;
 	public static final int NULL_16896 = 16896;
@@ -11122,6 +11147,10 @@ public final class NullItemID
 	public static final int NULL_20793 = 20793;
 	public static final int NULL_20795 = 20795;
 	public static final int NULL_20797 = 20797;
+<<<<<<< HEAD
+=======
+	public static final int NULL_20802 = 20802;
+>>>>>>> initial import of runelite
 	public static final int NULL_20803 = 20803;
 	public static final int NULL_20804 = 20804;
 	public static final int NULL_20805 = 20805;
@@ -11805,11 +11834,38 @@ public final class NullItemID
 	public static final int NULL_22304 = 22304;
 	public static final int NULL_22306 = 22306;
 	public static final int NULL_22307 = 22307;
+<<<<<<< HEAD
+=======
+	public static final int NULL_22308 = 22308;
+	public static final int NULL_22309 = 22309;
+	public static final int NULL_22310 = 22310;
+	public static final int NULL_22311 = 22311;
+	public static final int NULL_22312 = 22312;
+	public static final int NULL_22313 = 22313;
+	public static final int NULL_22314 = 22314;
+	public static final int NULL_22315 = 22315;
+>>>>>>> initial import of runelite
 	public static final int NULL_22317 = 22317;
 	public static final int NULL_22329 = 22329;
 	public static final int NULL_22332 = 22332;
 	public static final int NULL_22334 = 22334;
 	public static final int NULL_22336 = 22336;
+<<<<<<< HEAD
+=======
+	public static final int NULL_22337 = 22337;
+	public static final int NULL_22338 = 22338;
+	public static final int NULL_22339 = 22339;
+	public static final int NULL_22340 = 22340;
+	public static final int NULL_22341 = 22341;
+	public static final int NULL_22342 = 22342;
+	public static final int NULL_22343 = 22343;
+	public static final int NULL_22344 = 22344;
+	public static final int NULL_22345 = 22345;
+	public static final int NULL_22346 = 22346;
+	public static final int NULL_22347 = 22347;
+	public static final int NULL_22348 = 22348;
+	public static final int NULL_22349 = 22349;
+>>>>>>> initial import of runelite
 	public static final int NULL_22350 = 22350;
 	public static final int NULL_22352 = 22352;
 	public static final int NULL_22354 = 22354;
@@ -12015,6 +12071,19 @@ public final class NullItemID
 	public static final int NULL_22716 = 22716;
 	public static final int NULL_22718 = 22718;
 	public static final int NULL_22720 = 22720;
+<<<<<<< HEAD
+=======
+	public static final int NULL_22721 = 22721;
+	public static final int NULL_22722 = 22722;
+	public static final int NULL_22723 = 22723;
+	public static final int NULL_22724 = 22724;
+	public static final int NULL_22725 = 22725;
+	public static final int NULL_22726 = 22726;
+	public static final int NULL_22727 = 22727;
+	public static final int NULL_22728 = 22728;
+	public static final int NULL_22729 = 22729;
+	public static final int NULL_22730 = 22730;
+>>>>>>> initial import of runelite
 	public static final int NULL_22732 = 22732;
 	public static final int NULL_22733 = 22733;
 	public static final int NULL_22735 = 22735;
@@ -12238,6 +12307,7 @@ public final class NullItemID
 	public static final int NULL_23106 = 23106;
 	public static final int NULL_23107 = 23107;
 	public static final int NULL_23109 = 23109;
+<<<<<<< HEAD
 	public static final int NULL_23111 = 23111;
 	public static final int NULL_23112 = 23112;
 	public static final int NULL_23114 = 23114;
@@ -12806,5 +12876,7 @@ public final class NullItemID
 	public static final int NULL_24328 = 24328;
 	public static final int NULL_24330 = 24330;
 	public static final int NULL_24332 = 24332;
+=======
+>>>>>>> initial import of runelite
 	/* This file is automatically generated. Do not edit. */
 }

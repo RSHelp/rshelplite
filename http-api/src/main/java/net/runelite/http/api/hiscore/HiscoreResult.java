@@ -57,7 +57,10 @@ public class HiscoreResult
 	private Skill bountyHunterHunter;
 	private Skill bountyHunterRogue;
 	private Skill clueScrollAll;
+<<<<<<< HEAD
 	private Skill clueScrollBeginner;
+=======
+>>>>>>> initial import of runelite
 	private Skill clueScrollEasy;
 	private Skill clueScrollMedium;
 	private Skill clueScrollHard;
@@ -123,8 +126,11 @@ public class HiscoreResult
 				return getBountyHunterRogue();
 			case CLUE_SCROLL_ALL:
 				return getClueScrollAll();
+<<<<<<< HEAD
 			case CLUE_SCROLL_BEGINNER:
 				return getClueScrollBeginner();
+=======
+>>>>>>> initial import of runelite
 			case CLUE_SCROLL_EASY:
 				return getClueScrollEasy();
 			case CLUE_SCROLL_MEDIUM:

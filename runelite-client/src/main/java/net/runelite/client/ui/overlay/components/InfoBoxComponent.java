@@ -29,9 +29,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+<<<<<<< HEAD
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+=======
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Rectangle;
+>>>>>>> initial import of runelite
 import lombok.Getter;
 import lombok.Setter;
 import net.runelite.client.ui.FontManager;
@@ -53,7 +59,11 @@ public class InfoBoxComponent implements LayoutableRenderableEntity
 	private String text;
 	private Color color = Color.WHITE;
 	private Color backgroundColor = ComponentConstants.STANDARD_BACKGROUND_COLOR;
+<<<<<<< HEAD
 	private BufferedImage image;
+=======
+	private Image image;
+>>>>>>> initial import of runelite
 
 	@Override
 	public Dimension render(Graphics2D graphics)

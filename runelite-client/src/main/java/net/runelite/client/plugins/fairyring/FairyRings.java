@@ -59,7 +59,11 @@ public enum FairyRings
 	// C
 	CIP("(Island) Miscellania"),
 	CIQ("North-west of Yanille"),
+<<<<<<< HEAD
 	CIS("North of the Arceuus Library"),
+=======
+	CIS("North of the Arceuus House Library"),
+>>>>>>> initial import of runelite
 	CIR("North-east of the Farming Guild", "mount karuulm konar"),
 	CJR("Sinclair Mansion (east)"),
 	CKP("Cosmic entity's plane"),

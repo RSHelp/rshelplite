@@ -60,7 +60,10 @@ import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.client.events.SessionClose;
 import net.runelite.client.events.SessionOpen;
 import net.runelite.api.events.WidgetLoaded;
+<<<<<<< HEAD
 import net.runelite.api.events.ScriptCallbackEvent;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetID;
 import net.runelite.api.widgets.WidgetInfo;
@@ -77,7 +80,11 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.util.ImageUtil;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
+=======
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 import net.runelite.client.util.Text;
 import net.runelite.http.api.ge.GrandExchangeClient;
 import net.runelite.http.api.ge.GrandExchangeTrade;
@@ -345,7 +352,11 @@ public class GrandExchangePlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (!this.config.enableNotifications() || event.getType() != ChatMessageType.GAMEMESSAGE)
+=======
+		if (!this.config.enableNotifications() || event.getType() != ChatMessageType.SERVER)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -430,6 +441,7 @@ public class GrandExchangePlugin extends Plugin
 	}
 
 	@Subscribe
+<<<<<<< HEAD
 	public void onScriptCallbackEvent(ScriptCallbackEvent event)
 	{
 		if (!event.getEventName().equals("setGETitle") || !config.showTotal())
@@ -473,6 +485,8 @@ public class GrandExchangePlugin extends Plugin
 	}
 
 	@Subscribe
+=======
+>>>>>>> initial import of runelite
 	public void onGameTick(GameTick event)
 	{
 		if (grandExchangeText == null || grandExchangeItem == null || grandExchangeItem.isHidden())
@@ -497,7 +511,11 @@ public class GrandExchangePlugin extends Plugin
 			// If we have item buy limit, append it
 			if (itemLimit != null)
 			{
+<<<<<<< HEAD
 				final String text = geText.getText() + BUY_LIMIT_GE_TEXT + QuantityFormatter.formatNumber(itemLimit);
+=======
+				final String text = geText.getText() + BUY_LIMIT_GE_TEXT + StackFormatter.formatNumber(itemLimit);
+>>>>>>> initial import of runelite
 				geText.setText(text);
 			}
 		}
@@ -521,7 +539,11 @@ public class GrandExchangePlugin extends Plugin
 			try
 			{
 				final OSBGrandExchangeResult result = CLIENT.lookupItem(itemId);
+<<<<<<< HEAD
 				final String text = geText.getText() + OSB_GE_TEXT + QuantityFormatter.formatNumber(result.getOverall_average());
+=======
+				final String text = geText.getText() + OSB_GE_TEXT + StackFormatter.formatNumber(result.getOverall_average());
+>>>>>>> initial import of runelite
 				geText.setText(text);
 			}
 			catch (IOException e)

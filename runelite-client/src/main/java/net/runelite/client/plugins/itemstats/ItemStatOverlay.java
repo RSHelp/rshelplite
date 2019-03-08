@@ -189,10 +189,14 @@ public class ItemStatOverlay extends Overlay
 	private String buildStatBonusString(ItemStats s)
 	{
 		final StringBuilder b = new StringBuilder();
+<<<<<<< HEAD
 		if (config.showWeight())
 		{
 			b.append(getChangeString("Weight", s.getWeight(), true, false));
 		}
+=======
+		b.append(getChangeString("Weight", s.getWeight(), true, false));
+>>>>>>> initial import of runelite
 
 		ItemStats other = null;
 		final ItemEquipmentStats currentEquipment = s.getEquipment();

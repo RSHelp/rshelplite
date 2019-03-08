@@ -31,9 +31,12 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+<<<<<<< HEAD
 import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+=======
+>>>>>>> initial import of runelite
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -53,10 +56,15 @@ import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.ui.overlay.components.BackgroundComponent;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.components.ProgressPieComponent;
 import net.runelite.client.ui.overlay.components.TextComponent;
 import net.runelite.client.util.QuantityFormatter;
 import org.apache.commons.lang3.ArrayUtils;
+=======
+import net.runelite.client.ui.overlay.components.TextComponent;
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 
 public class GroundItemsOverlay extends Overlay
 {
@@ -71,6 +79,7 @@ public class GroundItemsOverlay extends Overlay
 	private static final int STRING_GAP = 15;
 	// Size of the hidden/highlight boxes
 	private static final int RECTANGLE_SIZE = 8;
+<<<<<<< HEAD
 	private static final Color PUBLIC_TIMER_COLOR = Color.YELLOW;
 	private static final Color PRIVATE_TIMER_COLOR = Color.GREEN;
 	private static final int TIMER_OVERLAY_DIAMETER = 10;
@@ -78,6 +87,8 @@ public class GroundItemsOverlay extends Overlay
 	private static final Duration DESPAWN_TIME_LOOT = Duration.ofMinutes(2);
 	private static final Duration DESPAWN_TIME_DROP = Duration.ofMinutes(3);
 	private static final int KRAKEN_REGION = 9116;
+=======
+>>>>>>> initial import of runelite
 
 	private final Client client;
 	private final GroundItemsPlugin plugin;
@@ -85,7 +96,10 @@ public class GroundItemsOverlay extends Overlay
 	private final StringBuilder itemStringBuilder = new StringBuilder();
 	private final BackgroundComponent backgroundComponent = new BackgroundComponent();
 	private final TextComponent textComponent = new TextComponent();
+<<<<<<< HEAD
 	private final ProgressPieComponent progressPieComponent = new ProgressPieComponent();
+=======
+>>>>>>> initial import of runelite
 	private final Map<WorldPoint, Integer> offsetMap = new HashMap<>();
 
 	@Inject
@@ -176,7 +190,10 @@ public class GroundItemsOverlay extends Overlay
 		plugin.setHighlightBoxBounds(null);
 
 		final boolean onlyShowLoot = config.onlyShowLoot();
+<<<<<<< HEAD
 		final boolean groundItemTimers = config.groundItemTimers();
+=======
+>>>>>>> initial import of runelite
 
 		for (GroundItem item : groundItemList)
 		{
@@ -234,7 +251,11 @@ public class GroundItemsOverlay extends Overlay
 				else
 				{
 					itemStringBuilder.append(" (")
+<<<<<<< HEAD
 						.append(QuantityFormatter.quantityToStackSize(item.getQuantity()))
+=======
+						.append(StackFormatter.quantityToStackSize(item.getQuantity()))
+>>>>>>> initial import of runelite
 						.append(")");
 				}
 			}
@@ -244,14 +265,22 @@ public class GroundItemsOverlay extends Overlay
 				if (item.getGePrice() > 0)
 				{
 					itemStringBuilder.append(" (EX: ")
+<<<<<<< HEAD
 						.append(QuantityFormatter.quantityToStackSize(item.getGePrice()))
+=======
+						.append(StackFormatter.quantityToStackSize(item.getGePrice()))
+>>>>>>> initial import of runelite
 						.append(" gp)");
 				}
 
 				if (item.getHaPrice() > 0)
 				{
 					itemStringBuilder.append(" (HA: ")
+<<<<<<< HEAD
 						.append(QuantityFormatter.quantityToStackSize(item.getHaPrice()))
+=======
+						.append(StackFormatter.quantityToStackSize(item.getHaPrice()))
+>>>>>>> initial import of runelite
 						.append(" gp)");
 				}
 			}
@@ -265,7 +294,11 @@ public class GroundItemsOverlay extends Overlay
 				{
 					itemStringBuilder
 						.append(" (")
+<<<<<<< HEAD
 						.append(QuantityFormatter.quantityToStackSize(price))
+=======
+						.append(StackFormatter.quantityToStackSize(price))
+>>>>>>> initial import of runelite
 						.append(" gp)");
 				}
 			}
@@ -347,11 +380,14 @@ public class GroundItemsOverlay extends Overlay
 				drawRectangle(graphics, itemHighlightBox, topItem && mouseInHighlightBox ? Color.GREEN : color, highlighted != null, false);
 			}
 
+<<<<<<< HEAD
 			if (groundItemTimers || plugin.isHotKeyPressed())
 			{
 				drawTimerOverlay(graphics, textX, textY, item);
 			}
 
+=======
+>>>>>>> initial import of runelite
 			textComponent.setText(itemString);
 			textComponent.setColor(color);
 			textComponent.setPosition(new java.awt.Point(textX, textY));
@@ -361,6 +397,7 @@ public class GroundItemsOverlay extends Overlay
 		return null;
 	}
 
+<<<<<<< HEAD
 	private void drawTimerOverlay(Graphics2D graphics, int textX, int textY, GroundItem groundItem)
 	{
 		// We can only accurately guess despawn times for our own pvm loot and dropped items
@@ -434,6 +471,8 @@ public class GroundItemsOverlay extends Overlay
 		progressPieComponent.render(graphics);
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void drawRectangle(Graphics2D graphics, Rectangle rect, Color color, boolean inList, boolean hiddenBox)
 	{
 		graphics.setColor(Color.BLACK);
@@ -471,9 +510,12 @@ public class GroundItemsOverlay extends Overlay
 
 	}
 
+<<<<<<< HEAD
 	private boolean isInKraken()
 	{
 		return ArrayUtils.contains(client.getMapRegions(), KRAKEN_REGION);
 	}
 
+=======
+>>>>>>> initial import of runelite
 }

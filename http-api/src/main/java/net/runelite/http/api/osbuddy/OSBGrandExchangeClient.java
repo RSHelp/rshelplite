@@ -55,7 +55,11 @@ public class OSBGrandExchangeClient
 		{
 			if (!response.isSuccessful())
 			{
+<<<<<<< HEAD
 				throw new IOException("Error looking up item id: " + response);
+=======
+				throw new IOException("Error looking up item id: " + response.message());
+>>>>>>> initial import of runelite
 			}
 
 			final InputStream in = response.body().byteStream();

@@ -27,7 +27,10 @@ package net.runelite.client.plugins.devtools;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import com.google.common.collect.ImmutableList;
+<<<<<<< HEAD
 import com.google.common.primitives.Ints;
+=======
+>>>>>>> initial import of runelite
 import com.google.inject.Provides;
 import java.awt.image.BufferedImage;
 import static java.lang.Math.min;
@@ -43,7 +46,10 @@ import net.runelite.api.NPC;
 import net.runelite.api.Player;
 import net.runelite.api.Skill;
 import net.runelite.api.coords.WorldPoint;
+<<<<<<< HEAD
 import net.runelite.api.events.BoostedLevelChanged;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.events.CommandExecuted;
 import net.runelite.api.events.ExperienceChanged;
 import net.runelite.api.events.MenuEntryAdded;
@@ -101,9 +107,12 @@ public class DevToolsPlugin extends Plugin
 	private WorldMapRegionOverlay mapRegionOverlay;
 
 	@Inject
+<<<<<<< HEAD
 	private SoundEffectOverlay soundEffectOverlay;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private EventBus eventBus;
 
 	private DevToolsButton players;
@@ -122,14 +131,21 @@ public class DevToolsPlugin extends Plugin
 	private DevToolsButton validMovement;
 	private DevToolsButton lineOfSight;
 	private DevToolsButton cameraPosition;
+<<<<<<< HEAD
 	private DevToolsButton worldMapLocation;
+=======
+	private DevToolsButton worldMapLocation ;
+>>>>>>> initial import of runelite
 	private DevToolsButton tileLocation;
 	private DevToolsButton interacting;
 	private DevToolsButton examine;
 	private DevToolsButton detachedCamera;
 	private DevToolsButton widgetInspector;
 	private DevToolsButton varInspector;
+<<<<<<< HEAD
 	private DevToolsButton soundEffects;
+=======
+>>>>>>> initial import of runelite
 	private NavigationButton navButton;
 
 	@Provides
@@ -170,7 +186,10 @@ public class DevToolsPlugin extends Plugin
 		detachedCamera = new DevToolsButton("Detached Camera");
 		widgetInspector = new DevToolsButton("Widget Inspector");
 		varInspector = new DevToolsButton("Var Inspector");
+<<<<<<< HEAD
 		soundEffects = new DevToolsButton("Sound Effects");
+=======
+>>>>>>> initial import of runelite
 
 		overlayManager.add(overlay);
 		overlayManager.add(locationOverlay);
@@ -178,7 +197,10 @@ public class DevToolsPlugin extends Plugin
 		overlayManager.add(cameraOverlay);
 		overlayManager.add(worldMapLocationOverlay);
 		overlayManager.add(mapRegionOverlay);
+<<<<<<< HEAD
 		overlayManager.add(soundEffectOverlay);
+=======
+>>>>>>> initial import of runelite
 
 		final DevToolsPanel panel = injector.getInstance(DevToolsPanel.class);
 
@@ -192,21 +214,30 @@ public class DevToolsPlugin extends Plugin
 			.build();
 
 		clientToolbar.addNavigation(navButton);
+<<<<<<< HEAD
 
 		eventBus.register(soundEffectOverlay);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
+<<<<<<< HEAD
 		eventBus.unregister(soundEffectOverlay);
+=======
+>>>>>>> initial import of runelite
 		overlayManager.remove(overlay);
 		overlayManager.remove(locationOverlay);
 		overlayManager.remove(sceneOverlay);
 		overlayManager.remove(cameraOverlay);
 		overlayManager.remove(worldMapLocationOverlay);
 		overlayManager.remove(mapRegionOverlay);
+<<<<<<< HEAD
 		overlayManager.remove(soundEffectOverlay);
+=======
+>>>>>>> initial import of runelite
 		clientToolbar.removeNavigation(navButton);
 	}
 
@@ -234,14 +265,22 @@ public class DevToolsPlugin extends Plugin
 					message = "Logger level has been set to " + newLoggerLevel;
 				}
 
+<<<<<<< HEAD
 				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", message, null);
+=======
+				client.addChatMessage(ChatMessageType.SERVER, "", message, null);
+>>>>>>> initial import of runelite
 				break;
 			}
 			case "getvarp":
 			{
 				int varp = Integer.parseInt(args[0]);
 				int value = client.getVarpValue(client.getVarps(), varp);
+<<<<<<< HEAD
 				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "VarPlayer " + varp + ": " + value, null);
+=======
+				client.addChatMessage(ChatMessageType.SERVER, "", "VarPlayer " + varp + ": " + value, null);
+>>>>>>> initial import of runelite
 				break;
 			}
 			case "setvarp":
@@ -249,7 +288,11 @@ public class DevToolsPlugin extends Plugin
 				int varp = Integer.parseInt(args[0]);
 				int value = Integer.parseInt(args[1]);
 				client.setVarpValue(client.getVarps(), varp, value);
+<<<<<<< HEAD
 				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Set VarPlayer " + varp + " to " + value, null);
+=======
+				client.addChatMessage(ChatMessageType.SERVER, "", "Set VarPlayer " + varp + " to " + value, null);
+>>>>>>> initial import of runelite
 				VarbitChanged varbitChanged = new VarbitChanged();
 				varbitChanged.setIndex(varp);
 				eventBus.post(varbitChanged); // fake event
@@ -259,7 +302,11 @@ public class DevToolsPlugin extends Plugin
 			{
 				int varbit = Integer.parseInt(args[0]);
 				int value = client.getVarbitValue(client.getVarps(), varbit);
+<<<<<<< HEAD
 				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Varbit " + varbit + ": " + value, null);
+=======
+				client.addChatMessage(ChatMessageType.SERVER, "", "Varbit " + varbit + ": " + value, null);
+>>>>>>> initial import of runelite
 				break;
 			}
 			case "setvarb":
@@ -267,7 +314,11 @@ public class DevToolsPlugin extends Plugin
 				int varbit = Integer.parseInt(args[0]);
 				int value = Integer.parseInt(args[1]);
 				client.setVarbitValue(client.getVarps(), varbit, value);
+<<<<<<< HEAD
 				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Set varbit " + varbit + " to " + value, null);
+=======
+				client.addChatMessage(ChatMessageType.SERVER, "", "Set varbit " + varbit + " to " + value, null);
+>>>>>>> initial import of runelite
 				eventBus.post(new VarbitChanged()); // fake event
 				break;
 			}
@@ -290,6 +341,7 @@ public class DevToolsPlugin extends Plugin
 				eventBus.post(experienceChanged);
 				break;
 			}
+<<<<<<< HEAD
 			case "setstat":
 			{
 				Skill skill = Skill.valueOf(args[0].toUpperCase());
@@ -313,6 +365,8 @@ public class DevToolsPlugin extends Plugin
 				eventBus.post(boostedLevelChanged);
 				break;
 			}
+=======
+>>>>>>> initial import of runelite
 			case "anim":
 			{
 				int id = Integer.parseInt(args[0]);
@@ -346,6 +400,7 @@ public class DevToolsPlugin extends Plugin
 				player.getPlayerComposition().setHash();
 				break;
 			}
+<<<<<<< HEAD
 			case "sound":
 			{
 				int id = Integer.parseInt(args[0]);
@@ -357,6 +412,8 @@ public class DevToolsPlugin extends Plugin
 				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", String.join(" ", args), "");
 				break;
 			}
+=======
+>>>>>>> initial import of runelite
 		}
 	}
 

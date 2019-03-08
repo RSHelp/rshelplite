@@ -36,10 +36,17 @@ import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.http.api.RuneLiteAPI;
+<<<<<<< HEAD
 import static net.runelite.http.api.RuneLiteAPI.JSON;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
+=======
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+>>>>>>> initial import of runelite
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
@@ -48,11 +55,19 @@ import okhttp3.Response;
 @AllArgsConstructor
 public class LootTrackerClient
 {
+<<<<<<< HEAD
+=======
+	private static final MediaType JSON = MediaType.parse("application/json");
+>>>>>>> initial import of runelite
 	private static final Gson GSON = RuneLiteAPI.GSON;
 
 	private final UUID uuid;
 
+<<<<<<< HEAD
 	public void submit(Collection<LootRecord> lootRecords)
+=======
+	public void submit(LootRecord lootRecord)
+>>>>>>> initial import of runelite
 	{
 		HttpUrl url = RuneLiteAPI.getApiBase().newBuilder()
 			.addPathSegment("loottracker")
@@ -60,7 +75,11 @@ public class LootTrackerClient
 
 		Request request = new Request.Builder()
 			.header(RuneLiteAPI.RUNELITE_AUTH, uuid.toString())
+<<<<<<< HEAD
 			.post(RequestBody.create(JSON, GSON.toJson(lootRecords)))
+=======
+			.post(RequestBody.create(JSON, GSON.toJson(lootRecord)))
+>>>>>>> initial import of runelite
 			.url(url)
 			.build();
 
@@ -96,7 +115,11 @@ public class LootTrackerClient
 		{
 			if (!response.isSuccessful())
 			{
+<<<<<<< HEAD
 				log.debug("Error looking up loot: {}", response);
+=======
+				log.debug("Error looking up loot: {}", response.message());
+>>>>>>> initial import of runelite
 				return null;
 			}
 

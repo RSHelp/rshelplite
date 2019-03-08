@@ -26,6 +26,7 @@
 /*
  * Convert a vertex to screen space
  */
+<<<<<<< HEAD
 vec3 toScreen(ivec3 vertex, int cameraYaw, int cameraPitch, int centerX, int centerY, int zoom) {
   float yawSin = sin(cameraYaw * UNIT);
   float yawCos = cos(cameraYaw * UNIT);
@@ -44,4 +45,24 @@ vec3 toScreen(ivec3 vertex, int cameraYaw, int cameraPitch, int centerX, int cen
   float z = -var12; // in OpenGL depth is negative
 
   return vec3(x, y, z);
+=======
+ivec3 toScreen(ivec3 vertex, int cameraYaw, int cameraPitch, int centerX, int centerY, int zoom) {
+  int yawSin = int(65536.0f * sin(cameraYaw * UNIT));
+  int yawCos = int(65536.0f * cos(cameraYaw * UNIT));
+
+  int pitchSin = int(65536.0f * sin(cameraPitch * UNIT));
+  int pitchCos = int(65536.0f * cos(cameraPitch * UNIT));
+
+  int rotatedX = ((vertex.z * yawSin) + (vertex.x * yawCos)) >> 16;
+  int rotatedZ = ((vertex.z * yawCos) - (vertex.x * yawSin)) >> 16;
+
+  int var13 = ((vertex.y * pitchCos) - (rotatedZ * pitchSin)) >> 16;
+  int var12 = ((vertex.y * pitchSin) + (rotatedZ * pitchCos)) >> 16;
+
+  int x = rotatedX * zoom / var12 + centerX;
+  int y = var13 * zoom / var12 + centerY;
+  int z = -var12; // in OpenGL depth is negative
+
+  return ivec3(x, y, z);
+>>>>>>> initial import of runelite
 }

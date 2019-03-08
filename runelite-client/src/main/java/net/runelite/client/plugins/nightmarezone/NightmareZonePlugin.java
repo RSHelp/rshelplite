@@ -25,11 +25,16 @@
 package net.runelite.client.plugins.nightmarezone;
 
 import com.google.inject.Provides;
+<<<<<<< HEAD
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
 import javax.inject.Inject;
 import lombok.Getter;
+=======
+import java.util.Arrays;
+import javax.inject.Inject;
+>>>>>>> initial import of runelite
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.Varbits;
@@ -54,7 +59,10 @@ import net.runelite.client.util.Text;
 public class NightmareZonePlugin extends Plugin
 {
 	private static final int[] NMZ_MAP_REGION = {9033};
+<<<<<<< HEAD
 	private static final Duration HOUR = Duration.ofHours(1);
+=======
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Notifier notifier;
@@ -71,11 +79,14 @@ public class NightmareZonePlugin extends Plugin
 	@Inject
 	private NightmareZoneOverlay overlay;
 
+<<<<<<< HEAD
 	@Getter
 	private int pointsPerHour;
 	
 	private Instant nmzSessionStartTime;
 
+=======
+>>>>>>> initial import of runelite
 	// This starts as true since you need to get
 	// above the threshold before sending notifications
 	private boolean absorptionNotificationSend = true;
@@ -99,8 +110,11 @@ public class NightmareZonePlugin extends Plugin
 		{
 			nmzWidget.setHidden(false);
 		}
+<<<<<<< HEAD
 
 		resetPointsPerHour();
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -125,6 +139,7 @@ public class NightmareZonePlugin extends Plugin
 				absorptionNotificationSend = true;
 			}
 
+<<<<<<< HEAD
 			if (nmzSessionStartTime != null)
 			{
 				resetPointsPerHour();
@@ -133,21 +148,32 @@ public class NightmareZonePlugin extends Plugin
 			return;
 		}
 
+=======
+			return;
+		}
+>>>>>>> initial import of runelite
 		if (config.absorptionNotification())
 		{
 			checkAbsorption();
 		}
+<<<<<<< HEAD
 
 		if (config.moveOverlay())
 		{
 			pointsPerHour = calculatePointsPerHour();
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.GAMEMESSAGE
+=======
+		if (event.getType() != ChatMessageType.SERVER
+>>>>>>> initial import of runelite
 				|| !isInNightmareZone())
 		{
 			return;
@@ -215,6 +241,7 @@ public class NightmareZonePlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	private int calculatePointsPerHour()
 	{
 		Instant now = Instant.now();
@@ -241,6 +268,8 @@ public class NightmareZonePlugin extends Plugin
 		pointsPerHour = 0;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	public boolean isInNightmareZone()
 	{
 		return Arrays.equals(client.getMapRegions(), NMZ_MAP_REGION);

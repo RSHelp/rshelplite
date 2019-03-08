@@ -35,14 +35,20 @@ import lombok.Getter;
 import net.runelite.api.Actor;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
+<<<<<<< HEAD
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.NPC;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.WorldType;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.InteractingChanged;
+<<<<<<< HEAD
 import net.runelite.api.events.MenuEntryAdded;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
@@ -163,6 +169,7 @@ public class OpponentInfoPlugin extends Plugin
 			}
 		}
 	}
+<<<<<<< HEAD
 
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded menuEntryAdded)
@@ -188,4 +195,6 @@ public class OpponentInfoPlugin extends Plugin
 			client.setMenuEntries(menuEntries);
 		}
 	}
+=======
+>>>>>>> initial import of runelite
 }

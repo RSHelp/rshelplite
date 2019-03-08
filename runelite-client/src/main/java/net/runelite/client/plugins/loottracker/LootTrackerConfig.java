@@ -50,6 +50,7 @@ public interface LootTrackerConfig extends Config
 	void setIgnoredItems(String key);
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "priceType",
 		name = "Price Type",
 		description = "What type of price to use for calculating value."
@@ -70,6 +71,8 @@ public interface LootTrackerConfig extends Config
 	}
 
 	@ConfigItem(
+=======
+>>>>>>> initial import of runelite
 		keyName = "saveLoot",
 		name = "Submit loot tracker data",
 		description = "Submit loot tracker data (requires being logged in)"

@@ -1,7 +1,10 @@
 /*
  * Copyright (c) 2017, Adam <Adam@sigterm.info>
  * Copyright (c) 2018, Lotto <https://github.com/devLotto>
+<<<<<<< HEAD
  * Copyright (c) 2019, gregg1494 <https://github.com/gregg1494>
+=======
+>>>>>>> initial import of runelite
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -46,7 +49,10 @@ import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.swing.SwingUtilities;
+<<<<<<< HEAD
 import lombok.AccessLevel;
+=======
+>>>>>>> initial import of runelite
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
@@ -80,7 +86,10 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.worldhopper.ping.Ping;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.OverlayManager;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.util.ExecutorServiceExceptionLogger;
 import net.runelite.client.util.HotkeyListener;
 import net.runelite.client.util.Text;
@@ -93,14 +102,23 @@ import org.apache.commons.lang3.ArrayUtils;
 
 @PluginDescriptor(
 	name = "World Hopper",
+<<<<<<< HEAD
 	description = "Allows you to quickly hop worlds",
 	tags = {"ping"}
+=======
+	description = "Allows you to quickly hop worlds"
+>>>>>>> initial import of runelite
 )
 @Slf4j
 public class WorldHopperPlugin extends Plugin
 {
 	private static final int WORLD_FETCH_TIMER = 10;
+<<<<<<< HEAD
 	private static final int REFRESH_THROTTLE = 60_000; // ms
+=======
+	private static final int WORLD_PING_TIMER = 10;
+	private static final int REFRESH_THROTTLE = 60_000;  // ms
+>>>>>>> initial import of runelite
 	private static final int TICK_THROTTLE = (int) Duration.ofMinutes(10).toMillis();
 
 	private static final int DISPLAY_SWITCHER_MAX_ATTEMPTS = 3;
@@ -134,6 +152,7 @@ public class WorldHopperPlugin extends Plugin
 	@Inject
 	private WorldHopperConfig config;
 
+<<<<<<< HEAD
 	@Inject
 	private OverlayManager overlayManager;
 
@@ -143,6 +162,8 @@ public class WorldHopperPlugin extends Plugin
 	@Inject
 	private WorldClient worldClient;
 
+=======
+>>>>>>> initial import of runelite
 	private ScheduledExecutorService hopperExecutorService;
 
 	private NavigationButton navButton;
@@ -156,6 +177,7 @@ public class WorldHopperPlugin extends Plugin
 
 	private int favoriteWorld1, favoriteWorld2;
 
+<<<<<<< HEAD
 	private ScheduledFuture<?> worldResultFuture, pingFuture, currPingFuture;
 	private WorldResult worldResult;
 	private int currentWorld;
@@ -165,6 +187,13 @@ public class WorldHopperPlugin extends Plugin
 	@Getter(AccessLevel.PACKAGE)
 	private int currentPing;
 
+=======
+	private ScheduledFuture<?> worldResultFuture, pingFuture;
+	private WorldResult worldResult;
+	private Instant lastFetch;
+	private boolean firstRun;
+
+>>>>>>> initial import of runelite
 	private final HotkeyListener previousKeyListener = new HotkeyListener(() -> config.previousKey())
 	{
 		@Override
@@ -192,7 +221,10 @@ public class WorldHopperPlugin extends Plugin
 	protected void startUp() throws Exception
 	{
 		firstRun = true;
+<<<<<<< HEAD
 		currentPing = -1;
+=======
+>>>>>>> initial import of runelite
 
 		keyManager.registerKeyListener(previousKeyListener);
 		keyManager.registerKeyListener(nextKeyListener);
@@ -217,6 +249,7 @@ public class WorldHopperPlugin extends Plugin
 			clientToolbar.addNavigation(navButton);
 		}
 
+<<<<<<< HEAD
 		overlayManager.add(worldHopperOverlay);
 
 		panel.setFilterMode(config.subscriptionFilter());
@@ -229,6 +262,12 @@ public class WorldHopperPlugin extends Plugin
 		// Give some initial delay - this won't run until after pingInitialWorlds finishes from tick() anyway
 		pingFuture = hopperExecutorService.scheduleWithFixedDelay(this::pingNextWorld, 15, 3, TimeUnit.SECONDS);
 		currPingFuture = hopperExecutorService.scheduleWithFixedDelay(this::pingCurrentWorld, 15, 1, TimeUnit.SECONDS);
+=======
+		worldResultFuture = executorService.scheduleAtFixedRate(this::tick, 0, WORLD_FETCH_TIMER, TimeUnit.MINUTES);
+
+		hopperExecutorService = new ExecutorServiceExceptionLogger(Executors.newSingleThreadScheduledExecutor());
+		pingFuture = hopperExecutorService.scheduleAtFixedRate(this::pingWorlds, WORLD_PING_TIMER, WORLD_PING_TIMER, TimeUnit.MINUTES);
+>>>>>>> initial import of runelite
 	}
 
 	@Override
@@ -237,11 +276,14 @@ public class WorldHopperPlugin extends Plugin
 		pingFuture.cancel(true);
 		pingFuture = null;
 
+<<<<<<< HEAD
 		currPingFuture.cancel(true);
 		currPingFuture = null;
 
 		overlayManager.remove(worldHopperOverlay);
 
+=======
+>>>>>>> initial import of runelite
 		keyManager.unregisterKeyListener(previousKeyListener);
 		keyManager.unregisterKeyListener(nextKeyListener);
 
@@ -283,10 +325,13 @@ public class WorldHopperPlugin extends Plugin
 						SwingUtilities.invokeLater(() -> panel.hidePing());
 					}
 					break;
+<<<<<<< HEAD
 				case "subscriptionFilter":
 					panel.setFilterMode(config.subscriptionFilter());
 					updateList();
 					break;
+=======
+>>>>>>> initial import of runelite
 			}
 		}
 	}
@@ -356,11 +401,14 @@ public class WorldHopperPlugin extends Plugin
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event)
 	{
+<<<<<<< HEAD
 		if (!config.menuOption())
 		{
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		int groupId = WidgetInfo.TO_GROUP(event.getActionParam1());
 		String option = event.getOption();
 
@@ -384,6 +432,7 @@ public class WorldHopperPlugin extends Plugin
 			// Don't add entry if user is offline
 			ChatPlayer player = getChatPlayerFromName(event.getTarget());
 
+<<<<<<< HEAD
 			if (player == null || player.getWorld() == 0 || player.getWorld() == client.getWorld()
 				|| worldResult == null)
 			{
@@ -396,6 +445,10 @@ public class WorldHopperPlugin extends Plugin
 				|| (!currentWorld.getTypes().contains(WorldType.PVP) && targetWorld.getTypes().contains(WorldType.PVP)))
 			{
 				// Disable Hop-to a PVP world from a regular world
+=======
+			if (player == null || player.getWorld() == 0 || player.getWorld() == client.getWorld())
+			{
+>>>>>>> initial import of runelite
 				return;
 			}
 
@@ -488,8 +541,12 @@ public class WorldHopperPlugin extends Plugin
 		if (firstRun)
 		{
 			firstRun = false;
+<<<<<<< HEAD
 			// On first run we ping all of the worlds at once to initialize the ping values
 			hopperExecutorService.execute(this::pingInitialWorlds);
+=======
+			hopperExecutorService.execute(this::pingWorlds);
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -511,7 +568,11 @@ public class WorldHopperPlugin extends Plugin
 
 		try
 		{
+<<<<<<< HEAD
 			WorldResult worldResult = worldClient.lookupWorlds();
+=======
+			WorldResult worldResult = new WorldClient().lookupWorlds();
+>>>>>>> initial import of runelite
 
 			if (worldResult != null)
 			{
@@ -554,7 +615,11 @@ public class WorldHopperPlugin extends Plugin
 		if (config.quickhopOutOfDanger())
 		{
 			currentWorldTypes.remove(WorldType.PVP);
+<<<<<<< HEAD
 			currentWorldTypes.remove(WorldType.HIGH_RISK);
+=======
+			currentWorldTypes.remove(WorldType.PVP_HIGH_RISK);
+>>>>>>> initial import of runelite
 		}
 		// Don't regard these worlds as a type that must be hopped between
 		currentWorldTypes.remove(WorldType.BOUNTY);
@@ -635,7 +700,11 @@ public class WorldHopperPlugin extends Plugin
 				.build();
 
 			chatMessageManager.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 				.type(ChatMessageType.CONSOLE)
+=======
+				.type(ChatMessageType.GAME)
+>>>>>>> initial import of runelite
 				.runeLiteFormattedMessage(chatMessage)
 				.build());
 		}
@@ -682,7 +751,11 @@ public class WorldHopperPlugin extends Plugin
 
 			chatMessageManager
 				.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 					.type(ChatMessageType.CONSOLE)
+=======
+					.type(ChatMessageType.GAME)
+>>>>>>> initial import of runelite
 					.runeLiteFormattedMessage(chatMessage)
 					.build());
 		}
@@ -716,7 +789,11 @@ public class WorldHopperPlugin extends Plugin
 
 				chatMessageManager
 					.queue(QueuedMessage.builder()
+<<<<<<< HEAD
 						.type(ChatMessageType.CONSOLE)
+=======
+						.type(ChatMessageType.GAME)
+>>>>>>> initial import of runelite
 						.runeLiteFormattedMessage(chatMessage)
 						.build());
 
@@ -733,7 +810,11 @@ public class WorldHopperPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.GAMEMESSAGE)
+=======
+		if (event.getType() != ChatMessageType.SERVER)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -785,10 +866,14 @@ public class WorldHopperPlugin extends Plugin
 		return null;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Ping all worlds. This takes a long time and is only run on first run.
 	 */
 	private void pingInitialWorlds()
+=======
+	private void pingWorlds()
+>>>>>>> initial import of runelite
 	{
 		if (worldResult == null || !config.showSidebar() || !config.ping())
 		{
@@ -807,6 +892,7 @@ public class WorldHopperPlugin extends Plugin
 
 		log.debug("Done pinging worlds in {}", stopwatch.elapsed());
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Ping the next world
@@ -867,4 +953,6 @@ public class WorldHopperPlugin extends Plugin
 
 		SwingUtilities.invokeLater(() -> panel.updatePing(currentWorld.getId(), currentPing));
 	}
+=======
+>>>>>>> initial import of runelite
 }

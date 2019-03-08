@@ -41,9 +41,16 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import lombok.Setter;
+<<<<<<< HEAD
 import net.runelite.api.ItemComposition;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.util.AsyncBufferedImage;
+=======
+import lombok.extern.slf4j.Slf4j;
+import net.runelite.api.ItemComposition;
+import net.runelite.client.callback.ClientThread;
+import net.runelite.client.game.AsyncBufferedImage;
+>>>>>>> initial import of runelite
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.components.IconTextField;
@@ -54,6 +61,10 @@ import net.runelite.http.api.item.ItemPrice;
  * This panel holds the search section of the Grand Exchange Plugin.
  * It should display a search bar and either item results or a error panel.
  */
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 class GrandExchangeSearchPanel extends JPanel
 {
 	private static final String ERROR_PANEL = "ERROR_PANEL";

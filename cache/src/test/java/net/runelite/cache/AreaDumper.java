@@ -64,7 +64,11 @@ public class AreaDumper
 
 			for (AreaDefinition area : areaManager.getAreas())
 			{
+<<<<<<< HEAD
 				Files.asCharSink(new File(outDir, area.id + ".json"), Charset.defaultCharset()).write(gson.toJson(area));
+=======
+				Files.write(gson.toJson(area), new File(outDir, area.id + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

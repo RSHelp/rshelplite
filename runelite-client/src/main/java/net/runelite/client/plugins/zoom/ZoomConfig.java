@@ -34,12 +34,15 @@ public interface ZoomConfig extends Config
 {
 	int OUTER_LIMIT_MIN = -400;
 	int OUTER_LIMIT_MAX = 400;
+<<<<<<< HEAD
 	/**
 	 * The largest (most zoomed in) value that can be used without the client crashing.
 	 *
 	 * Larger values trigger an overflow in the engine's fov to scale code.
 	 */
 	int INNER_ZOOM_LIMIT = 1004;
+=======
+>>>>>>> initial import of runelite
 
 	@ConfigItem(
 		keyName = "inner",
@@ -79,6 +82,7 @@ public interface ZoomConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "controlFunction",
 		name = "Control Function",
 		description = "Configures the zoom function when control is pressed",
@@ -115,4 +119,15 @@ public interface ZoomConfig extends Config
 		return 25;
 	}
 
+=======
+		keyName = "requireControlDown",
+		name = "Require control down",
+		description = "Configures if holding control is required for zooming",
+		position = 4
+	)
+	default boolean requireControlDown()
+	{
+		return false;
+	}
+>>>>>>> initial import of runelite
 }

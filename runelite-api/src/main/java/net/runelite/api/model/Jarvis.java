@@ -24,9 +24,15 @@
  */
 package net.runelite.api.model;
 
+<<<<<<< HEAD
 import java.util.List;
 import net.runelite.api.Point;
 import net.runelite.api.geometry.SimplePolygon;
+=======
+import java.util.ArrayList;
+import java.util.List;
+import net.runelite.api.Point;
+>>>>>>> initial import of runelite
 
 /**
  * Provides utility methods for computing the convex hull of a list of
@@ -41,12 +47,17 @@ public class Jarvis
 	/**
 	 * Computes and returns the convex hull of the passed points.
 	 * <p>
+<<<<<<< HEAD
 	 * The size of the list must be at least 3, otherwise this method will
+=======
+	 * The size of the list must be at least 4, otherwise this method will
+>>>>>>> initial import of runelite
 	 * return null.
 	 *
 	 * @param points list of points
 	 * @return list containing the points part of the convex hull
 	 */
+<<<<<<< HEAD
 	@Deprecated
 	public static List<Point> convexHull(List<Point> points)
 	{
@@ -61,10 +72,16 @@ public class Jarvis
 
 		SimplePolygon poly = convexHull(xs, ys);
 		if (poly == null)
+=======
+	public static List<Point> convexHull(List<Point> points)
+	{
+		if (points.size() < 3)
+>>>>>>> initial import of runelite
 		{
 			return null;
 		}
 
+<<<<<<< HEAD
 		return poly.toRuneLitePointList();
 	}
 
@@ -126,11 +143,29 @@ public class Jarvis
 
 			if (out.size() > length)
 			{
+=======
+		List<Point> ch = new ArrayList<>();
+
+		// find the left most point
+		Point left = findLeftMost(points);
+
+		// current point we are on
+		Point current = left;
+
+		do
+		{
+			ch.add(current);
+			assert ch.size() <= points.size() : "hull has more points than graph";
+			if (ch.size() > points.size())
+			{
+				// Just to make sure we never somehow get stuck in this loop
+>>>>>>> initial import of runelite
 				return null;
 			}
 
 			// the next point - all points are to the right of the
 			// line between current and next
+<<<<<<< HEAD
 			int next = 0;
 			int nx = xs[next];
 			int ny = ys[next];
@@ -144,12 +179,36 @@ public class Jarvis
 					nx = xs[next];
 					ny = ys[next];
 				}
+=======
+			Point next = null;
+
+			for (Point p : points)
+			{
+				if (next == null)
+				{
+					next = p;
+					continue;
+				}
+
+				long cp = crossProduct(current, p, next);
+				if (cp > 0 || (cp == 0 && current.distanceTo(p) > current.distanceTo(next)))
+				{
+					next = p;
+				}
+			}
+
+			// Points can be null if they are behind or very close to the camera.
+			if (next == null)
+			{
+				return null;
+>>>>>>> initial import of runelite
 			}
 
 			current = next;
 		}
 		while (current != left);
 
+<<<<<<< HEAD
 		return out;
 	}
 
@@ -182,6 +241,34 @@ public class Jarvis
 	{
 		long val = (long) (qy - py) * (rx - qx)
 			- (long) (qx - px) * (ry - qy);
+=======
+		return ch;
+	}
+
+	private static Point findLeftMost(List<Point> points)
+	{
+		Point left = null;
+
+		for (Point p : points)
+		{
+			if (left == null || p.getX() < left.getX())
+			{
+				left = p;
+			}
+			else if (p.getX() == left.getX() && p.getY() < left.getY())
+			{
+				left = p;
+			}
+		}
+
+		return left;
+	}
+
+	private static long crossProduct(Point p, Point q, Point r)
+	{
+		long val = (long)(q.getY() - p.getY()) * (r.getX() - q.getX())
+			- (long)(q.getX() - p.getX()) * (r.getY() - q.getY());
+>>>>>>> initial import of runelite
 		return val;
 	}
 }

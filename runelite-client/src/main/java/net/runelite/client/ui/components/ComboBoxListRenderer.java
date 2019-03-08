@@ -31,7 +31,10 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.border.EmptyBorder;
 import net.runelite.client.ui.ColorScheme;
+<<<<<<< HEAD
 import net.runelite.client.util.Text;
+=======
+>>>>>>> initial import of runelite
 
 /**
  * A custom list renderer to avoid substance's weird coloring.
@@ -58,6 +61,7 @@ public final class ComboBoxListRenderer extends JLabel implements ListCellRender
 
 		setBorder(new EmptyBorder(5, 5, 5, 0));
 
+<<<<<<< HEAD
 		String text;
 		if (o instanceof Enum)
 		{
@@ -68,6 +72,9 @@ public final class ComboBoxListRenderer extends JLabel implements ListCellRender
 			text = o.toString();
 		}
 
+=======
+		String text = o.toString();
+>>>>>>> initial import of runelite
 		setText(text);
 
 		return this;

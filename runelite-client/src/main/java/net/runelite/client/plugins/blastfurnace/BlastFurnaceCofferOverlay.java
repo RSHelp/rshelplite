@@ -38,7 +38,11 @@ import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
+=======
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 
 class BlastFurnaceCofferOverlay extends Overlay
 {
@@ -74,7 +78,11 @@ class BlastFurnaceCofferOverlay extends Overlay
 
 			panelComponent.getChildren().add(LineComponent.builder()
 				.left("Coffer:")
+<<<<<<< HEAD
 				.right(QuantityFormatter.quantityToStackSize(client.getVar(BLAST_FURNACE_COFFER)) + " gp")
+=======
+				.right(StackFormatter.quantityToStackSize(client.getVar(BLAST_FURNACE_COFFER)) + " gp")
+>>>>>>> initial import of runelite
 				.build());
 		}
 

@@ -25,18 +25,24 @@
 package net.runelite.client.plugins.cluescrolls.clues;
 
 import java.awt.Graphics2D;
+<<<<<<< HEAD
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.cluescrolls.ClueScrollPlugin;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 
 public abstract class ClueScroll
 {
+<<<<<<< HEAD
 	@Setter(AccessLevel.PROTECTED)
 	@Getter(AccessLevel.PUBLIC)
 	private boolean requiresSpade;
 
+=======
+>>>>>>> initial import of runelite
 	public abstract void makeOverlayHint(PanelComponent panelComponent, ClueScrollPlugin plugin);
 
 	public abstract void makeWorldOverlayHint(Graphics2D graphics, ClueScrollPlugin plugin);

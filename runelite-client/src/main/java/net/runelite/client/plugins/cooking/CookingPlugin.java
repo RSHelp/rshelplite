@@ -28,11 +28,15 @@ package net.runelite.client.plugins.cooking;
 import com.google.inject.Provides;
 import java.time.Duration;
 import java.time.Instant;
+<<<<<<< HEAD
 import java.util.Optional;
+=======
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.ChatMessageType;
+<<<<<<< HEAD
 import net.runelite.api.Client;
 import net.runelite.api.GraphicID;
 import net.runelite.api.ItemID;
@@ -43,12 +47,21 @@ import net.runelite.api.events.GraphicChanged;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemManager;
+=======
+import net.runelite.api.events.ChatMessage;
+import net.runelite.api.events.GameTick;
+import net.runelite.client.config.ConfigManager;
+import net.runelite.client.eventbus.Subscribe;
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.xptracker.XpTrackerPlugin;
 import net.runelite.client.ui.overlay.OverlayManager;
+<<<<<<< HEAD
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
+=======
+>>>>>>> initial import of runelite
 
 @PluginDescriptor(
 	name = "Cooking",
@@ -59,9 +72,12 @@ import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 public class CookingPlugin extends Plugin
 {
 	@Inject
+<<<<<<< HEAD
 	private Client client;
 
 	@Inject
+=======
+>>>>>>> initial import of runelite
 	private CookingConfig config;
 
 	@Inject
@@ -70,12 +86,15 @@ public class CookingPlugin extends Plugin
 	@Inject
 	private OverlayManager overlayManager;
 
+<<<<<<< HEAD
 	@Inject
 	private InfoBoxManager infoBoxManager;
 
 	@Inject
 	private ItemManager itemManager;
 
+=======
+>>>>>>> initial import of runelite
 	@Getter(AccessLevel.PACKAGE)
 	private CookingSession session;
 
@@ -95,7 +114,10 @@ public class CookingPlugin extends Plugin
 	@Override
 	protected void shutDown() throws Exception
 	{
+<<<<<<< HEAD
 		infoBoxManager.removeIf(FermentTimer.class::isInstance);
+=======
+>>>>>>> initial import of runelite
 		overlayManager.remove(overlay);
 		session = null;
 	}
@@ -118,6 +140,7 @@ public class CookingPlugin extends Plugin
 	}
 
 	@Subscribe
+<<<<<<< HEAD
 	public void onGraphicChanged(GraphicChanged graphicChanged)
 	{
 		Player player = client.getLocalPlayer();
@@ -151,6 +174,11 @@ public class CookingPlugin extends Plugin
 	public void onChatMessage(ChatMessage event)
 	{
 		if (event.getType() != ChatMessageType.SPAM)
+=======
+	public void onChatMessage(ChatMessage event)
+	{
+		if (event.getType() != ChatMessageType.FILTERED)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -161,7 +189,12 @@ public class CookingPlugin extends Plugin
 			|| message.startsWith("You successfully bake")
 			|| message.startsWith("You manage to cook")
 			|| message.startsWith("You roast a")
+<<<<<<< HEAD
 			|| message.startsWith("You cook"))
+=======
+			|| message.startsWith("You cook")
+			|| message.startsWith("You squeeze the grapes into the jug"))
+>>>>>>> initial import of runelite
 		{
 			if (session == null)
 			{
@@ -172,8 +205,12 @@ public class CookingPlugin extends Plugin
 			session.increaseCookAmount();
 
 		}
+<<<<<<< HEAD
 		else if (message.startsWith("You accidentally burn")
 			|| message.startsWith("You accidentally spoil"))
+=======
+		else if (message.startsWith("You accidentally burn"))
+>>>>>>> initial import of runelite
 		{
 			if (session == null)
 			{

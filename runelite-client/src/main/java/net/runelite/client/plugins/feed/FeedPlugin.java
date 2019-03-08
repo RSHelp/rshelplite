@@ -64,12 +64,19 @@ public class FeedPlugin extends Plugin
 	@Inject
 	private ScheduledExecutorService executorService;
 
+<<<<<<< HEAD
 	@Inject
 	private FeedClient feedClient;
 
 	private FeedPanel feedPanel;
 	private NavigationButton navButton;
 
+=======
+	private FeedPanel feedPanel;
+	private NavigationButton navButton;
+
+	private FeedClient feedClient = new FeedClient();
+>>>>>>> initial import of runelite
 	private Supplier<FeedResult> feedSupplier = Suppliers.memoizeWithExpiration(() ->
 	{
 		try

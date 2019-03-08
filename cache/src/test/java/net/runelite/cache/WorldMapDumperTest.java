@@ -77,7 +77,11 @@ public class WorldMapDumperTest
 				WorldMapLoader loader = new WorldMapLoader();
 				WorldMapDefinition def = loader.load(file.getContents(), file.getFileId());
 
+<<<<<<< HEAD
 				Files.asCharSink(new File(outDir, file.getFileId() + ".json"), Charset.defaultCharset()).write(gson.toJson(def));
+=======
+				Files.write(gson.toJson(def), new File(outDir, file.getFileId() + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

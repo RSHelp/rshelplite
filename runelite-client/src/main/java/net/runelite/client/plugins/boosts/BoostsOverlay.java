@@ -62,7 +62,11 @@ class BoostsOverlay extends Overlay
 	@Override
 	public Dimension render(Graphics2D graphics)
 	{
+<<<<<<< HEAD
 		if (config.displayInfoboxes())
+=======
+		if (config.displayIndicators())
+>>>>>>> initial import of runelite
 		{
 			return null;
 		}
@@ -137,7 +141,11 @@ class BoostsOverlay extends Overlay
 			return new Color(238, 51, 51);
 		}
 
+<<<<<<< HEAD
 		return boost <= config.boostThreshold() ? Color.YELLOW : Color.GREEN;
+=======
+		return boost < config.boostThreshold() ? Color.YELLOW : Color.GREEN;
+>>>>>>> initial import of runelite
 
 	}
 }

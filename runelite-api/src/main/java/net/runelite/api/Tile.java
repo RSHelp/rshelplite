@@ -130,7 +130,11 @@ public interface Tile
 	 *
 	 * @return the ground items
 	 */
+<<<<<<< HEAD
 	List<TileItem> getGroundItems();
+=======
+	List<Item> getGroundItems();
+>>>>>>> initial import of runelite
 
 	/**
 	 * Return the tile under this one, if this tile is a bridge

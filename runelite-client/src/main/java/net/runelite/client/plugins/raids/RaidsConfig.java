@@ -160,6 +160,10 @@ public interface RaidsConfig extends Config
 	)
 	default boolean layoutMessage()
 	{
+<<<<<<< HEAD
 		return false;
+=======
+		return true;
+>>>>>>> initial import of runelite
 	}
 }

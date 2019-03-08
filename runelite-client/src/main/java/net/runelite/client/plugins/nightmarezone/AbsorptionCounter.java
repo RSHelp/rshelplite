@@ -39,7 +39,11 @@ public class AbsorptionCounter extends Counter
 
 	AbsorptionCounter(BufferedImage image, Plugin plugin, int absorption, int threshold)
 	{
+<<<<<<< HEAD
 		super(image, plugin, absorption);
+=======
+		super(image, plugin,  absorption);
+>>>>>>> initial import of runelite
 		this.threshold = threshold;
 	}
 

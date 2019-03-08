@@ -23,6 +23,10 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> initial import of runelite
 package net.runelite.client.plugins.groundmarkers;
 
 import java.awt.Color;
@@ -44,6 +48,7 @@ public interface GroundMarkerConfig extends Config
 	{
 		return Color.YELLOW;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "rememberTileColors",
@@ -64,4 +69,6 @@ public interface GroundMarkerConfig extends Config
 	{
 		return false;
 	}
+=======
+>>>>>>> initial import of runelite
 }

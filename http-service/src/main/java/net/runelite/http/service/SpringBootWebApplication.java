@@ -26,13 +26,19 @@ package net.runelite.http.service;
 
 import ch.qos.logback.classic.LoggerContext;
 import com.google.common.base.Strings;
+<<<<<<< HEAD
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+=======
+>>>>>>> initial import of runelite
 import java.io.IOException;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
+<<<<<<< HEAD
 import javax.naming.NamingException;
+=======
+>>>>>>> initial import of runelite
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -46,7 +52,10 @@ import okhttp3.OkHttpClient;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.impl.StaticLoggerBinder;
 import org.springframework.beans.factory.annotation.Qualifier;
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Value;
+=======
+>>>>>>> initial import of runelite
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -56,7 +65,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
+<<<<<<< HEAD
 import org.springframework.jndi.JndiTemplate;
+=======
+>>>>>>> initial import of runelite
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.sql2o.Sql2o;
 import org.sql2o.converters.Converter;
@@ -161,6 +173,7 @@ public class SpringBootWebApplication extends SpringBootServletInitializer
 		return createSql2oFromDataSource(dataSource);
 	}
 
+<<<<<<< HEAD
 	@Bean(destroyMethod = "")
 	public MongoClient mongoClient(@Value("${mongo.host:}") String host, @Value("${mongo.jndiName:}") String jndiName) throws NamingException
 	{
@@ -179,6 +192,8 @@ public class SpringBootWebApplication extends SpringBootServletInitializer
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private static DataSource getDataSource(DataSourceProperties dataSourceProperties)
 	{
 		if (!Strings.isNullOrEmpty(dataSourceProperties.getJndiName()))

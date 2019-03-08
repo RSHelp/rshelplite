@@ -26,7 +26,11 @@
 package net.runelite.client.plugins.npchighlight;
 
 import com.google.common.annotations.VisibleForTesting;
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableSet;
+=======
+import com.google.common.collect.ImmutableList;
+>>>>>>> initial import of runelite
 import com.google.inject.Provides;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -47,7 +51,10 @@ import net.runelite.api.GameState;
 import net.runelite.api.GraphicID;
 import net.runelite.api.GraphicsObject;
 import net.runelite.api.MenuAction;
+<<<<<<< HEAD
 import static net.runelite.api.MenuAction.MENU_ACTION_DEPRIORITIZE_OFFSET;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.MenuEntry;
 import net.runelite.api.NPC;
 import net.runelite.api.coords.WorldPoint;
@@ -67,7 +74,10 @@ import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+<<<<<<< HEAD
 import net.runelite.client.util.ColorUtil;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.util.Text;
 import net.runelite.client.util.WildcardMatcher;
 
@@ -83,9 +93,14 @@ public class NpcIndicatorsPlugin extends Plugin
 
 	// Option added to NPC menu
 	private static final String TAG = "Tag";
+<<<<<<< HEAD
 	private static final String UNTAG = "Un-tag";
 
 	private static final Set<MenuAction> NPC_MENU_ACTIONS = ImmutableSet.of(MenuAction.NPC_FIRST_OPTION, MenuAction.NPC_SECOND_OPTION,
+=======
+
+	private static final List<MenuAction> NPC_MENU_ACTIONS = ImmutableList.of(MenuAction.NPC_FIRST_OPTION, MenuAction.NPC_SECOND_OPTION,
+>>>>>>> initial import of runelite
 		MenuAction.NPC_THIRD_OPTION, MenuAction.NPC_FOURTH_OPTION, MenuAction.NPC_FIFTH_OPTION);
 
 	@Inject
@@ -251,6 +266,7 @@ public class NpcIndicatorsPlugin extends Plugin
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event)
 	{
+<<<<<<< HEAD
 		int type = event.getType();
 
 		if (type >= MENU_ACTION_DEPRIORITIZE_OFFSET)
@@ -282,13 +298,34 @@ public class NpcIndicatorsPlugin extends Plugin
 			tagEntry.setType(MenuAction.RUNELITE.getId());
 			client.setMenuEntries(menuEntries);
 		}
+=======
+		if (!hotKeyPressed || event.getType() != MenuAction.EXAMINE_NPC.getId())
+		{
+			return;
+		}
+
+		MenuEntry[] menuEntries = client.getMenuEntries();
+		menuEntries = Arrays.copyOf(menuEntries, menuEntries.length + 1);
+		MenuEntry menuEntry = menuEntries[menuEntries.length - 1] = new MenuEntry();
+		menuEntry.setOption(TAG);
+		menuEntry.setTarget(event.getTarget());
+		menuEntry.setParam0(event.getActionParam0());
+		menuEntry.setParam1(event.getActionParam1());
+		menuEntry.setIdentifier(event.getIdentifier());
+		menuEntry.setType(MenuAction.RUNELITE.getId());
+		client.setMenuEntries(menuEntries);
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
 	public void onMenuOptionClicked(MenuOptionClicked click)
 	{
+<<<<<<< HEAD
 		if (click.getMenuAction() != MenuAction.RUNELITE ||
 			!(click.getMenuOption().equals(TAG) || click.getMenuOption().equals(UNTAG)))
+=======
+		if (click.getMenuAction() != MenuAction.RUNELITE || !click.getMenuOption().equals(TAG))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -550,6 +587,7 @@ public class NpcIndicatorsPlugin extends Plugin
 
 					if (mn.getDiedOnTick() != -1)
 					{
+<<<<<<< HEAD
 						final int respawnTime = client.getTickCount() + 1 - mn.getDiedOnTick();
 
 						// By killing a monster and leaving the area before seeing it again, an erroneously lengthy
@@ -560,6 +598,9 @@ public class NpcIndicatorsPlugin extends Plugin
 							mn.setRespawnTime(respawnTime);
 						}
 
+=======
+						mn.setRespawnTime(client.getTickCount() + 1 - mn.getDiedOnTick());
+>>>>>>> initial import of runelite
 						mn.setDiedOnTick(-1);
 					}
 

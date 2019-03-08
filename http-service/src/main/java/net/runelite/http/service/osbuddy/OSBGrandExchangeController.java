@@ -29,7 +29,10 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+>>>>>>> initial import of runelite
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,7 +49,11 @@ public class OSBGrandExchangeController
 		this.grandExchangeService = grandExchangeService;
 	}
 
+<<<<<<< HEAD
 	@GetMapping
+=======
+	@RequestMapping
+>>>>>>> initial import of runelite
 	public ResponseEntity<GrandExchangeEntry> get(@RequestParam("itemId") int itemId) throws ExecutionException
 	{
 		GrandExchangeEntry grandExchangeEntry = grandExchangeService.get(itemId);

@@ -27,7 +27,11 @@ package net.runelite.client.plugins.blastfurnace;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+import java.awt.geom.Area;
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.EquipmentInventorySlot;
@@ -110,7 +114,11 @@ class BlastFurnaceClickBoxOverlay extends Overlay
 
 		if (localLocation.distanceTo(location) <= MAX_DISTANCE)
 		{
+<<<<<<< HEAD
 			Shape objectClickbox = object.getClickbox();
+=======
+			Area objectClickbox = object.getClickbox();
+>>>>>>> initial import of runelite
 			if (objectClickbox != null)
 			{
 				if (objectClickbox.contains(mousePosition.getX(), mousePosition.getY()))

@@ -74,7 +74,11 @@ public class FramemapDumper
 				FramemapLoader loader = new FramemapLoader();
 				FramemapDefinition framemap = loader.load(0, contents);
 
+<<<<<<< HEAD
 				Files.asCharSink(new File(outDir, archive.getArchiveId() + ".json"), Charset.defaultCharset()).write(gson.toJson(framemap));
+=======
+				Files.write(gson.toJson(framemap), new File(outDir, archive.getArchiveId() + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

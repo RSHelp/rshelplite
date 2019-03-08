@@ -139,13 +139,18 @@ class FarmingWorld
 			new FarmingPatch("", Varbits.FARMING_4772, PatchImplementation.HERB)
 		));
 
+<<<<<<< HEAD
 		add(new FarmingRegion("Kourend", 6967,
+=======
+		add(new FarmingRegion("Kourend", 7222,
+>>>>>>> initial import of runelite
 			new FarmingPatch("North East", Varbits.FARMING_4771, PatchImplementation.ALLOTMENT),
 			new FarmingPatch("South West", Varbits.FARMING_4772, PatchImplementation.ALLOTMENT),
 			new FarmingPatch("", Varbits.FARMING_4773, PatchImplementation.FLOWER),
 			new FarmingPatch("", Varbits.FARMING_4774, PatchImplementation.HERB)
 		));
 		add(new FarmingRegion("Kourend", 6711,
+<<<<<<< HEAD
 			new FarmingPatch("", Varbits.FARMING_7904, PatchImplementation.SPIRIT_TREE)
 		));
 		add(new FarmingRegion("Kourend", 7223,
@@ -161,6 +166,23 @@ class FarmingWorld
 			new FarmingPatch("West 4", Varbits.GRAPES_4962, PatchImplementation.GRAPES),
 			new FarmingPatch("West 5", Varbits.GRAPES_4963, PatchImplementation.GRAPES),
 			new FarmingPatch("West 6", Varbits.GRAPES_4964, PatchImplementation.GRAPES)
+=======
+			new FarmingPatch("", Varbits.FARMING_4771, PatchImplementation.SPIRIT_TREE)
+		));
+		add(new FarmingRegion("Kourend", 7223,
+			new FarmingPatch("West 1", Varbits.GRAPES_4953, PatchImplementation.GRAPES),
+			new FarmingPatch("West 2", Varbits.GRAPES_4954, PatchImplementation.GRAPES),
+			new FarmingPatch("West 3", Varbits.GRAPES_4955, PatchImplementation.GRAPES),
+			new FarmingPatch("West 4", Varbits.GRAPES_4956, PatchImplementation.GRAPES),
+			new FarmingPatch("West 5", Varbits.GRAPES_4957, PatchImplementation.GRAPES),
+			new FarmingPatch("West 6", Varbits.GRAPES_4958, PatchImplementation.GRAPES),
+			new FarmingPatch("East 1", Varbits.GRAPES_4959, PatchImplementation.GRAPES),
+			new FarmingPatch("East 2", Varbits.GRAPES_4960, PatchImplementation.GRAPES),
+			new FarmingPatch("East 3", Varbits.GRAPES_4961, PatchImplementation.GRAPES),
+			new FarmingPatch("East 4", Varbits.GRAPES_4962, PatchImplementation.GRAPES),
+			new FarmingPatch("East 5", Varbits.GRAPES_4963, PatchImplementation.GRAPES),
+			new FarmingPatch("East 6", Varbits.GRAPES_4964, PatchImplementation.GRAPES)
+>>>>>>> initial import of runelite
 		));
 
 		add(new FarmingRegion("Lletya", 9265,
@@ -244,6 +266,7 @@ class FarmingWorld
 			new FarmingPatch("", Varbits.FARMING_7907, PatchImplementation.REDWOOD)
 		));
 
+<<<<<<< HEAD
 		add(new FarmingRegion("Prifddinas", 13151,
 			new FarmingPatch("North", Varbits.FARMING_4771, PatchImplementation.ALLOTMENT),
 			new FarmingPatch("South", Varbits.FARMING_4772, PatchImplementation.ALLOTMENT),
@@ -251,6 +274,8 @@ class FarmingWorld
 			new FarmingPatch("", Varbits.FARMING_4775, PatchImplementation.CRYSTAL_TREE)
 		));
 
+=======
+>>>>>>> initial import of runelite
 		// Finalize
 		this.regions = Collections.unmodifiableMap(regions);
 		Map<Tab, Set<FarmingPatch>> umtabs = new TreeMap<>();

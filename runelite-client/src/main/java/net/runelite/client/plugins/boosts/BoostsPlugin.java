@@ -33,7 +33,10 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.Getter;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.Prayer;
 import net.runelite.api.Skill;
 import net.runelite.api.events.BoostedLevelChanged;
@@ -263,6 +266,7 @@ public class BoostsPlugin extends Plugin
 
 	private void updateShownSkills()
 	{
+<<<<<<< HEAD
 		switch (config.displayBoosts())
 		{
 			case NONE:
@@ -282,6 +286,18 @@ public class BoostsPlugin extends Plugin
 				shownSkills.addAll(BOOSTABLE_NON_COMBAT_SKILLS);
 				break;
 		}
+=======
+		if (config.enableSkill())
+		{
+			shownSkills.addAll(BOOSTABLE_NON_COMBAT_SKILLS);
+		}
+		else
+		{
+			shownSkills.removeAll(BOOSTABLE_NON_COMBAT_SKILLS);
+		}
+
+		shownSkills.addAll(BOOSTABLE_COMBAT_SKILLS);
+>>>>>>> initial import of runelite
 	}
 
 	private void updateBoostedStats()
@@ -382,6 +398,10 @@ public class BoostsPlugin extends Plugin
 	int getChangeTime(final int time)
 	{
 		final long diff = System.currentTimeMillis() - lastTickMillis;
+<<<<<<< HEAD
 		return time != -1 ? (int)((time * Constants.GAME_TICK_LENGTH - diff) / 1000d) : time;
+=======
+		return time != -1 ? (int)(time * 0.6 - (diff / 1000d)) : time;
+>>>>>>> initial import of runelite
 	}
 }

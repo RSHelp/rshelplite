@@ -104,7 +104,11 @@ public class CacheService
 	{
 		String hashStr = BaseEncoding.base16().encode(archiveEntry.getHash());
 		String path = new StringBuilder()
+<<<<<<< HEAD
 			.append(hashStr, 0, 2)
+=======
+			.append(hashStr.substring(0, 2))
+>>>>>>> initial import of runelite
 			.append('/')
 			.append(hashStr.substring(2))
 			.toString();

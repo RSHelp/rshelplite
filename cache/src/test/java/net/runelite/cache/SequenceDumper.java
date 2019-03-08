@@ -77,7 +77,11 @@ public class SequenceDumper
 				SequenceLoader loader = new SequenceLoader();
 				SequenceDefinition seq = loader.load(file.getFileId(), file.getContents());
 
+<<<<<<< HEAD
 				Files.asCharSink(new File(outDir, file.getFileId() + ".json"), Charset.defaultCharset()).write(gson.toJson(seq));
+=======
+				Files.write(gson.toJson(seq), new File(outDir, file.getFileId() + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

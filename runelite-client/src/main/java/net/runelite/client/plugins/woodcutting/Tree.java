@@ -24,7 +24,11 @@
  */
 package net.runelite.client.plugins.woodcutting;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
+=======
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Map;
 import lombok.Getter;
 import static net.runelite.api.ObjectID.REDWOOD;
@@ -42,21 +46,34 @@ enum Tree
 		this.treeIds = treeIds;
 	}
 
+<<<<<<< HEAD
 	private static final Map<Integer, Tree> TREES;
 
 	static
 	{
 		ImmutableMap.Builder<Integer, Tree> builder = new ImmutableMap.Builder<>();
 
+=======
+	private static final Map<Integer, Tree> TREES = new HashMap<>();
+
+	static
+	{
+>>>>>>> initial import of runelite
 		for (Tree tree : values())
 		{
 			for (int treeId : tree.treeIds)
 			{
+<<<<<<< HEAD
 				builder.put(treeId, tree);
 			}
 		}
 
 		TREES = builder.build();
+=======
+				TREES.put(treeId, tree);
+			}
+		}
+>>>>>>> initial import of runelite
 	}
 
 	static Tree findTree(int objectId)

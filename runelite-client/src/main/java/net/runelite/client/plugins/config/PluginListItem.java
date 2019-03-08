@@ -26,6 +26,7 @@ package net.runelite.client.plugins.config;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -36,33 +37,52 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collection;
+=======
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+>>>>>>> initial import of runelite
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+<<<<<<< HEAD
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+=======
+import javax.swing.JPanel;
+>>>>>>> initial import of runelite
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigDescriptor;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+<<<<<<< HEAD
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
 import net.runelite.client.ui.components.IconButton;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.LinkBrowser;
+=======
+import net.runelite.client.ui.PluginPanel;
+import net.runelite.client.ui.components.IconButton;
+import net.runelite.client.util.ImageUtil;
+>>>>>>> initial import of runelite
 import org.apache.commons.text.similarity.JaroWinklerDistance;
 
 class PluginListItem extends JPanel
 {
 	private static final JaroWinklerDistance DISTANCE = new JaroWinklerDistance();
+<<<<<<< HEAD
 	private static final String RUNELITE_WIKI_FORMAT = "https://github.com/runelite/runelite/wiki/%s";
+=======
+>>>>>>> initial import of runelite
 
 	private static final ImageIcon CONFIG_ICON;
 	private static final ImageIcon CONFIG_ICON_HOVER;
@@ -91,14 +111,21 @@ class PluginListItem extends JPanel
 	@Getter
 	private final String description;
 
+<<<<<<< HEAD
 	@Getter
 	private final IconButton configToggleButton;
 
+=======
+>>>>>>> initial import of runelite
 	private final List<String> keywords = new ArrayList<>();
 
 	private final IconButton pinButton = new IconButton(OFF_STAR);
 	private final IconButton configButton = new IconButton(CONFIG_ICON, CONFIG_ICON_HOVER);
+<<<<<<< HEAD
 	private final IconButton toggleButton;
+=======
+	private final IconButton toggleButton = new IconButton(OFF_SWITCHER);
+>>>>>>> initial import of runelite
 
 	private boolean isPluginEnabled = false;
 
@@ -165,8 +192,11 @@ class PluginListItem extends JPanel
 		Collections.addAll(keywords, description.toLowerCase().split(" "));
 		Collections.addAll(keywords, tags);
 
+<<<<<<< HEAD
 		final List<JMenuItem> popupMenuItems = new ArrayList<>();
 
+=======
+>>>>>>> initial import of runelite
 		setLayout(new BorderLayout(3, 0));
 		setPreferredSize(new Dimension(PluginPanel.PANEL_WIDTH, 20));
 
@@ -178,6 +208,10 @@ class PluginListItem extends JPanel
 			nameLabel.setToolTipText("<html>" + name + ":<br>" + description + "</html>");
 		}
 
+<<<<<<< HEAD
+=======
+		add(nameLabel, BorderLayout.CENTER);
+>>>>>>> initial import of runelite
 
 		pinButton.setPreferredSize(new Dimension(21, 0));
 		add(pinButton, BorderLayout.LINE_START);
@@ -203,11 +237,16 @@ class PluginListItem extends JPanel
 			configButton.addActionListener(e ->
 			{
 				configButton.setIcon(CONFIG_ICON);
+<<<<<<< HEAD
 				openGroupConfigPanel();
+=======
+				configPanel.openGroupConfigPanel(PluginListItem.this, config, configDescriptor);
+>>>>>>> initial import of runelite
 			});
 
 			configButton.setVisible(true);
 			configButton.setToolTipText("Edit plugin configuration");
+<<<<<<< HEAD
 
 			final JMenuItem configMenuItem = new JMenuItem("Configure");
 			configMenuItem.addActionListener(e -> openGroupConfigPanel());
@@ -222,6 +261,13 @@ class PluginListItem extends JPanel
 		buttonPanel.add(toggleButton);
 
 		configToggleButton = createToggleButton();
+=======
+		}
+
+		toggleButton.setPreferredSize(new Dimension(25, 0));
+		attachToggleButtonListener(toggleButton);
+		buttonPanel.add(toggleButton);
+>>>>>>> initial import of runelite
 	}
 
 	private void attachToggleButtonListener(IconButton button)
@@ -249,9 +295,15 @@ class PluginListItem extends JPanel
 		});
 	}
 
+<<<<<<< HEAD
 	private IconButton createToggleButton()
 	{
 		final IconButton button = new IconButton(OFF_SWITCHER);
+=======
+	IconButton createToggleButton()
+	{
+		IconButton button = new IconButton(OFF_SWITCHER);
+>>>>>>> initial import of runelite
 		button.setPreferredSize(new Dimension(25, 0));
 		updateToggleButton(button);
 		attachToggleButtonListener(button);
@@ -262,7 +314,10 @@ class PluginListItem extends JPanel
 	{
 		isPluginEnabled = enabled;
 		updateToggleButton(toggleButton);
+<<<<<<< HEAD
 		updateToggleButton(configToggleButton);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	void setPinned(boolean pinned)
@@ -294,6 +349,7 @@ class PluginListItem extends JPanel
 		}
 		return true;
 	}
+<<<<<<< HEAD
 
 	private void openGroupConfigPanel()
 	{
@@ -375,4 +431,6 @@ class PluginListItem extends JPanel
 		menuItem.addActionListener(e -> LinkBrowser.browse(String.format(RUNELITE_WIKI_FORMAT, sanitizedName)));
 		return menuItem;
 	}
+=======
+>>>>>>> initial import of runelite
 }

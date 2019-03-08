@@ -165,7 +165,11 @@ public class MapDumperTest
 
 	@Test
 	@Ignore
+<<<<<<< HEAD
 	public void dumpJson() throws IOException
+=======
+	public void dunpJson() throws IOException
+>>>>>>> initial import of runelite
 	{
 		File base = StoreLocation.LOCATION,
 			outDir = folder.newFolder();

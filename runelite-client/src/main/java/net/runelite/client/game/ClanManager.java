@@ -30,11 +30,21 @@ import com.google.common.cache.LoadingCache;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
+<<<<<<< HEAD
+=======
+import java.awt.image.ColorModel;
+import java.awt.image.DataBufferByte;
+import java.awt.image.IndexColorModel;
+import java.awt.image.WritableRaster;
+>>>>>>> initial import of runelite
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nonnull;
+<<<<<<< HEAD
 import javax.annotation.Nullable;
+=======
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import net.runelite.api.ClanMember;
@@ -95,7 +105,11 @@ public class ClanManager
 			}
 		});
 
+<<<<<<< HEAD
 	private int offset;
+=======
+	private int modIconsLength;
+>>>>>>> initial import of runelite
 
 	@Inject
 	private ClanManager(Client client, SpriteManager spriteManager)
@@ -109,7 +123,10 @@ public class ClanManager
 		return clanRanksCache.getUnchecked(playerName);
 	}
 
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	public BufferedImage getClanImage(final ClanMemberRank clanMemberRank)
 	{
 		if (clanMemberRank == ClanMemberRank.UNRANKED)
@@ -122,13 +139,22 @@ public class ClanManager
 
 	public int getIconNumber(final ClanMemberRank clanMemberRank)
 	{
+<<<<<<< HEAD
 		return offset + clanMemberRank.ordinal() - 1;
+=======
+		return modIconsLength - CLANCHAT_IMAGES.length + clanMemberRank.ordinal() - 1;
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
 	public void onGameStateChanged(GameStateChanged gameStateChanged)
 	{
+<<<<<<< HEAD
 		if (gameStateChanged.getGameState() == GameState.LOGIN_SCREEN && offset == 0)
+=======
+		if (gameStateChanged.getGameState() == GameState.LOGGED_IN
+			&& modIconsLength == 0)
+>>>>>>> initial import of runelite
 		{
 			loadClanChatIcons();
 		}
@@ -142,6 +168,7 @@ public class ClanManager
 
 	private void loadClanChatIcons()
 	{
+<<<<<<< HEAD
 		{
 			IndexedSprite[] modIcons = client.getModIcons();
 			offset = modIcons.length;
@@ -167,6 +194,21 @@ public class ClanManager
 				modIcons[offset + fi] = ImageUtil.getImageIndexedSprite(clanChatImages[fi], client);
 			});
 		}
+=======
+		final IndexedSprite[] modIcons = client.getModIcons();
+		final IndexedSprite[] newModIcons = Arrays.copyOf(modIcons, modIcons.length + CLANCHAT_IMAGES.length);
+		int curPosition = newModIcons.length - CLANCHAT_IMAGES.length;
+
+		for (int i = 0; i < CLANCHAT_IMAGES.length; i++, curPosition++)
+		{
+			final int resource = CLANCHAT_IMAGES[i];
+			clanChatImages[i] = rgbaToIndexedBufferedImage(clanChatImageFromSprite(spriteManager.getSprite(resource, 0)));
+			newModIcons[curPosition] = createIndexedSprite(client, clanChatImages[i]);
+		}
+
+		client.setModIcons(newModIcons);
+		modIconsLength = newModIcons.length;
+>>>>>>> initial import of runelite
 	}
 
 	private static String sanitize(String lookup)
@@ -175,6 +217,57 @@ public class ClanManager
 		return cleaned.replace('\u00A0', ' ');
 	}
 
+<<<<<<< HEAD
+=======
+	private static IndexedSprite createIndexedSprite(final Client client, final BufferedImage bufferedImage)
+	{
+		final IndexColorModel indexedCM = (IndexColorModel) bufferedImage.getColorModel();
+
+		final int width = bufferedImage.getWidth();
+		final int height = bufferedImage.getHeight();
+		final byte[] pixels = ((DataBufferByte) bufferedImage.getRaster().getDataBuffer()).getData();
+		final int[] palette = new int[indexedCM.getMapSize()];
+		indexedCM.getRGBs(palette);
+
+		final IndexedSprite newIndexedSprite = client.createIndexedSprite();
+		newIndexedSprite.setPixels(pixels);
+		newIndexedSprite.setPalette(palette);
+		newIndexedSprite.setWidth(width);
+		newIndexedSprite.setHeight(height);
+		newIndexedSprite.setOriginalWidth(width);
+		newIndexedSprite.setOriginalHeight(height);
+		newIndexedSprite.setOffsetX(0);
+		newIndexedSprite.setOffsetY(0);
+		return newIndexedSprite;
+	}
+
+	private static BufferedImage rgbaToIndexedBufferedImage(final BufferedImage sourceBufferedImage)
+	{
+		final BufferedImage indexedImage = new BufferedImage(
+			sourceBufferedImage.getWidth(),
+			sourceBufferedImage.getHeight(),
+			BufferedImage.TYPE_BYTE_INDEXED);
+
+		final ColorModel cm = indexedImage.getColorModel();
+		final IndexColorModel icm = (IndexColorModel) cm;
+
+		final int size = icm.getMapSize();
+		final byte[] reds = new byte[size];
+		final byte[] greens = new byte[size];
+		final byte[] blues = new byte[size];
+		icm.getReds(reds);
+		icm.getGreens(greens);
+		icm.getBlues(blues);
+
+		final WritableRaster raster = indexedImage.getRaster();
+		final int pixel = raster.getSample(0, 0, 0);
+		final IndexColorModel resultIcm = new IndexColorModel(8, size, reds, greens, blues, pixel);
+		final BufferedImage resultIndexedImage = new BufferedImage(resultIcm, raster, sourceBufferedImage.isAlphaPremultiplied(), null);
+		resultIndexedImage.getGraphics().drawImage(sourceBufferedImage, 0, 0, null);
+		return resultIndexedImage;
+	}
+
+>>>>>>> initial import of runelite
 	private static BufferedImage clanChatImageFromSprite(final BufferedImage clanSprite)
 	{
 		final BufferedImage clanChatCanvas = ImageUtil.resizeCanvas(clanSprite, CLANCHAT_IMAGE_DIMENSION.width, CLANCHAT_IMAGE_DIMENSION.height);

@@ -25,15 +25,26 @@
  */
 package net.runelite.client.plugins.worldmap;
 
+<<<<<<< HEAD
 import net.runelite.api.coords.WorldPoint;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.worldmap.WorldMapPoint;
 import java.awt.image.BufferedImage;
 
 class QuestStartPoint extends WorldMapPoint
 {
+<<<<<<< HEAD
 	QuestStartPoint(WorldPoint location, BufferedImage icon, String tooltip)
 	{
 		super(location, icon);
 		setTooltip(tooltip);
+=======
+	QuestStartPoint(QuestStartLocation data, BufferedImage icon)
+	{
+		super(data.getLocation(), icon);
+
+		setTooltip(data.getTooltip());
+>>>>>>> initial import of runelite
 	}
 }

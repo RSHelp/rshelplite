@@ -25,8 +25,13 @@
 package net.runelite.client.plugins.runepouch;
 
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
 import java.awt.image.BufferedImage;
+=======
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
@@ -85,6 +90,7 @@ public enum Runes
 	@Setter
 	private BufferedImage image;
 
+<<<<<<< HEAD
 	private static final Map<Integer, Runes> runes;
 
 	static
@@ -95,6 +101,16 @@ public enum Runes
 			builder.put(rune.getId(), rune);
 		}
 		runes = builder.build();
+=======
+	private static final Map<Integer, Runes> runes = new HashMap<>();
+
+	static
+	{
+		for (Runes rune : values())
+		{
+			runes.put(rune.getId(), rune);
+		}
+>>>>>>> initial import of runelite
 	}
 
 	Runes(int id, int itemId)
@@ -111,7 +127,11 @@ public enum Runes
 	public String getName()
 	{
 		String name = this.name();
+<<<<<<< HEAD
 		name = name.substring(0, 1) + name.substring(1).toLowerCase();
+=======
+		name = name.substring(0, 1) + name.substring(1, name.length()).toLowerCase();
+>>>>>>> initial import of runelite
 		return name;
 	}
 }

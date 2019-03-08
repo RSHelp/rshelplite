@@ -23,6 +23,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+<<<<<<< HEAD
 package net.runelite.client.plugins.groundmarkers;
 
 import java.awt.Color;
@@ -35,10 +36,23 @@ import lombok.Value;
 @Value
 @EqualsAndHashCode(exclude = { "color" })
 class GroundMarkerPoint
+=======
+
+package net.runelite.client.plugins.groundmarkers;
+
+import lombok.Value;
+
+@Value
+public class GroundMarkerPoint
+>>>>>>> initial import of runelite
 {
 	private int regionId;
 	private int regionX;
 	private int regionY;
 	private int z;
+<<<<<<< HEAD
 	private Color color;
 }
+=======
+}
+>>>>>>> initial import of runelite

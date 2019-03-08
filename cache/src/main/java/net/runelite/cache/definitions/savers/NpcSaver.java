@@ -47,6 +47,7 @@ public class NpcSaver
 			out.writeByte(2);
 			out.writeString(npc.name);
 		}
+<<<<<<< HEAD
 		if (npc.size != 1)
 		{
 			out.writeByte(12);
@@ -71,21 +72,58 @@ public class NpcSaver
 		{
 			out.writeByte(16);
 			out.writeShort(npc.rotateRightAnimation);
+=======
+		if (npc.tileSpacesOccupied != 1)
+		{
+			out.writeByte(12);
+			out.writeByte(npc.tileSpacesOccupied);
+		}
+		if (npc.stanceAnimation != -1)
+		{
+			out.writeByte(13);
+			out.writeShort(npc.stanceAnimation);
+		}
+		if (npc.walkAnimation != -1)
+		{
+			out.writeByte(14);
+			out.writeShort(npc.walkAnimation);
+		}
+		if (npc.anInt2165 != -1)
+		{
+			out.writeByte(15);
+			out.writeShort(npc.anInt2165);
+		}
+		if (npc.anInt2189 != -1)
+		{
+			out.writeByte(16);
+			out.writeShort(npc.anInt2189);
+>>>>>>> initial import of runelite
 		}
 		if (npc.rotate180Animation != -1 || npc.rotate90LeftAnimation != -1 || npc.rotate90RightAnimation != -1)
 		{
 			out.writeByte(17);
+<<<<<<< HEAD
 			out.writeShort(npc.walkingAnimation);
+=======
+			out.writeShort(npc.walkAnimation);
+>>>>>>> initial import of runelite
 			out.writeShort(npc.rotate180Animation);
 			out.writeShort(npc.rotate90RightAnimation);
 			out.writeShort(npc.rotate90LeftAnimation);
 		}
 		for (int i = 0; i < 5; ++i)
 		{
+<<<<<<< HEAD
 			if (npc.actions[i] != null)
 			{
 				out.writeByte(30 + i);
 				out.writeString(npc.actions[i]);
+=======
+			if (npc.options[i] != null)
+			{
+				out.writeByte(30 + i);
+				out.writeString(npc.options[i]);
+>>>>>>> initial import of runelite
 			}
 		}
 		if (npc.recolorToFind != null && npc.recolorToReplace != null)
@@ -108,16 +146,28 @@ public class NpcSaver
 				out.writeShort(npc.retextureToReplace[i]);
 			}
 		}
+<<<<<<< HEAD
 		if (npc.chatheadModels != null)
 		{
 			out.writeByte(60);
 			out.writeByte(npc.chatheadModels.length);
 			for (int modelId : npc.chatheadModels)
+=======
+		if (npc.models_2 != null)
+		{
+			out.writeByte(60);
+			out.writeByte(npc.models_2.length);
+			for (int modelId : npc.models_2)
+>>>>>>> initial import of runelite
 			{
 				out.writeShort(modelId);
 			}
 		}
+<<<<<<< HEAD
 		if (!npc.isMinimapVisible)
+=======
+		if (!npc.renderOnMinimap)
+>>>>>>> initial import of runelite
 		{
 			out.writeByte(93);
 		}
@@ -127,9 +177,15 @@ public class NpcSaver
 			out.writeShort(npc.combatLevel);
 		}
 		out.writeByte(97);
+<<<<<<< HEAD
 		out.writeShort(npc.widthScale);
 		out.writeByte(98);
 		out.writeShort(npc.heightScale);
+=======
+		out.writeShort(npc.resizeX);
+		out.writeByte(98);
+		out.writeShort(npc.resizeY);
+>>>>>>> initial import of runelite
 		if (npc.hasRenderPriority)
 		{
 			out.writeByte(99);
@@ -144,6 +200,7 @@ public class NpcSaver
 			out.writeShort(npc.headIcon);
 		}
 		out.writeByte(103);
+<<<<<<< HEAD
 		out.writeShort(npc.rotationSpeed);
 		if (!npc.isInteractable)
 		{
@@ -154,13 +211,29 @@ public class NpcSaver
 			out.writeByte(109);
 		}
 		if (npc.isPet)
+=======
+		out.writeShort(npc.rotation);
+		if (!npc.isClickable)
+		{
+			out.writeByte(107);
+		}
+		if (!npc.aBool2170)
+		{
+			out.writeByte(109);
+		}
+		if (npc.aBool2190)
+>>>>>>> initial import of runelite
 		{
 			out.writeByte(111);
 		}
 		if (npc.configs != null)
 		{
 			out.writeByte(118);
+<<<<<<< HEAD
 			out.writeShort(npc.varbitId);
+=======
+			out.writeShort(npc.varbitIndex);
+>>>>>>> initial import of runelite
 			out.writeShort(npc.varpIndex);
 
 			int[] c = npc.configs;

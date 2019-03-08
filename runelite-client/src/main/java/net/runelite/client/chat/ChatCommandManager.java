@@ -31,6 +31,10 @@ import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> initial import of runelite
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.ChatMessage;
@@ -41,6 +45,10 @@ import net.runelite.client.events.ChatboxInput;
 import net.runelite.client.events.PrivateMessageInput;
 
 @Singleton
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 public class ChatCommandManager implements ChatboxInputListener
 {
 	private final Map<String, ChatCommand> commands = new HashMap<>();
@@ -92,12 +100,20 @@ public class ChatCommandManager implements ChatboxInputListener
 
 		switch (chatMessage.getType())
 		{
+<<<<<<< HEAD
 			case PUBLICCHAT:
 			case MODCHAT:
 			case FRIENDSCHAT:
 			case PRIVATECHAT:
 			case MODPRIVATECHAT:
 			case PRIVATECHATOUT:
+=======
+			case PUBLIC:
+			case PUBLIC_MOD:
+			case CLANCHAT:
+			case PRIVATE_MESSAGE_RECEIVED:
+			case PRIVATE_MESSAGE_SENT:
+>>>>>>> initial import of runelite
 				break;
 			default:
 				return;

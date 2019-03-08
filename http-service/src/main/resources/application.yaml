@@ -16,7 +16,10 @@ spring.jmx.enabled: false
 oauth:
   client-id:
   client-secret:
+<<<<<<< HEAD
   callback: https://api.runelite.net/oauth/
+=======
+>>>>>>> initial import of runelite
 
 # Minio client storage for cache
 minio:
@@ -30,13 +33,20 @@ redis:
   pool.size: 10
   host: http://localhost:6379
 
+<<<<<<< HEAD
 mongo:
   jndiName: java:comp/env/mongodb/runelite
   database: runelite
 
+=======
+>>>>>>> initial import of runelite
 # Twitter client for feed
 runelite:
   twitter:
     consumerkey:
     secretkey:
+<<<<<<< HEAD
     listid: 1185897074786742273
+=======
+    listid: 968949795153948673
+>>>>>>> initial import of runelite

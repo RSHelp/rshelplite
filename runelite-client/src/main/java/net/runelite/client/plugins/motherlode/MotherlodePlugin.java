@@ -217,7 +217,11 @@ public class MotherlodePlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (!inMlm || event.getType() != ChatMessageType.SPAM)
+=======
+		if (!inMlm || event.getType() != ChatMessageType.FILTERED)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -376,7 +380,13 @@ public class MotherlodePlugin extends Plugin
 			// on region changes the tiles get set to null
 			veins.clear();
 			rocks.clear();
+<<<<<<< HEAD
 
+=======
+		}
+		else if (event.getGameState() == GameState.LOGGED_IN)
+		{
+>>>>>>> initial import of runelite
 			inMlm = checkInMlm();
 		}
 		else if (event.getGameState() == GameState.LOGIN_SCREEN)
@@ -459,9 +469,13 @@ public class MotherlodePlugin extends Plugin
 
 	private boolean checkInMlm()
 	{
+<<<<<<< HEAD
 		GameState gameState = client.getGameState();
 		if (gameState != GameState.LOGGED_IN
 			&& gameState != GameState.LOADING)
+=======
+		if (client.getGameState() != GameState.LOGGED_IN)
+>>>>>>> initial import of runelite
 		{
 			return false;
 		}

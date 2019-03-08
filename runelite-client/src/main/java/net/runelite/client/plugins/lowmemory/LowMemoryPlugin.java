@@ -28,7 +28,10 @@ import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.GameStateChanged;
+<<<<<<< HEAD
 import net.runelite.client.callback.ClientThread;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -44,6 +47,7 @@ public class LowMemoryPlugin extends Plugin
 	@Inject
 	private Client client;
 
+<<<<<<< HEAD
 	@Inject
 	private ClientThread clientThread;
 
@@ -53,10 +57,19 @@ public class LowMemoryPlugin extends Plugin
 		if (client.getGameState() == GameState.LOGGED_IN)
 		{
 			clientThread.invoke(() -> client.changeMemoryMode(true));
+=======
+	@Override
+	protected void startUp() throws Exception
+	{
+		if (client.getGameState() == GameState.LOGGED_IN)
+		{
+			client.changeMemoryMode(true);
+>>>>>>> initial import of runelite
 		}
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void shutDown()
 	{
 		clientThread.invoke(() -> client.changeMemoryMode(false));
@@ -68,6 +81,16 @@ public class LowMemoryPlugin extends Plugin
 		// When the client starts it initializes the texture size based on the memory mode setting.
 		// Don't set low memory before the login screen is ready to prevent loading the low detail textures,
 		// which breaks the gpu plugin due to it requiring the 128x128px textures
+=======
+	protected void shutDown() throws Exception
+	{
+		client.changeMemoryMode(false);
+	}
+
+	@Subscribe
+	private void onGameStateChanged(GameStateChanged event)
+	{
+>>>>>>> initial import of runelite
 		if (event.getGameState() == GameState.LOGIN_SCREEN)
 		{
 			client.changeMemoryMode(true);

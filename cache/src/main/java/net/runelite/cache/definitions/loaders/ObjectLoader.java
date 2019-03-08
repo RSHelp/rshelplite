@@ -117,6 +117,7 @@ public class ObjectLoader
 		}
 		else if (opcode == 19)
 		{
+<<<<<<< HEAD
 			def.setWallOrDoor(is.readUnsignedByte());
 		}
 		else if (opcode == 21)
@@ -126,6 +127,17 @@ public class ObjectLoader
 		else if (opcode == 22)
 		{
 			def.setMergeNormals(true);
+=======
+			def.setAnInt2088(is.readUnsignedByte());
+		}
+		else if (opcode == 21)
+		{
+			def.setAnInt2105(0);
+		}
+		else if (opcode == 22)
+		{
+			def.setNonFlatShading(false);
+>>>>>>> initial import of runelite
 		}
 		else if (opcode == 23)
 		{
@@ -145,7 +157,11 @@ public class ObjectLoader
 		}
 		else if (opcode == 28)
 		{
+<<<<<<< HEAD
 			def.setDecorDisplacement(is.readUnsignedByte());
+=======
+			def.setAnInt2069(is.readUnsignedByte());
+>>>>>>> initial import of runelite
 		}
 		else if (opcode == 29)
 		{
@@ -153,7 +169,11 @@ public class ObjectLoader
 		}
 		else if (opcode == 39)
 		{
+<<<<<<< HEAD
 			def.setContrast(is.readByte() * 25);
+=======
+			def.setContrast(is.readByte());
+>>>>>>> initial import of runelite
 		}
 		else if (opcode >= 30 && opcode < 35)
 		{
@@ -200,7 +220,11 @@ public class ObjectLoader
 		}
 		else if (opcode == 64)
 		{
+<<<<<<< HEAD
 			def.setShadow(false);
+=======
+			def.setABool2097(false);
+>>>>>>> initial import of runelite
 		}
 		else if (opcode == 65)
 		{
@@ -236,6 +260,7 @@ public class ObjectLoader
 		}
 		else if (opcode == 73)
 		{
+<<<<<<< HEAD
 			def.setObstructsGround(true);
 		}
 		else if (opcode == 74)
@@ -245,6 +270,17 @@ public class ObjectLoader
 		else if (opcode == 75)
 		{
 			def.setSupportsItems(is.readUnsignedByte());
+=======
+			def.setABool2104(true);
+		}
+		else if (opcode == 74)
+		{
+			def.setSolid(true);
+		}
+		else if (opcode == 75)
+		{
+			def.setAnInt2106(is.readUnsignedByte());
+>>>>>>> initial import of runelite
 		}
 		else if (opcode == 77)
 		{
@@ -280,7 +316,11 @@ public class ObjectLoader
 		}
 		else if (opcode == 78)
 		{
+<<<<<<< HEAD
 			def.setAmbientSoundId(is.readUnsignedShort());
+=======
+			def.setAnInt2110(is.readUnsignedShort());
+>>>>>>> initial import of runelite
 			def.setAnInt2083(is.readUnsignedByte());
 		}
 		else if (opcode == 79)
@@ -300,7 +340,11 @@ public class ObjectLoader
 		}
 		else if (opcode == 81)
 		{
+<<<<<<< HEAD
 			def.setContouredGround(is.readUnsignedByte() * 256);
+=======
+			def.setAnInt2105(is.readUnsignedByte() * 256);
+>>>>>>> initial import of runelite
 		}
 		else if (opcode == 82)
 		{
@@ -380,26 +424,45 @@ public class ObjectLoader
 
 	private void post(ObjectDefinition def)
 	{
+<<<<<<< HEAD
 		if (def.getWallOrDoor() == -1)
 		{
 			def.setWallOrDoor(0);
 			if (def.getObjectModels() != null && (def.getObjectTypes() == null || def.getObjectTypes()[0] == 10))
 			{
 				def.setWallOrDoor(1);
+=======
+		if (def.getAnInt2088() == -1)
+		{
+			def.setAnInt2088(0);
+			if (def.getObjectModels() != null && (def.getObjectTypes() == null || def.getObjectTypes()[0] == 10))
+			{
+				def.setAnInt2088(1);
+>>>>>>> initial import of runelite
 			}
 
 			for (int var1 = 0; var1 < 5; ++var1)
 			{
 				if (def.getActions()[var1] != null)
 				{
+<<<<<<< HEAD
 					def.setWallOrDoor(1);
+=======
+					def.setAnInt2088(1);
+>>>>>>> initial import of runelite
 				}
 			}
 		}
 
+<<<<<<< HEAD
 		if (def.getSupportsItems() == -1)
 		{
 			def.setSupportsItems(def.getInteractType() != 0 ? 1 : 0);
+=======
+		if (def.getAnInt2106() == -1)
+		{
+			def.setAnInt2106(def.getInteractType() != 0 ? 1 : 0);
+>>>>>>> initial import of runelite
 		}
 	}
 }

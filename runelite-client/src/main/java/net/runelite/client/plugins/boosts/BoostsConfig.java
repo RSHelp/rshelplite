@@ -38,6 +38,7 @@ public interface BoostsConfig extends Config
 		NEVER
 	}
 
+<<<<<<< HEAD
 	enum DisplayBoosts
 	{
 		NONE,
@@ -55,6 +56,17 @@ public interface BoostsConfig extends Config
 	default DisplayBoosts displayBoosts()
 	{
 		return DisplayBoosts.BOTH;
+=======
+	@ConfigItem(
+		keyName = "enableSkill",
+		name = "Enable Skill Boosts",
+		description = "Configures whether or not to display skill boost information",
+		position = 1
+	)
+	default boolean enableSkill()
+	{
+		return true;
+>>>>>>> initial import of runelite
 	}
 
 	@ConfigItem(
@@ -70,11 +82,19 @@ public interface BoostsConfig extends Config
 
 	@ConfigItem(
 		keyName = "displayIndicators",
+<<<<<<< HEAD
 		name = "Display as infoboxes",
 		description = "Configures whether or not to display the boost as infoboxes",
 		position = 3
 	)
 	default boolean displayInfoboxes()
+=======
+		name = "Display as indicators",
+		description = "Configures whether or not to display the boost as indicators",
+		position = 3
+	)
+	default boolean displayIndicators()
+>>>>>>> initial import of runelite
 	{
 		return false;
 	}

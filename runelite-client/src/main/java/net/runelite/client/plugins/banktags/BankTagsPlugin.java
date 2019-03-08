@@ -32,7 +32,10 @@ import java.awt.event.MouseWheelEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> initial import of runelite
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import javax.inject.Inject;
@@ -72,7 +75,10 @@ import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.banktags.tabs.BankSearch;
 import net.runelite.client.plugins.banktags.tabs.TabInterface;
+<<<<<<< HEAD
 import static net.runelite.client.plugins.banktags.tabs.TabInterface.FILTERED_CHARS;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.plugins.banktags.tabs.TabSprites;
 import net.runelite.client.plugins.cluescrolls.ClueScrollPlugin;
 import net.runelite.client.util.Text;
@@ -131,9 +137,12 @@ public class BankTagsPlugin extends Plugin implements MouseWheelListener, KeyLis
 	@Inject
 	private SpriteManager spriteManager;
 
+<<<<<<< HEAD
 	@Inject
 	private ConfigManager configManager;
 
+=======
+>>>>>>> initial import of runelite
 	private boolean shiftPressed = false;
 
 	@Provides
@@ -145,13 +154,17 @@ public class BankTagsPlugin extends Plugin implements MouseWheelListener, KeyLis
 	@Override
 	public void startUp()
 	{
+<<<<<<< HEAD
 		cleanConfig();
+=======
+>>>>>>> initial import of runelite
 		keyManager.registerKeyListener(this);
 		mouseManager.registerMouseWheelListener(this);
 		clientThread.invokeLater(tabInterface::init);
 		spriteManager.addSpriteOverrides(TabSprites.values());
 	}
 
+<<<<<<< HEAD
 	@Deprecated
 	private void cleanConfig()
 	{
@@ -205,6 +218,8 @@ public class BankTagsPlugin extends Plugin implements MouseWheelListener, KeyLis
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@Override
 	public void shutDown()
 	{
@@ -228,6 +243,13 @@ public class BankTagsPlugin extends Plugin implements MouseWheelListener, KeyLis
 
 		switch (eventName)
 		{
+<<<<<<< HEAD
+=======
+			case "bankTagsActive":
+				// tell the script the bank tag plugin is active
+				intStack[intStackSize - 1] = 1;
+				break;
+>>>>>>> initial import of runelite
 			case "setSearchBankInputText":
 				stringStack[stringStackSize - 1] = SEARCH_BANK_INPUT_TEXT;
 				break;
@@ -239,6 +261,10 @@ public class BankTagsPlugin extends Plugin implements MouseWheelListener, KeyLis
 			}
 			case "bankSearchFilter":
 				int itemId = intStack[intStackSize - 1];
+<<<<<<< HEAD
+=======
+				String itemName = stringStack[stringStackSize - 2];
+>>>>>>> initial import of runelite
 				String search = stringStack[stringStackSize - 1];
 
 				boolean tagSearch = search.startsWith(TAG_SEARCH);
@@ -252,9 +278,15 @@ public class BankTagsPlugin extends Plugin implements MouseWheelListener, KeyLis
 					// return true
 					intStack[intStackSize - 2] = 1;
 				}
+<<<<<<< HEAD
 				else if (tagSearch)
 				{
 					intStack[intStackSize - 2] = 0;
+=======
+				else if (!tagSearch)
+				{
+					intStack[intStackSize - 2] = itemName.contains(search) ? 1 : 0;
+>>>>>>> initial import of runelite
 				}
 				break;
 			case "getSearchingTagTab":
@@ -337,7 +369,10 @@ public class BankTagsPlugin extends Plugin implements MouseWheelListener, KeyLis
 			String initialValue = Text.toCSV(tags);
 
 			chatboxPanelManager.openTextInput(name + " tags:<br>(append " + VAR_TAG_SUFFIX + " for variation tag)")
+<<<<<<< HEAD
 				.addCharValidator(FILTERED_CHARS)
+=======
+>>>>>>> initial import of runelite
 				.value(initialValue)
 				.onDone((newValue) ->
 					clientThread.invoke(() ->

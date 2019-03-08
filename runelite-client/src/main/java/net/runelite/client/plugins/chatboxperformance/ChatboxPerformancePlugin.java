@@ -26,15 +26,23 @@ package net.runelite.client.plugins.chatboxperformance;
 
 import javax.inject.Inject;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.GameState;
 import net.runelite.api.ScriptID;
 import net.runelite.api.events.ScriptCallbackEvent;
 import net.runelite.api.widgets.WidgetType;
+=======
+import net.runelite.api.widgets.WidgetType;
+import net.runelite.api.events.WidgetPositioned;
+>>>>>>> initial import of runelite
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
+<<<<<<< HEAD
 import net.runelite.client.callback.ClientThread;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -48,6 +56,7 @@ public class ChatboxPerformancePlugin extends Plugin
 	@Inject
 	private Client client;
 
+<<<<<<< HEAD
 	@Inject
 	private ClientThread clientThread;
 
@@ -77,6 +86,38 @@ public class ChatboxPerformancePlugin extends Plugin
 			return;
 		}
 
+=======
+	@Subscribe
+	public void onWidgetPositioned(WidgetPositioned event)
+	{
+		if (!areWidgetsFixed())
+		{
+			fixChatbox();
+		}
+	}
+
+	private boolean areWidgetsFixed()
+	{
+		Widget widget = client.getWidget(WidgetInfo.CHATBOX_TRANSPARENT_BACKGROUND);
+		if (widget == null)
+		{
+			return true;
+		}
+
+		Widget[] widgets = widget.getChildren();
+
+		if (widgets != null && widgets.length > 0)
+		{
+			Widget last = widgets[widgets.length - 1];
+			return last != null && last.getOpacity() < 254;
+		}
+
+		return false;
+	}
+
+	private void fixChatbox()
+	{
+>>>>>>> initial import of runelite
 		fixDarkBackground();
 		fixWhiteLines(true);
 		fixWhiteLines(false);

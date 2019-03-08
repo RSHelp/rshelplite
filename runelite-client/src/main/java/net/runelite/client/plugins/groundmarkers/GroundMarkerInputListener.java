@@ -64,4 +64,8 @@ public class GroundMarkerInputListener implements KeyListener
 			plugin.setHotKeyPressed(false);
 		}
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> initial import of runelite

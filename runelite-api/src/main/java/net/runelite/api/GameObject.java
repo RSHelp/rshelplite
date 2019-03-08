@@ -24,7 +24,11 @@
  */
 package net.runelite.api;
 
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+import java.awt.Polygon;
+>>>>>>> initial import of runelite
 import net.runelite.api.coords.Angle;
 
 /**
@@ -54,12 +58,20 @@ public interface GameObject extends TileObject
 	Point getSceneMaxLocation();
 
 	/**
+<<<<<<< HEAD
 	 * Gets the convex hull of the object's model.
+=======
+	 * Gets the convex hull of the actors model.
+>>>>>>> initial import of runelite
 	 *
 	 * @return the convex hull
 	 * @see net.runelite.api.model.Jarvis
 	 */
+<<<<<<< HEAD
 	Shape getConvexHull();
+=======
+	Polygon getConvexHull();
+>>>>>>> initial import of runelite
 
 	/**
 	 * Gets the orientation of the object.

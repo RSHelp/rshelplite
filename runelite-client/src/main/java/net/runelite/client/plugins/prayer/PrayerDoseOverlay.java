@@ -35,7 +35,10 @@ import javax.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Setter;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.Point;
 import net.runelite.api.Prayer;
 import net.runelite.api.Skill;
@@ -51,7 +54,11 @@ import org.apache.commons.lang3.StringUtils;
 
 class PrayerDoseOverlay extends Overlay
 {
+<<<<<<< HEAD
 	private static final float PULSE_TIME = 2f * Constants.GAME_TICK_LENGTH;
+=======
+	private static final float PULSE_TIME = 1200f;
+>>>>>>> initial import of runelite
 
 	private static final Color START_COLOR = new Color(0, 255, 255);
 	private static final Color END_COLOR = new Color(0, 92, 92);
@@ -67,8 +74,11 @@ class PrayerDoseOverlay extends Overlay
 	@Setter(AccessLevel.PACKAGE)
 	private boolean hasPrayerRestore;
 	@Setter(AccessLevel.PACKAGE)
+<<<<<<< HEAD
 	private int bonusPrayer;
 	@Setter(AccessLevel.PACKAGE)
+=======
+>>>>>>> initial import of runelite
 	private boolean hasHolyWrench;
 
 	@Inject
@@ -138,9 +148,20 @@ class PrayerDoseOverlay extends Overlay
 		final double dosePercentage = hasHolyWrench ? .27 : .25;
 		final int basePointsRestored = (int) Math.floor(maxPrayer * dosePercentage);
 
+<<<<<<< HEAD
 		final int pointsRestored = basePointsRestored + 7 + bonusPrayer;
 
 		if (prayerPointsMissing < pointsRestored)
+=======
+		// how many points a prayer and super restore will heal
+		final int prayerPotionPointsRestored = basePointsRestored + 7;
+		final int superRestorePointsRestored = basePointsRestored + 8;
+
+		final boolean usePrayerPotion = prayerPointsMissing >= prayerPotionPointsRestored;
+		final boolean useSuperRestore = prayerPointsMissing >= superRestorePointsRestored;
+
+		if (!usePrayerPotion && !useSuperRestore)
+>>>>>>> initial import of runelite
 		{
 			return null;
 		}

@@ -26,17 +26,28 @@ package net.runelite.http.service.worlds;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> initial import of runelite
 import net.runelite.http.api.worlds.WorldResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+>>>>>>> initial import of runelite
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/worlds")
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 public class WorldController
 {
 	@Autowired
@@ -44,7 +55,11 @@ public class WorldController
 
 	private WorldResult worldResult;
 
+<<<<<<< HEAD
 	@GetMapping
+=======
+	@RequestMapping
+>>>>>>> initial import of runelite
 	public ResponseEntity<WorldResult> listWorlds() throws IOException
 	{
 		return ResponseEntity.ok()

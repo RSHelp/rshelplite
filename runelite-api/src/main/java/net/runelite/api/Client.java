@@ -29,7 +29,10 @@ import java.awt.Dimension;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
 import javax.annotation.Nonnull;
+=======
+>>>>>>> initial import of runelite
 import javax.annotation.Nullable;
 import net.runelite.api.annotations.VisibleForDevtools;
 import net.runelite.api.coords.LocalPoint;
@@ -38,7 +41,10 @@ import net.runelite.api.hooks.Callbacks;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.vars.AccountType;
 import net.runelite.api.widgets.Widget;
+<<<<<<< HEAD
 import net.runelite.api.widgets.WidgetConfig;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.widgets.WidgetInfo;
 import org.slf4j.Logger;
 
@@ -62,8 +68,11 @@ public interface Client extends GameEngine
 	 */
 	Logger getLogger();
 
+<<<<<<< HEAD
 	String getBuildID();
 
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * Gets a list of all valid players from the player cache.
 	 *
@@ -133,6 +142,7 @@ public interface Client extends GameEngine
 	GameState getGameState();
 
 	/**
+<<<<<<< HEAD
 	 * Sets the current game state
 	 *
 	 * @param gameState
@@ -140,6 +150,8 @@ public interface Client extends GameEngine
 	void setGameState(GameState gameState);
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Gets the current logged in username.
 	 *
 	 * @return the logged in username
@@ -161,6 +173,7 @@ public interface Client extends GameEngine
 	void setPassword(String password);
 
 	/**
+<<<<<<< HEAD
 	 * Sets the 6 digit pin used for authenticator on login screen.
 	 *
 	 * @param otp one time password
@@ -168,6 +181,8 @@ public interface Client extends GameEngine
 	void setOtp(String otp);
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Gets currently selected login field. 0 is username, and 1 is password.
 	 *
 	 * @return currently selected login field
@@ -175,6 +190,7 @@ public interface Client extends GameEngine
 	int getCurrentLoginField();
 
 	/**
+<<<<<<< HEAD
 	 * Gets index of current login state. 2 is username/password form, 4 is authenticator form
 	 *
 	 * @return current login state index
@@ -182,6 +198,8 @@ public interface Client extends GameEngine
 	int getLoginIndex();
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Gets the account type of the logged in player.
 	 *
 	 * @return the account type
@@ -346,7 +364,10 @@ public interface Client extends GameEngine
 	 *
 	 * @return the logged in player
 	 */
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	Player getLocalPlayer();
 
 	/**
@@ -356,7 +377,10 @@ public interface Client extends GameEngine
 	 * @return the corresponding item composition
 	 * @see ItemID
 	 */
+<<<<<<< HEAD
 	@Nonnull
+=======
+>>>>>>> initial import of runelite
 	ItemComposition getItemDefinition(int id);
 
 	/**
@@ -371,7 +395,10 @@ public interface Client extends GameEngine
 	 * @param scale the scale of the sprite
 	 * @return the created sprite
 	 */
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	SpritePixels createItemSprite(int itemId, int quantity, int border, int shadowColor, int stackable, boolean noted, int scale);
 
 	/**
@@ -382,7 +409,10 @@ public interface Client extends GameEngine
 	 * @param fileId the sprites file ID
 	 * @return the sprite image of the file
 	 */
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	SpritePixels[] getSprites(IndexDataBase source, int archiveId, int fileId);
 
 	/**
@@ -423,11 +453,34 @@ public interface Client extends GameEngine
 	int getMouseCurrentButton();
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Schedules checking of current region tile for next frame, so ${@link Client#getSelectedSceneTile()} ()} will
+	 * return actual value.
+	 *
+	 * @param checkClick when true next frame selected region tile will be updated
+	 */
+	void setCheckClick(boolean checkClick);
+
+	/**
+	 * Sets current mouse hover position. This value is automatically updated only when right-clicking in game.
+	 * Setting this value together with ${@link Client#setCheckClick(boolean)} will update ${@link Client#getSelectedSceneTile()} ()}
+	 * for next frame.
+	 *
+	 * @param position current mouse hover position
+	 */
+	void setMouseCanvasHoverPosition(Point position);
+
+	/**
+>>>>>>> initial import of runelite
 	 * Gets the currently selected tile (ie. last right clicked tile).
 	 *
 	 * @return the selected tile
 	 */
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	Tile getSelectedSceneTile();
 
 	/**
@@ -442,7 +495,10 @@ public interface Client extends GameEngine
 	 *
 	 * @return the dragged widget, null if not dragging any widget
 	 */
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	Widget getDraggedWidget();
 
 	/**
@@ -453,7 +509,10 @@ public interface Client extends GameEngine
 	 *
 	 * @return the dragged on widget, null if not dragging any widget
 	 */
+<<<<<<< HEAD
 	@Nullable
+=======
+>>>>>>> initial import of runelite
 	Widget getDraggedOnWidget();
 
 	/**
@@ -702,7 +761,12 @@ public interface Client extends GameEngine
 	 * @param varbit the variable
 	 * @param value the new value
 	 */
+<<<<<<< HEAD
 	void setVarbit(Varbits varbit, int value);
+=======
+	@VisibleForDevtools
+	void setSetting(Varbits varbit, int value);
+>>>>>>> initial import of runelite
 
 	/**
 	 * Gets the value of a given variable.
@@ -946,6 +1010,7 @@ public interface Client extends GameEngine
 	List<GraphicsObject> getGraphicsObjects();
 
 	/**
+<<<<<<< HEAD
 	 * Gets the music volume
 	 * @return volume 0-255 inclusive
 	 */
@@ -982,6 +1047,8 @@ public interface Client extends GameEngine
 	void setAreaSoundEffectVolume(int volume);
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Play a sound effect at the player's current location. This is how UI,
 	 * and player-generated (e.g. mining, woodcutting) sound effects are
 	 * normally played.
@@ -1004,6 +1071,7 @@ public interface Client extends GameEngine
 	void playSoundEffect(int id, int x, int y, int range);
 
 	/**
+<<<<<<< HEAD
 	 * Play a sound effect from some point in the world.
 	 *
 	 * @param id the ID of the sound to play. Any int is allowed, but see
@@ -1026,6 +1094,8 @@ public interface Client extends GameEngine
 	void playSoundEffect(int id, int volume);
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Gets the clients graphic buffer provider.
 	 *
 	 * @return the buffer provider
@@ -1300,10 +1370,18 @@ public interface Client extends GameEngine
 	 *
 	 * This method must be ran on the client thread and is not reentrant
 	 *
+<<<<<<< HEAD
 	 * @param args the script id, then any additional arguments to execute the script with
 	 * @see ScriptID
 	 */
 	void runScript(Object... args);
+=======
+	 * @param id the script ID
+	 * @param args additional arguments to execute the script with
+	 * @see ScriptID
+	 */
+	void runScript(int id, Object... args);
+>>>>>>> initial import of runelite
 
 	/**
 	 * Checks whether or not there is any active hint arrow.
@@ -1416,6 +1494,7 @@ public interface Client extends GameEngine
 	boolean isInInstancedRegion();
 
 	/**
+<<<<<<< HEAD
 	 * Get the number of client ticks an item has been pressed
 	 *
 	 * @return the number of client ticks an item has been pressed
@@ -1423,6 +1502,8 @@ public interface Client extends GameEngine
 	int getItemPressedDuration();
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Sets whether the client is hiding entities.
 	 * <p>
 	 * This method does not itself hide any entities. It behaves as a master
@@ -1660,6 +1741,7 @@ public interface Client extends GameEngine
 	void checkClickbox(Model model, int orientation, int pitchSin, int pitchCos, int yawSin, int yawCos, int x, int y, int z, long hash);
 
 	/**
+<<<<<<< HEAD
 	 * Get the if1 widget whose item is being dragged
 	 *
 	 * @return
@@ -1678,6 +1760,8 @@ public interface Client extends GameEngine
 	boolean getSpellSelected();
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Sets if a widget is in target mode
 	 */
 	void setSpellSelected(boolean selected);
@@ -1687,6 +1771,7 @@ public interface Client extends GameEngine
 	 */
 	NodeCache getItemCompositionCache();
 
+<<<<<<< HEAD
 	/**
 	 * Returns the array of cross sprites that appear and animate when left-clicking
 	 */
@@ -1707,4 +1792,7 @@ public interface Client extends GameEngine
 	 * Makes all widgets behave as if they are {@link WidgetConfig#WIDGET_USE_TARGET}
 	 */
 	void setAllWidgetsAreOpTargetable(boolean value);
+=======
+	EnumComposition getEnum(int id);
+>>>>>>> initial import of runelite
 }

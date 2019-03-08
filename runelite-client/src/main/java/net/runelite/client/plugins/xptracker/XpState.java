@@ -79,7 +79,11 @@ class XpState
 
 		if (state.getStartXp() == -1)
 		{
+<<<<<<< HEAD
 			if (currentXp >= 0)
+=======
+			if (currentXp > 0)
+>>>>>>> initial import of runelite
 			{
 				initializeSkill(skill, currentXp);
 				return XpUpdateResult.INITIALIZED;
@@ -198,8 +202,12 @@ class XpState
 
 	boolean isInitialized(Skill skill)
 	{
+<<<<<<< HEAD
 		XpStateSingle xpStateSingle = xpSkills.get(skill);
 		return xpStateSingle != null && xpStateSingle.getStartXp() != -1;
+=======
+		return xpSkills.containsKey(skill);
+>>>>>>> initial import of runelite
 	}
 
 	@NonNull

@@ -90,7 +90,11 @@ public class IDAStarMM extends IDAStar
 
 			if (valCurrent != valTarget)
 			{
+<<<<<<< HEAD
 				moveTowardsVal(valTarget, i, row, true);
+=======
+				moveTowardsVal(valTarget, i, row,  true);
+>>>>>>> initial import of runelite
 			}
 		}
 	}
@@ -107,7 +111,11 @@ public class IDAStarMM extends IDAStar
 
 			if (valCurrent != valTarget)
 			{
+<<<<<<< HEAD
 				moveTowardsVal(valTarget, column, i, false);
+=======
+				moveTowardsVal(valTarget, column, i,  false);
+>>>>>>> initial import of runelite
 			}
 		}
 	}

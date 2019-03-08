@@ -25,12 +25,19 @@
 
 package net.runelite.client.game;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
+=======
+>>>>>>> initial import of runelite
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Collection;
+<<<<<<< HEAD
+=======
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Iterator;
 import java.util.Map;
 
@@ -39,7 +46,11 @@ import java.util.Map;
  */
 public class ItemVariationMapping
 {
+<<<<<<< HEAD
 	private static final Map<Integer, Integer> MAPPINGS;
+=======
+	private static final Map<Integer, Integer> MAPPINGS = new HashMap<>();
+>>>>>>> initial import of runelite
 
 	static
 	{
@@ -51,7 +62,10 @@ public class ItemVariationMapping
 		final InputStream geLimitData = ItemVariationMapping.class.getResourceAsStream("/item_variations.json");
 		final Map<String, Collection<Integer>> itemVariations = gson.fromJson(new InputStreamReader(geLimitData), typeToken.getType());
 
+<<<<<<< HEAD
 		ImmutableMap.Builder<Integer, Integer> builder = new ImmutableMap.Builder<>();
+=======
+>>>>>>> initial import of runelite
 		for (Collection<Integer> value : itemVariations.values())
 		{
 			final Iterator<Integer> iterator = value.iterator();
@@ -59,10 +73,16 @@ public class ItemVariationMapping
 
 			while (iterator.hasNext())
 			{
+<<<<<<< HEAD
 				builder.put(iterator.next(), base);
 			}
 		}
 		MAPPINGS = builder.build();
+=======
+				MAPPINGS.put(iterator.next(), base);
+			}
+		}
+>>>>>>> initial import of runelite
 	}
 
 	/**

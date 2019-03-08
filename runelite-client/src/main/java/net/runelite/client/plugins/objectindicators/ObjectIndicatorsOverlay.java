@@ -26,14 +26,22 @@ package net.runelite.client.plugins.objectindicators;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+<<<<<<< HEAD
 import java.awt.Shape;
+=======
+import java.awt.Polygon;
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.DecorativeObject;
 import net.runelite.api.GameObject;
+<<<<<<< HEAD
 import net.runelite.api.GroundObject;
 import net.runelite.api.TileObject;
 import net.runelite.api.WallObject;
+=======
+import net.runelite.api.TileObject;
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
@@ -67,27 +75,38 @@ class ObjectIndicatorsOverlay extends Overlay
 				continue;
 			}
 
+<<<<<<< HEAD
 			final Shape polygon;
 			Shape polygon2 = null;
+=======
+			final Polygon polygon;
+			Polygon polygon2 = null;
+>>>>>>> initial import of runelite
 
 			if (object instanceof GameObject)
 			{
 				polygon = ((GameObject) object).getConvexHull();
 			}
+<<<<<<< HEAD
 			else if (object instanceof WallObject)
 			{
 				polygon = ((WallObject) object).getConvexHull();
 				polygon2 = ((WallObject) object).getConvexHull2();
 			}
+=======
+>>>>>>> initial import of runelite
 			else if (object instanceof DecorativeObject)
 			{
 				polygon = ((DecorativeObject) object).getConvexHull();
 				polygon2 = ((DecorativeObject) object).getConvexHull2();
 			}
+<<<<<<< HEAD
 			else if (object instanceof GroundObject)
 			{
 				polygon = ((GroundObject) object).getConvexHull();
 			}
+=======
+>>>>>>> initial import of runelite
 			else
 			{
 				polygon = object.getCanvasTilePoly();

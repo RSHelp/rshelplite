@@ -60,7 +60,10 @@ import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.PlayerDespawned;
 import net.runelite.api.events.PlayerSpawned;
+<<<<<<< HEAD
 import net.runelite.api.events.ScriptCallbackEvent;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.events.VarClientStrChanged;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
@@ -78,6 +81,10 @@ import static net.runelite.client.ui.JagexColors.CHAT_CLAN_NAME_TRANSPARENT_BACK
 import static net.runelite.client.ui.JagexColors.CHAT_CLAN_TEXT_OPAQUE_BACKGROUND;
 import static net.runelite.client.ui.JagexColors.CHAT_CLAN_TEXT_TRANSPARENT_BACKGROUND;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
+<<<<<<< HEAD
+=======
+import net.runelite.client.util.ColorUtil;
+>>>>>>> initial import of runelite
 import net.runelite.client.util.Text;
 
 @PluginDescriptor(
@@ -88,8 +95,13 @@ import net.runelite.client.util.Text;
 public class ClanChatPlugin extends Plugin
 {
 	private static final int MAX_CHATS = 10;
+<<<<<<< HEAD
 	private static final String CLAN_CHAT_TITLE = "CC";
 	private static final String RECENT_TITLE = "Recent CCs";
+=======
+	private static final String CLAN_CHAT_TITLE = "Clan Chat";
+	private static final String RECENT_TITLE = "Recent Clan Chats";
+>>>>>>> initial import of runelite
 	private static final int JOIN_LEAVE_DURATION = 20;
 	private static final int MESSAGE_DELAY = 10;
 
@@ -169,12 +181,19 @@ public class ClanChatPlugin extends Plugin
 
 		if (member.getWorld() == client.getWorld())
 		{
+<<<<<<< HEAD
 			final Player local = client.getLocalPlayer();
+=======
+>>>>>>> initial import of runelite
 			final String memberName = Text.toJagexName(member.getUsername());
 
 			for (final Player player : client.getPlayers())
 			{
+<<<<<<< HEAD
 				if (player != null && player != local && memberName.equals(Text.toJagexName(player.getName())))
+=======
+				if (player != null && memberName.equals(Text.toJagexName(player.getName())))
+>>>>>>> initial import of runelite
 				{
 					clanMembers.add(player);
 					addClanCounter();
@@ -309,7 +328,11 @@ public class ClanChatPlugin extends Plugin
 				// If this message has been reused since, it will get a different id
 				if (clanJoinMessage.getGetMessageId() == messageNode.getId())
 				{
+<<<<<<< HEAD
 					ChatLineBuffer ccInfoBuffer = client.getChatLineMap().get(ChatMessageType.FRIENDSCHATNOTIFICATION.getType());
+=======
+					ChatLineBuffer ccInfoBuffer = client.getChatLineMap().get(ChatMessageType.CLANCHAT_INFO.getType());
+>>>>>>> initial import of runelite
 					if (ccInfoBuffer != null)
 					{
 						ccInfoBuffer.removeMessageNode(messageNode);
@@ -350,9 +373,15 @@ public class ClanChatPlugin extends Plugin
 	{
 		final String activityMessage = activityType == ClanActivityType.JOINED ? " has joined." : " has left.";
 		final ClanMemberRank rank = member.getRank();
+<<<<<<< HEAD
 		Color textColor = CHAT_CLAN_TEXT_OPAQUE_BACKGROUND;
 		Color channelColor = CHAT_CLAN_NAME_OPAQUE_BACKGROUND;
 		int rankIcon = -1;
+=======
+		String rankTag = "";
+		Color textColor = CHAT_CLAN_TEXT_OPAQUE_BACKGROUND;
+		Color channelColor = CHAT_CLAN_NAME_OPAQUE_BACKGROUND;
+>>>>>>> initial import of runelite
 
 		if (client.isResized() && client.getVar(Varbits.TRANSPARENT_CHATBOX) == 1)
 		{
@@ -362,6 +391,7 @@ public class ClanChatPlugin extends Plugin
 
 		if (config.clanChatIcons() && rank != null && rank != ClanMemberRank.UNRANKED)
 		{
+<<<<<<< HEAD
 			rankIcon = clanManager.getIconNumber(rank);
 		}
 
@@ -382,6 +412,23 @@ public class ClanChatPlugin extends Plugin
 		client.addChatMessage(ChatMessageType.FRIENDSCHATNOTIFICATION, "", messageString, "");
 
 		final ChatLineBuffer chatLineBuffer = client.getChatLineMap().get(ChatMessageType.FRIENDSCHATNOTIFICATION.getType());
+=======
+			int iconNumber = clanManager.getIconNumber(rank);
+			rankTag = " <img=" + iconNumber + ">";
+		}
+
+		ChatMessageBuilder message = new ChatMessageBuilder();
+		String messageString = message
+			.append("[")
+			.append(ColorUtil.wrapWithColorTag(client.getClanChatName(), channelColor) + rankTag)
+			.append("] ")
+			.append(ColorUtil.wrapWithColorTag(member.getUsername() + activityMessage, textColor))
+			.build();
+
+		client.addChatMessage(ChatMessageType.CLANCHAT_INFO, "", messageString, "");
+
+		final ChatLineBuffer chatLineBuffer = client.getChatLineMap().get(ChatMessageType.CLANCHAT_INFO.getType());
+>>>>>>> initial import of runelite
 		final MessageNode[] lines = chatLineBuffer.getLines();
 		final MessageNode line = lines[0];
 
@@ -413,21 +460,35 @@ public class ClanChatPlugin extends Plugin
 
 		switch (chatMessage.getType())
 		{
+<<<<<<< HEAD
 			case PRIVATECHAT:
 			case MODPRIVATECHAT:
+=======
+			case PRIVATE_MESSAGE_RECEIVED:
+			case PRIVATE_MESSAGE_RECEIVED_MOD:
+>>>>>>> initial import of runelite
 				if (!config.privateMessageIcons())
 				{
 					return;
 				}
 				break;
+<<<<<<< HEAD
 			case PUBLICCHAT:
 			case MODCHAT:
+=======
+			case PUBLIC:
+			case PUBLIC_MOD:
+>>>>>>> initial import of runelite
 				if (!config.publicChatIcons())
 				{
 					return;
 				}
 				break;
+<<<<<<< HEAD
 			case FRIENDSCHAT:
+=======
+			case CLANCHAT:
+>>>>>>> initial import of runelite
 				if (!config.clanChatIcons())
 				{
 					return;
@@ -457,12 +518,18 @@ public class ClanChatPlugin extends Plugin
 	@Subscribe
 	public void onPlayerSpawned(PlayerSpawned event)
 	{
+<<<<<<< HEAD
 		final Player local = client.getLocalPlayer();
 		final Player player = event.getPlayer();
 
 		if (player != local && player.isClanMember())
 		{
 			clanMembers.add(player);
+=======
+		if (event.getPlayer().isClanMember())
+		{
+			clanMembers.add(event.getPlayer());
+>>>>>>> initial import of runelite
 			addClanCounter();
 		}
 	}
@@ -492,6 +559,7 @@ public class ClanChatPlugin extends Plugin
 		activityBuffer.clear();
 	}
 
+<<<<<<< HEAD
 	@Subscribe
 	public void onScriptCallbackEvent(ScriptCallbackEvent scriptCallbackEvent)
 	{
@@ -505,6 +573,8 @@ public class ClanChatPlugin extends Plugin
 		intStack[size - 1] = config.clanTabChat() ? 1 : 0;
 	}
 
+=======
+>>>>>>> initial import of runelite
 	int getClanAmount()
 	{
 		return clanMembers.size();
@@ -518,7 +588,11 @@ public class ClanChatPlugin extends Plugin
 		{
 			int iconNumber = clanManager.getIconNumber(rank);
 			final String img = "<img=" + iconNumber + ">";
+<<<<<<< HEAD
 			if (message.getType() == ChatMessageType.FRIENDSCHAT)
+=======
+			if (message.getType() == ChatMessageType.CLANCHAT)
+>>>>>>> initial import of runelite
 			{
 				message.getMessageNode()
 					.setSender(message.getMessageNode().getSender() + " " + img);

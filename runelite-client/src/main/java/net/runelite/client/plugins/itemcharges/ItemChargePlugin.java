@@ -1,7 +1,10 @@
 /*
  * Copyright (c) 2017, Seth <Sethtroll3@gmail.com>
  * Copyright (c) 2018, Hydrox6 <ikada@protonmail.ch>
+<<<<<<< HEAD
  * Copyright (c) 2019, Aleios <https://github.com/aleios>
+=======
+>>>>>>> initial import of runelite
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,7 +29,10 @@
  */
 package net.runelite.client.plugins.itemcharges;
 
+<<<<<<< HEAD
 import com.google.common.primitives.Ints;
+=======
+>>>>>>> initial import of runelite
 import com.google.inject.Provides;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -40,6 +46,7 @@ import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
 import net.runelite.api.ItemID;
+<<<<<<< HEAD
 import net.runelite.api.Varbits;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.ConfigChanged;
@@ -48,6 +55,11 @@ import net.runelite.api.events.ScriptCallbackEvent;
 import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
+=======
+import net.runelite.api.events.ChatMessage;
+import net.runelite.api.events.ConfigChanged;
+import net.runelite.api.events.ItemContainerChanged;
+>>>>>>> initial import of runelite
 import net.runelite.client.Notifier;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -71,6 +83,7 @@ public class ItemChargePlugin extends Plugin
 	private static final Pattern DODGY_BREAK_PATTERN = Pattern.compile(
 		"Your dodgy necklace protects you\\..*It then crumbles to dust\\.");
 	private static final String RING_OF_RECOIL_BREAK_MESSAGE = "<col=7f007f>Your Ring of Recoil has shattered.</col>";
+<<<<<<< HEAD
 	private static final Pattern BINDING_CHECK_PATTERN = Pattern.compile(
 		"You have ([0-9]+|one) charges? left before your Binding necklace disintegrates\\.");
 	private static final Pattern BINDING_USED_PATTERN = Pattern.compile(
@@ -87,6 +100,10 @@ public class ItemChargePlugin extends Plugin
 	private static final int MAX_RING_OF_FORGING_CHARGES = 140;
 
 	private int lastExplorerRingCharge = -1;
+=======
+
+	private static final int MAX_DODGY_CHARGES = 10;
+>>>>>>> initial import of runelite
 
 	@Inject
 	private Client client;
@@ -109,9 +126,12 @@ public class ItemChargePlugin extends Plugin
 	@Inject
 	private ItemChargeConfig config;
 
+<<<<<<< HEAD
 	// Limits destroy callback to once per tick
 	private int lastCheckTick;
 
+=======
+>>>>>>> initial import of runelite
 	@Provides
 	ItemChargeConfig getConfig(ConfigManager configManager)
 	{
@@ -129,7 +149,10 @@ public class ItemChargePlugin extends Plugin
 	{
 		overlayManager.remove(overlay);
 		infoBoxManager.removeIf(ItemChargeInfobox.class::isInstance);
+<<<<<<< HEAD
 		lastCheckTick = -1;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -160,6 +183,7 @@ public class ItemChargePlugin extends Plugin
 		{
 			removeInfobox(ItemWithSlot.DODGY_NECKLACE);
 		}
+<<<<<<< HEAD
 
 		if (!config.showBindingNecklaceCharges())
 		{
@@ -175,6 +199,8 @@ public class ItemChargePlugin extends Plugin
 		{
 			removeInfobox(ItemWithSlot.RING_OF_FORGING);
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Subscribe
@@ -184,11 +210,15 @@ public class ItemChargePlugin extends Plugin
 		Matcher dodgyCheckMatcher = DODGY_CHECK_PATTERN.matcher(message);
 		Matcher dodgyProtectMatcher = DODGY_PROTECT_PATTERN.matcher(message);
 		Matcher dodgyBreakMatcher = DODGY_BREAK_PATTERN.matcher(message);
+<<<<<<< HEAD
 		Matcher bindingNecklaceCheckMatcher = BINDING_CHECK_PATTERN.matcher(event.getMessage());
 		Matcher bindingNecklaceUsedMatcher = BINDING_USED_PATTERN.matcher(event.getMessage());
 		Matcher ringOfForgingCheckMatcher = RING_OF_FORGING_CHECK_PATTERN.matcher(message);
 
 		if (event.getType() == ChatMessageType.GAMEMESSAGE || event.getType() == ChatMessageType.SPAM)
+=======
+		if (event.getType() == ChatMessageType.SERVER || event.getType() == ChatMessageType.FILTERED)
+>>>>>>> initial import of runelite
 		{
 			if (config.recoilNotification() && message.contains(RING_OF_RECOIL_BREAK_MESSAGE))
 			{
@@ -211,6 +241,7 @@ public class ItemChargePlugin extends Plugin
 			{
 				updateDodgyNecklaceCharges(Integer.parseInt(dodgyProtectMatcher.group(1)));
 			}
+<<<<<<< HEAD
 			else if (message.contains(BINDING_BREAK_TEXT))
 			{
 				if (config.bindingNotification())
@@ -275,6 +306,8 @@ public class ItemChargePlugin extends Plugin
 
 				updateRingOfForgingCharges(MAX_RING_OF_FORGING_CHARGES);
 			}
+=======
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -302,6 +335,7 @@ public class ItemChargePlugin extends Plugin
 		{
 			updateJewelleryInfobox(ItemWithSlot.ABYSSAL_BRACELET, items);
 		}
+<<<<<<< HEAD
 
 		if (config.showBindingNecklaceCharges())
 		{
@@ -343,6 +377,8 @@ public class ItemChargePlugin extends Plugin
 			lastExplorerRingCharge = explorerRingCharge;
 			updateExplorerRingCharges(explorerRingCharge);
 		}
+=======
+>>>>>>> initial import of runelite
 	}
 
 	private void updateDodgyNecklaceCharges(final int value)
@@ -362,6 +398,7 @@ public class ItemChargePlugin extends Plugin
 		}
 	}
 
+<<<<<<< HEAD
 	private void updateBindingNecklaceCharges(final int value)
 	{
 		config.bindingNecklace(value);
@@ -443,6 +480,8 @@ public class ItemChargePlugin extends Plugin
 		}
 	}
 
+=======
+>>>>>>> initial import of runelite
 	private void updateJewelleryInfobox(ItemWithSlot item, Item[] items)
 	{
 		for (final EquipmentInventorySlot equipmentInventorySlot : item.getSlots())
@@ -475,6 +514,7 @@ public class ItemChargePlugin extends Plugin
 			{
 				charges = config.dodgyNecklace();
 			}
+<<<<<<< HEAD
 			else if (id == ItemID.BINDING_NECKLACE && type == ItemWithSlot.BINDING_NECKLACE)
 			{
 				charges = config.bindingNecklace();
@@ -487,6 +527,8 @@ public class ItemChargePlugin extends Plugin
 			{
 				charges = config.ringOfForging();
 			}
+=======
+>>>>>>> initial import of runelite
 		}
 		else if (itemWithCharge.getType() == type.getType())
 		{
@@ -536,4 +578,8 @@ public class ItemChargePlugin extends Plugin
 		}
 		return color;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> initial import of runelite

@@ -32,6 +32,20 @@ import net.runelite.client.config.ConfigItem;
 public interface CorpConfig extends Config
 {
 	@ConfigItem(
+<<<<<<< HEAD
+=======
+		keyName = "leftClickCore",
+		name = "Left click walk on core",
+		description = "Prioritizes Walk here over Attack on the Dark energy core",
+		position = 1
+	)
+	default boolean leftClickCore()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+>>>>>>> initial import of runelite
 		keyName = "showDamage",
 		name = "Show damage overlay",
 		description = "Show total damage overlay",

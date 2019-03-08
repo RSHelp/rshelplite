@@ -184,13 +184,21 @@
       "level": 77,
       "icon": 565,
       "name": "Blood Rune",
+<<<<<<< HEAD
       "xp": 24.425
+=======
+      "xp": 23.8
+>>>>>>> initial import of runelite
     },
     {
       "level": 90,
       "icon": 566,
       "name": "Soul Rune",
+<<<<<<< HEAD
       "xp": 30.325
+=======
+      "xp": 29.7
+>>>>>>> initial import of runelite
     },
     {
       "level": 95,

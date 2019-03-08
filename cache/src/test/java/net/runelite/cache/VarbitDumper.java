@@ -77,7 +77,11 @@ public class VarbitDumper
 				VarbitLoader loader = new VarbitLoader();
 				VarbitDefinition varbit = loader.load(file.getFileId(), file.getContents());
 
+<<<<<<< HEAD
 				Files.asCharSink(new File(outDir, file.getFileId() + ".json"), Charset.defaultCharset()).write(gson.toJson(varbit));
+=======
+				Files.write(gson.toJson(varbit), new File(outDir, file.getFileId() + ".json"), Charset.defaultCharset());
+>>>>>>> initial import of runelite
 				++count;
 			}
 		}

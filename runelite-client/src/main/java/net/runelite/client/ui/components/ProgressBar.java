@@ -49,7 +49,11 @@ public class ProgressBar extends DimmableJPanel
 	private int value;
 
 	@Setter
+<<<<<<< HEAD
 	private List<Integer> positions = Collections.emptyList();
+=======
+	private List<Double> positions = Collections.emptyList();
+>>>>>>> initial import of runelite
 
 	private final JLabel leftLabel = new JShadowedLabel();
 	private final JLabel rightLabel = new JShadowedLabel();
@@ -95,9 +99,15 @@ public class ProgressBar extends DimmableJPanel
 		g.setColor(getForeground());
 		g.fillRect(0, 0, topWidth, 16);
 
+<<<<<<< HEAD
 		for (final Integer position : positions)
 		{
 			final int xCord = getSize().width * position / maximumValue;
+=======
+		for (final Double position : positions)
+		{
+			final int xCord = (int) (getSize().width * position);
+>>>>>>> initial import of runelite
 			if (xCord > topWidth)
 			{
 				g.fillRect(xCord, 0, 1, 16);

@@ -26,6 +26,10 @@
 package net.runelite.client.rs;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import okhttp3.OkHttpClient;
+>>>>>>> initial import of runelite
 import org.junit.Test;
 
 /**
@@ -37,7 +41,12 @@ public class ClientConfigLoaderTest
 	@Test
 	public void test() throws IOException
 	{
+<<<<<<< HEAD
 		final RSConfig config = ClientConfigLoader.fetch(null);
+=======
+		final ClientConfigLoader loader = new ClientConfigLoader(new OkHttpClient());
+		final RSConfig config = loader.fetch();
+>>>>>>> initial import of runelite
 
 		for (String key : config.getClassLoaderProperties().keySet())
 		{

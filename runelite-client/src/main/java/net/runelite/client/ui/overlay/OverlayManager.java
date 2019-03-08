@@ -41,7 +41,10 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.MenuAction;
 import net.runelite.api.events.MenuOptionClicked;
+<<<<<<< HEAD
 import net.runelite.api.widgets.WidgetItem;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.config.RuneLiteConfig;
@@ -97,8 +100,11 @@ public class OverlayManager
 	 */
 	@Getter(AccessLevel.PACKAGE)
 	private final List<Overlay> overlays = new ArrayList<>();
+<<<<<<< HEAD
 	@Getter
 	private final List<WidgetItem> itemWidgets = new ArrayList<>();
+=======
+>>>>>>> initial import of runelite
 
 	private final Map<OverlayLayer, List<Overlay>> overlayLayers = new EnumMap<>(OverlayLayer.class);
 
@@ -171,12 +177,15 @@ public class OverlayManager
 		// Add is always true
 		overlays.add(overlay);
 		loadOverlay(overlay);
+<<<<<<< HEAD
 		// WidgetItemOverlays have a reference to the overlay manager in order to get the WidgetItems
 		// for each frame.
 		if (overlay instanceof WidgetItemOverlay)
 		{
 			((WidgetItemOverlay) overlay).setOverlayManager(this);
 		}
+=======
+>>>>>>> initial import of runelite
 		rebuildOverlayLayers();
 		return true;
 	}
@@ -218,6 +227,7 @@ public class OverlayManager
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns whether an overlay exists which matches the given predicate.
 	 *
 	 * @param filter Filter predicate function
@@ -229,6 +239,8 @@ public class OverlayManager
 	}
 
 	/**
+=======
+>>>>>>> initial import of runelite
 	 * Clear all overlays
 	 */
 	public synchronized void clear()

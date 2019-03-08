@@ -90,7 +90,11 @@ import net.runelite.http.api.chat.ChatClient;
 public class SlayerPlugin extends Plugin
 {
 	//Chat messages
+<<<<<<< HEAD
 	private static final Pattern CHAT_GEM_PROGRESS_MESSAGE = Pattern.compile("^(?:You're assigned to kill|You have received a new Slayer assignment from .*:) (?:[Tt]he )?(?<name>.+?)(?: (?:in|on|south of) (?:the )?(?<location>[^;]+))?(?:; only | \\()(?<amount>\\d+)(?: more to go\\.|\\))$");
+=======
+	private static final Pattern CHAT_GEM_PROGRESS_MESSAGE = Pattern.compile("^(?:You're assigned to kill|You have received a new Slayer assignment from .*:) (?:[Tt]he )?(?<name>.+?)(?: (?:in|on) (?:the )?(?<location>[^;]+))?(?:; only | \\()(?<amount>\\d+)(?: more to go\\.|\\))$");
+>>>>>>> initial import of runelite
 	private static final String CHAT_GEM_COMPLETE_MESSAGE = "You need something new to hunt.";
 	private static final Pattern CHAT_COMPLETE_MESSAGE = Pattern.compile("(?:\\d+,)*\\d+");
 	private static final String CHAT_CANCEL_MESSAGE = "Your task has been cancelled.";
@@ -107,10 +111,17 @@ public class SlayerPlugin extends Plugin
 	private static final Pattern COMBAT_BRACELET_TASK_UPDATE_MESSAGE = Pattern.compile("^You still need to kill (\\d+) monsters to complete your current Slayer assignment");
 
 	//NPC messages
+<<<<<<< HEAD
 	private static final Pattern NPC_ASSIGN_MESSAGE = Pattern.compile(".*(?:Your new task is to kill|You are to bring balance to)\\s*(?<amount>\\d+) (?<name>.+?)(?: (?:in|on|south of) (?:the )?(?<location>.+))?\\.");
 	private static final Pattern NPC_ASSIGN_BOSS_MESSAGE = Pattern.compile("^Excellent. You're now assigned to kill (?:the )?(.*) (\\d+) times.*Your reward point tally is (.*)\\.$");
 	private static final Pattern NPC_ASSIGN_FIRST_MESSAGE = Pattern.compile("^We'll start you off hunting (.*), you'll need to kill (\\d*) of them.");
 	private static final Pattern NPC_CURRENT_MESSAGE = Pattern.compile("^You're still (?:hunting|bringing balance to) (?<name>.+)(?: (?:in|on|south of) (?:the )?(?<location>.+), with|; you have) (?<amount>\\d+) to go\\..*");
+=======
+	private static final Pattern NPC_ASSIGN_MESSAGE = Pattern.compile(".*(?:Your new task is to kill|You are to bring balance to)\\s*(?<amount>\\d+) (?<name>.+?)(?: (?:in|on) (?:the )?(?<location>.+))?\\.");
+	private static final Pattern NPC_ASSIGN_BOSS_MESSAGE = Pattern.compile("^Excellent. You're now assigned to kill (?:the )?(.*) (\\d+) times.*Your reward point tally is (.*)\\.$");
+	private static final Pattern NPC_ASSIGN_FIRST_MESSAGE = Pattern.compile("^We'll start you off hunting (.*), you'll need to kill (\\d*) of them.");
+	private static final Pattern NPC_CURRENT_MESSAGE = Pattern.compile("^You're still (?:hunting|bringing balance to) (?<name>.+)(?: (?:in|on) (?:the )?(?<location>.+), with|; you have) (?<amount>\\d+) to go\\..*");
+>>>>>>> initial import of runelite
 
 	//Reward UI
 	private static final Pattern REWARD_POINTS = Pattern.compile("Reward points: ((?:\\d+,)*\\d+)");
@@ -204,7 +215,11 @@ public class SlayerPlugin extends Plugin
 	private int points;
 
 	private TaskCounter counter;
+<<<<<<< HEAD
 	private int cachedXp = -1;
+=======
+	private int cachedXp;
+>>>>>>> initial import of runelite
 	private Instant infoTimer;
 	private boolean loginFlag;
 	private List<String> targetNames = new ArrayList<>();
@@ -217,6 +232,7 @@ public class SlayerPlugin extends Plugin
 		overlayManager.add(targetWeaknessOverlay);
 		overlayManager.add(targetMinimapOverlay);
 
+<<<<<<< HEAD
 		if (client.getGameState() == GameState.LOGGED_IN)
 		{
 			cachedXp = client.getSkillExperience(SLAYER);
@@ -230,6 +246,17 @@ public class SlayerPlugin extends Plugin
 				setSlaughterChargeCount(config.slaughter());
 				clientThread.invoke(() -> setTask(config.taskName(), config.amount(), config.initialAmount(), config.taskLocation(), false));
 			}
+=======
+		if (client.getGameState() == GameState.LOGGED_IN
+			&& config.amount() != -1
+			&& !config.taskName().isEmpty())
+		{
+			points = config.points();
+			streak = config.streak();
+			setExpeditiousChargeCount(config.expeditious());
+			setSlaughterChargeCount(config.slaughter());
+			clientThread.invoke(() -> setTask(config.taskName(), config.amount(), config.initialAmount(), config.taskLocation()));
+>>>>>>> initial import of runelite
 		}
 
 		chatCommandManager.registerCommandAsync(TASK_COMMAND_STRING, this::taskLookup, this::taskSubmit);
@@ -244,7 +271,10 @@ public class SlayerPlugin extends Plugin
 		overlayManager.remove(targetMinimapOverlay);
 		removeCounter();
 		highlightedTargets.clear();
+<<<<<<< HEAD
 		cachedXp = -1;
+=======
+>>>>>>> initial import of runelite
 
 		chatCommandManager.unregisterCommand(TASK_COMMAND_STRING);
 	}
@@ -262,7 +292,11 @@ public class SlayerPlugin extends Plugin
 		{
 			case HOPPING:
 			case LOGGING_IN:
+<<<<<<< HEAD
 				cachedXp = -1;
+=======
+				cachedXp = 0;
+>>>>>>> initial import of runelite
 				taskName = "";
 				amount = 0;
 				loginFlag = true;
@@ -277,7 +311,11 @@ public class SlayerPlugin extends Plugin
 					streak = config.streak();
 					setExpeditiousChargeCount(config.expeditious());
 					setSlaughterChargeCount(config.slaughter());
+<<<<<<< HEAD
 					setTask(config.taskName(), config.amount(), config.initialAmount(), config.taskLocation(), false);
+=======
+					setTask(config.taskName(), config.amount(), config.initialAmount(), config.taskLocation());
+>>>>>>> initial import of runelite
 					loginFlag = false;
 				}
 				break;
@@ -390,7 +428,11 @@ public class SlayerPlugin extends Plugin
 			}
 		}
 
+<<<<<<< HEAD
 		if (infoTimer != null && config.statTimeout() != 0)
+=======
+		if (infoTimer != null)
+>>>>>>> initial import of runelite
 		{
 			Duration timeSinceInfobox = Duration.between(infoTimer, Instant.now());
 			Duration statTimeout = Duration.ofMinutes(config.statTimeout());
@@ -405,7 +447,11 @@ public class SlayerPlugin extends Plugin
 	@Subscribe
 	public void onChatMessage(ChatMessage event)
 	{
+<<<<<<< HEAD
 		if (event.getType() != ChatMessageType.GAMEMESSAGE && event.getType() != ChatMessageType.SPAM)
+=======
+		if (event.getType() != ChatMessageType.SERVER && event.getType() != ChatMessageType.FILTERED)
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -533,13 +579,18 @@ public class SlayerPlugin extends Plugin
 			return;
 		}
 
+<<<<<<< HEAD
 		if (cachedXp == -1)
+=======
+		if (cachedXp == 0)
+>>>>>>> initial import of runelite
 		{
 			// this is the initial xp sent on login
 			cachedXp = slayerExp;
 			return;
 		}
 
+<<<<<<< HEAD
 		final Task task = Task.getTask(taskName);
 
 		// null tasks are technically valid, it only means they arent explicitly defined in the Task enum
@@ -553,13 +604,20 @@ public class SlayerPlugin extends Plugin
 			killedOne();
 		}
 
+=======
+		killedOne();
+>>>>>>> initial import of runelite
 		cachedXp = slayerExp;
 	}
 
 	@Subscribe
 	private void onConfigChanged(ConfigChanged event)
 	{
+<<<<<<< HEAD
 		if (!event.getGroup().equals("slayer") || !event.getKey().equals("infobox"))
+=======
+		if (!event.getGroup().equals("slayer"))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -604,7 +662,11 @@ public class SlayerPlugin extends Plugin
 	private boolean doubleTroubleExtraKill()
 	{
 		return WorldPoint.fromLocalInstance(client, client.getLocalPlayer().getLocalLocation()).getRegionID() == GROTESQUE_GUARDIANS_REGION &&
+<<<<<<< HEAD
 			SlayerUnlock.GROTESQUE_GUARDIAN_DOUBLE_COUNT.isEnabled(client);
+=======
+				SlayerUnlock.GROTESQUE_GARDIAN_DOUBLE_COUNT.isEnabled(client);
+>>>>>>> initial import of runelite
 	}
 
 	private boolean isTarget(NPC npc)
@@ -675,23 +737,31 @@ public class SlayerPlugin extends Plugin
 
 	private void setTask(String name, int amt, int initAmt, String location)
 	{
+<<<<<<< HEAD
 		setTask(name, amt, initAmt, location, true);
 	}
 
 	private void setTask(String name, int amt, int initAmt, String location, boolean addCounter)
 	{
+=======
+>>>>>>> initial import of runelite
 		taskName = name;
 		amount = amt;
 		initialAmount = initAmt;
 		taskLocation = location;
 		save();
 		removeCounter();
+<<<<<<< HEAD
 
 		if (addCounter)
 		{
 			infoTimer = Instant.now();
 			addCounter();
 		}
+=======
+		addCounter();
+		infoTimer = Instant.now();
+>>>>>>> initial import of runelite
 
 		Task task = Task.getTask(name);
 		rebuildTargetNames(task);
@@ -759,7 +829,11 @@ public class SlayerPlugin extends Plugin
 		ChatMessageType type = chatMessage.getType();
 
 		final String player;
+<<<<<<< HEAD
 		if (type.equals(ChatMessageType.PRIVATECHATOUT))
+=======
+		if (type.equals(ChatMessageType.PRIVATE_MESSAGE_SENT))
+>>>>>>> initial import of runelite
 		{
 			player = client.getLocalPlayer().getName();
 		}
@@ -781,8 +855,12 @@ public class SlayerPlugin extends Plugin
 		}
 
 		if (TASK_STRING_VALIDATION.matcher(task.getTask()).find() || task.getTask().length() > TASK_STRING_MAX_LENGTH ||
+<<<<<<< HEAD
 			TASK_STRING_VALIDATION.matcher(task.getLocation()).find() || task.getLocation().length() > TASK_STRING_MAX_LENGTH ||
 			Task.getTask(task.getTask()) == null || !Task.LOCATIONS.contains(task.getLocation()))
+=======
+			TASK_STRING_VALIDATION.matcher(task.getLocation()).find() || task.getLocation().length() > TASK_STRING_MAX_LENGTH)
+>>>>>>> initial import of runelite
 		{
 			log.debug("Validation failed for task name or location: {}", task);
 			return;

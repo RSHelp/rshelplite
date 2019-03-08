@@ -33,8 +33,13 @@ public class ObjectDefinition
 {
 	private int id;
 	private short[] retextureToFind;
+<<<<<<< HEAD
 	private int decorDisplacement = 16;
 	private boolean isHollow = false;
+=======
+	private int anInt2069 = 16;
+	private boolean isSolid = false;
+>>>>>>> initial import of runelite
 	private String name = "null";
 	private int[] objectModels;
 	private int[] objectTypes;
@@ -46,8 +51,13 @@ public class ObjectDefinition
 	private int anInt2083 = 0;
 	private int[] anIntArray2084;
 	private int offsetX = 0;
+<<<<<<< HEAD
 	private boolean mergeNormals = false;
 	private int wallOrDoor = -1;
+=======
+	private boolean nonFlatShading = false;
+	private int anInt2088 = -1;
+>>>>>>> initial import of runelite
 	private int animationID = -1;
 	private int varbitID = -1;
 	private int ambient = 0;
@@ -56,13 +66,18 @@ public class ObjectDefinition
 	private int interactType = 2;
 	private int mapSceneID = -1;
 	private short[] recolorToReplace;
+<<<<<<< HEAD
 	private boolean shadow = true;
+=======
+	private boolean aBool2097 = true;
+>>>>>>> initial import of runelite
 	private int modelSizeX = 128;
 	private int modelSizeHeight = 128;
 	private int modelSizeY = 128;
 	private int objectID;
 	private int offsetHeight = 0;
 	private int offsetY = 0;
+<<<<<<< HEAD
 	private boolean obstructsGround = false;
 	private int contouredGround = -1;
 	private int supportsItems = -1;
@@ -70,6 +85,15 @@ public class ObjectDefinition
 	private boolean isRotated = false;
 	private int varpID = -1;
 	private int ambientSoundId = -1;
+=======
+	private boolean aBool2104 = false;
+	private int anInt2105 = -1;
+	private int anInt2106 = -1;
+	private int[] configChangeDest;
+	private boolean isRotated = false;
+	private int varpID = -1;
+	private int anInt2110 = -1;
+>>>>>>> initial import of runelite
 	private boolean aBool2111 = false;
 	private int anInt2112 = 0;
 	private int anInt2113 = 0;

@@ -37,6 +37,15 @@ import lombok.Setter;
 
 public class PanelComponent implements LayoutableRenderableEntity
 {
+<<<<<<< HEAD
+=======
+	public enum Orientation
+	{
+		HORIZONTAL,
+		VERTICAL;
+	}
+
+>>>>>>> initial import of runelite
 	@Getter
 	private final Rectangle bounds = new Rectangle();
 
@@ -54,7 +63,11 @@ public class PanelComponent implements LayoutableRenderableEntity
 	private final List<LayoutableRenderableEntity> children = new ArrayList<>();
 
 	@Setter
+<<<<<<< HEAD
 	private ComponentOrientation orientation = ComponentOrientation.VERTICAL;
+=======
+	private Orientation orientation = Orientation.VERTICAL;
+>>>>>>> initial import of runelite
 
 	@Setter
 	private int wrapping = -1;
@@ -136,7 +149,11 @@ public class PanelComponent implements LayoutableRenderableEntity
 			totalWidth = Math.max(totalWidth, width);
 			totalHeight = Math.max(totalHeight, height);
 
+<<<<<<< HEAD
 			if (wrapping > 0 && i < children.size() - 1 && (i + 1) % wrapping == 0)
+=======
+			if (wrapping > 0 && i < children.size() - 1 && (i + 1)  % wrapping == 0)
+>>>>>>> initial import of runelite
 			{
 				switch (orientation)
 				{

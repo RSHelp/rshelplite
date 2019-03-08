@@ -24,7 +24,10 @@
  */
 package net.runelite.client.plugins.xptracker;
 
+<<<<<<< HEAD
 import lombok.AllArgsConstructor;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
@@ -32,6 +35,7 @@ import net.runelite.client.config.ConfigItem;
 @ConfigGroup("xpTracker")
 public interface XpTrackerConfig extends Config
 {
+<<<<<<< HEAD
 	@AllArgsConstructor
 	enum OnScreenDisplayMode
 	{
@@ -48,6 +52,8 @@ public interface XpTrackerConfig extends Config
 		ACTIONS_HOUR,
 	}
 
+=======
+>>>>>>> initial import of runelite
 	@ConfigItem(
 		position = 0,
 		keyName = "hideMaxed",
@@ -91,6 +97,7 @@ public interface XpTrackerConfig extends Config
 	{
 		return 0;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		position = 4,
@@ -124,4 +131,6 @@ public interface XpTrackerConfig extends Config
 	{
 		return OnScreenDisplayModeBottom.XP_HOUR;
 	}
+=======
+>>>>>>> initial import of runelite
 }

@@ -59,7 +59,11 @@ import net.runelite.client.ui.components.IconTextField;
 import net.runelite.client.ui.components.materialtabs.MaterialTab;
 import net.runelite.client.ui.components.materialtabs.MaterialTabGroup;
 import net.runelite.client.util.ImageUtil;
+<<<<<<< HEAD
 import net.runelite.client.util.QuantityFormatter;
+=======
+import net.runelite.client.util.StackFormatter;
+>>>>>>> initial import of runelite
 import net.runelite.http.api.hiscore.HiscoreClient;
 import net.runelite.http.api.hiscore.HiscoreEndpoint;
 import net.runelite.http.api.hiscore.HiscoreResult;
@@ -97,7 +101,11 @@ import net.runelite.http.api.hiscore.Skill;
 @Slf4j
 public class HiscorePanel extends PluginPanel
 {
+<<<<<<< HEAD
 	/* The maximum allowed username length in RuneScape accounts */
+=======
+	/* The maximum allowed username length in runescape accounts */
+>>>>>>> initial import of runelite
 	private static final int MAX_USERNAME_LENGTH = 12;
 
 	/**
@@ -345,7 +353,11 @@ public class HiscorePanel extends PluginPanel
 			return;
 		}
 
+<<<<<<< HEAD
 		/* RuneScape usernames can't be longer than 12 characters long */
+=======
+		/* Runescape usernames can't be longer than 12 characters long */
+>>>>>>> initial import of runelite
 		if (lookup.length() > MAX_USERNAME_LENGTH)
 		{
 			searchBar.setIcon(IconTextField.Icon.ERROR);
@@ -512,8 +524,13 @@ public class HiscorePanel extends PluginPanel
 				+ result.getRanged().getExperience() + result.getPrayer().getExperience();
 
 			content += "<p><span style = 'color:white'>Skill:</span> Combat</p>";
+<<<<<<< HEAD
 			content += "<p><span style = 'color:white'>Exact Combat Level:</span> " + QuantityFormatter.formatNumber(combatLevel) + "</p>";
 			content += "<p><span style = 'color:white'>Experience:</span> " + QuantityFormatter.formatNumber(combatExperience) + "</p>";
+=======
+			content += "<p><span style = 'color:white'>Exact Combat Level:</span> " + StackFormatter.formatNumber(combatLevel) + "</p>";
+			content += "<p><span style = 'color:white'>Experience:</span> " + StackFormatter.formatNumber(combatExperience) + "</p>";
+>>>>>>> initial import of runelite
 		}
 		else
 		{
@@ -521,6 +538,7 @@ public class HiscorePanel extends PluginPanel
 			{
 				case CLUE_SCROLL_ALL:
 				{
+<<<<<<< HEAD
 					String allRank = (result.getClueScrollAll().getRank() == -1) ? "Unranked" : QuantityFormatter.formatNumber(result.getClueScrollAll().getRank());
 					String beginnerRank = (result.getClueScrollBeginner().getRank() == -1) ? "Unranked" : QuantityFormatter.formatNumber(result.getClueScrollBeginner().getRank());
 					String easyRank = (result.getClueScrollEasy().getRank() == -1) ? "Unranked" : QuantityFormatter.formatNumber(result.getClueScrollEasy().getRank());
@@ -537,6 +555,21 @@ public class HiscorePanel extends PluginPanel
 					String master = (result.getClueScrollMaster().getLevel() == -1 ? "0" : QuantityFormatter.formatNumber(result.getClueScrollMaster().getLevel()));
 					content += "<p><span style = 'color:white'>All:</span> " + all + " <span style = 'color:white'>Rank:</span> " + allRank + "</p>";
 					content += "<p><span style = 'color:white'>Beginner:</span> " + beginner + " <span style = 'color:white'>Rank:</span> " + beginnerRank + "</p>";
+=======
+					String allRank = (result.getClueScrollAll().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollAll().getRank());
+					String easyRank = (result.getClueScrollEasy().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollEasy().getRank());
+					String mediumRank = (result.getClueScrollMedium().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollMedium().getRank());
+					String hardRank = (result.getClueScrollHard().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollHard().getRank());
+					String eliteRank = (result.getClueScrollElite().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollElite().getRank());
+					String masterRank = (result.getClueScrollMaster().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollMaster().getRank());
+					String all = (result.getClueScrollAll().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollAll().getLevel()));
+					String easy = (result.getClueScrollEasy().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollEasy().getLevel()));
+					String medium = (result.getClueScrollMedium().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollMedium().getLevel()));
+					String hard = (result.getClueScrollHard().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollHard().getLevel()));
+					String elite = (result.getClueScrollElite().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollElite().getLevel()));
+					String master = (result.getClueScrollMaster().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollMaster().getLevel()));
+					content += "<p><span style = 'color:white'>All:</span> " + all + " <span style = 'color:white'>Rank:</span> " + allRank + "</p>";
+>>>>>>> initial import of runelite
 					content += "<p><span style = 'color:white'>Easy:</span> " + easy + " <span style = 'color:white'>Rank:</span> " + easyRank + "</p>";
 					content += "<p><span style = 'color:white'>Medium:</span> " + medium + " <span style = 'color:white'>Rank:</span> " + mediumRank + "</p>";
 					content += "<p><span style = 'color:white'>Hard:</span> " + hard + " <span style = 'color:white'>Rank:</span> " + hardRank + "</p>";
@@ -546,27 +579,44 @@ public class HiscorePanel extends PluginPanel
 				}
 				case BOUNTY_HUNTER_ROGUE:
 				{
+<<<<<<< HEAD
 					String rank = (result.getBountyHunterRogue().getRank() == -1) ? "Unranked" : QuantityFormatter.formatNumber(result.getBountyHunterRogue().getRank());
+=======
+					String rank = (result.getBountyHunterRogue().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getBountyHunterRogue().getRank());
+>>>>>>> initial import of runelite
 					content += "<p><span style = 'color:white'>Rank:</span> " + rank + "</p>";
 					break;
 				}
 				case BOUNTY_HUNTER_HUNTER:
 				{
+<<<<<<< HEAD
 					String rank = (result.getBountyHunterHunter().getRank() == -1) ? "Unranked" : QuantityFormatter.formatNumber(result.getBountyHunterHunter().getRank());
+=======
+					String rank = (result.getBountyHunterHunter().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getBountyHunterHunter().getRank());
+>>>>>>> initial import of runelite
 					content += "<p><span style = 'color:white'>Rank:</span> " + rank + "</p>";
 					break;
 				}
 				case LAST_MAN_STANDING:
 				{
+<<<<<<< HEAD
 					String rank = (result.getLastManStanding().getRank() == -1) ? "Unranked" : QuantityFormatter.formatNumber(result.getLastManStanding().getRank());
+=======
+					String rank = (result.getLastManStanding().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getLastManStanding().getRank());
+>>>>>>> initial import of runelite
 					content += "<p><span style = 'color:white'>Rank:</span> " + rank + "</p>";
 					break;
 				}
 				case OVERALL:
 				{
 					Skill requestedSkill = result.getSkill(skill);
+<<<<<<< HEAD
 					String rank = (requestedSkill.getRank() == -1) ? "Unranked" : QuantityFormatter.formatNumber(requestedSkill.getRank());
 					String exp = (requestedSkill.getExperience() == -1L) ? "Unranked" : QuantityFormatter.formatNumber(requestedSkill.getExperience());
+=======
+					String rank = (requestedSkill.getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(requestedSkill.getRank());
+					String exp = (requestedSkill.getExperience() == -1L) ? "Unranked" : StackFormatter.formatNumber(requestedSkill.getExperience());
+>>>>>>> initial import of runelite
 					content += "<p><span style = 'color:white'>Skill:</span> " + skill.getName() + "</p>";
 					content += "<p><span style = 'color:white'>Rank:</span> " + rank + "</p>";
 					content += "<p><span style = 'color:white'>Experience:</span> " + exp + "</p>";
@@ -577,8 +627,13 @@ public class HiscorePanel extends PluginPanel
 					Skill requestedSkill = result.getSkill(skill);
 					final long experience = requestedSkill.getExperience();
 
+<<<<<<< HEAD
 					String rank = (requestedSkill.getRank() == -1) ? "Unranked" : QuantityFormatter.formatNumber(requestedSkill.getRank());
 					String exp = (experience == -1L) ? "Unranked" : QuantityFormatter.formatNumber(experience);
+=======
+					String rank = (requestedSkill.getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(requestedSkill.getRank());
+					String exp = (experience == -1L) ? "Unranked" : StackFormatter.formatNumber(experience);
+>>>>>>> initial import of runelite
 					String remainingXp;
 					if (experience == -1L)
 					{
@@ -587,7 +642,11 @@ public class HiscorePanel extends PluginPanel
 					else
 					{
 						int currentLevel = Experience.getLevelForXp((int) experience);
+<<<<<<< HEAD
 						remainingXp = (currentLevel + 1 <= Experience.MAX_VIRT_LEVEL) ? QuantityFormatter.formatNumber(Experience.getXpForLevel(currentLevel + 1) - experience) : "0";
+=======
+						remainingXp = (currentLevel + 1 <= Experience.MAX_VIRT_LEVEL) ? StackFormatter.formatNumber(Experience.getXpForLevel(currentLevel + 1) - experience) : "0";
+>>>>>>> initial import of runelite
 					}
 
 					content += "<p><span style = 'color:white'>Skill:</span> " + skill.getName() + "</p>";

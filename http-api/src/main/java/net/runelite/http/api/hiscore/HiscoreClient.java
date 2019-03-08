@@ -106,7 +106,11 @@ public class HiscoreClient
 					case 404:
 						return null;
 					default:
+<<<<<<< HEAD
 						throw new IOException("Error retrieving data from Jagex Hiscores: " + okresponse);
+=======
+						throw new IOException("Error retrieving data from Jagex Hiscores: " + okresponse.message());
+>>>>>>> initial import of runelite
 				}
 			}
 

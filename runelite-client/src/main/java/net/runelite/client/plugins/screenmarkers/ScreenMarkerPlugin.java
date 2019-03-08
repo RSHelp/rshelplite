@@ -50,7 +50,10 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.screenmarkers.ui.ScreenMarkerPluginPanel;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
+<<<<<<< HEAD
 import net.runelite.client.ui.components.colorpicker.ColorPickerManager;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ImageUtil;
 
@@ -86,10 +89,13 @@ public class ScreenMarkerPlugin extends Plugin
 	@Inject
 	private ScreenMarkerCreationOverlay overlay;
 
+<<<<<<< HEAD
 	@Getter
 	@Inject
 	private ColorPickerManager colorPickerManager;
 
+=======
+>>>>>>> initial import of runelite
 	private ScreenMarkerMouseListener mouseListener;
 	private ScreenMarkerPluginPanel pluginPanel;
 	private NavigationButton navigationButton;
@@ -108,7 +114,11 @@ public class ScreenMarkerPlugin extends Plugin
 		loadConfig(configManager.getConfiguration(CONFIG_GROUP, CONFIG_KEY)).forEach(screenMarkers::add);
 		screenMarkers.forEach(overlayManager::add);
 
+<<<<<<< HEAD
 		pluginPanel = new ScreenMarkerPluginPanel(this);
+=======
+		pluginPanel = injector.getInstance(ScreenMarkerPluginPanel.class);
+>>>>>>> initial import of runelite
 		pluginPanel.rebuild();
 
 		final BufferedImage icon = ImageUtil.getResourceStreamFromClass(getClass(), ICON_FILE);

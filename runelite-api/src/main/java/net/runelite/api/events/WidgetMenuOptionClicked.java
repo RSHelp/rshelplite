@@ -28,7 +28,11 @@ import lombok.Data;
 import net.runelite.api.widgets.WidgetInfo;
 
 /**
+<<<<<<< HEAD
  * A MenuManager widget menu was clicked. This event is NOT fired for non-MenuManager menu options
+=======
+ * An event where an option has been clicked in a {@link net.runelite.api.widgets.Widget}s menu.
+>>>>>>> initial import of runelite
  */
 @Data
 public class WidgetMenuOptionClicked

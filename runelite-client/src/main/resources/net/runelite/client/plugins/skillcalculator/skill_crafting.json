@@ -218,12 +218,15 @@
       "xp": 54
     },
     {
+<<<<<<< HEAD
       "level": 26,
       "icon": 6209,
       "name": "Drift Net",
       "xp": 55
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 27,
       "icon": 1605,
       "name": "Emerald",
@@ -314,12 +317,15 @@
       "xp": 70
     },
     {
+<<<<<<< HEAD
       "level": 35,
       "icon": 6235,
       "name": "Broodoo shield",
       "xp": 100
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 36,
       "icon": 5376,
       "name": "Basket",
@@ -380,18 +386,22 @@
       "xp": 80
     },
     {
+<<<<<<< HEAD
       "level": 45,
       "icon": 6328,
       "name": "Snakeskin boots",
       "xp": 30
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 46,
       "icon": 567,
       "name": "Unpowered Orb",
       "xp": 52.5
     },
     {
+<<<<<<< HEAD
       "level": 47,
       "icon": 6330,
       "name": "Snakeskin vambraces",
@@ -404,6 +414,8 @@
       "xp": 45
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 49,
       "icon": 4542,
       "name": "Lantern Lens",
@@ -416,6 +428,7 @@
       "xp": 85
     },
     {
+<<<<<<< HEAD
       "level": 51,
       "icon": 6324,
       "name": "Snakeskin chaps",
@@ -428,6 +441,8 @@
       "xp": 55
     },
     {
+=======
+>>>>>>> initial import of runelite
       "level": 54,
       "icon": 1395,
       "name": "Water Battlestaff",

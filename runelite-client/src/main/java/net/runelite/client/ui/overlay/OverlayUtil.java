@@ -31,8 +31,13 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.RenderingHints;
+<<<<<<< HEAD
 import java.awt.Shape;
 import java.awt.Stroke;
+=======
+import java.awt.Stroke;
+import java.awt.geom.Area;
+>>>>>>> initial import of runelite
 import java.awt.image.BufferedImage;
 import net.runelite.api.Actor;
 import net.runelite.api.Client;
@@ -48,16 +53,27 @@ import net.runelite.api.coords.LocalPoint;
 public class OverlayUtil
 {
 	private static final int MINIMAP_DOT_RADIUS = 4;
+<<<<<<< HEAD
 	private static final double UNIT = Math.PI / 1024.0d;
 
 	public static void renderPolygon(Graphics2D graphics, Shape poly, Color color)
+=======
+
+	public static void renderPolygon(Graphics2D graphics, Polygon poly, Color color)
+>>>>>>> initial import of runelite
 	{
 		graphics.setColor(color);
 		final Stroke originalStroke = graphics.getStroke();
 		graphics.setStroke(new BasicStroke(2));
+<<<<<<< HEAD
 		graphics.draw(poly);
 		graphics.setColor(new Color(0, 0, 0, 50));
 		graphics.fill(poly);
+=======
+		graphics.drawPolygon(poly);
+		graphics.setColor(new Color(0, 0, 0, 50));
+		graphics.fillPolygon(poly);
+>>>>>>> initial import of runelite
 		graphics.setStroke(originalStroke);
 	}
 
@@ -69,6 +85,7 @@ public class OverlayUtil
 		graphics.fillOval(mini.getX() - MINIMAP_DOT_RADIUS / 2, mini.getY() - MINIMAP_DOT_RADIUS / 2, MINIMAP_DOT_RADIUS, MINIMAP_DOT_RADIUS);
 	}
 
+<<<<<<< HEAD
 	public static void renderMinimapRect(Client client, Graphics2D graphics, Point center, int width, int height, Color color)
 	{
 		double angle = client.getMapAngle() * UNIT;
@@ -79,6 +96,8 @@ public class OverlayUtil
 		graphics.rotate(-angle , center.getX(), center.getY());
 	}
 
+=======
+>>>>>>> initial import of runelite
 	public static void renderTextLocation(Graphics2D graphics, Point txtLoc, String text, Color color)
 	{
 		if (Strings.isNullOrEmpty(text))
@@ -175,7 +194,11 @@ public class OverlayUtil
 		renderImageLocation(client, graphics, localLocation, image, 0);
 	}
 
+<<<<<<< HEAD
 	public static void renderHoverableArea(Graphics2D graphics, Shape area, net.runelite.api.Point mousePosition, Color fillColor, Color borderColor, Color borderHoverColor)
+=======
+	public static void renderHoverableArea(Graphics2D graphics, Area area, net.runelite.api.Point mousePosition, Color fillColor, Color borderColor, Color borderHoverColor)
+>>>>>>> initial import of runelite
 	{
 		if (area != null)
 		{

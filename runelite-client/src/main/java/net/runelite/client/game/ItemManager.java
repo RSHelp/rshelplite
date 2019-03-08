@@ -38,14 +38,20 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+<<<<<<< HEAD
 import javax.annotation.Nonnull;
+=======
+>>>>>>> initial import of runelite
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import static net.runelite.api.Constants.CLIENT_DEFAULT_ZOOM;
 import net.runelite.api.GameState;
 import net.runelite.api.ItemComposition;
@@ -56,7 +62,10 @@ import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.PostItemComposition;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
+<<<<<<< HEAD
 import net.runelite.client.util.AsyncBufferedImage;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.http.api.item.ItemClient;
 import net.runelite.http.api.item.ItemPrice;
 import net.runelite.http.api.item.ItemStats;
@@ -85,7 +94,11 @@ public class ItemManager
 	private final ScheduledExecutorService scheduledExecutorService;
 	private final ClientThread clientThread;
 
+<<<<<<< HEAD
 	private final ItemClient itemClient;
+=======
+	private final ItemClient itemClient = new ItemClient();
+>>>>>>> initial import of runelite
 	private Map<Integer, ItemPrice> itemPrices = Collections.emptyMap();
 	private Map<Integer, ItemStats> itemStats = Collections.emptyMap();
 	private final LoadingCache<ImageKey, AsyncBufferedImage> itemImages;
@@ -156,13 +169,20 @@ public class ItemManager
 		build();
 
 	@Inject
+<<<<<<< HEAD
 	public ItemManager(Client client, ScheduledExecutorService executor, ClientThread clientThread,
 		ItemClient itemClient)
+=======
+	public ItemManager(Client client, ScheduledExecutorService executor, ClientThread clientThread)
+>>>>>>> initial import of runelite
 	{
 		this.client = client;
 		this.scheduledExecutorService = executor;
 		this.clientThread = clientThread;
+<<<<<<< HEAD
 		this.itemClient = itemClient;
+=======
+>>>>>>> initial import of runelite
 
 		scheduledExecutorService.scheduleWithFixedDelay(this::loadPrices, 0, 30, TimeUnit.MINUTES);
 		scheduledExecutorService.submit(this::loadStats);
@@ -278,6 +298,7 @@ public class ItemManager
 	 */
 	public int getItemPrice(int itemID)
 	{
+<<<<<<< HEAD
 		return getItemPrice(itemID, false);
 	}
 
@@ -290,6 +311,8 @@ public class ItemManager
 	 */
 	public int getItemPrice(int itemID, boolean ignoreUntradeableMap)
 	{
+=======
+>>>>>>> initial import of runelite
 		if (itemID == ItemID.COINS_995)
 		{
 			return 1;
@@ -299,6 +322,7 @@ public class ItemManager
 			return 1000;
 		}
 
+<<<<<<< HEAD
 		if (!ignoreUntradeableMap)
 		{
 			UntradeableItemMapping p = UntradeableItemMapping.map(ItemVariationMapping.map(itemID));
@@ -306,6 +330,12 @@ public class ItemManager
 			{
 				return getItemPrice(p.getPriceID()) * p.getQuantity();
 			}
+=======
+		UntradeableItemMapping p = UntradeableItemMapping.map(ItemVariationMapping.map(itemID));
+		if (p != null)
+		{
+			return getItemPrice(p.getPriceID()) * p.getQuantity();
+>>>>>>> initial import of runelite
 		}
 
 		int price = 0;
@@ -367,7 +397,10 @@ public class ItemManager
 	 * @param itemId item id
 	 * @return item composition
 	 */
+<<<<<<< HEAD
 	@Nonnull
+=======
+>>>>>>> initial import of runelite
 	public ItemComposition getItemComposition(int itemId)
 	{
 		assert client.isClientThread() : "getItemComposition must be called on client thread";
@@ -402,7 +435,11 @@ public class ItemManager
 	 */
 	private AsyncBufferedImage loadImage(int itemId, int quantity, boolean stackable)
 	{
+<<<<<<< HEAD
 		AsyncBufferedImage img = new AsyncBufferedImage(Constants.ITEM_SPRITE_WIDTH, Constants.ITEM_SPRITE_HEIGHT, BufferedImage.TYPE_INT_ARGB);
+=======
+		AsyncBufferedImage img = new AsyncBufferedImage(36, 32, BufferedImage.TYPE_INT_ARGB);
+>>>>>>> initial import of runelite
 		clientThread.invoke(() ->
 		{
 			if (client.getGameState().ordinal() < GameState.LOGIN_SCREEN.ordinal())
@@ -416,7 +453,11 @@ public class ItemManager
 				return false;
 			}
 			sprite.toBufferedImage(img);
+<<<<<<< HEAD
 			img.loaded();
+=======
+			img.changed();
+>>>>>>> initial import of runelite
 			return true;
 		});
 		return img;

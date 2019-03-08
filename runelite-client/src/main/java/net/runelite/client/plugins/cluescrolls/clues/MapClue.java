@@ -44,6 +44,11 @@ import static net.runelite.client.plugins.cluescrolls.ClueScrollWorldOverlay.CLI
 import static net.runelite.client.plugins.cluescrolls.ClueScrollWorldOverlay.CLICKBOX_FILL_COLOR;
 import static net.runelite.client.plugins.cluescrolls.ClueScrollWorldOverlay.CLICKBOX_HOVER_BORDER_COLOR;
 import static net.runelite.client.plugins.cluescrolls.ClueScrollWorldOverlay.IMAGE_Z_OFFSET;
+<<<<<<< HEAD
+=======
+import net.runelite.client.plugins.cluescrolls.clues.emote.ItemRequirement;
+import net.runelite.client.plugins.cluescrolls.clues.emote.SingleItemRequirement;
+>>>>>>> initial import of runelite
 import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
@@ -87,6 +92,11 @@ public class MapClue extends ClueScroll implements ObjectClueScroll
 		new MapClue(CLUE_SCROLL_ELITE_19786, new WorldPoint(2703, 2716, 0), CRATE_6616)
 	);
 
+<<<<<<< HEAD
+=======
+	private static final ItemRequirement HAS_SPADE = new SingleItemRequirement(SPADE);
+
+>>>>>>> initial import of runelite
 	private final int itemId;
 	private final WorldPoint location;
 	private final int objectId;
@@ -102,7 +112,11 @@ public class MapClue extends ClueScroll implements ObjectClueScroll
 		this(itemId, location, objectId, null);
 	}
 
+<<<<<<< HEAD
 	MapClue(int itemId, WorldPoint location, String description)
+=======
+	private MapClue(int itemId, WorldPoint location, String description)
+>>>>>>> initial import of runelite
 	{
 		this(itemId, location, -1, description);
 	}
@@ -113,7 +127,10 @@ public class MapClue extends ClueScroll implements ObjectClueScroll
 		this.location = location;
 		this.objectId = objectId;
 		this.description = description;
+<<<<<<< HEAD
 		setRequiresSpade(objectId == -1);
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Override
@@ -154,6 +171,18 @@ public class MapClue extends ClueScroll implements ObjectClueScroll
 				.left(description)
 				.build());
 		}
+<<<<<<< HEAD
+=======
+
+		if (objectId == -1 && plugin.getInventoryItems() != null)
+		{
+			if (!HAS_SPADE.fulfilledBy(plugin.getInventoryItems()))
+			{
+				panelComponent.getChildren().add(LineComponent.builder().left("").build());
+				panelComponent.getChildren().add(LineComponent.builder().left("Requires Spade!").leftColor(Color.RED).build());
+			}
+		}
+>>>>>>> initial import of runelite
 	}
 
 	@Override

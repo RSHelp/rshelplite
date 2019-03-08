@@ -32,7 +32,10 @@ import javax.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.Client;
+<<<<<<< HEAD
 import net.runelite.api.Constants;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
@@ -42,13 +45,19 @@ import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
+<<<<<<< HEAD
 import net.runelite.client.game.ItemManager;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
+<<<<<<< HEAD
 import net.runelite.http.api.item.ItemStats;
+=======
+>>>>>>> initial import of runelite
 
 @PluginDescriptor(
 	name = "Prayer",
@@ -88,9 +97,12 @@ public class PrayerPlugin extends Plugin
 	@Inject
 	private PrayerConfig config;
 
+<<<<<<< HEAD
 	@Inject
 	private ItemManager itemManager;
 
+=======
+>>>>>>> initial import of runelite
 	@Provides
 	PrayerConfig provideConfig(ConfigManager configManager)
 	{
@@ -141,7 +153,10 @@ public class PrayerPlugin extends Plugin
 		{
 			doseOverlay.setHasHolyWrench(false);
 			doseOverlay.setHasPrayerRestore(false);
+<<<<<<< HEAD
 			doseOverlay.setBonusPrayer(0);
+=======
+>>>>>>> initial import of runelite
 
 			if (inventory != null)
 			{
@@ -218,10 +233,13 @@ public class PrayerPlugin extends Plugin
 
 		int total = 0;
 
+<<<<<<< HEAD
 		boolean hasPrayerPotion = false;
 		boolean hasSuperRestore = false;
 		boolean hasSanfew = false;
 
+=======
+>>>>>>> initial import of runelite
 		for (Item item : items)
 		{
 			if (item == null)
@@ -236,6 +254,7 @@ public class PrayerPlugin extends Plugin
 				switch (type)
 				{
 					case PRAYERPOT:
+<<<<<<< HEAD
 						hasPrayerPotion = true;
 						break;
 					case RESTOREPOT:
@@ -243,6 +262,11 @@ public class PrayerPlugin extends Plugin
 						break;
 					case SANFEWPOT:
 						hasSanfew = true;
+=======
+					case RESTOREPOT:
+					case SANFEWPOT:
+						doseOverlay.setHasPrayerRestore(true);
+>>>>>>> initial import of runelite
 						break;
 					case HOLYWRENCH:
 						doseOverlay.setHasHolyWrench(true);
@@ -250,6 +274,7 @@ public class PrayerPlugin extends Plugin
 				}
 			}
 
+<<<<<<< HEAD
 			ItemStats is = itemManager.getItemStats(item.getId(), false);
 			if (is != null && is.getEquipment() != null)
 			{
@@ -268,6 +293,10 @@ public class PrayerPlugin extends Plugin
 			{
 				doseOverlay.setBonusPrayer(1);
 			}
+=======
+			int bonus = PrayerItems.getItemPrayerBonus(item.getId());
+			total += bonus;
+>>>>>>> initial import of runelite
 		}
 
 		return total;
@@ -277,7 +306,11 @@ public class PrayerPlugin extends Plugin
 	{
 		long timeSinceLastTick = Duration.between(startOfLastTick, Instant.now()).toMillis();
 
+<<<<<<< HEAD
 		float tickProgress = (timeSinceLastTick % Constants.GAME_TICK_LENGTH) / (float) Constants.GAME_TICK_LENGTH;
+=======
+		float tickProgress = (timeSinceLastTick % 600) / 600f;
+>>>>>>> initial import of runelite
 		return tickProgress * Math.PI;
 	}
 

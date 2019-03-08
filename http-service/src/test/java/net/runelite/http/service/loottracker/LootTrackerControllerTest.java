@@ -29,6 +29,10 @@ import java.time.Instant;
 import java.util.Collections;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> initial import of runelite
 import net.runelite.http.api.RuneLiteAPI;
 import net.runelite.http.api.loottracker.GameItem;
 import net.runelite.http.api.loottracker.LootRecord;
@@ -56,6 +60,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(LootTrackerController.class)
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 @ActiveProfiles("test")
 public class LootTrackerControllerTest
 {
@@ -83,10 +91,18 @@ public class LootTrackerControllerTest
 		lootRecord.setTime(Instant.now());
 		lootRecord.setDrops(Collections.singletonList(new GameItem(4151, 1)));
 
+<<<<<<< HEAD
 		String data = RuneLiteAPI.GSON.toJson(Collections.singletonList(lootRecord));
 		mockMvc.perform(post("/loottracker").content(data).contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk());
 
 		verify(lootTrackerService).store(eq(Collections.singletonList(lootRecord)), anyInt());
+=======
+		String data = RuneLiteAPI.GSON.toJson(lootRecord);
+		mockMvc.perform(post("/loottracker").content(data).contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk());
+
+		verify(lootTrackerService).store(eq(lootRecord), anyInt());
+>>>>>>> initial import of runelite
 	}
 }

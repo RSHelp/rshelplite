@@ -28,7 +28,10 @@ import com.google.common.collect.ImmutableMap;
 import java.time.Duration;
 import java.util.Map;
 import net.runelite.http.api.chat.Task;
+<<<<<<< HEAD
 import net.runelite.http.api.chat.Duels;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.http.service.util.redis.RedisPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -140,6 +143,7 @@ public class ChatService
 			jedis.setex("pb." + boss + "." + name, (int) EXPIRE.getSeconds(), Integer.toString(pb));
 		}
 	}
+<<<<<<< HEAD
 
 	public Integer getGc(String name)
 	{
@@ -198,4 +202,6 @@ public class ChatService
 			jedis.expire(key, (int) EXPIRE.getSeconds());
 		}
 	}
+=======
+>>>>>>> initial import of runelite
 }

@@ -34,7 +34,10 @@ public final class ScriptID
 	 * <li> int how far down to scroll </li>
 	 * </ul>
 	 */
+<<<<<<< HEAD
 	@ScriptArguments(integer = 3)
+=======
+>>>>>>> initial import of runelite
 	public static final int UPDATE_SCROLLBAR = 72;
 
 	/**
@@ -44,13 +47,19 @@ public final class ScriptID
 	 * <li> String Message to send </li>
 	 * </ul>
 	 */
+<<<<<<< HEAD
 	@ScriptArguments(integer = 1, string = 1)
+=======
+>>>>>>> initial import of runelite
 	public static final int CHATBOX_INPUT = 96;
 
 	/**
 	 * Rebuilds the chatbox
 	 */
+<<<<<<< HEAD
 	@ScriptArguments()
+=======
+>>>>>>> initial import of runelite
 	public static final int BUILD_CHATBOX = 216;
 
 	/**
@@ -61,7 +70,10 @@ public final class ScriptID
 	 * <li> String Player to send private message to</li>
 	 * </ul>
 	 */
+<<<<<<< HEAD
 	@ScriptArguments(string = 1)
+=======
+>>>>>>> initial import of runelite
 	public static final int OPEN_PRIVATE_MESSAGE_INTERFACE = 107;
 
 	/**
@@ -70,6 +82,7 @@ public final class ScriptID
 	 * <li> String Message Prefix. Only used inside the GE search interfaces
 	 * </ul>
 	 */
+<<<<<<< HEAD
 	@ScriptArguments(string = 1)
 	public static final int CHAT_TEXT_INPUT_REBUILD = 222;
 
@@ -102,10 +115,36 @@ public final class ScriptID
 	 */
 	@ScriptArguments(integer = 1)
 	public static final int MESSAGE_LAYER_OPEN = 677;
+=======
+	public static final int CHAT_TEXT_INPUT_REBUILD = 222;
+
+	/**
+	 * Layouts the bank widgets
+	 *
+	 * Takes 13 widget ids of various parts of the bank interface
+	 */
+	public static final int BANK_LAYOUT = 277;
+
+	/**
+	 * Closes the chatbox input
+	 * <ul>
+	 * <li> int (boolean) Clear the current text </li>
+	 * <li> int (boolean) Restore to chat view </li>
+	 * </ul>
+	 */
+	public static final int RESET_CHATBOX_INPUT = 299;
+
+	/**
+	 * Readies the chatbox panel for things like the chatbox input
+	 * Inverse of RESET_CHATBOX_INPUT
+	 */
+	public static final int CLEAR_CHATBOX_PANEL = 677;
+>>>>>>> initial import of runelite
 
 	/**
 	 * Builds the chatbox input widget
 	 */
+<<<<<<< HEAD
 	@ScriptArguments()
 	public static final int CHAT_PROMPT_INIT = 223;
 
@@ -135,6 +174,11 @@ public final class ScriptID
 	public static final int WATSON_STASH_UNIT_CHECK = 1479;
 
 	/**
+=======
+	public static final int CHAT_PROMPT_INIT = 223;
+
+	/**
+>>>>>>> initial import of runelite
 	 * Queries the completion state of a quest by its struct id
 	 * <ul>
 	 * <li> int (struct) The id of the quest
@@ -144,7 +188,10 @@ public final class ScriptID
 	 * <li> int (QuestState) the normalized state of the quest
 	 * </ul>
 	 */
+<<<<<<< HEAD
 	@ScriptArguments(integer = 1)
+=======
+>>>>>>> initial import of runelite
 	public static final int QUESTLIST_PROGRESS = 2267;
 
 	/**
@@ -154,6 +201,7 @@ public final class ScriptID
 	 * <li> int Number of lines </li>
 	 * </ul>
 	 */
+<<<<<<< HEAD
 	@ScriptArguments(integer = 2)
 	public static final int DIARY_QUEST_UPDATE_LINECOUNT = 2523;
 
@@ -168,6 +216,18 @@ public final class ScriptID
 	 */
 	@ScriptArguments(integer = 2)
 	public static final int CAMERA_DO_ZOOM = 42;
+=======
+	public static final int DIARY_QUEST_UPDATE_LINECOUNT = 2523;
+
+	/**
+	 * Initializes the chatbox input to use RuneLite callbacks
+	 * <ul>
+	 * <li> String  Prompt text </li>
+	 * <li> String  Default value </li>
+	 * </ul>
+	 */
+	public static final int RUNELITE_CHATBOX_INPUT_INIT = 10001;
+>>>>>>> initial import of runelite
 
 	/**
 	 * Does nothing
@@ -175,13 +235,19 @@ public final class ScriptID
 	 * This is used to eat events when you want a menu action attached to it
 	 * because you need an op listener attached to it for it to work
 	 */
+<<<<<<< HEAD
 	@ScriptArguments()
+=======
+>>>>>>> initial import of runelite
 	public static final int NULL = 10003;
 
 	/**
 	 * Send a private message.
 	 */
+<<<<<<< HEAD
 	@ScriptArguments(string = 2)
+=======
+>>>>>>> initial import of runelite
 	public static final int PRIVMSG = 10004;
 
 	/**
@@ -192,6 +258,9 @@ public final class ScriptID
 	 * <li>int Amount of exp to drop</li>
 	 * </ul>
 	 */
+<<<<<<< HEAD
 	@ScriptArguments(integer = 2)
+=======
+>>>>>>> initial import of runelite
 	public static final int XPDROP_DISABLED = 2091;
 }

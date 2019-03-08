@@ -37,7 +37,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+<<<<<<< HEAD
 import java.util.stream.Collectors;
+=======
+>>>>>>> initial import of runelite
 import javax.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -47,21 +50,29 @@ import static net.runelite.api.Constants.REGION_SIZE;
 import net.runelite.api.DecorativeObject;
 import net.runelite.api.GameObject;
 import net.runelite.api.GameState;
+<<<<<<< HEAD
 import net.runelite.api.GroundObject;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.ObjectComposition;
 import net.runelite.api.Scene;
 import net.runelite.api.Tile;
 import net.runelite.api.TileObject;
+<<<<<<< HEAD
 import net.runelite.api.WallObject;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.DecorativeObjectDespawned;
 import net.runelite.api.events.DecorativeObjectSpawned;
+=======
+import net.runelite.api.coords.WorldPoint;
+>>>>>>> initial import of runelite
 import net.runelite.api.events.FocusChanged;
 import net.runelite.api.events.GameObjectDespawned;
 import net.runelite.api.events.GameObjectSpawned;
 import net.runelite.api.events.GameStateChanged;
+<<<<<<< HEAD
 import net.runelite.api.events.GroundObjectDespawned;
 import net.runelite.api.events.GroundObjectSpawned;
 import net.runelite.api.events.MenuEntryAdded;
@@ -69,6 +80,12 @@ import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.events.WallObjectChanged;
 import net.runelite.api.events.WallObjectDespawned;
 import net.runelite.api.events.WallObjectSpawned;
+=======
+import net.runelite.api.events.MenuEntryAdded;
+import net.runelite.api.events.MenuOptionClicked;
+import net.runelite.api.events.DecorativeObjectSpawned;
+import net.runelite.api.events.DecorativeObjectDespawned;
+>>>>>>> initial import of runelite
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.input.KeyListener;
@@ -77,18 +94,28 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> initial import of runelite
 @PluginDescriptor(
 	name = "Object Markers",
 	description = "Enable marking of objects using the Shift key",
 	tags = {"overlay", "objects", "mark", "marker"},
 	enabledByDefault = false
 )
+<<<<<<< HEAD
 @Slf4j
+=======
+>>>>>>> initial import of runelite
 public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 {
 	private static final String CONFIG_GROUP = "objectindicators";
 	private static final String MARK = "Mark object";
+<<<<<<< HEAD
 	private static final String UNMARK = "Unmark object";
+=======
+>>>>>>> initial import of runelite
 
 	private final Gson GSON = new Gson();
 	@Getter(AccessLevel.PACKAGE)
@@ -168,6 +195,7 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 	}
 
 	@Subscribe
+<<<<<<< HEAD
 	public void onWallObjectSpawned(WallObjectSpawned event)
 	{
 		checkObjectPoints(event.getWallObject());
@@ -190,6 +218,8 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 	}
 
 	@Subscribe
+=======
+>>>>>>> initial import of runelite
 	public void onGameObjectSpawned(GameObjectSpawned event)
 	{
 		final GameObject eventObject = event.getGameObject();
@@ -216,6 +246,7 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 	}
 
 	@Subscribe
+<<<<<<< HEAD
 	public void onGroundObjectSpawned(GroundObjectSpawned groundObjectSpawned)
 	{
 		final GroundObject groundObject = groundObjectSpawned.getGroundObject();
@@ -230,6 +261,8 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 	}
 
 	@Subscribe
+=======
+>>>>>>> initial import of runelite
 	public void onGameStateChanged(GameStateChanged gameStateChanged)
 	{
 		GameState gameState = gameStateChanged.getGameState();
@@ -263,12 +296,19 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 			return;
 		}
 
+<<<<<<< HEAD
 		final Tile tile = client.getScene().getTiles()[client.getPlane()][event.getActionParam0()][event.getActionParam1()];
 
 		MenuEntry[] menuEntries = client.getMenuEntries();
 		menuEntries = Arrays.copyOf(menuEntries, menuEntries.length + 1);
 		MenuEntry menuEntry = menuEntries[menuEntries.length - 1] = new MenuEntry();
 		menuEntry.setOption(objects.contains(findTileObject(tile, event.getIdentifier())) ? UNMARK : MARK);
+=======
+		MenuEntry[] menuEntries = client.getMenuEntries();
+		menuEntries = Arrays.copyOf(menuEntries, menuEntries.length + 1);
+		MenuEntry menuEntry = menuEntries[menuEntries.length - 1] = new MenuEntry();
+		menuEntry.setOption(MARK);
+>>>>>>> initial import of runelite
 		menuEntry.setTarget(event.getTarget());
 		menuEntry.setParam0(event.getActionParam0());
 		menuEntry.setParam1(event.getActionParam1());
@@ -280,8 +320,12 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 	@Subscribe
 	public void onMenuOptionClicked(MenuOptionClicked event)
 	{
+<<<<<<< HEAD
 		if (event.getMenuAction() != MenuAction.RUNELITE
 			|| !(event.getMenuOption().equals(MARK) || event.getMenuOption().equals(UNMARK)))
+=======
+		if (event.getMenuAction() != MenuAction.RUNELITE || !event.getMenuOption().equals(MARK))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -299,6 +343,7 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 			return;
 		}
 
+<<<<<<< HEAD
 		// object.getId() is always the base object id, getObjectComposition transforms it to
 		// the correct object we see
 		ObjectComposition objectDefinition = getObjectComposition(object.getId());
@@ -306,6 +351,11 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 		// Name is probably never "null" - however prevent adding it if it is, as it will
 		// become ambiguous as objects with no name are assigned name "null"
 		if (Strings.isNullOrEmpty(name) || name.equals("null"))
+=======
+		ObjectComposition objectDefinition = client.getObjectDefinition(object.getId());
+		String name = objectDefinition.getName();
+		if (Strings.isNullOrEmpty(name))
+>>>>>>> initial import of runelite
 		{
 			return;
 		}
@@ -328,10 +378,15 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 			if ((worldPoint.getX() & (REGION_SIZE - 1)) == objectPoint.getRegionX()
 					&& (worldPoint.getY() & (REGION_SIZE - 1)) == objectPoint.getRegionY())
 			{
+<<<<<<< HEAD
 				// Transform object to get the name which matches against what we've stored
 				if (objectPoint.getName().equals(getObjectComposition(object.getId()).getName()))
 				{
 					log.debug("Marking object {} due to matching {}", object, objectPoint);
+=======
+				if (objectPoint.getName().equals(client.getObjectDefinition(object.getId()).getName()))
+				{
+>>>>>>> initial import of runelite
 					objects.add(object);
 					break;
 				}
@@ -348,6 +403,7 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 
 		final GameObject[] tileGameObjects = tile.getGameObjects();
 		final DecorativeObject tileDecorativeObject = tile.getDecorativeObject();
+<<<<<<< HEAD
 		final WallObject tileWallObject = tile.getWallObject();
 		final GroundObject groundObject = tile.getGroundObject();
 
@@ -357,10 +413,15 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 		}
 
 		if (objectIdEquals(tileDecorativeObject, id))
+=======
+
+		if (tileDecorativeObject != null && tileDecorativeObject.getId() == id)
+>>>>>>> initial import of runelite
 		{
 			return tileDecorativeObject;
 		}
 
+<<<<<<< HEAD
 		if (objectIdEquals(groundObject, id))
 		{
 			return groundObject;
@@ -400,11 +461,40 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 				if (impostorId == id)
 				{
 					return true;
+=======
+		for (GameObject object : tileGameObjects)
+		{
+			if (object == null)
+			{
+				continue;
+			}
+
+			if (object.getId() == id)
+			{
+				return object;
+			}
+
+			// Check impostors
+			final ObjectComposition comp = client.getObjectDefinition(object.getId());
+
+			if (comp.getImpostorIds() != null)
+			{
+				for (int impostorId : comp.getImpostorIds())
+				{
+					if (impostorId == id)
+					{
+						return object;
+					}
+>>>>>>> initial import of runelite
 				}
 			}
 		}
 
+<<<<<<< HEAD
 		return false;
+=======
+		return null;
+>>>>>>> initial import of runelite
 	}
 
 	private void markObject(String name, final TileObject object)
@@ -429,13 +519,19 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 		{
 			objectPoints.remove(point);
 			objects.remove(object);
+<<<<<<< HEAD
 			log.debug("Unmarking object: {}", point);
+=======
+>>>>>>> initial import of runelite
 		}
 		else
 		{
 			objectPoints.add(point);
 			objects.add(object);
+<<<<<<< HEAD
 			log.debug("Marking object: {}", point);
+=======
+>>>>>>> initial import of runelite
 		}
 
 		savePoints(regionId, objectPoints);
@@ -463,6 +559,7 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 			return null;
 		}
 
+<<<<<<< HEAD
 		Set<ObjectPoint> points = GSON.fromJson(json, new TypeToken<Set<ObjectPoint>>()
 		{
 		}.getType());
@@ -478,5 +575,10 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 	{
 		ObjectComposition objectComposition = client.getObjectDefinition(id);
 		return objectComposition.getImpostorIds() == null ? objectComposition : objectComposition.getImpostor();
+=======
+		return GSON.fromJson(json, new TypeToken<Set<ObjectPoint>>()
+		{
+		}.getType());
+>>>>>>> initial import of runelite
 	}
 }

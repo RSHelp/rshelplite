@@ -31,7 +31,10 @@ import com.google.common.base.Splitter;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
+<<<<<<< HEAD
 import org.apache.commons.text.WordUtils;
+=======
+>>>>>>> initial import of runelite
 
 /**
  * A set of utilities to use when dealing with text.
@@ -46,8 +49,11 @@ public class Text
 
 	private static final Joiner COMMA_JOINER = Joiner.on(",").skipNulls();
 
+<<<<<<< HEAD
 	public static final CharMatcher JAGEX_PRINTABLE_CHAR_MATCHER = new JagexPrintableCharMatcher();
 
+=======
+>>>>>>> initial import of runelite
 	/**
 	 * Splits comma separated values to list of strings
 	 *
@@ -162,6 +168,7 @@ public class Text
 		String cleaned = name.contains("<img") ? name.substring(name.lastIndexOf('>') + 1) : name;
 		return cleaned.replace('\u00A0', ' ');
 	}
+<<<<<<< HEAD
 
 	/**
 	 * If passed in enum doesn't implement its own toString,
@@ -186,4 +193,6 @@ public class Text
 
 		return toString;
 	}
+=======
+>>>>>>> initial import of runelite
 }

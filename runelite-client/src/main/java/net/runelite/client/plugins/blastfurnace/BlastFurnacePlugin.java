@@ -1,6 +1,9 @@
 /*
  * Copyright (c) 2018, Seth <Sethtroll3@gmail.com>
+<<<<<<< HEAD
  * Copyright (c) 2019, Brandon White <bmwqg@live.com>
+=======
+>>>>>>> initial import of runelite
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,16 +29,23 @@
 package net.runelite.client.plugins.blastfurnace;
 
 import com.google.inject.Provides;
+<<<<<<< HEAD
 import java.time.Duration;
 import java.time.Instant;
 import javax.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.Client;
+=======
+import javax.inject.Inject;
+import lombok.AccessLevel;
+import lombok.Getter;
+>>>>>>> initial import of runelite
 import net.runelite.api.GameObject;
 import net.runelite.api.GameState;
 import static net.runelite.api.NullObjectID.NULL_9092;
 import static net.runelite.api.ObjectID.CONVEYOR_BELT;
+<<<<<<< HEAD
 import net.runelite.api.Skill;
 import net.runelite.api.events.GameObjectDespawned;
 import net.runelite.api.events.GameObjectSpawned;
@@ -51,6 +61,16 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.Text;
+=======
+import net.runelite.api.events.GameObjectDespawned;
+import net.runelite.api.events.GameObjectSpawned;
+import net.runelite.api.events.GameStateChanged;
+import net.runelite.client.config.ConfigManager;
+import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.plugins.Plugin;
+import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.overlay.OverlayManager;
+>>>>>>> initial import of runelite
 
 @PluginDescriptor(
 	name = "Blast Furnace",
@@ -60,7 +80,10 @@ import net.runelite.client.util.Text;
 public class BlastFurnacePlugin extends Plugin
 {
 	private static final int BAR_DISPENSER = NULL_9092;
+<<<<<<< HEAD
 	private static final String FOREMAN_PERMISSION_TEXT = "Okay, you can use the furnace for ten minutes. Remember, you only need half as much coal as with a regular furnace.";
+=======
+>>>>>>> initial import of runelite
 
 	@Getter(AccessLevel.PACKAGE)
 	private GameObject conveyorBelt;
@@ -68,8 +91,11 @@ public class BlastFurnacePlugin extends Plugin
 	@Getter(AccessLevel.PACKAGE)
 	private GameObject barDispenser;
 
+<<<<<<< HEAD
 	private ForemanTimer foremanTimer;
 
+=======
+>>>>>>> initial import of runelite
 	@Inject
 	private OverlayManager overlayManager;
 
@@ -82,6 +108,7 @@ public class BlastFurnacePlugin extends Plugin
 	@Inject
 	private BlastFurnaceClickBoxOverlay clickBoxOverlay;
 
+<<<<<<< HEAD
 	@Inject
 	private Client client;
 
@@ -91,6 +118,8 @@ public class BlastFurnacePlugin extends Plugin
 	@Inject
 	private InfoBoxManager infoBoxManager;
 
+=======
+>>>>>>> initial import of runelite
 	@Override
 	protected void startUp() throws Exception
 	{
@@ -102,13 +131,19 @@ public class BlastFurnacePlugin extends Plugin
 	@Override
 	protected void shutDown()
 	{
+<<<<<<< HEAD
 		infoBoxManager.removeIf(ForemanTimer.class::isInstance);
+=======
+>>>>>>> initial import of runelite
 		overlayManager.remove(overlay);
 		overlayManager.remove(cofferOverlay);
 		overlayManager.remove(clickBoxOverlay);
 		conveyorBelt = null;
 		barDispenser = null;
+<<<<<<< HEAD
 		foremanTimer = null;
+=======
+>>>>>>> initial import of runelite
 	}
 
 	@Provides
@@ -160,6 +195,7 @@ public class BlastFurnacePlugin extends Plugin
 			barDispenser = null;
 		}
 	}
+<<<<<<< HEAD
 
 	@Subscribe
 	public void onGameTick(GameTick event)
@@ -187,4 +223,6 @@ public class BlastFurnacePlugin extends Plugin
 			}
 		}
 	}
+=======
+>>>>>>> initial import of runelite
 }

@@ -29,7 +29,11 @@ import java.util.HashMap;
 import java.util.Map;
 import lombok.Getter;
 import net.runelite.api.ItemID;
+<<<<<<< HEAD
 import net.runelite.client.util.AsyncBufferedImage;
+=======
+import net.runelite.client.game.AsyncBufferedImage;
+>>>>>>> initial import of runelite
 import net.runelite.client.game.ItemManager;
 
 enum Book

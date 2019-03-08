@@ -38,7 +38,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+<<<<<<< HEAD
 import net.runelite.client.util.AsyncBufferedImage;
+=======
+import net.runelite.client.game.AsyncBufferedImage;
+>>>>>>> initial import of runelite
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.timetracking.clocks.ClockManager;
 import net.runelite.client.plugins.timetracking.farming.FarmingTracker;
@@ -116,7 +120,11 @@ class TimeTrackingPanel extends PluginPanel
 			BufferedImage subIcon = icon.getSubimage(0, 0, 32, 32);
 			materialTab.setIcon(new ImageIcon(subIcon.getScaledInstance(24, 24, Image.SCALE_SMOOTH)));
 		};
+<<<<<<< HEAD
 		icon.onLoaded(resize);
+=======
+		icon.onChanged(resize);
+>>>>>>> initial import of runelite
 		resize.run();
 
 		materialTab.setOnSelectEvent(() ->

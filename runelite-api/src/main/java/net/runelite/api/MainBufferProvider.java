@@ -29,7 +29,11 @@ import java.awt.Image;
 /**
  * Represents the clients primary image buffer.
  */
+<<<<<<< HEAD
 public interface MainBufferProvider extends BufferProvider
+=======
+public interface MainBufferProvider
+>>>>>>> initial import of runelite
 {
 	/**
 	 * Gets the image currently loaded in the buffer.

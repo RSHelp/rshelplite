@@ -25,7 +25,11 @@
  */
 package net.runelite.client.plugins.puzzlesolver;
 
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableMap;
+=======
+import java.util.HashMap;
+>>>>>>> initial import of runelite
 import java.util.Map;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -135,6 +139,7 @@ enum VarrockMuseumAnswer
 	LEECH_5("What is special about Morytanian leeches?", "They attack by jumping."),
 	LEECH_6("How does a leech change when it feeds?", "It doubles in size.");
 
+<<<<<<< HEAD
 	private static final Map<String, String> MATCHES;
 
 	static
@@ -147,6 +152,16 @@ enum VarrockMuseumAnswer
 		}
 
 		MATCHES = builder.build();
+=======
+	private static final Map<String, String> MATCHES = new HashMap<>();
+
+	static
+	{
+		for (VarrockMuseumAnswer varrockMuseumAnswer : VarrockMuseumAnswer.values())
+		{
+			MATCHES.put(varrockMuseumAnswer.question, varrockMuseumAnswer.answer);
+		}
+>>>>>>> initial import of runelite
 	}
 
 	private final String question;

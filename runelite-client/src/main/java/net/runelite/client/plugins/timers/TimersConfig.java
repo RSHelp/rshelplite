@@ -44,7 +44,11 @@ public interface TimersConfig extends Config
 	@ConfigItem(
 		keyName = "showAntipoison",
 		name = "Antipoison/Venom timers",
+<<<<<<< HEAD
 		description = "Configures whether timers for Antipoison, Antidote and Antivenom are displayed"
+=======
+		description = "Configures whether timers for Antipoision, Antidoe, Antivenom are is displayed"
+>>>>>>> initial import of runelite
 	)
 	default boolean showAntiPoison()
 	{
@@ -92,6 +96,7 @@ public interface TimersConfig extends Config
 	}
 
 	@ConfigItem(
+<<<<<<< HEAD
 		keyName = "showDivine",
 		name = "Divine potion timer",
 		description = "Configures whether divine potion timer is displayed"
@@ -102,6 +107,8 @@ public interface TimersConfig extends Config
 	}
 
 	@ConfigItem(
+=======
+>>>>>>> initial import of runelite
 		keyName = "showCannon",
 		name = "Cannon timer",
 		description = "Configures whether cannon timer is displayed"
@@ -210,6 +217,7 @@ public interface TimersConfig extends Config
 	{
 		return true;
 	}
+<<<<<<< HEAD
 
 	@ConfigItem(
 		keyName = "showDfsSpecial",
@@ -220,4 +228,6 @@ public interface TimersConfig extends Config
 	{
 		return true;
 	}
+=======
+>>>>>>> initial import of runelite
 }

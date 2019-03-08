@@ -120,6 +120,12 @@ public class KaramjaDiaryRequirement extends GenericDiaryRequirement
 			new CombatLevelRequirement(100),
 			new SkillRequirement(Skill.SLAYER, 50),
 			new QuestRequirement(Quest.SHILO_VILLAGE));
+<<<<<<< HEAD
+=======
+		add("Kill a metal dragon in Brimhaven Dungeon.",
+			new SkillRequirement(Skill.AGILITY, 12),
+			new SkillRequirement(Skill.WOODCUTTING, 34));
+>>>>>>> initial import of runelite
 
 		// ELITE
 		add("Craft 56 Nature runes at once.",

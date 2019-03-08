@@ -27,14 +27,20 @@ package net.runelite.client.chat;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Strings;
 import com.google.common.collect.HashMultimap;
+<<<<<<< HEAD
 import com.google.common.collect.ImmutableSet;
+=======
+>>>>>>> initial import of runelite
 import com.google.common.collect.Multimap;
 import java.awt.Color;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Queue;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> initial import of runelite
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.inject.Inject;
@@ -43,7 +49,10 @@ import net.runelite.api.ChatLineBuffer;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.MessageNode;
+<<<<<<< HEAD
 import net.runelite.api.Player;
+=======
+>>>>>>> initial import of runelite
 import net.runelite.api.Varbits;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.ConfigChanged;
@@ -59,8 +68,11 @@ import net.runelite.client.util.ColorUtil;
 @Singleton
 public class ChatMessageManager
 {
+<<<<<<< HEAD
 	private static final Set<Integer> TUTORIAL_ISLAND_REGIONS = ImmutableSet.of(12336, 12335, 12592, 12080, 12079, 12436);
 
+=======
+>>>>>>> initial import of runelite
 	private final Multimap<ChatMessageType, ChatColor> colorCache = HashMultimap.create();
 	private final Client client;
 	private final ChatColorConfig chatColorConfig;
@@ -119,12 +131,25 @@ public class ChatMessageManager
 
 		switch (chatMessageType)
 		{
+<<<<<<< HEAD
 			// username recoloring for MODPRIVATECHAT, PRIVATECHAT and PRIVATECHATOUT
 			// ChatMessageTypes is handled in the script callback event
 			case TRADEREQ:
 			case AUTOTYPER:
 			case PUBLICCHAT:
 			case MODCHAT:
+=======
+			case PRIVATE_MESSAGE_RECEIVED_MOD:
+			case PRIVATE_MESSAGE_RECEIVED:
+			case PRIVATE_MESSAGE_SENT:
+				usernameColor = isChatboxTransparent ? chatColorConfig.transparentPrivateUsernames() : chatColorConfig.opaquePrivateUsernames();
+				break;
+
+			case TRADE:
+			case AUTOCHAT:
+			case PUBLIC:
+			case PUBLIC_MOD:
+>>>>>>> initial import of runelite
 			{
 				boolean isFriend = client.isFriended(chatMessage.getName(), true) && !client.getLocalPlayer().getName().equals(chatMessage.getName());
 
@@ -138,7 +163,11 @@ public class ChatMessageManager
 				}
 				break;
 			}
+<<<<<<< HEAD
 			case FRIENDSCHAT:
+=======
+			case CLANCHAT:
+>>>>>>> initial import of runelite
 				usernameColor = isChatboxTransparent ? chatColorConfig.transparentClanUsernames() : chatColorConfig.opaqueClanUsernames();
 				break;
 		}
@@ -164,11 +193,15 @@ public class ChatMessageManager
 				continue;
 			}
 
+<<<<<<< HEAD
 			// Replace </col> tags in the message with the new color so embedded </col> won't reset the color
 			final Color color = chatColor.getColor();
 			messageNode.setValue(ColorUtil.wrapWithColorTag(
 				messageNode.getValue().replace(ColorUtil.CLOSING_COLOR_TAG, ColorUtil.colorTag(color)),
 				color));
+=======
+			messageNode.setValue(ColorUtil.wrapWithColorTag(messageNode.getValue(), chatColor.getColor()));
+>>>>>>> initial import of runelite
 			break;
 		}
 	}
@@ -210,6 +243,7 @@ public class ChatMessageManager
 		{
 			switch (type)
 			{
+<<<<<<< HEAD
 				case PUBLICCHAT:
 				case MODCHAT:
 					return JagexColors.CHAT_PUBLIC_TEXT_OPAQUE_BACKGROUND;
@@ -223,6 +257,21 @@ public class ChatMessageManager
 				case OBJECT_EXAMINE:
 				case NPC_EXAMINE:
 				case CONSOLE:
+=======
+				case PUBLIC:
+				case PUBLIC_MOD:
+					return JagexColors.CHAT_PUBLIC_TEXT_OPAQUE_BACKGROUND;
+				case PRIVATE_MESSAGE_SENT:
+				case PRIVATE_MESSAGE_RECEIVED_MOD:
+				case PRIVATE_MESSAGE_RECEIVED:
+					return JagexColors.CHAT_PRIVATE_MESSAGE_TEXT_OPAQUE_BACKGROUND;
+				case CLANCHAT:
+					return JagexColors.CHAT_CLAN_TEXT_OPAQUE_BACKGROUND;
+				case EXAMINE_ITEM:
+				case EXAMINE_OBJECT:
+				case EXAMINE_NPC:
+				case GAME:
+>>>>>>> initial import of runelite
 					return JagexColors.CHAT_GAME_EXAMINE_TEXT_OPAQUE_BACKGROUND;
 			}
 		}
@@ -230,6 +279,7 @@ public class ChatMessageManager
 		{
 			switch (type)
 			{
+<<<<<<< HEAD
 				case PUBLICCHAT:
 				case MODCHAT:
 					return JagexColors.CHAT_PUBLIC_TEXT_TRANSPARENT_BACKGROUND;
@@ -243,6 +293,21 @@ public class ChatMessageManager
 				case OBJECT_EXAMINE:
 				case NPC_EXAMINE:
 				case CONSOLE:
+=======
+				case PUBLIC:
+				case PUBLIC_MOD:
+					return JagexColors.CHAT_PUBLIC_TEXT_TRANSPARENT_BACKGROUND;
+				case PRIVATE_MESSAGE_SENT:
+				case PRIVATE_MESSAGE_RECEIVED_MOD:
+				case PRIVATE_MESSAGE_RECEIVED:
+					return JagexColors.CHAT_PRIVATE_MESSAGE_TEXT_TRANSPARENT_BACKGROUND;
+				case CLANCHAT:
+					return JagexColors.CHAT_CLAN_TEXT_TRANSPARENT_BACKGROUND;
+				case EXAMINE_ITEM:
+				case EXAMINE_OBJECT:
+				case EXAMINE_NPC:
+				case GAME:
+>>>>>>> initial import of runelite
 					return JagexColors.CHAT_GAME_EXAMINE_TEXT_TRANSPARENT_BACKGROUND;
 			}
 		}
@@ -276,266 +341,474 @@ public class ChatMessageManager
 		if (chatColorConfig.opaquePublicChat() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaquePublicChat(), false),
+<<<<<<< HEAD
 				ChatMessageType.PUBLICCHAT);
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaquePublicChat(), false),
 				ChatMessageType.MODCHAT);
+=======
+				ChatMessageType.PUBLIC);
+			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaquePublicChat(), false),
+				ChatMessageType.PUBLIC_MOD);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaquePublicChatHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaquePublicChatHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.PUBLICCHAT);
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaquePublicChatHighlight(), false),
 				ChatMessageType.MODCHAT);
+=======
+				ChatMessageType.PUBLIC);
+			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaquePublicChatHighlight(), false),
+				ChatMessageType.PUBLIC_MOD);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaquePrivateMessageSent() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaquePrivateMessageSent(), false),
+<<<<<<< HEAD
 				ChatMessageType.PRIVATECHATOUT);
+=======
+				ChatMessageType.PRIVATE_MESSAGE_SENT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaquePrivateMessageSentHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaquePrivateMessageSentHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.PRIVATECHATOUT);
+=======
+				ChatMessageType.PRIVATE_MESSAGE_SENT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaquePrivateMessageReceived() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaquePrivateMessageReceived(), false),
+<<<<<<< HEAD
 				ChatMessageType.PRIVATECHAT);
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaquePrivateMessageReceived(), false),
 				ChatMessageType.MODPRIVATECHAT);
+=======
+				ChatMessageType.PRIVATE_MESSAGE_RECEIVED);
+			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaquePrivateMessageReceived(), false),
+				ChatMessageType.PRIVATE_MESSAGE_RECEIVED_MOD);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaquePrivateMessageReceivedHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaquePrivateMessageReceivedHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.PRIVATECHAT);
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaquePrivateMessageReceivedHighlight(), false),
 				ChatMessageType.MODPRIVATECHAT);
+=======
+				ChatMessageType.PRIVATE_MESSAGE_RECEIVED);
+			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaquePrivateMessageReceivedHighlight(), false),
+				ChatMessageType.PRIVATE_MESSAGE_RECEIVED_MOD);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueClanChatInfo() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueClanChatInfo(), false),
+<<<<<<< HEAD
 				ChatMessageType.FRIENDSCHATNOTIFICATION);
+=======
+				ChatMessageType.CLANCHAT_INFO);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueClanChatInfoHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueClanChatInfoHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.FRIENDSCHATNOTIFICATION);
+=======
+				ChatMessageType.CLANCHAT_INFO);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueClanChatMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueClanChatMessage(), false),
+<<<<<<< HEAD
 				ChatMessageType.FRIENDSCHAT);
+=======
+				ChatMessageType.CLANCHAT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueClanChatMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueClanChatMessageHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.FRIENDSCHAT);
+=======
+				ChatMessageType.CLANCHAT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueAutochatMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueAutochatMessage(), false),
+<<<<<<< HEAD
 				ChatMessageType.AUTOTYPER);
+=======
+				ChatMessageType.AUTOCHAT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueAutochatMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueAutochatMessageHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.AUTOTYPER);
+=======
+				ChatMessageType.AUTOCHAT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueTradeChatMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueTradeChatMessage(), false),
+<<<<<<< HEAD
 				ChatMessageType.TRADEREQ);
+=======
+				ChatMessageType.TRADE);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueTradeChatMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueTradeChatMessageHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.TRADEREQ);
+=======
+				ChatMessageType.TRADE);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueServerMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueServerMessage(), false),
+<<<<<<< HEAD
 				ChatMessageType.GAMEMESSAGE);
+=======
+				ChatMessageType.SERVER);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueServerMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueServerMessageHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.GAMEMESSAGE);
+=======
+				ChatMessageType.SERVER);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueGameMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueGameMessage(), false),
+<<<<<<< HEAD
 				ChatMessageType.CONSOLE);
+=======
+				ChatMessageType.GAME);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueGameMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueGameMessageHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.CONSOLE);
+=======
+				ChatMessageType.GAME);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueExamine() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueExamine(), false),
+<<<<<<< HEAD
 				ChatMessageType.OBJECT_EXAMINE);
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueExamine(), false),
 				ChatMessageType.NPC_EXAMINE);
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueExamine(), false),
 				ChatMessageType.ITEM_EXAMINE);
+=======
+				ChatMessageType.EXAMINE_OBJECT);
+			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueExamine(), false),
+				ChatMessageType.EXAMINE_NPC);
+			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueExamine(), false),
+				ChatMessageType.EXAMINE_ITEM);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueExamineHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueExamineHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.OBJECT_EXAMINE);
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueExamineHighlight(), false),
 				ChatMessageType.NPC_EXAMINE);
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueExamineHighlight(), false),
 				ChatMessageType.ITEM_EXAMINE);
+=======
+				ChatMessageType.EXAMINE_OBJECT);
+			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueExamineHighlight(), false),
+				ChatMessageType.EXAMINE_NPC);
+			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueExamineHighlight(), false),
+				ChatMessageType.EXAMINE_ITEM);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueFiltered() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaqueFiltered(), false),
+<<<<<<< HEAD
 				ChatMessageType.SPAM);
+=======
+				ChatMessageType.FILTERED);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.opaqueFilteredHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.opaqueFilteredHighlight(), false),
+<<<<<<< HEAD
 				ChatMessageType.SPAM);
 		}
 		if (chatColorConfig.opaquePrivateUsernames() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.opaquePrivateUsernames(), false),
 				ChatMessageType.LOGINLOGOUTNOTIFICATION);
+=======
+				ChatMessageType.FILTERED);
+>>>>>>> initial import of runelite
 		}
 
 		//Transparent Chat Colours
 		if (chatColorConfig.transparentPublicChat() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentPublicChat(), true),
+<<<<<<< HEAD
 				ChatMessageType.PUBLICCHAT);
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentPublicChat(), true),
 				ChatMessageType.MODCHAT);
+=======
+				ChatMessageType.PUBLIC);
+			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentPublicChat(), true),
+				ChatMessageType.PUBLIC_MOD);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentPublicChatHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentPublicChatHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.PUBLICCHAT);
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentPublicChatHighlight(), true),
 				ChatMessageType.MODCHAT);
+=======
+				ChatMessageType.PUBLIC);
+			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentPublicChatHighlight(), true),
+				ChatMessageType.PUBLIC_MOD);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentPrivateMessageSent() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentPrivateMessageSent(), true),
+<<<<<<< HEAD
 				ChatMessageType.PRIVATECHATOUT);
+=======
+				ChatMessageType.PRIVATE_MESSAGE_SENT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentPrivateMessageSentHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentPrivateMessageSentHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.PRIVATECHATOUT);
+=======
+				ChatMessageType.PRIVATE_MESSAGE_SENT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentPrivateMessageReceived() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentPrivateMessageReceived(), true),
+<<<<<<< HEAD
 				ChatMessageType.PRIVATECHAT);
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentPrivateMessageReceived(), true),
 				ChatMessageType.MODPRIVATECHAT);
+=======
+				ChatMessageType.PRIVATE_MESSAGE_RECEIVED);
+			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentPrivateMessageReceived(), true),
+				ChatMessageType.PRIVATE_MESSAGE_RECEIVED_MOD);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentPrivateMessageReceivedHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentPrivateMessageReceivedHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.PRIVATECHAT);
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentPrivateMessageReceivedHighlight(), true),
 				ChatMessageType.MODPRIVATECHAT);
+=======
+				ChatMessageType.PRIVATE_MESSAGE_RECEIVED);
+			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentPrivateMessageReceivedHighlight(), true),
+				ChatMessageType.PRIVATE_MESSAGE_RECEIVED_MOD);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentClanChatInfo() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentClanChatInfo(), true),
+<<<<<<< HEAD
 				ChatMessageType.FRIENDSCHATNOTIFICATION);
+=======
+				ChatMessageType.CLANCHAT_INFO);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentClanChatInfoHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentClanChatInfoHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.FRIENDSCHATNOTIFICATION);
+=======
+				ChatMessageType.CLANCHAT_INFO);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentClanChatMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentClanChatMessage(), true),
+<<<<<<< HEAD
 				ChatMessageType.FRIENDSCHAT);
+=======
+				ChatMessageType.CLANCHAT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentClanChatMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentClanChatMessageHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.FRIENDSCHAT);
+=======
+				ChatMessageType.CLANCHAT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentAutochatMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentAutochatMessage(), true),
+<<<<<<< HEAD
 				ChatMessageType.AUTOTYPER);
+=======
+				ChatMessageType.AUTOCHAT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentAutochatMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentAutochatMessageHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.AUTOTYPER);
+=======
+				ChatMessageType.AUTOCHAT);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentTradeChatMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentTradeChatMessage(), true),
+<<<<<<< HEAD
 				ChatMessageType.TRADEREQ);
+=======
+				ChatMessageType.TRADE);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentTradeChatMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentTradeChatMessageHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.TRADEREQ);
+=======
+				ChatMessageType.TRADE);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentServerMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentServerMessage(), true),
+<<<<<<< HEAD
 				ChatMessageType.GAMEMESSAGE);
+=======
+				ChatMessageType.SERVER);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentServerMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentServerMessageHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.GAMEMESSAGE);
+=======
+				ChatMessageType.SERVER);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentGameMessage() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentGameMessage(), true),
+<<<<<<< HEAD
 				ChatMessageType.CONSOLE);
+=======
+				ChatMessageType.GAME);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentGameMessageHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentGameMessageHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.CONSOLE);
+=======
+				ChatMessageType.GAME);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentExamine() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentExamine(), true),
+<<<<<<< HEAD
 				ChatMessageType.OBJECT_EXAMINE);
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentExamine(), true),
 				ChatMessageType.NPC_EXAMINE);
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentExamine(), true),
 				ChatMessageType.ITEM_EXAMINE);
+=======
+				ChatMessageType.EXAMINE_OBJECT);
+			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentExamine(), true),
+				ChatMessageType.EXAMINE_NPC);
+			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentExamine(), true),
+				ChatMessageType.EXAMINE_ITEM);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentExamineHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentExamineHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.OBJECT_EXAMINE);
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentExamineHighlight(), true),
 				ChatMessageType.NPC_EXAMINE);
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentExamineHighlight(), true),
 				ChatMessageType.ITEM_EXAMINE);
+=======
+				ChatMessageType.EXAMINE_OBJECT);
+			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentExamineHighlight(), true),
+				ChatMessageType.EXAMINE_NPC);
+			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentExamineHighlight(), true),
+				ChatMessageType.EXAMINE_ITEM);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentFiltered() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentFiltered(), true),
+<<<<<<< HEAD
 				ChatMessageType.SPAM);
+=======
+				ChatMessageType.FILTERED);
+>>>>>>> initial import of runelite
 		}
 		if (chatColorConfig.transparentFilteredHighlight() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.HIGHLIGHT, chatColorConfig.transparentFilteredHighlight(), true),
+<<<<<<< HEAD
 				ChatMessageType.SPAM);
 		}
 		if (chatColorConfig.transparentPrivateUsernames() != null)
 		{
 			cacheColor(new ChatColor(ChatColorType.NORMAL, chatColorConfig.transparentPrivateUsernames(), true),
 				ChatMessageType.LOGINLOGOUTNOTIFICATION);
+=======
+				ChatMessageType.FILTERED);
+>>>>>>> initial import of runelite
 		}
 	}
 
@@ -558,6 +831,7 @@ public class ChatMessageManager
 	{
 		if (!queuedMessages.isEmpty())
 		{
+<<<<<<< HEAD
 			try
 			{
 				queuedMessages.forEach(this::add);
@@ -566,11 +840,16 @@ public class ChatMessageManager
 			{
 				queuedMessages.clear();
 			}
+=======
+			queuedMessages.forEach(this::add);
+			queuedMessages.clear();
+>>>>>>> initial import of runelite
 		}
 	}
 
 	private void add(QueuedMessage message)
 	{
+<<<<<<< HEAD
 		// Do not send message if the player is on tutorial island
 		final Player player = client.getLocalPlayer();
 		if (player != null && TUTORIAL_ISLAND_REGIONS.contains(player.getWorldLocation().getRegionID()))
@@ -578,6 +857,8 @@ public class ChatMessageManager
 			return;
 		}
 
+=======
+>>>>>>> initial import of runelite
 		// this updates chat cycle
 		client.addChatMessage(
 			message.getType(),
