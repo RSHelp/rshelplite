@@ -30,10 +30,14 @@
 		<groupId>net.runelite</groupId>
 		<artifactId>runelite-parent</artifactId>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<version>1.5.39-SNAPSHOT</version>
 =======
 		<version>1.5.16-SNAPSHOT</version>
 >>>>>>> initial import of runelite
+=======
+		<version>1.5.15.1</version>
+>>>>>>> 1.5.16-SNAPSHOT -> 1.5.15.1
 	</parent>
 
 	<artifactId>cache-client</artifactId>
