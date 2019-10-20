@@ -43,7 +43,6 @@ public interface IrcConfig extends Config
 		keyName = "ircserver",
 		name = "IRC Server",
 		description = "Enter the IRC server you'd like to connect to.",
-		secret = true,
 		position = 1
 	)
 	String ircserver();
