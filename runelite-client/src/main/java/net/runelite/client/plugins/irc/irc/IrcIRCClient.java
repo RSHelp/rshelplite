@@ -34,14 +34,14 @@ import javax.net.ssl.SSLSocketFactory;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class TwitchIRCClient extends Thread implements AutoCloseable
+public class IrcIRCClient extends Thread implements AutoCloseable
 {
 	private static final String HOST = "irc.chat.twitch.tv";
 	private static final int PORT = 6697;
 	private static final int READ_TIMEOUT = 60000; // ms
 	private static final int PING_TIMEOUT = 30000; // ms
 
-	private final TwitchListener twitchListener;
+	private final IrcListener ircListener;
 
 	private final String username, password;
 	private final String channel;
@@ -52,10 +52,10 @@ public class TwitchIRCClient extends Thread implements AutoCloseable
 	private long last;
 	private boolean pingSent;
 
-	public TwitchIRCClient(TwitchListener twitchListener, String username, String password, String channel)
+	public IrcIRCClient(IrcListener ircListener, String username, String password, String channel)
 	{
 		setName("Twitch");
-		this.twitchListener = twitchListener;
+		this.ircListener = ircListener;
 		this.username = username;
 		this.password = password;
 		this.channel = channel;
@@ -117,14 +117,14 @@ public class TwitchIRCClient extends Thread implements AutoCloseable
 						send("PONG", message.getArguments()[0]);
 						break;
 					case "PRIVMSG":
-						twitchListener.privmsg(message.getTags(),
+						ircListener.privmsg(message.getTags(),
 							message.getArguments()[1]);
 						break;
 					case "ROOMSTATE":
-						twitchListener.roomstate(message.getTags());
+						ircListener.roomstate(message.getTags());
 						break;
 					case "USERNOTICE":
-						twitchListener.usernotice(message.getTags(),
+						ircListener.usernotice(message.getTags(),
 							message.getArguments().length > 0 ? message.getArguments()[0] : null);
 						break;
 				}

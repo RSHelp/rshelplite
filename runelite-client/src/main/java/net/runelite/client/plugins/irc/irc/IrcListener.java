@@ -22,11 +22,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.twitch.irc;
+package net.runelite.client.plugins.irc.irc;
 
 import java.util.Map;
 
-public interface TwitchListener
+public interface IrcListener
 {
 	void privmsg(Map<String, String> tags, String message);
 
