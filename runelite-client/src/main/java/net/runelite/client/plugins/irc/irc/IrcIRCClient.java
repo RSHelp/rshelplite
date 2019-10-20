@@ -132,7 +132,7 @@ public class IrcIRCClient extends Thread implements AutoCloseable
 		}
 		catch (IOException ex)
 		{
-			log.debug("error in twitch irc client", ex);
+			log.debug("error in irc irc client", ex);
 		}
 		finally
 		{
@@ -174,7 +174,7 @@ public class IrcIRCClient extends Thread implements AutoCloseable
 
 	private void register(String username, String oauth)
 	{
-		send("CAP", "REQ", "twitch.tv/commands twitch.tv/tags");
+		// probably need to send USER n n n
 		send("PASS", oauth);
 		send("NICK", username);
 	}
