@@ -22,7 +22,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.twitch;
+package net.runelite.client.plugins.irc;
 
 import com.google.inject.Provides;
 import java.time.temporal.ChronoUnit;
@@ -45,8 +45,8 @@ import net.runelite.client.events.ChatboxInput;
 import net.runelite.client.events.PrivateMessageInput;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.twitch.irc.TwitchIRCClient;
-import net.runelite.client.plugins.twitch.irc.TwitchListener;
+import net.runelite.client.plugins.irc.irc.TwitchIRCClient;
+import net.runelite.client.plugins.irc.irc.TwitchListener;
 import net.runelite.client.task.Schedule;
 
 @PluginDescriptor(
@@ -55,10 +55,10 @@ import net.runelite.client.task.Schedule;
 	enabledByDefault = false
 )
 @Slf4j
-public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInputListener
+public class IrcPlugin extends Plugin implements TwitchListener, ChatboxInputListener
 {
 	@Inject
-	private TwitchConfig twitchConfig;
+	private IrcConfig ircConfig;
 
 	@Inject
 	private Client client;
@@ -69,7 +69,7 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 	@Inject
 	private CommandManager commandManager;
 
-	private TwitchIRCClient twitchIRCClient;
+	private TwitchIRCClient ircIRCClient;
 
 	@Override
 	protected void startUp()
@@ -81,54 +81,54 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 	@Override
 	protected void shutDown()
 	{
-		if (twitchIRCClient != null)
+		if (ircIRCClient != null)
 		{
-			twitchIRCClient.close();
-			twitchIRCClient = null;
+			ircIRCClient.close();
+			ircIRCClient = null;
 		}
 
 		commandManager.unregister(this);
 	}
 
 	@Provides
-	TwitchConfig provideConfig(ConfigManager configManager)
+	IrcConfig provideConfig(ConfigManager configManager)
 	{
-		return configManager.getConfig(TwitchConfig.class);
+		return configManager.getConfig(IrcConfig.class);
 	}
 
 	private void connect()
 	{
-		if (twitchConfig.username() != null
-			&& twitchConfig.oauthToken() != null
-			&& twitchConfig.channel() != null)
+		if (ircConfig.username() != null
+			&& ircConfig.oauthToken() != null
+			&& ircConfig.channel() != null)
 		{
-			String channel = twitchConfig.channel().toLowerCase();
+			String channel = ircConfig.channel().toLowerCase();
 			if (!channel.startsWith("#"))
 			{
 				channel = "#" + channel;
 			}
 
-			twitchIRCClient = new TwitchIRCClient(
+			ircIRCClient = new TwitchIRCClient(
 				this,
-				twitchConfig.username(),
-				twitchConfig.oauthToken(),
+				ircConfig.username(),
+				ircConfig.oauthToken(),
 				channel
 			);
-			twitchIRCClient.start();
+			ircIRCClient.start();
 		}
 	}
 
 	@Schedule(period = 30, unit = ChronoUnit.SECONDS, asynchronous = true)
 	public void checkClient()
 	{
-		if (twitchIRCClient != null)
+		if (ircIRCClient != null)
 		{
-			if (twitchIRCClient.isConnected())
+			if (ircIRCClient.isConnected())
 			{
-				twitchIRCClient.pingCheck();
+				ircIRCClient.pingCheck();
 			}
 
-			if (!twitchIRCClient.isConnected())
+			if (!ircIRCClient.isConnected())
 			{
 				log.debug("Reconnecting...");
 
@@ -145,10 +145,10 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 			return;
 		}
 
-		if (twitchIRCClient != null)
+		if (ircIRCClient != null)
 		{
-			twitchIRCClient.close();
-			twitchIRCClient = null;
+			ircIRCClient.close();
+			ircIRCClient = null;
 		}
 
 		connect();
@@ -205,16 +205,16 @@ public class TwitchPlugin extends Plugin implements TwitchListener, ChatboxInput
 	public boolean onChatboxInput(ChatboxInput chatboxInput)
 	{
 		String message = chatboxInput.getValue();
-		if (message.startsWith("//"))
+		if (message.startsWith("//irc"))
 		{
 			message = message.substring(2);
-			if (message.isEmpty() || twitchIRCClient == null)
+			if (message.isEmpty() || ircIRCClient == null)
 			{
 				return true;
 			}
 
-			twitchIRCClient.privmsg(message);
-			addChatMessage(twitchConfig.username(), message);
+			ircIRCClient.privmsg(message);
+			addChatMessage(ircConfig.username(), message);
 
 			return true;
 		}

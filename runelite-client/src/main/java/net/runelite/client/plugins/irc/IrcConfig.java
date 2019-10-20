@@ -22,36 +22,36 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.twitch;
+package net.runelite.client.plugins.irc;
 
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("twitch")
-public interface TwitchConfig extends Config
+@ConfigGroup("irc")
+public interface IrcConfig extends Config
 {
 	@ConfigItem(
 		keyName = "username",
 		name = "Username",
-		description = "Twitch Username",
+		description = "IRC Nick",
 		position = 0
 	)
 	String username();
 
 	@ConfigItem(
-		keyName = "oauth",
-		name = "OAuth Token",
-		description = "Enter your OAuth token here. This can be found at http://www.twitchapps.com/tmi/",
+		keyName = "ircserver",
+		name = "IRC Server",
+		description = "Enter the IRC server you'd like to connect to.",
 		secret = true,
 		position = 1
 	)
-	String oauthToken();
+	String ircserver();
 
 	@ConfigItem(
 		keyName = "channel",
 		name = "Channel",
-		description = "Username of Twitch chat to join",
+		description = "IRC channel you'd like to join",
 		position = 2
 	)
 	String channel();
